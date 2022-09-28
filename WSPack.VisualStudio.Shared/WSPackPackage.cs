@@ -1,12 +1,14 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.Shell;
+
+using System;
 using System.Runtime.InteropServices;
 using System.Threading;
 
-using Microsoft.VisualStudio.Shell;
+using WSPack.VisualStudio.Shared.Commands;
 
 using Task = System.Threading.Tasks.Task;
 
-namespace WSPack2019
+namespace WSPack2022
 {
   /// <summary>
   /// This is the class that implements the package exposed by this assembly.
@@ -26,16 +28,14 @@ namespace WSPack2019
   /// </para>
   /// </remarks>
   [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
-  [Guid(WSPack2019Package.PackageGuidString)]
+  [Guid(PackageGuidString)]
   [ProvideMenuResource("Menus.ctmenu", 1)]
-  public sealed class WSPack2019Package : AsyncPackage
+  public sealed class WSPackPackage : AsyncPackage
   {
     /// <summary>
-    /// WSPack2019Package GUID string.
+    /// WSPack2022Package GUID string.
     /// </summary>
-    public const string PackageGuidString = "e9ea2716-cdab-4339-948e-ccf3ec62640f";
-
-    #region Package Members
+    public const string PackageGuidString = "fac153ab-13d6-4424-9548-cf4dfed7750f";
 
     /// <summary>
     /// Initialization of the package; this method is called right after the package is sited, so this is the place
@@ -48,10 +48,9 @@ namespace WSPack2019
     {
       // When initialized asynchronously, the current thread may be a background thread at this point.
       // Do any initialization that requires the UI thread after switching to the UI thread.
-      await this.JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
-        await AboutCommand.InitializeAsync(this);
+      await JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
+      await AboutCommand.InitializeAsync(this);
     }
 
-    #endregion
   }
 }

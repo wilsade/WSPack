@@ -1,11 +1,11 @@
 ﻿using System;
 using System.ComponentModel.Design;
+using System.Diagnostics;
 using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
 
 using Microsoft.VisualStudio.Shell;
-using Microsoft.VisualStudio.Shell.Interop;
 
 using Task = System.Threading.Tasks.Task;
 
@@ -85,7 +85,9 @@ namespace WSPack.VisualStudio.Shared.Commands
     private void Execute(object sender, EventArgs e)
     {
       ThreadHelper.ThrowIfNotOnUIThread();
-      string message = string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", GetType().FullName);
+      string fileName = Process.GetCurrentProcess().MainModule.FileName;
+      string message = $"Inside {GetType().FullName}.MenuItemCallback()" + Environment.NewLine +
+        fileName;
       string title = "AboutCommand";
 
       // Show a message box to prove we were here
@@ -93,9 +95,9 @@ namespace WSPack.VisualStudio.Shared.Commands
           _package,
           message,
           title,
-          OLEMSGICON.OLEMSGICON_INFO,
-          OLEMSGBUTTON.OLEMSGBUTTON_OK,
-          OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
+          Microsoft.VisualStudio.Shell.Interop.OLEMSGICON.OLEMSGICON_INFO,
+          Microsoft.VisualStudio.Shell.Interop.OLEMSGBUTTON.OLEMSGBUTTON_OK,
+          Microsoft.VisualStudio.Shell.Interop.OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
     }
   }
 }
