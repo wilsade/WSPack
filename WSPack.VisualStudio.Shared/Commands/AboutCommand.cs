@@ -2,6 +2,7 @@
 using System.ComponentModel.Design;
 using System.Diagnostics;
 using System.Globalization;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -85,10 +86,13 @@ namespace WSPack.VisualStudio.Shared.Commands
     private void Execute(object sender, EventArgs e)
     {
       ThreadHelper.ThrowIfNotOnUIThread();
+
       string fileName = Process.GetCurrentProcess().MainModule.FileName;
+      string versao = fileName.Contains("2022") ? "2022" : "2019";
+
       string message = $"Inside {GetType().FullName}.MenuItemCallback()" + Environment.NewLine +
         fileName;
-      string title = "AboutCommand";
+      string title = $"AboutCommand {versao}";
 
       // Show a message box to prove we were here
       VsShellUtilities.ShowMessageBox(

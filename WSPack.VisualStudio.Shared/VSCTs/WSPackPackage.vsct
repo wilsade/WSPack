@@ -4,7 +4,7 @@
   <Extern href="stdidcmd.h"/>
   <Extern href="vsshlids.h"/>
 
-  <Commands package="guidWSPack2022Package">
+  <Commands package="guidWSPackPackage">
     <!-- Inside this section we have different sub-sections: 
            one for the menus;
            another for the menu groups, 
@@ -15,15 +15,14 @@
           the guid part of the identifier is usually called "command set" 
            and is used to group different command inside a logically related group; 
           your package should define its own command set in order to avoid collisions
-            with command ids defined by other packages. 
-    -->
+            with command ids defined by other packages. -->
 
-    <!-- In this section you can define new menu groups. A menu group is a container for
-         other menus or buttons (commands); from a visual point of view you can see the
-         group as the part of a menu contained between two lines. The parent of a group
-         must be a menu. -->
+    <!-- In this section you can define new menu groups. 
+         A menu group is a container for other menus or buttons (commands); 
+         from a visual point of view you can see the group as the part of a menu contained between two lines.
+         The parent of a group must be a menu. -->
     <Groups>
-      <Group guid="guidWSPack2022PackageCmdSet" id="MyMenuGroup" priority="0x0600">
+      <Group guid="guidWSPackPackageCmdSet" id="MyMenuGroup" priority="0x0600">
         <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_TOOLS"/>
       </Group>
     </Groups>
@@ -39,8 +38,8 @@
               <CommandFlag>DefaultInvisible</CommandFlag>
               <CommandFlag>DynamicVisibility</CommandFlag>
           If you do not want an image next to your command, remove the Icon node /> -->
-      <Button guid="guidWSPack2022PackageCmdSet" id="AboutCommandId" priority="0x0100" type="Button">
-        <Parent guid="guidWSPack2022PackageCmdSet" id="MyMenuGroup" />
+      <Button guid="guidWSPackPackageCmdSet" id="AboutCommandId" priority="0x0100" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="MyMenuGroup" />
         <Icon guid="guidImages" id="bmpPic1" />
         <Strings>
           <ButtonText>Invoke AboutCommand 1</ButtonText>
@@ -61,10 +60,10 @@
 
   <Symbols>
     <!-- This is the package guid. -->
-    <GuidSymbol name="guidWSPack2022Package" value="{fac153ab-13d6-4424-9548-cf4dfed7750f}" />
+    <GuidSymbol name="guidWSPackPackage" value="{fac153ab-13d6-4424-9548-cf4dfed7750f}" />
 
     <!-- This is the guid used to group the menu commands together -->
-    <GuidSymbol name="guidWSPack2022PackageCmdSet" value="{d2aa537b-238c-489b-948c-e89f5badbcae}">
+    <GuidSymbol name="guidWSPackPackageCmdSet" value="{d2aa537b-238c-489b-948c-e89f5badbcae}">
       <IDSymbol name="MyMenuGroup" value="0x1020" />
       <IDSymbol name="AboutCommandId" value="0x0100" />
     </GuidSymbol>
