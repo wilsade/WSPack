@@ -5,16 +5,26 @@ VisualStudioVersion = 16.0.32602.291
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSPack2019", "2019\WSPack2019\WSPack2019.csproj", "{5240370B-D9DA-4FB1-B028-4052E0D2D978}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSPack.Builder", "WSPack.Builder\WSPack.Builder.csproj", "{DCE32D45-5705-42EE-8823-4F50B03E796D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		builder|Any CPU = builder|Any CPU
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5240370B-D9DA-4FB1-B028-4052E0D2D978}.builder|Any CPU.ActiveCfg = Debug|Any CPU
+		{5240370B-D9DA-4FB1-B028-4052E0D2D978}.builder|Any CPU.Build.0 = Debug|Any CPU
 		{5240370B-D9DA-4FB1-B028-4052E0D2D978}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5240370B-D9DA-4FB1-B028-4052E0D2D978}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5240370B-D9DA-4FB1-B028-4052E0D2D978}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5240370B-D9DA-4FB1-B028-4052E0D2D978}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCE32D45-5705-42EE-8823-4F50B03E796D}.builder|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCE32D45-5705-42EE-8823-4F50B03E796D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCE32D45-5705-42EE-8823-4F50B03E796D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCE32D45-5705-42EE-8823-4F50B03E796D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCE32D45-5705-42EE-8823-4F50B03E796D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
