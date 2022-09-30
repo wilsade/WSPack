@@ -4,26 +4,16 @@
   <Extern href="stdidcmd.h"/>
   <Extern href="vsshlids.h"/>
   <Extern href="guidSymbols.vsct"/>
+  <Extern href="guidImages.vsct"/>
 
   <Commands package="guidWSPackPackage">
-    <!-- Inside this section we have different sub-sections: 
-           one for the menus;
-           another for the menu groups, 
-           one for the buttons (the actual commands), 
-           one for the combos
-           and the last one for the bitmaps used. 
-         Each element is identified by a command id that is a unique pair of guid and numeric identifier; 
-          the guid part of the identifier is usually called "command set" 
-           and is used to group different command inside a logically related group; 
-          your package should define its own command set in order to avoid collisions
-            with command ids defined by other packages. -->
 
     <Menus>
       <Menu guid="guidWSPackPackageCmdSet" id="WSPackMenu" priority="0x100" type="Menu">
         <Parent guid="guidSHLMainMenu" id="IDG_VS_MM_TOOLSADDINS" />
         <Strings>
-          <ButtonText>WSPack</ButtonText>
           <CommandName>WS Pack</CommandName>
+          <ButtonText>WSPack</ButtonText>
         </Strings>
       </Menu>
     </Menus>
@@ -42,20 +32,12 @@
       <Group guid="guidWSPackPackageCmdSet" id="grupo01MenuPricipal" priority="0x0100">
         <Parent guid="guidWSPackPackageCmdSet" id="WSPackMenu" />
       </Group>
-      
-    </Groups>
 
-    <!--Buttons section. -->
-    <!--This section defines the elements the user can interact with, like a menu command or a button
-        or combo box in a toolbar. -->
+    </Groups>
+    
+
     <Buttons>
-      <!--To define a menu group you have to specify its ID, the parent menu and its display priority.
-          The command is visible and enabled by default. If you need to change the visibility, status, etc, you can use
-          the CommandFlag node.
-          You can add more than one CommandFlag node e.g.:
-              <CommandFlag>DefaultInvisible</CommandFlag>
-              <CommandFlag>DynamicVisibility</CommandFlag>
-          If you do not want an image next to your command, remove the Icon node /> -->
+
       <Button guid="guidWSPackPackageCmdSet" id="AboutCommandId" priority="0x0100" type="Button">
         <Parent guid="guidWSPackPackageCmdSet" id="grupo01MenuPricipal" />
         <Icon guid="guidImages" id="bmpPic1" />
@@ -64,6 +46,7 @@
           <ButtonText>WSPack.Sobre</ButtonText>
         </Strings>
       </Button>
+      
     </Buttons>
 
     <!--The bitmaps section is used to define the bitmaps that are used for the commands.-->
@@ -77,16 +60,4 @@
     </Bitmaps>
   </Commands>
 
-  <Symbols>
-
-
-    <GuidSymbol name="guidImages" value="{caf05c4e-87f7-4c17-9f18-9503f836f611}" >
-      <IDSymbol name="bmpPic1" value="1" />
-      <IDSymbol name="bmpPic2" value="2" />
-      <IDSymbol name="bmpPicSearch" value="3" />
-      <IDSymbol name="bmpPicX" value="4" />
-      <IDSymbol name="bmpPicArrows" value="5" />
-      <IDSymbol name="bmpPicStrikethrough" value="6" />
-    </GuidSymbol>
-  </Symbols>
 </CommandTable>

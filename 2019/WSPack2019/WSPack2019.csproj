@@ -80,6 +80,9 @@
     <Content Include="..\..\WSPack.VisualStudio.Shared\Resources\AboutCommand.png">
       <Link>Resources\AboutCommand.png</Link>
     </Content>
+    <Content Include="..\..\WSPack.VisualStudio.Shared\VSCTs\guidImages.vsct">
+      <Link>VSCTs\guidImages.vsct</Link>
+    </Content>
     <Content Include="..\..\WSPack.VisualStudio.Shared\VSCTs\guidSymbols.vsct">
       <Link>VSCTs\guidSymbols.vsct</Link>
     </Content>
