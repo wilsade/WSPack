@@ -13,24 +13,14 @@ using Task = System.Threading.Tasks.Task;
 namespace WSPack.VisualStudio.Shared.Commands
 {
   /// <summary>
-  /// Command handler
+  /// Comando para exibição do Sobre
   /// </summary>
-  internal sealed class AboutCommand
+  internal sealed class AboutCommand : BaseCommand
   {
     /// <summary>
-    /// Command ID.
+    /// Identificador do comando
     /// </summary>
-    public const int CommandId = CommandIds.About;
-
-    /// <summary>
-    /// Command menu group (command set GUID).
-    /// </summary>
-    public static readonly Guid CommandSet = new Guid("d2aa537b-238c-489b-948c-e89f5badbcae");
-
-    /// <summary>
-    /// VS Package that provides this command, not null.
-    /// </summary>
-    private readonly AsyncPackage _package;
+    public override int CommandId => CommandIds.About;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="AboutCommand"/> class.
@@ -38,52 +28,27 @@ namespace WSPack.VisualStudio.Shared.Commands
     /// </summary>
     /// <param name="package">Owner package, not null.</param>
     /// <param name="commandService">Command service to add command to, not null.</param>
-    private AboutCommand(AsyncPackage package, OleMenuCommandService commandService)
+    protected AboutCommand(AsyncPackage package, OleMenuCommandService commandService)
+      : base(package, commandService)
     {
-      _package = package ?? throw new ArgumentNullException(nameof(package));
-      commandService = commandService ?? throw new ArgumentNullException(nameof(commandService));
-
-      var menuCommandID = new CommandID(CommandSet, CommandId);
-      var menuItem = new MenuCommand(Execute, menuCommandID);
-      commandService.AddCommand(menuItem);
     }
 
     /// <summary>
     /// Gets the instance of the command.
     /// </summary>
-    public static AboutCommand Instance
-    {
-      get;
-      private set;
-    }
-
-    /// <summary>
-    /// Gets the service provider from the owner package.
-    /// </summary>
-    private IAsyncServiceProvider ServiceProvider => _package;
+    public static AboutCommand Instance { get; private set; }
 
     /// <summary>
     /// Initializes the singleton instance of the command.
     /// </summary>
     /// <param name="package">Owner package, not null.</param>
-    public static async Task InitializeAsync(AsyncPackage package)
+    public static async Task InitializeAsync(AsyncPackage package, OleMenuCommandService commandService)
     {
-      // Switch to the main thread - the call to AddCommand in AboutCommand's constructor requires
-      // the UI thread.
       await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(package.DisposalToken);
-
-      OleMenuCommandService commandService = await package.GetServiceAsync(typeof(IMenuCommandService)) as OleMenuCommandService;
       Instance = new AboutCommand(package, commandService);
     }
 
-    /// <summary>
-    /// This function is the callback used to execute the command when the menu item is clicked.
-    /// See the constructor to see how the menu item is associated with this function using
-    /// OleMenuCommandService service and MenuCommand class.
-    /// </summary>
-    /// <param name="sender">Event sender.</param>
-    /// <param name="e">Event args.</param>
-    private void Execute(object sender, EventArgs e)
+    protected override void DoExecute(object sender, EventArgs e)
     {
       ThreadHelper.ThrowIfNotOnUIThread();
 

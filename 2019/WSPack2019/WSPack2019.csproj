@@ -52,6 +52,9 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\AboutCommand.cs">
       <Link>Commands\AboutCommand.cs</Link>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\BaseCommand.cs">
+      <Link>Commands\BaseCommand.cs</Link>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\SharedAssemblyInfo.cs">
       <Link>SharedAssemblyInfo.cs</Link>
     </Compile>

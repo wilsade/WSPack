@@ -3,14 +3,11 @@
 
   <Symbols>
     <GuidSymbol name="guidWSPackPackage" value="{fac153ab-13d6-4424-9548-cf4dfed7750f}" />
-
     <GuidSymbol name="guidWSPackPackageCmdSet" value="{d2aa537b-238c-489b-948c-e89f5badbcae}">
 
       <!-- Menus e Grupos. Começar com 2000. Cresce de 1 em 1 -->
       <IDSymbol name="WSPackMenu" value="0x2000"/>
-      <IDSymbol name="grupo01MenuPricipal" value="0x2001" />
-      
-      <IDSymbol name="MyMenuGroup" value="0x1020" />
+      <IDSymbol name="grupo01MenuPricipal" value="0x2001" />      
 
       <!-- Comandos. Começar com 0x0100. Cresce de 1 em 1 -->
       <IDSymbol name="AboutCommandId" value="0x0100" />
