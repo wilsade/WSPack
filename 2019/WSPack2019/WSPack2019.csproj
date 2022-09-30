@@ -32,18 +32,18 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>0</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>bin\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>0</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\AboutCommand.cs">
@@ -76,6 +76,9 @@
   <ItemGroup>
     <Content Include="..\..\WSPack.VisualStudio.Shared\Resources\AboutCommand.png">
       <Link>Resources\AboutCommand.png</Link>
+    </Content>
+    <Content Include="..\..\WSPack.VisualStudio.Shared\VSCTs\guidSymbols.vsct">
+      <Link>VSCTs\guidSymbols.vsct</Link>
     </Content>
     <VSCTCompile Include="..\..\WSPack.VisualStudio.Shared\VSCTs\WSPackPackage.vsct">
       <Link>VSCTs\WSPackPackage.vsct</Link>
