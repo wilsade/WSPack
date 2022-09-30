@@ -49,6 +49,9 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\AboutCommand.cs">
       <Link>Commands\AboutCommand.cs</Link>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Constantes.cs">
+      <Link>Constantes.cs</Link>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\SharedAssemblyInfo.cs">
       <Link>SharedAssemblyInfo.cs</Link>
     </Compile>
@@ -81,10 +84,19 @@
       <ResourceName>Menus.ctmenu</ResourceName>
     </VSCTCompile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="..\..\WSPack.VisualStudio.Shared\VSPackage.resx">
+      <Link>VSPackage.resx</Link>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="..\..\WSPack.VisualStudio.Shared\Resources\AboutCommand.png">
       <Link>Resources\AboutCommand.png</Link>
+    </Content>
+    <Content Include="..\..\WSPack.VisualStudio.Shared\Resources\WSPackLogo.ico">
+      <Link>Resources\WSPackLogo.ico</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <Content Include="..\..\WSPack.VisualStudio.Shared\VSCTs\guidImages.vsct">
       <Link>VSCTs\guidImages.vsct</Link>

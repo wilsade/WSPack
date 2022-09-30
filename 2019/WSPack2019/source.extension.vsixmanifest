@@ -4,6 +4,7 @@
         <Identity Id="WSPack2019.5f9acea3-6ba8-4f85-aea9-12e5e8913c2f" Version="1.0.0.2" Language="en-US" Publisher="HP Inc." />
         <DisplayName>WSPack2019</DisplayName>
         <Description xml:space="preserve">Empty VSIX Project.</Description>
+        <Icon>Resources\WSPackLogo.ico</Icon>
     </Metadata>
     <Installation>
         <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[16.0, 17.0)" />

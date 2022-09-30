@@ -13,6 +13,7 @@ namespace WSPack
   /// <summary>
   /// Package do WSPack
   /// </summary>
+  [InstalledProductRegistration("#110", "#112", Constantes.NumeroVersao, IconResourceID = 401)]
   [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
   [Guid(PackageGuidString)]
   [ProvideMenuResource("Menus.ctmenu", 1)]
