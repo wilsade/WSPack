@@ -18,6 +18,16 @@
           your package should define its own command set in order to avoid collisions
             with command ids defined by other packages. -->
 
+    <Menus>
+      <Menu guid="guidWSPackPackageCmdSet" id="WSPackMenu" priority="0x100" type="Menu">
+        <Parent guid="guidSHLMainMenu" id="IDG_VS_MM_TOOLSADDINS" />
+        <Strings>
+          <ButtonText>WSPack</ButtonText>
+          <CommandName>WS Pack</CommandName>
+        </Strings>
+      </Menu>
+    </Menus>
+
     <!-- In this section you can define new menu groups. 
          A menu group is a container for other menus or buttons (commands); 
          from a visual point of view you can see the group as the part of a menu contained between two lines.
@@ -26,6 +36,13 @@
       <Group guid="guidWSPackPackageCmdSet" id="MyMenuGroup" priority="0x0600">
         <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_TOOLS"/>
       </Group>
+
+      <!-- Region Menu principal -->
+      <!-- Grupo 01 -->
+      <Group guid="guidWSPackPackageCmdSet" id="grupo01MenuPricipal" priority="0x0100">
+        <Parent guid="guidWSPackPackageCmdSet" id="WSPackMenu" />
+      </Group>
+      
     </Groups>
 
     <!--Buttons section. -->
@@ -40,10 +57,11 @@
               <CommandFlag>DynamicVisibility</CommandFlag>
           If you do not want an image next to your command, remove the Icon node /> -->
       <Button guid="guidWSPackPackageCmdSet" id="AboutCommandId" priority="0x0100" type="Button">
-        <Parent guid="guidWSPackPackageCmdSet" id="MyMenuGroup" />
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo01MenuPricipal" />
         <Icon guid="guidImages" id="bmpPic1" />
         <Strings>
-          <ButtonText>Invoke AboutCommand 11</ButtonText>
+          <MenuText>Sobre</MenuText>
+          <ButtonText>WSPack.Sobre</ButtonText>
         </Strings>
       </Button>
     </Buttons>
