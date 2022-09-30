@@ -3,7 +3,6 @@ using System.Resources;
 using System.Runtime.InteropServices;
 
 [assembly: ComVisible(false)]
-[assembly: NeutralResourcesLanguage("pt-BR")]
 
 [assembly: AssemblyTitle("Wilsade - WSPack")]
 [assembly: AssemblyDescription("Pacote de funcionalidades para Visual Studio")]
