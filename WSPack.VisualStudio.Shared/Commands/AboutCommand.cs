@@ -20,7 +20,7 @@ namespace WSPack.VisualStudio.Shared.Commands
     /// <summary>
     /// Command ID.
     /// </summary>
-    public const int CommandId = 0x0100;
+    public const int CommandId = CommandIds.About;
 
     /// <summary>
     /// Command menu group (command set GUID).

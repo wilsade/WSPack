@@ -46,6 +46,9 @@
     <WarningLevel>0</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\CommandIds.cs">
+      <Link>CommandIds.cs</Link>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\AboutCommand.cs">
       <Link>Commands\AboutCommand.cs</Link>
     </Compile>
