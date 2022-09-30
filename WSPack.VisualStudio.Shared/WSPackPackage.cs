@@ -4,6 +4,7 @@ using System;
 using System.Runtime.InteropServices;
 using System.Threading;
 
+using WSPack.Lib;
 using WSPack.VisualStudio.Shared.Commands;
 
 using Task = System.Threading.Tasks.Task;
