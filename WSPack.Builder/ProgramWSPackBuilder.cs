@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using WSPack.Lib;
+
 namespace WSPack.Builder
 {
   internal class ProgramWSPackBuilder
@@ -30,7 +32,7 @@ namespace WSPack.Builder
       {
         Console.Beep();
         Console.WriteLine();
-        Console.WriteLine("Erro(s) de build");
+        CommandClass.WriteError("Erro(s) de build");
         return (int)ExitCodes.Error;
       }
 

@@ -119,6 +119,7 @@
   <PropertyGroup>
     <PostBuildEvent>COPY $(TargetPath) ..\..\..\_bin /y
 COPY $(TargetDir)$(TargetName).vsix ..\..\..\_bin /y</PostBuildEvent>
+    <PreBuildEvent>IF NOT EXIST $(TargetDir)..\..\..\_bin md $(TargetDir)..\..\..\_bin</PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

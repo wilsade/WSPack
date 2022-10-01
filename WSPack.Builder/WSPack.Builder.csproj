@@ -45,6 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\WSPack.Lib\CommandClass.cs">
+      <Link>CommandClass.cs</Link>
+    </Compile>
     <Compile Include="BuilderObj.cs" />
     <Compile Include="ProgramWSPackBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

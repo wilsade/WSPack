@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 
 using Microsoft.VisualStudio.Shell;
 
+using WSPack2019.Forms;
+
 using Task = System.Threading.Tasks.Task;
 
 namespace WSPack.VisualStudio.Shared.Commands
@@ -51,6 +53,10 @@ namespace WSPack.VisualStudio.Shared.Commands
     protected override void DoExecute(object sender, EventArgs e)
     {
       ThreadHelper.ThrowIfNotOnUIThread();
+      using (var form = new AboutForm(typeof(AboutCommand).Assembly))
+      {
+        form.ShowDialog();
+      }
 
       string fileName = Process.GetCurrentProcess().MainModule.FileName;
       string versao = fileName.Contains("2022") ? "2022" : "2019";
