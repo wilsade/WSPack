@@ -12,6 +12,11 @@ namespace WSPack.Lib
   public static class Constantes
   {
     /// <summary>
+    /// Meu nome
+    /// </summary>
+    public const string WilliamSadeDePaiva = "William Sade de Paiva";
+
+    /// <summary>
     /// Nº de versão do Package e Assembly
     /// </summary>
     public const string NumeroVersao = "4.0.0.1";

@@ -20,14 +20,19 @@ namespace WSPack.Builder
 
     static int Main(string[] args)
     {
+      Console.Clear();
+      if (args.Length > 0)
+        Console.WriteLine(string.Join(", ", args));
+
       IEnumerable<string> solutions = GetSolutions();
       if (solutions == null)
       {
-        Console.Write("Não foram encontradas solutions");
+        CommandClass.WriteWarning("Não foram encontradas solutions");
         return (int)ExitCodes.NoSolutions;
       }
 
-      Console.Clear();
+      ManifestObj.UpdateManifest(Path.GetDirectoryName(solutions.First()));
+
       if (!BuilderObj.Build(solutions))
       {
         Console.Beep();
