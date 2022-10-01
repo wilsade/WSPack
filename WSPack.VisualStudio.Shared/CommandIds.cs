@@ -12,5 +12,6 @@ namespace WSPack.VisualStudio.Shared.Commands
   static class CommandIds
   {
     internal const int About = 0x0100;
+    internal const int Parameters = 0x0101;
   }
 }

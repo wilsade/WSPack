@@ -35,9 +35,15 @@
 
     <Buttons>
 
-      <Button guid="guidWSPackPackageCmdSet" id="AboutCommandId" priority="0x0100" type="Button">
+      <Button guid="guidWSPackPackageCmdSet" id="cmdParameters" priority="0x0101" type="Button">
         <Parent guid="guidWSPackPackageCmdSet" id="grupo01MenuPricipal" />
-        <Icon guid="guidImages" id="bmpPic1" />
+        <Strings>
+          <MenuText>Parâmetros</MenuText>
+          <ButtonText>WSPack.Parametros</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidWSPackPackageCmdSet" id="cmdAbout" priority="0x0200" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo01MenuPricipal" />
         <Strings>
           <MenuText>Sobre</MenuText>
           <ButtonText>WSPack.Sobre</ButtonText>

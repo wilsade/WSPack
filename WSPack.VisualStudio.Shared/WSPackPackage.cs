@@ -40,6 +40,7 @@ namespace WSPack
       await JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
       OleMenuCommandService commandService = await GetServiceAsync(typeof(IMenuCommandService)) as OleMenuCommandService;
       await AboutCommand.InitializeAsync(this, commandService);
+      await ParametersCommand.InitializeAsync(this, commandService);
     }
 
   }

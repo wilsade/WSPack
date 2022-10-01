@@ -10,7 +10,8 @@
       <IDSymbol name="grupo01MenuPricipal" value="0x2001" />      
 
       <!-- Comandos. Começar com 0x0100. Cresce de 1 em 1 -->
-      <IDSymbol name="AboutCommandId" value="0x0100" />
+      <IDSymbol name="cmdAbout" value="0x0100" />
+      <IDSymbol name="cmdParameters" value="0x0101" />
       
     </GuidSymbol>
   </Symbols>
