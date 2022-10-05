@@ -28,6 +28,7 @@ namespace WSPack
   [ProvideMenuResource("Menus.ctmenu", 1)]
 
   [ProvideOptionPage(typeof(PageGeneral), Constantes.WSPack, "01GeralX", 110, 113, true, new string[] { "Mudar as opções do WSPack" }, Sort = 1)]
+  [ProvideOptionPage(typeof(PageMEFObjects), Constantes.WSPack, "03ComponentesX", 110, 115, true, new string[] { "MEF Components" }, Sort = 3)]
 
   public sealed class WSPackPackage : AsyncPackage
   {
