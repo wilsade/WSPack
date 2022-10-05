@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 using Microsoft.VisualStudio.Shell;
 
-using WSPack2019.Forms;
+using WSPack.Lib.Forms;
 
 using Task = System.Threading.Tasks.Task;
 

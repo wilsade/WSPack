@@ -69,5 +69,974 @@ namespace WSPack.Lib.Properties {
                 return ((System.Drawing.Icon)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Abrir.
+        /// </summary>
+        public static string StrAbrir {
+            get {
+                return ResourceManager.GetString("StrAbrir", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Abrir Solution / Projeto da página inicial.
+        /// </summary>
+        public static string StrAbrirSolutionProjetoPaginaInicial {
+            get {
+                return ResourceManager.GetString("StrAbrirSolutionProjetoPaginaInicial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Abrir tela para inserção de macros.
+        /// </summary>
+        public static string StrAbrirTelaParaInsercaoMacro {
+            get {
+                return ResourceManager.GetString("StrAbrirTelaParaInsercaoMacro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alternar marcador: {0}.
+        /// </summary>
+        public static string StrAlternarMarcador {
+            get {
+                return ResourceManager.GetString("StrAlternarMarcador", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Arquivo de resources não encontrado. Por favor, verifique se:
+        ///- Existe projeto aberto no Solution Explorer;
+        ///- O projeto já possui Resources criado;.
+        /// </summary>
+        public static string StrArquivoResourcesNaoEncontrado {
+            get {
+                return ResourceManager.GetString("StrArquivoResourcesNaoEncontrado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O arquivo de Resource está como &apos;Somente leitura&apos;. Favor verificar uma das opções:
+        ///1. Se o arquivo faz parte do Source Control Explorer, tente efetuar um &apos;Check Out&apos;;
+        ///2. Se você tem permissão de escrita no arquivo..
+        /// </summary>
+        public static string StrArquivoResourceSomenteLeitura {
+            get {
+                return ResourceManager.GetString("StrArquivoResourceSomenteLeitura", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Aviso.
+        /// </summary>
+        public static string StrAviso {
+            get {
+                return ResourceManager.GetString("StrAviso", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ao marcar esta opção, esta tela não mais será exibida após o Check In
+        ///e o Merge não será executado.
+        ///Essa opção está disponível em WS Pack | Parâmetros..
+        /// </summary>
+        public static string StrAvisoTelaMergeNaoSeraMostrado {
+            get {
+                return ResourceManager.GetString("StrAvisoTelaMergeNaoSeraMostrado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Busca por item &apos;Local&apos;. Pressione &apos;OK&apos; para procurar....
+        /// </summary>
+        public static string StrBuscaPorItemLocalPressioneOK {
+            get {
+                return ResourceManager.GetString("StrBuscaPorItemLocalPressioneOK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O texto possui caracteres inválidos.
+        /// </summary>
+        public static string StrCaracteresInvalidos {
+            get {
+                return ResourceManager.GetString("StrCaracteresInvalidos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nº Changeset.
+        /// </summary>
+        public static string StrChangesetId {
+            get {
+                return ResourceManager.GetString("StrChangesetId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check-in Note não informado: {0}.
+        /// </summary>
+        public static string StrCheckNoteNaoInformado {
+            get {
+                return ResourceManager.GetString("StrCheckNoteNaoInformado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clique para alternar marcadores.
+        /// </summary>
+        public static string StrCliqueAlternarMarcadores {
+            get {
+                return ResourceManager.GetString("StrCliqueAlternarMarcadores", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Comando não disponível.
+        /// </summary>
+        public static string StrComandoNaoDisponivel {
+            get {
+                return ResourceManager.GetString("StrComandoNaoDisponivel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Comentário.
+        /// </summary>
+        public static string StrComentario {
+            get {
+                return ResourceManager.GetString("StrComentario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirmação.
+        /// </summary>
+        public static string StrConfirmacao {
+            get {
+                return ResourceManager.GetString("StrConfirmacao", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirma a exclusão do favorito:
+        ///{0} ?.
+        /// </summary>
+        public static string StrConfirmaExclusaoFavorito {
+            get {
+                return ResourceManager.GetString("StrConfirmaExclusaoFavorito", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirma a exclusão do item {0} ?.
+        /// </summary>
+        public static string StrConfirmaExclusaoItem {
+            get {
+                return ResourceManager.GetString("StrConfirmaExclusaoItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirma a geração de itens (padrão)?.
+        /// </summary>
+        public static string StrConfirmaGeracaoItensDefault {
+            get {
+                return ResourceManager.GetString("StrConfirmaGeracaoItensDefault", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (sempre considere a criação de Resources para todas as strings).
+        /// </summary>
+        public static string StrConsidereCriacaoResourceString {
+            get {
+                return ResourceManager.GetString("StrConsidereCriacaoResourceString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O conteúdo do campo é nulo ou inválido.
+        /// </summary>
+        public static string StrConteudoCampoNuloInvalido {
+            get {
+                return ResourceManager.GetString("StrConteudoCampoNuloInvalido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copiado para a área de transferência.
+        /// </summary>
+        public static string StrCopiadoAreaTransferencia {
+            get {
+                return ResourceManager.GetString("StrCopiadoAreaTransferencia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copiar o método.
+        /// </summary>
+        public static string strCopiarMetodo {
+            get {
+                return ResourceManager.GetString("strCopiarMetodo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Criando favorito.
+        /// </summary>
+        public static string StrCriandoFavorito {
+            get {
+                return ResourceManager.GetString("StrCriandoFavorito", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data do Check In.
+        /// </summary>
+        public static string StrDataCheckIn {
+            get {
+                return ResourceManager.GetString("StrDataCheckIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A data final deve ser maior ou igual à inicial.
+        /// </summary>
+        public static string StrDataFinalMaiorIgualInicial {
+            get {
+                return ResourceManager.GetString("StrDataFinalMaiorIgualInicial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Depurar teste.
+        /// </summary>
+        public static string strDepurarTeste {
+            get {
+                return ResourceManager.GetString("strDepurarTeste", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deseja criar um Template agora?.
+        /// </summary>
+        public static string StrDesejaDefinirTemplateAgora {
+            get {
+                return ResourceManager.GetString("StrDesejaDefinirTemplateAgora", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deseja excluir o comando: {0}.
+        /// </summary>
+        public static string StrDesejaExcluirEsteComando {
+            get {
+                return ResourceManager.GetString("StrDesejaExcluirEsteComando", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deseja excluir este item da lista?.
+        /// </summary>
+        public static string StrDesejaExcluirItemLista {
+            get {
+                return ResourceManager.GetString("StrDesejaExcluirItemLista", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deseja excluir o projeto {0} ?.
+        /// </summary>
+        public static string StrDesejaExcluirProjeto {
+            get {
+                return ResourceManager.GetString("StrDesejaExcluirProjeto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to É necessário reiniciar o Visual Stutio para que as alterações sejam aplicadas.
+        ///Deseja reiniciar agora?.
+        /// </summary>
+        public static string StrDesejaReiniciarVisualStudio {
+            get {
+                return ResourceManager.GetString("StrDesejaReiniciarVisualStudio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ATENÇÃO!
+        ///Deseja excluir este item e REMOVÊ-LO completamente do controle de fontes do TFS?
+        ///{0}
+        ///Esta opção não poderá ser desfeita!!!.
+        /// </summary>
+        public static string StrDestruirItemTFS {
+            get {
+                return ResourceManager.GetString("StrDestruirItemTFS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Documento possui marcador(es).
+        /// </summary>
+        public static string strDocumentoPossuiMarcadores {
+            get {
+                return ResourceManager.GetString("strDocumentoPossuiMarcadores", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Encontrar referências.
+        /// </summary>
+        public static string StrEncontrarReferencias {
+            get {
+                return ResourceManager.GetString("StrEncontrarReferencias", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Erro.
+        /// </summary>
+        public static string StrErro {
+            get {
+                return ResourceManager.GetString("StrErro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Executar teste.
+        /// </summary>
+        public static string strExecutarTeste {
+            get {
+                return ResourceManager.GetString("strExecutarTeste", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Favorito adicionado com sucesso: {0}.
+        /// </summary>
+        public static string StrFavoritoAdicionadoSucesso {
+            get {
+                return ResourceManager.GetString("StrFavoritoAdicionadoSucesso", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Favorito existente:
+        ///{0}.
+        /// </summary>
+        public static string StrFavoritoExistente {
+            get {
+                return ResourceManager.GetString("StrFavoritoExistente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Operação de Pull realizada..
+        /// </summary>
+        public static string StrGitOperacaoPullRealizada {
+            get {
+                return ResourceManager.GetString("StrGitOperacaoPullRealizada", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grupo existente: {0}.
+        /// </summary>
+        public static string StrGrupoExistente {
+            get {
+                return ResourceManager.GetString("StrGrupoExistente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grupo já possui este projeto:
+        ///{0}.
+        /// </summary>
+        public static string StrGrupoJaPossuiEsteProjeto {
+            get {
+                return ResourceManager.GetString("StrGrupoJaPossuiEsteProjeto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copiar todo o código fonte do método para a área de transferência.
+        /// </summary>
+        public static string strHintCopiarMetodo {
+            get {
+                return ResourceManager.GetString("strHintCopiarMetodo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Depurar teste unitário para este método.
+        /// </summary>
+        public static string strHintDepurarTesteUnitario {
+            get {
+                return ResourceManager.GetString("strHintDepurarTesteUnitario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Encontrar todas as referências do método.
+        /// </summary>
+        public static string strHintEncontrarReferencias {
+            get {
+                return ResourceManager.GetString("strHintEncontrarReferencias", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Executar teste unitário para este método.
+        /// </summary>
+        public static string strHintExecutarTesteUnitario {
+            get {
+                return ResourceManager.GetString("strHintExecutarTesteUnitario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Posicionar o cursor no final do método.
+        /// </summary>
+        public static string strHintIrParaFinalMetodo {
+            get {
+                return ResourceManager.GetString("strHintIrParaFinalMetodo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Posicionar o cursor no início do &apos;Type&apos; que o declara.
+        /// </summary>
+        public static string strHintIrParaType {
+            get {
+                return ResourceManager.GetString("strHintIrParaType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Recortar todo o código fonte do método para a área de transferência.
+        /// </summary>
+        public static string strHintRecortarMetodo {
+            get {
+                return ResourceManager.GetString("strHintRecortarMetodo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Informação.
+        /// </summary>
+        public static string StrInformacao {
+            get {
+                return ResourceManager.GetString("StrInformacao", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Favor informar o(s) arquivo(s).
+        /// </summary>
+        public static string StrInformarArquivos {
+            get {
+                return ResourceManager.GetString("StrInformarArquivos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Favor informar o comentário.
+        /// </summary>
+        public static string StrInformarComentario {
+            get {
+                return ResourceManager.GetString("StrInformarComentario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Favor informar o local da procura.
+        /// </summary>
+        public static string StrInformarLocalProcura {
+            get {
+                return ResourceManager.GetString("StrInformarLocalProcura", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Favor informar o usuário.
+        /// </summary>
+        public static string StrInformarUsuario {
+            get {
+                return ResourceManager.GetString("StrInformarUsuario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Informe o caminho &apos;Server&apos; ou &apos;Local&apos; do item a ser localizado:.
+        /// </summary>
+        public static string StrInformeCaminhoServerOuLocalItem {
+            get {
+                return ResourceManager.GetString("StrInformeCaminhoServerOuLocalItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Informe o nome deste favorito:.
+        /// </summary>
+        public static string StrInformeNomeFavorito {
+            get {
+                return ResourceManager.GetString("StrInformeNomeFavorito", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Informe o nome do marcador {0}: .
+        /// </summary>
+        public static string StrInformeNomeMarcador {
+            get {
+                return ResourceManager.GetString("StrInformeNomeMarcador", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Iniciando.
+        /// </summary>
+        public static string StrIniciando {
+            get {
+                return ResourceManager.GetString("StrIniciando", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ir para o final do método.
+        /// </summary>
+        public static string strIrParaFinalMetodo {
+            get {
+                return ResourceManager.GetString("strIrParaFinalMetodo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ir par ao &apos;Type&apos;.
+        /// </summary>
+        public static string strIrParaType {
+            get {
+                return ResourceManager.GetString("strIrParaType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Item existente: {0}.
+        /// </summary>
+        public static string StrItemExistente {
+            get {
+                return ResourceManager.GetString("StrItemExistente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Item não encontrado ou inválido:
+        ///{0}.
+        /// </summary>
+        public static string StrItemNaoEncontrado {
+            get {
+                return ResourceManager.GetString("StrItemNaoEncontrado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Item não encontrado no TFS.
+        /// </summary>
+        public static string StrItemNaoEncontradoTFS {
+            get {
+                return ResourceManager.GetString("StrItemNaoEncontradoTFS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Item não informado..
+        /// </summary>
+        public static string StrItemNaoInformado {
+            get {
+                return ResourceManager.GetString("StrItemNaoInformado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Localizar a Solution ou Projeto a ser aberto:.
+        /// </summary>
+        public static string StrLocalizarSolutionProjetoASerAberto {
+            get {
+                return ResourceManager.GetString("StrLocalizarSolutionProjetoASerAberto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O local da procura deverá começar com o nome de um dos projetos registrados no TFS.
+        ///
+        ///Exemplo de procura: $/NomeProjeto/Projeto/Branch/Modulo/etc...
+        ///
+        ///Segue listagem dos projetos registrados:
+        ///
+        ///{0}.
+        /// </summary>
+        public static string StrLocalProcuraNaoRepresentaProjetoValido {
+            get {
+                return ResourceManager.GetString("StrLocalProcuraNaoRepresentaProjetoValido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Marcador{0}: {1} - Linha: {2} - Coluna: {3}
+        ///Arquivo: {4}.
+        /// </summary>
+        public static string StrMarcador {
+            get {
+                return ResourceManager.GetString("StrMarcador", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Marcadores.
+        /// </summary>
+        public static string StrMarcadores {
+            get {
+                return ResourceManager.GetString("StrMarcadores", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Marcador não encontrado nesta Solution: {0}
+        ///{1}.
+        /// </summary>
+        public static string StrMarcadorNaoEncontradoNaSolution {
+            get {
+                return ResourceManager.GetString("StrMarcadorNaoEncontradoNaSolution", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Não existe mapeamento válido para este local: {0}
+        ///Detalhes do erro:
+        ///{1}.
+        /// </summary>
+        public static string StrNaoExisteMapeamentoNesteLocal {
+            get {
+                return ResourceManager.GetString("StrNaoExisteMapeamentoNesteLocal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Não existem controles dentro do item:
+        ///- {0}..
+        /// </summary>
+        public static string StrNaoExistemControlesDentroItem {
+            get {
+                return ResourceManager.GetString("StrNaoExistemControlesDentroItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Não foi possível gerar o Resource:
+        ///{0}.
+        /// </summary>
+        public static string StrNaoFoiPossivelGerarResource {
+            get {
+                return ResourceManager.GetString("StrNaoFoiPossivelGerarResource", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Não foi possível realizar esta operação!.
+        /// </summary>
+        public static string StrNaoFoiPossivelRealizarEstaOperacao {
+            get {
+                return ResourceManager.GetString("StrNaoFoiPossivelRealizarEstaOperacao", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Não foi possível recuperar o caminho local do item..
+        /// </summary>
+        public static string StrNaoFoiPossivelRecuperarCaminhoLocalItem {
+            get {
+                return ResourceManager.GetString("StrNaoFoiPossivelRecuperarCaminhoLocalItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Não foi possível recuperar as informações deste Changeset:
+        ///
+        ///{0}.
+        /// </summary>
+        public static string StrNaoFoiPossivelRecuperarChangeset {
+            get {
+                return ResourceManager.GetString("StrNaoFoiPossivelRecuperarChangeset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Não foi possível recuperar Check In Notes do servidor:
+        ///
+        ///{0}
+        ///
+        ///Verifique se este local de pesquisa está presente em algum projeto do TFS..
+        /// </summary>
+        public static string StrNaoFoiPossivelRecuperarNotas {
+            get {
+                return ResourceManager.GetString("StrNaoFoiPossivelRecuperarNotas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Não foi possível recuperar o projeto da Solution..
+        /// </summary>
+        public static string StrNaoFoiPossivelRecuperarProjeto {
+            get {
+                return ResourceManager.GetString("StrNaoFoiPossivelRecuperarProjeto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Não foi possível recuperar o projeto inicial..
+        /// </summary>
+        public static string StrNaoFoiPossivelRecuperarProjetoInicial {
+            get {
+                return ResourceManager.GetString("StrNaoFoiPossivelRecuperarProjetoInicial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Não foi possível recuperar o Workspace para este Changeset.
+        /// </summary>
+        public static string StrNaoFoiPossivelRecuperarWorkspace {
+            get {
+                return ResourceManager.GetString("StrNaoFoiPossivelRecuperarWorkspace", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Não há candidatos à Merge para este changeset nestas branches:
+        ///Changeset: {0}
+        ///Branch origem: {1}
+        ///Branch destino: {2}.
+        /// </summary>
+        public static string StrNaoHaCandidatosMergeNesteChangeset {
+            get {
+                return ResourceManager.GetString("StrNaoHaCandidatosMergeNesteChangeset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Não pode ter espaços..
+        /// </summary>
+        public static string StrNaoPodeTerEspacos {
+            get {
+                return ResourceManager.GetString("StrNaoPodeTerEspacos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Objeto de Controle de versão não disponível..
+        /// </summary>
+        public static string StrObjetoControleVersaoNaoDisponivel {
+            get {
+                return ResourceManager.GetString("StrObjetoControleVersaoNaoDisponivel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Operação de GET não foi realizada.
+        ///Favor verificar se o TFS estava ativo e conectado..
+        /// </summary>
+        public static string StrOperacaoGETNaoRealizada {
+            get {
+                return ResourceManager.GetString("StrOperacaoGETNaoRealizada", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parâmetros de: {0}.
+        /// </summary>
+        public static string StrParametrosProjeto {
+            get {
+                return ResourceManager.GetString("StrParametrosProjeto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Projeto não possui configuração ativa..
+        /// </summary>
+        public static string StrProjetoNaoPossuiConfiguracaoAtiva {
+            get {
+                return ResourceManager.GetString("StrProjetoNaoPossuiConfiguracaoAtiva", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Projeto não possui Gerenciador de configuração..
+        /// </summary>
+        public static string StrProjetoNaoPossuiGerenciadorConfiguracao {
+            get {
+                return ResourceManager.GetString("StrProjetoNaoPossuiGerenciadorConfiguracao", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Propriedade de linha de comando não encontrada no projeto:
+        ///{0}.
+        /// </summary>
+        public static string StrPropriedadeLilnhaComandoNaoEncontrada {
+            get {
+                return ResourceManager.GetString("StrPropriedadeLilnhaComandoNaoEncontrada", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Propriedade não encontrada..
+        /// </summary>
+        public static string StrPropriedadeNaoEncontrada {
+            get {
+                return ResourceManager.GetString("StrPropriedadeNaoEncontrada", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Recortar o método.
+        /// </summary>
+        public static string strRecortarMetodo {
+            get {
+                return ResourceManager.GetString("strRecortarMetodo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Renomar marcador.
+        /// </summary>
+        public static string StrRenomearMarcador {
+            get {
+                return ResourceManager.GetString("StrRenomearMarcador", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selecione apenas um item para realizar esta operação.
+        /// </summary>
+        public static string StrSelecioneApenasUmItem {
+            get {
+                return ResourceManager.GetString("StrSelecioneApenasUmItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Source Control Explorer não configurado.
+        ///
+        ///Por favor, certifique-se de que:
+        ///
+        ///1. O Team Foundation Server está conectado e ativo;
+        ///2. O Source Control Explorer foi carregado;.
+        /// </summary>
+        public static string StrSourceControlExplorerNaoConfigurado {
+            get {
+                return ResourceManager.GetString("StrSourceControlExplorerNaoConfigurado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tem certeza?.
+        /// </summary>
+        public static string StrTemCerteza {
+            get {
+                return ResourceManager.GetString("StrTemCerteza", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Template com informações do Check In não definido..
+        /// </summary>
+        public static string StrTemplateCheckInNaoDefinido {
+            get {
+                return ResourceManager.GetString("StrTemplateCheckInNaoDefinido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Texto não selecionado.
+        ///Favor selecionar um texto ou posicionar o cursor sobre uma string..
+        /// </summary>
+        public static string StrTextoNaoSelecionado {
+            get {
+                return ResourceManager.GetString("StrTextoNaoSelecionado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tipo ou Membro não encontrado.
+        ///Por favor, certifique-se de que o cursor está posicionado na mesma linha do item desejado..
+        /// </summary>
+        public static string StrTipoOuMembroNaoEncontrado {
+            get {
+                return ResourceManager.GetString("StrTipoOuMembroNaoEncontrado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clique........: Copiar nome &apos;Local&apos; do arquivo
+        ///Clique direito: Copiar nome &apos;Server&apos; do arquivo
+        ///Ctrl+Clique...: Abrir local do arquivo
+        ///{0}.
+        /// </summary>
+        public static string StrToolTipLabelRodape {
+            get {
+                return ResourceManager.GetString("StrToolTipLabelRodape", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total de itens recuperados: {0}.
+        /// </summary>
+        public static string StrTotalItensRecuperados {
+            get {
+                return ResourceManager.GetString("StrTotalItensRecuperados", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total de registros: {0}.
+        /// </summary>
+        public static string StrTotalRegistros {
+            get {
+                return ResourceManager.GetString("StrTotalRegistros", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Usuário.
+        /// </summary>
+        public static string StrUsuario {
+            get {
+                return ResourceManager.GetString("StrUsuario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Usuário inválido no TFS: {0}
+        ///
+        ///Detalhes do erro:
+        ///
+        ///{1}.
+        /// </summary>
+        public static string StrUsuarioInvalidoTFS {
+            get {
+                return ResourceManager.GetString("StrUsuarioInvalidoTFS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Utilize os botões de &apos;Seta&apos; para alterar a ordem..
+        /// </summary>
+        public static string StrUtilizeBotoesSetaAlterarOrdem {
+            get {
+                return ResourceManager.GetString("StrUtilizeBotoesSetaAlterarOrdem", resourceCulture);
+            }
+        }
     }
 }

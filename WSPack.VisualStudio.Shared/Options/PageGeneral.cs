@@ -17,6 +17,7 @@ namespace WSPack.VisualStudio.Shared.Options
     public PageGeneral()
     {
       WSPackConfigPath = BaseDialogPage.BaseConfigPath;
+      EnableDebugMode = false;
     }
 
     /// <summary>
@@ -44,5 +45,14 @@ namespace WSPack.VisualStudio.Shared.Options
     [Editor(typeof(FolderPathEditor), typeof(System.Drawing.Design.UITypeEditor))]
     [ReadOnly(false)]
     public string WSPackConfigPath { get; set; }
+
+    /// <summary>
+    /// Habilitar modo Debug
+    /// </summary>
+    [Category(OptionsPageConsts.Outros)]
+    [DisplayName("Habilitar modo de Depuração")]
+    [Description("Habilitar o modo de Depuração (Debug) para maior rastreabilidade do WSPack.")]
+    [DefaultValue(false)]
+    public bool EnableDebugMode { get; set; }
   }
 }

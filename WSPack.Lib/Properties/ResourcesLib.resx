@@ -121,4 +121,397 @@
   <data name="icoWSPackLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WSPackLogo.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="StrAbrir" xml:space="preserve">
+    <value>Abrir</value>
+  </data>
+  <data name="StrAbrirSolutionProjetoPaginaInicial" xml:space="preserve">
+    <value>Abrir Solution / Projeto da página inicial</value>
+  </data>
+  <data name="StrAbrirTelaParaInsercaoMacro" xml:space="preserve">
+    <value>Abrir tela para inserção de macros</value>
+  </data>
+  <data name="StrAlternarMarcador" xml:space="preserve">
+    <value>Alternar marcador: {0}</value>
+  </data>
+  <data name="StrArquivoResourcesNaoEncontrado" xml:space="preserve">
+    <value>Arquivo de resources não encontrado. Por favor, verifique se:
+- Existe projeto aberto no Solution Explorer;
+- O projeto já possui Resources criado;</value>
+  </data>
+  <data name="StrArquivoResourceSomenteLeitura" xml:space="preserve">
+    <value>O arquivo de Resource está como 'Somente leitura'. Favor verificar uma das opções:
+1. Se o arquivo faz parte do Source Control Explorer, tente efetuar um 'Check Out';
+2. Se você tem permissão de escrita no arquivo.</value>
+  </data>
+  <data name="StrAviso" xml:space="preserve">
+    <value>Aviso</value>
+  </data>
+  <data name="StrAvisoTelaMergeNaoSeraMostrado" xml:space="preserve">
+    <value>Ao marcar esta opção, esta tela não mais será exibida após o Check In
+e o Merge não será executado.
+Essa opção está disponível em WS Pack | Parâmetros.</value>
+  </data>
+  <data name="StrBuscaPorItemLocalPressioneOK" xml:space="preserve">
+    <value>Busca por item 'Local'. Pressione 'OK' para procurar...</value>
+  </data>
+  <data name="StrCaracteresInvalidos" xml:space="preserve">
+    <value>O texto possui caracteres inválidos</value>
+  </data>
+  <data name="StrChangesetId" xml:space="preserve">
+    <value>Nº Changeset</value>
+  </data>
+  <data name="StrCheckNoteNaoInformado" xml:space="preserve">
+    <value>Check-in Note não informado: {0}</value>
+    <comment>1. Check In Note</comment>
+  </data>
+  <data name="StrCliqueAlternarMarcadores" xml:space="preserve">
+    <value>Clique para alternar marcadores</value>
+  </data>
+  <data name="StrComandoNaoDisponivel" xml:space="preserve">
+    <value>Comando não disponível</value>
+  </data>
+  <data name="StrComentario" xml:space="preserve">
+    <value>Comentário</value>
+  </data>
+  <data name="StrConfirmacao" xml:space="preserve">
+    <value>Confirmação</value>
+  </data>
+  <data name="StrConfirmaExclusaoFavorito" xml:space="preserve">
+    <value>Confirma a exclusão do favorito:
+{0} ?</value>
+    <comment>1. Favorito TFS</comment>
+  </data>
+  <data name="StrConfirmaExclusaoItem" xml:space="preserve">
+    <value>Confirma a exclusão do item {0} ?</value>
+    <comment>1. Nome do item</comment>
+  </data>
+  <data name="StrConfirmaGeracaoItensDefault" xml:space="preserve">
+    <value>Confirma a geração de itens (padrão)?</value>
+  </data>
+  <data name="StrConsidereCriacaoResourceString" xml:space="preserve">
+    <value>(sempre considere a criação de Resources para todas as strings)</value>
+  </data>
+  <data name="StrConteudoCampoNuloInvalido" xml:space="preserve">
+    <value>O conteúdo do campo é nulo ou inválido</value>
+  </data>
+  <data name="StrCopiadoAreaTransferencia" xml:space="preserve">
+    <value>Copiado para a área de transferência</value>
+  </data>
+  <data name="strCopiarMetodo" xml:space="preserve">
+    <value>Copiar o método</value>
+  </data>
+  <data name="StrCriandoFavorito" xml:space="preserve">
+    <value>Criando favorito</value>
+  </data>
+  <data name="StrDataCheckIn" xml:space="preserve">
+    <value>Data do Check In</value>
+  </data>
+  <data name="StrDataFinalMaiorIgualInicial" xml:space="preserve">
+    <value>A data final deve ser maior ou igual à inicial</value>
+  </data>
+  <data name="strDepurarTeste" xml:space="preserve">
+    <value>Depurar teste</value>
+  </data>
+  <data name="StrDesejaDefinirTemplateAgora" xml:space="preserve">
+    <value>Deseja criar um Template agora?</value>
+  </data>
+  <data name="StrDesejaExcluirEsteComando" xml:space="preserve">
+    <value>Deseja excluir o comando: {0}</value>
+    <comment>1. Nome do comando</comment>
+  </data>
+  <data name="StrDesejaExcluirItemLista" xml:space="preserve">
+    <value>Deseja excluir este item da lista?</value>
+  </data>
+  <data name="StrDesejaExcluirProjeto" xml:space="preserve">
+    <value>Deseja excluir o projeto {0} ?</value>
+    <comment>1. Nome do projeto</comment>
+  </data>
+  <data name="StrDesejaReiniciarVisualStudio" xml:space="preserve">
+    <value>É necessário reiniciar o Visual Stutio para que as alterações sejam aplicadas.
+Deseja reiniciar agora?</value>
+  </data>
+  <data name="StrDestruirItemTFS" xml:space="preserve">
+    <value>ATENÇÃO!
+Deseja excluir este item e REMOVÊ-LO completamente do controle de fontes do TFS?
+{0}
+Esta opção não poderá ser desfeita!!!</value>
+    <comment>1. Item do TFS</comment>
+  </data>
+  <data name="strDocumentoPossuiMarcadores" xml:space="preserve">
+    <value>Documento possui marcador(es)</value>
+  </data>
+  <data name="StrEncontrarReferencias" xml:space="preserve">
+    <value>Encontrar referências</value>
+  </data>
+  <data name="StrErro" xml:space="preserve">
+    <value>Erro</value>
+  </data>
+  <data name="strExecutarTeste" xml:space="preserve">
+    <value>Executar teste</value>
+  </data>
+  <data name="StrFavoritoAdicionadoSucesso" xml:space="preserve">
+    <value>Favorito adicionado com sucesso: {0}</value>
+    <comment>1. Nome favorito</comment>
+  </data>
+  <data name="StrFavoritoExistente" xml:space="preserve">
+    <value>Favorito existente:
+{0}</value>
+    <comment>1. Nome do favorito</comment>
+  </data>
+  <data name="StrGitOperacaoPullRealizada" xml:space="preserve">
+    <value>Operação de Pull realizada.</value>
+  </data>
+  <data name="StrGrupoExistente" xml:space="preserve">
+    <value>Grupo existente: {0}</value>
+    <comment>1. Nome do grupo</comment>
+  </data>
+  <data name="StrGrupoJaPossuiEsteProjeto" xml:space="preserve">
+    <value>Grupo já possui este projeto:
+{0}</value>
+    <comment>1. Nome do projeto</comment>
+  </data>
+  <data name="strHintCopiarMetodo" xml:space="preserve">
+    <value>Copiar todo o código fonte do método para a área de transferência</value>
+  </data>
+  <data name="strHintDepurarTesteUnitario" xml:space="preserve">
+    <value>Depurar teste unitário para este método</value>
+  </data>
+  <data name="strHintEncontrarReferencias" xml:space="preserve">
+    <value>Encontrar todas as referências do método</value>
+  </data>
+  <data name="strHintExecutarTesteUnitario" xml:space="preserve">
+    <value>Executar teste unitário para este método</value>
+  </data>
+  <data name="strHintIrParaFinalMetodo" xml:space="preserve">
+    <value>Posicionar o cursor no final do método</value>
+  </data>
+  <data name="strHintIrParaType" xml:space="preserve">
+    <value>Posicionar o cursor no início do 'Type' que o declara</value>
+  </data>
+  <data name="strHintRecortarMetodo" xml:space="preserve">
+    <value>Recortar todo o código fonte do método para a área de transferência</value>
+  </data>
+  <data name="StrInformacao" xml:space="preserve">
+    <value>Informação</value>
+  </data>
+  <data name="StrInformarArquivos" xml:space="preserve">
+    <value>Favor informar o(s) arquivo(s)</value>
+  </data>
+  <data name="StrInformarComentario" xml:space="preserve">
+    <value>Favor informar o comentário</value>
+  </data>
+  <data name="StrInformarLocalProcura" xml:space="preserve">
+    <value>Favor informar o local da procura</value>
+  </data>
+  <data name="StrInformarUsuario" xml:space="preserve">
+    <value>Favor informar o usuário</value>
+  </data>
+  <data name="StrInformeCaminhoServerOuLocalItem" xml:space="preserve">
+    <value>Informe o caminho 'Server' ou 'Local' do item a ser localizado:</value>
+  </data>
+  <data name="StrInformeNomeFavorito" xml:space="preserve">
+    <value>Informe o nome deste favorito:</value>
+  </data>
+  <data name="StrInformeNomeMarcador" xml:space="preserve">
+    <value>Informe o nome do marcador {0}: </value>
+    <comment>1. Número do marcador</comment>
+  </data>
+  <data name="StrIniciando" xml:space="preserve">
+    <value>Iniciando</value>
+  </data>
+  <data name="strIrParaFinalMetodo" xml:space="preserve">
+    <value>Ir para o final do método</value>
+  </data>
+  <data name="strIrParaType" xml:space="preserve">
+    <value>Ir par ao 'Type'</value>
+  </data>
+  <data name="StrItemExistente" xml:space="preserve">
+    <value>Item existente: {0}</value>
+    <comment>1. Nome do item</comment>
+  </data>
+  <data name="StrItemNaoEncontrado" xml:space="preserve">
+    <value>Item não encontrado ou inválido:
+{0}</value>
+    <comment>1. Nome do item</comment>
+  </data>
+  <data name="StrItemNaoEncontradoTFS" xml:space="preserve">
+    <value>Item não encontrado no TFS</value>
+  </data>
+  <data name="StrItemNaoInformado" xml:space="preserve">
+    <value>Item não informado.</value>
+  </data>
+  <data name="StrLocalizarSolutionProjetoASerAberto" xml:space="preserve">
+    <value>Localizar a Solution ou Projeto a ser aberto:</value>
+  </data>
+  <data name="StrLocalProcuraNaoRepresentaProjetoValido" xml:space="preserve">
+    <value>O local da procura deverá começar com o nome de um dos projetos registrados no TFS.
+
+Exemplo de procura: $/NomeProjeto/Projeto/Branch/Modulo/etc...
+
+Segue listagem dos projetos registrados:
+
+{0}</value>
+    <comment>1. Listagem de projetos</comment>
+  </data>
+  <data name="StrMarcador" xml:space="preserve">
+    <value>Marcador{0}: {1} - Linha: {2} - Coluna: {3}
+Arquivo: {4}</value>
+    <comment>1. Nome
+2. Número 0 a 9
+3. Linha
+4. Coluna
+5. Arquivo</comment>
+  </data>
+  <data name="StrMarcadores" xml:space="preserve">
+    <value>Marcadores</value>
+  </data>
+  <data name="StrMarcadorNaoEncontradoNaSolution" xml:space="preserve">
+    <value>Marcador não encontrado nesta Solution: {0}
+{1}</value>
+    <comment>1. Solution
+2. Informações do marcador</comment>
+  </data>
+  <data name="StrNaoExisteMapeamentoNesteLocal" xml:space="preserve">
+    <value>Não existe mapeamento válido para este local: {0}
+Detalhes do erro:
+{1}</value>
+    <comment>1. Nome do local
+2. Detalhes do erro</comment>
+  </data>
+  <data name="StrNaoExistemControlesDentroItem" xml:space="preserve">
+    <value>Não existem controles dentro do item:
+- {0}.</value>
+    <comment>1. Nome do controle</comment>
+  </data>
+  <data name="StrNaoFoiPossivelGerarResource" xml:space="preserve">
+    <value>Não foi possível gerar o Resource:
+{0}</value>
+    <comment>1. Mensagem de erro</comment>
+  </data>
+  <data name="StrNaoFoiPossivelRealizarEstaOperacao" xml:space="preserve">
+    <value>Não foi possível realizar esta operação!</value>
+  </data>
+  <data name="StrNaoFoiPossivelRecuperarCaminhoLocalItem" xml:space="preserve">
+    <value>Não foi possível recuperar o caminho local do item.</value>
+  </data>
+  <data name="StrNaoFoiPossivelRecuperarChangeset" xml:space="preserve">
+    <value>Não foi possível recuperar as informações deste Changeset:
+
+{0}</value>
+    <comment>1. Exceção</comment>
+  </data>
+  <data name="StrNaoFoiPossivelRecuperarNotas" xml:space="preserve">
+    <value>Não foi possível recuperar Check In Notes do servidor:
+
+{0}
+
+Verifique se este local de pesquisa está presente em algum projeto do TFS.</value>
+    <comment>1. Exceção</comment>
+  </data>
+  <data name="StrNaoFoiPossivelRecuperarProjeto" xml:space="preserve">
+    <value>Não foi possível recuperar o projeto da Solution.</value>
+  </data>
+  <data name="StrNaoFoiPossivelRecuperarProjetoInicial" xml:space="preserve">
+    <value>Não foi possível recuperar o projeto inicial.</value>
+  </data>
+  <data name="StrNaoFoiPossivelRecuperarWorkspace" xml:space="preserve">
+    <value>Não foi possível recuperar o Workspace para este Changeset</value>
+  </data>
+  <data name="StrNaoHaCandidatosMergeNesteChangeset" xml:space="preserve">
+    <value>Não há candidatos à Merge para este changeset nestas branches:
+Changeset: {0}
+Branch origem: {1}
+Branch destino: {2}</value>
+    <comment>1. ChangesetId;
+2. branch origem
+3. branch destino</comment>
+  </data>
+  <data name="StrNaoPodeTerEspacos" xml:space="preserve">
+    <value>Não pode ter espaços.</value>
+  </data>
+  <data name="StrObjetoControleVersaoNaoDisponivel" xml:space="preserve">
+    <value>Objeto de Controle de versão não disponível.</value>
+  </data>
+  <data name="StrOperacaoGETNaoRealizada" xml:space="preserve">
+    <value>Operação de GET não foi realizada.
+Favor verificar se o TFS estava ativo e conectado.</value>
+  </data>
+  <data name="StrParametrosProjeto" xml:space="preserve">
+    <value>Parâmetros de: {0}</value>
+    <comment>1. ProjectUniqueName</comment>
+  </data>
+  <data name="StrProjetoNaoPossuiConfiguracaoAtiva" xml:space="preserve">
+    <value>Projeto não possui configuração ativa.</value>
+  </data>
+  <data name="StrProjetoNaoPossuiGerenciadorConfiguracao" xml:space="preserve">
+    <value>Projeto não possui Gerenciador de configuração.</value>
+  </data>
+  <data name="StrPropriedadeLilnhaComandoNaoEncontrada" xml:space="preserve">
+    <value>Propriedade de linha de comando não encontrada no projeto:
+{0}</value>
+  </data>
+  <data name="StrPropriedadeNaoEncontrada" xml:space="preserve">
+    <value>Propriedade não encontrada.</value>
+  </data>
+  <data name="strRecortarMetodo" xml:space="preserve">
+    <value>Recortar o método</value>
+  </data>
+  <data name="StrRenomearMarcador" xml:space="preserve">
+    <value>Renomar marcador</value>
+  </data>
+  <data name="StrSelecioneApenasUmItem" xml:space="preserve">
+    <value>Selecione apenas um item para realizar esta operação</value>
+  </data>
+  <data name="StrSourceControlExplorerNaoConfigurado" xml:space="preserve">
+    <value>Source Control Explorer não configurado.
+
+Por favor, certifique-se de que:
+
+1. O Team Foundation Server está conectado e ativo;
+2. O Source Control Explorer foi carregado;</value>
+  </data>
+  <data name="StrTemCerteza" xml:space="preserve">
+    <value>Tem certeza?</value>
+  </data>
+  <data name="StrTemplateCheckInNaoDefinido" xml:space="preserve">
+    <value>Template com informações do Check In não definido.</value>
+  </data>
+  <data name="StrTextoNaoSelecionado" xml:space="preserve">
+    <value>Texto não selecionado.
+Favor selecionar um texto ou posicionar o cursor sobre uma string.</value>
+  </data>
+  <data name="StrTipoOuMembroNaoEncontrado" xml:space="preserve">
+    <value>Tipo ou Membro não encontrado.
+Por favor, certifique-se de que o cursor está posicionado na mesma linha do item desejado.</value>
+  </data>
+  <data name="StrToolTipLabelRodape" xml:space="preserve">
+    <value>Clique........: Copiar nome 'Local' do arquivo
+Clique direito: Copiar nome 'Server' do arquivo
+Ctrl+Clique...: Abrir local do arquivo
+{0}</value>
+    <comment>1. Informações do arquivo</comment>
+  </data>
+  <data name="StrTotalItensRecuperados" xml:space="preserve">
+    <value>Total de itens recuperados: {0}</value>
+    <comment>1. Quantidade de itens</comment>
+  </data>
+  <data name="StrTotalRegistros" xml:space="preserve">
+    <value>Total de registros: {0}</value>
+    <comment>1. Total de registros</comment>
+  </data>
+  <data name="StrUsuario" xml:space="preserve">
+    <value>Usuário</value>
+  </data>
+  <data name="StrUsuarioInvalidoTFS" xml:space="preserve">
+    <value>Usuário inválido no TFS: {0}
+
+Detalhes do erro:
+
+{1}</value>
+    <comment>1. Usuário
+2. Detalhes do erro</comment>
+  </data>
+  <data name="StrUtilizeBotoesSetaAlterarOrdem" xml:space="preserve">
+    <value>Utilize os botões de 'Seta' para alterar a ordem.</value>
+  </data>
 </root>

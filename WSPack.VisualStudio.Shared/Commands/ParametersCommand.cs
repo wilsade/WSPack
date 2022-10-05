@@ -10,7 +10,7 @@ using Microsoft.VisualStudio.Shell;
 
 using WSPack.VisualStudio.Shared.Options;
 
-using WSPack2019.Forms;
+using WSPack.Lib.Forms;
 
 using Task = System.Threading.Tasks.Task;
 

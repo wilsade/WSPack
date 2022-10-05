@@ -58,6 +58,9 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\ParametersCommand.cs">
       <Link>Commands\ParametersCommand.cs</Link>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Extensions\DteExtensions.cs">
+      <Link>Extensions\DteExtensions.cs</Link>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Options\BaseDialogPage.cs">
       <Link>Options\BaseDialogPage.cs</Link>
       <SubType>Component</SubType>
@@ -67,6 +70,7 @@
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Options\FolderPathEditor.cs">
       <Link>Options\FolderPathEditor.cs</Link>
+      <DependentUpon>BaseEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Options\OptionsPageConsts.cs">
       <Link>Options\OptionsPageConsts.cs</Link>
@@ -77,6 +81,9 @@
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\SharedAssemblyInfo.cs">
       <Link>SharedAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Utils.cs">
+      <Link>Utils.cs</Link>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\WSPackPackage.cs">
       <Link>WSPackPackage.cs</Link>

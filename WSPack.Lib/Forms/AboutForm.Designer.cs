@@ -1,4 +1,4 @@
-﻿namespace WSPack2019.Forms
+﻿namespace WSPack.Lib.Forms
 {
   public partial class AboutForm
   {
