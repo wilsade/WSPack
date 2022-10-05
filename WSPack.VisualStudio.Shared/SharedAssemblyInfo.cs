@@ -2,6 +2,8 @@
 using System.Resources;
 using System.Runtime.InteropServices;
 
+using WSPack.Lib;
+
 [assembly: ComVisible(false)]
 
 [assembly: AssemblyTitle("Wilsade - WSPack")]
@@ -9,9 +11,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Wilsade")]
 [assembly: AssemblyProduct("WSPack - 2019/2022")]
-[assembly: AssemblyCopyright("Copyright © William Sade de Paiva [desde 2022]")]
+[assembly: AssemblyCopyright("Copyright © William Sade de Paiva [desde 2019]")]
 [assembly: AssemblyTrademark("Wilsade")]
 [assembly: AssemblyCulture("")]
 
-[assembly: AssemblyVersion("1.0.0.1")]
-[assembly: AssemblyFileVersion("1.0.0.1")]
+[assembly: AssemblyVersion(Constantes.NumeroVersao)]
+[assembly: AssemblyFileVersion(Constantes.NumeroVersao)]

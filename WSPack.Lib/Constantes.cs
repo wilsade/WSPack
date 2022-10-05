@@ -12,14 +12,14 @@ namespace WSPack.Lib
   public static class Constantes
   {
     /// <summary>
-    /// Meu nome
-    /// </summary>
-    public const string WilliamSadeDePaiva = "William Sade de Paiva";
-
-    /// <summary>
     /// Nº de versão do Package e Assembly
     /// </summary>
     public const string NumeroVersao = "4.0.0.1";
+
+    /// <summary>
+    /// Meu nome
+    /// </summary>
+    public const string WilliamSadeDePaiva = "William Sade de Paiva";
 
     /// <summary>
     /// Caminho do projeto WSPack no github
@@ -34,6 +34,6 @@ namespace WSPack.Lib
     /// <summary>
     /// Release Notes Url
     /// </summary>
-    public static readonly string GitHubWSPackReleaseNotes = $"{GitHubWSPackWiki}/Release-Notes";
+    public static readonly string GitHubWSPackReleaseNotes = $"{GitHubWSPackWiki}/Novidades-da-versão";
   }
 }
