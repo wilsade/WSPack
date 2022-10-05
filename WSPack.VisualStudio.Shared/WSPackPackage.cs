@@ -59,6 +59,11 @@ namespace WSPack
     public static PageGeneral ParametrosGerais => GetParametersPage<PageGeneral>();
 
     /// <summary>
+    /// Recuperar a página de opções de componentes: MEFObjects
+    /// </summary>
+    public static PageMEFObjects ParametrosMEFObjects => GetParametersPage<PageMEFObjects>();
+
+    /// <summary>
     /// Initialization of the package; this method is called right after the package is sited, so this is the place
     /// where you can put all the initialization code that rely on services provided by VisualStudio.
     /// </summary>

@@ -7,7 +7,75 @@
 
       <!-- Menus e Grupos. Começar com 2000. Cresce de 1 em 1 -->
       <IDSymbol name="WSPackMenu" value="0x2000"/>
-      <IDSymbol name="grupo01MenuPricipal" value="0x2001" />      
+      <IDSymbol name="grupo01MenuPricipal" value="0x2001" />
+      <IDSymbol name="grupo02MenuPricipal" value="0x2002" />
+      <IDSymbol name="grupo03MenuPricipal" value="0x2003" />
+      <IDSymbol name="grupo04MenuPricipal" value="0x0204" />
+
+      <IDSymbol name="menuWSPackCodeEditor" value="0x02005"/>
+      <IDSymbol name="grupoCodeEditor" value="0x02006"/>
+      <IDSymbol name="subGrupo01CodeEditor" value="0x02007"/>
+      <IDSymbol name="subGrupo02CodeEditor" value="0x02008"/>
+      <IDSymbol name="subGrupo03CodeEditor" value="0x02009"/>
+      <IDSymbol name="subGrupo04CodeEditor" value="0x02010"/>
+      <IDSymbol name="grupoAbaCodeEditor" value="0x02011"/>
+
+      <IDSymbol name="todosMenusSolutionExplorer" value="0x02012"/>
+      <IDSymbol name="subMenu01SolutionExplorer" value="0x02013"/>
+      <IDSymbol name="subGrupo01SolutionExplorer" value="0x02014"/>
+      <IDSymbol name="subGrupo02SolutionExplorer" value="0x02015"/>
+      <IDSymbol name="subGrupo03SolutionExplorer" value="0x02016"/>
+      <IDSymbol name="subGrupo04SolutionExplorer" value="0x02017"/>
+
+      <IDSymbol name="subGrupoAdvanced01SourceControlExplorer" value="0x02018"/>
+      <IDSymbol name="subGrupoAdvanced02SourceControlExplorer" value="0x02019"/>
+
+      <IDSymbol name="toolBarWSPack" value="0x02020"/>
+      <IDSymbol name="wsPackToolBarId" value="0x02021"/>
+      <IDSymbol name="grupo01ToolBarWSPack" value="0x02022"/>
+      <IDSymbol name="grupo02ToolBarWSPack" value="0x02023"/>
+      <IDSymbol name="grupo03ToolBarWSPack" value="0x02024"/>
+      <IDSymbol name="grupo04ToolBarWSPack" value="0x02025"/>
+      <IDSymbol name="grupo05ToolBarWSPack" value="0x02026"/>
+      <IDSymbol name="grupo06ToolBarWSPack" value="0x02027"/>
+      <IDSymbol name="grupo07ToolBarWSPack" value="0x02028"/>
+
+      <IDSymbol name="grupoAdicionarRemoverFavoritos" value="0x02029" />
+      <IDSymbol name="menuFavoritosIrPara" value="0x02030"/>
+      <IDSymbol name="subGrupoFavoritosIrPara" value="0x02031"/>
+      <IDSymbol name="subGrupoFavoritosAdicionados" value="0x02032"/>
+
+      <IDSymbol name="subMenuDocumentacao" value="0x02033"/>
+      <IDSymbol name="grupo01Documentacao" value="0x02034"/>
+      <IDSymbol name="grupo02Documentacao" value="0x02035"/>
+
+      <IDSymbol name="subMenuMarcadores" value="0x02036"/>
+      <IDSymbol name="grupo01Marcadores" value="0x2037" />
+      <IDSymbol name="grupo02Marcadores" value="0x2038" />
+      <IDSymbol name="grupo03Marcadores" value="0x2039" />
+
+      <IDSymbol name="grupoCollapseAllIncludedPendingChanges" value="0x2040"/>
+      <IDSymbol name="grupoCollapseAllExcludedPendingChanges" value="0x02041"/>
+      <IDSymbol name="grupo01Refactor" value="0x02042"/>
+      <IDSymbol name="grupo01TeamFoundationServer" value="0x02043"/>
+      <IDSymbol name="grupoSolutionExplorerToolbar" value="0x02044"/>
+
+      <IDSymbol name="grupoMergeInViewHistory" value="0x02045"/>
+      <IDSymbol name="grupo01File" value="0x02046"/>
+
+      <IDSymbol name="menuControllerToolbarSCE" value="0x02047"/>
+      <IDSymbol name="grupo01MenuControllerToolbarSCE" value="0x02048"/>
+      <IDSymbol name="grupo02MenuControllerToolbarSCE" value="0x02049"/>
+      <IDSymbol name="grupo03MenuControllerToolbarSCE" value="0x02050"/>
+      <IDSymbol name="grupo04MenuControllerToolbarSCE" value="0x02051"/>
+
+      <IDSymbol name="subMenuUtils" value="0x02052"/>
+      <IDSymbol name="grupo01SubMenuUtils" value="0x02053"/>
+
+      <IDSymbol name="grupo01GitViewChanges" value="0x02054"/>
+
+      <!-- Comandos dinâmicos têm numeração diferente -->
+      <IDSymbol name="cmdTFSAddedFavorites" value="0x0700"/>
 
       <!-- Comandos. Começar com 0x0100. Cresce de 1 em 1 -->
       <IDSymbol name="cmdAbout" value="0x0100" />
