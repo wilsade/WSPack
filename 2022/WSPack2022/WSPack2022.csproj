@@ -58,6 +58,23 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\ParametersCommand.cs">
       <Link>Commands\ParametersCommand.cs</Link>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Options\BaseDialogPage.cs">
+      <Link>Options\BaseDialogPage.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Options\BaseEditor.cs">
+      <Link>Options\BaseEditor.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Options\FolderPathEditor.cs">
+      <Link>Options\FolderPathEditor.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Options\OptionsPageConsts.cs">
+      <Link>Options\OptionsPageConsts.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Options\PageGeneral.cs">
+      <Link>Options\PageGeneral.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\SharedAssemblyInfo.cs">
       <Link>SharedAssemblyInfo.cs</Link>
     </Compile>

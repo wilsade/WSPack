@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,12 @@ namespace WSPack.Lib
     /// <summary>
     /// Nº de versão do Package e Assembly
     /// </summary>
-    public const string NumeroVersao = "4.0.0.1";
+    public const string NumeroVersao = "4.0.0.2";
+
+    /// <summary>
+    /// WSPack
+    /// </summary>
+    public const string WSPack = "WSPack";
 
     /// <summary>
     /// Meu nome

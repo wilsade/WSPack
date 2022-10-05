@@ -10,7 +10,6 @@ using WSPack.Lib;
 [assembly: AssemblyDescription("Pacote de funcionalidades para Visual Studio")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Wilsade")]
-[assembly: AssemblyProduct("WSPack - 2019/2022")]
 [assembly: AssemblyCopyright("Copyright © William Sade de Paiva [desde 2019]")]
 [assembly: AssemblyTrademark("Wilsade")]
 [assembly: AssemblyCulture("")]

@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 
 using Microsoft.VisualStudio.Shell;
 
+using WSPack.VisualStudio.Shared.Options;
+
 using WSPack2019.Forms;
 
 using Task = System.Threading.Tasks.Task;
@@ -54,21 +56,23 @@ namespace WSPack.VisualStudio.Shared.Commands
     {
       ThreadHelper.ThrowIfNotOnUIThread();
 
-      string fileName = Process.GetCurrentProcess().MainModule.FileName;
-      string versao = fileName.Contains("2022") ? "2022" : "2019";
+      base._package.ShowOptionPage(typeof(PageGeneral));
 
-      string message = $"Inside {GetType().FullName}.MenuItemCallback()" + Environment.NewLine +
-        fileName;
-      string title = $"{nameof(ParametersCommand)} {versao}";
+      //string fileName = Process.GetCurrentProcess().MainModule.FileName;
+      //string versao = fileName.Contains("2022") ? "2022" : "2019";
 
-      // Show a message box to prove we were here
-      VsShellUtilities.ShowMessageBox(
-        _package,
-        message,
-        title,
-        Microsoft.VisualStudio.Shell.Interop.OLEMSGICON.OLEMSGICON_INFO,
-        Microsoft.VisualStudio.Shell.Interop.OLEMSGBUTTON.OLEMSGBUTTON_OK,
-        Microsoft.VisualStudio.Shell.Interop.OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
+      //string message = $"Inside {GetType().FullName}.MenuItemCallback()" + Environment.NewLine +
+      //  fileName;
+      //string title = $"{nameof(ParametersCommand)} {versao}";
+
+      //// Show a message box to prove we were here
+      //VsShellUtilities.ShowMessageBox(
+      //  _package,
+      //  message,
+      //  title,
+      //  Microsoft.VisualStudio.Shell.Interop.OLEMSGICON.OLEMSGICON_INFO,
+      //  Microsoft.VisualStudio.Shell.Interop.OLEMSGBUTTON.OLEMSGBUTTON_OK,
+      //  Microsoft.VisualStudio.Shell.Interop.OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
     }
   }
 }

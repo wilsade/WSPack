@@ -7,6 +7,7 @@ using System.Threading;
 
 using WSPack.Lib;
 using WSPack.VisualStudio.Shared.Commands;
+using WSPack.VisualStudio.Shared.Options;
 
 using Task = System.Threading.Tasks.Task;
 
@@ -19,6 +20,9 @@ namespace WSPack
   [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
   [Guid(PackageGuidString)]
   [ProvideMenuResource("Menus.ctmenu", 1)]
+
+  [ProvideOptionPage(typeof(PageGeneral), Constantes.WSPack, "01GeralX", 110, 113, true, new string[] { "Mudar as opções do WSPack" }, Sort = 1)]
+
   public sealed class WSPackPackage : AsyncPackage
   {
     /// <summary>
