@@ -13,7 +13,7 @@
   <Commands package="guidWSPackPackage">
 
     <Menus>
-      <!-- Region Menu WSPack no menu do Visual Studio -->
+      <!-- #region Menu WSPack no menu do Visual Studio -->
       <Menu guid="guidWSPackPackageCmdSet" id="WSPackMenu" priority="0x100" type="Menu">
         <Parent guid="guidSHLMainMenu" id="IDG_VS_MM_TOOLSADDINS" />
         <Strings>
@@ -22,10 +22,20 @@
         </Strings>
       </Menu>
 
+      <!-- Documentação -->
+      <Menu guid="guidWSPackPackageCmdSet" id="subMenuDocumentacao" priority="0x0100" type="Menu">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo02MenuPrincipal" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <CommandName>Documentação</CommandName>
+          <ButtonText>WSPack.Documentacao</ButtonText>
+        </Strings>
+      </Menu>
+
       <!-- Marcadores -->
       <!-- Sub menu "Marcadores" no Menu principal -->
-      <Menu guid="guidWSPackPackageCmdSet" id="subMenuMarcadores" priority="0x0100" type="Menu">
-        <Parent guid="guidWSPackPackageCmdSet" id="grupo02MenuPricipal" />
+      <Menu guid="guidWSPackPackageCmdSet" id="subMenuMarcadores" priority="0x0200" type="Menu">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo02MenuPrincipal" />
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
           <CommandName>Marcadores</CommandName>
@@ -35,13 +45,14 @@
 
       <!-- Sub menu "Utils" no Menu principal -->
       <Menu guid="guidWSPackPackageCmdSet" id="subMenuUtils" priority="0x0200" type="Menu">
-        <Parent guid="guidWSPackPackageCmdSet" id="grupo02MenuPricipal" />
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo02MenuPrincipal" />
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
           <CommandName>Úteis</CommandName>
           <ButtonText>WSPack.Uteis</ButtonText>
         </Strings>
       </Menu>
+      <!-- #endregion -->
 
       <!-- Sub menu "Favoritos - Ir para" do Source Control Explorer -->
       <Menu guid="guidWSPackPackageCmdSet" id="menuFavoritosIrPara" priority="0x300" type="Menu">
@@ -81,16 +92,6 @@
         </Strings>
       </Menu>
 
-      <!-- Documentação -->
-      <Menu guid="guidWSPackPackageCmdSet" id="subMenuDocumentacao" priority="0x0100" type="Menu">
-        <Parent guid="guidWSPackPackageCmdSet" id="grupo02MenuPricipal" />
-        <CommandFlag>DynamicVisibility</CommandFlag>
-        <Strings>
-          <CommandName>Documentação</CommandName>
-          <ButtonText>WSPack.Documentacao</ButtonText>
-        </Strings>
-      </Menu>
-
       <!-- MenuController na ToolBar do Source Control Explorer -->
       <Menu guid="guidWSPackPackageCmdSet" id="menuControllerToolbarSCE" priority="0x006" type="MenuController">
         <Parent guid="guidSourceControlExplorer" id="grupoToolBarSourceControlExplorer00" />
@@ -99,7 +100,7 @@
           <ButtonText>WSPack.MenuSCE</ButtonText>
         </Strings>
       </Menu>
-      
+
     </Menus>
 
     <!-- In this section you can define new menu groups. 
@@ -108,7 +109,7 @@
          The parent of a group must be a menu. -->
     <Groups>
 
-      <!-- Grupo de projetos da MenuController da ToolBar -->
+      <!-- #region Grupo de projetos da MenuController da ToolBar -->
       <Group guid="guidWSPackPackageCmdSet" id="grupo01MenuControllerToolbarSCE" priority="0x0100">
         <Parent guid="guidWSPackPackageCmdSet" id="menuControllerToolbarSCE" />
       </Group>
@@ -121,22 +122,25 @@
       <Group guid="guidWSPackPackageCmdSet" id="grupo04MenuControllerToolbarSCE" priority="0x0400">
         <Parent guid="guidWSPackPackageCmdSet" id="menuControllerToolbarSCE" />
       </Group>
+      <!-- #endregion -->
 
-      <!-- Region Menu principal -->
-      <Group guid="guidWSPackPackageCmdSet" id="grupo01MenuPricipal" priority="0x0100">
+      <!-- #region Menu principal -->
+      <!-- #region Grupos -->
+      <Group guid="guidWSPackPackageCmdSet" id="grupo01MenuPrincipal" priority="0x0100">
         <Parent guid="guidWSPackPackageCmdSet" id="WSPackMenu" />
       </Group>
-      <Group guid="guidWSPackPackageCmdSet" id="grupo02MenuPricipal" priority="0x0200">
+      <Group guid="guidWSPackPackageCmdSet" id="grupo02MenuPrincipal" priority="0x0200">
         <Parent guid="guidWSPackPackageCmdSet" id="WSPackMenu" />
       </Group>
-      <Group guid="guidWSPackPackageCmdSet" id="grupo03MenuPricipal" priority="0x0300">
+      <Group guid="guidWSPackPackageCmdSet" id="grupo03MenuPrincipal" priority="0x0300">
         <Parent guid="guidWSPackPackageCmdSet" id="WSPackMenu" />
       </Group>
-      <Group guid="guidWSPackPackageCmdSet" id="grupo04MenuPricipal" priority="0x0400">
+      <Group guid="guidWSPackPackageCmdSet" id="grupo04MenuPrincipal" priority="0x0400">
         <Parent guid="guidWSPackPackageCmdSet" id="WSPackMenu" />
       </Group>
+      <!-- #endregion -->
 
-      <!-- Marcadores -->
+      <!-- #region Marcadores -->
       <!-- Grupo 01 de Marcadores -->
       <Group guid="guidWSPackPackageCmdSet" id="grupo01Marcadores" priority="0x0100">
         <Parent guid="guidWSPackPackageCmdSet" id="subMenuMarcadores" />
@@ -149,13 +153,15 @@
       <Group guid="guidWSPackPackageCmdSet" id="grupo03Marcadores" priority="0x0300">
         <Parent guid="guidWSPackPackageCmdSet" id="subMenuMarcadores" />
       </Group>
+      <!-- #endregion -->
 
       <!-- Grupo 01 de Utils -->
       <Group guid="guidWSPackPackageCmdSet" id="grupo01SubMenuUtils" priority="0x0100">
         <Parent guid="guidWSPackPackageCmdSet" id="subMenuUtils" />
       </Group>
+      <!-- #endregion -->
 
-      <!-- Region Source Control Explorer -->
+      <!-- #region Source Control Explorer -->
       <!-- Grupo "Adicionar/Remover favoritos" do Source Control Explorer -->
       <Group guid="guidWSPackPackageCmdSet" id="grupoAdicionarRemoverFavoritos" priority="0x001">
         <Parent guid="guidSourceControlExplorer" id="menuSourceControlExplorer" />
@@ -170,8 +176,9 @@
       <Group guid="guidWSPackPackageCmdSet" id="subGrupoFavoritosAdicionados" priority="0x0200">
         <Parent guid="guidWSPackPackageCmdSet" id="menuFavoritosIrPara" />
       </Group>
+      <!-- #endregion -->
 
-      <!-- Region CodeEditor -->
+      <!-- #region CodeEditor -->
       <!-- Grupo para o Menu -->
       <Group guid="guidWSPackPackageCmdSet" id="grupoCodeEditor" priority="0x0001">
       </Group>
@@ -200,8 +207,9 @@
       <Group guid="guidWSPackPackageCmdSet" id="grupoAbaCodeEditor" priority="0x0001">
         <Parent guid="guidCodeEditor" id="menuAbaCodeEditor" />
       </Group>
-      
-      <!-- Region SolutionExplorer -->
+      <!-- #endregion -->
+
+      <!-- #region SolutionExplorer -->
       <!-- Grupo que contém todos os menus do Solution Explorer -->
       <Group guid="guidWSPackPackageCmdSet" id="todosMenusSolutionExplorer" priority="0x0001">
         <Parent guid="guidSolutionExplorer" id="menuSolutionExplorerItem" />
@@ -231,8 +239,9 @@
       <Group guid="guidWSPackPackageCmdSet" id="grupoSolutionExplorerToolbar" priority="0xF000">
         <Parent guid="guidSHLMainMenu" id="IDM_VS_TOOL_PROJWIN" />
       </Group>
+      <!-- #endregion -->
 
-      <!-- Region Source Control Explorer -->
+      <!-- #region Source Control Explorer -->
       <!-- Sub grupo "Advanced" 01 do Source Control Explorer -->
       <Group guid="guidWSPackPackageCmdSet" id="subGrupoAdvanced01SourceControlExplorer" priority="0x0500">
         <Parent guid="guidSourceControlExplorer" id="subGrupoAdvancedSourceControlExplorer" />
@@ -252,14 +261,14 @@
       <Group guid="guidWSPackPackageCmdSet" id="grupoCollapseAllExcludedPendingChanges" priority="0x0100">
         <Parent guid="guidSourceControlExplorer" id="grupoPendingChangesExcludedSourceControlExplorer" />
       </Group>
-      <!-- endregion -->
+      <!-- #endregion -->
 
       <!-- Team Foundation Server -->
       <Group guid="guidWSPackPackageCmdSet" id="grupo01TeamFoundationServer" priority="0x9999">
         <Parent guid="guidTeamFoundationServer" id="menuTeamFoundationServer" />
       </Group>
 
-      <!-- Region Toolbar WSPack -->
+      <!-- #region Toolbar WSPack -->
       <!-- Grupo01 da ToolBar -->
       <Group guid="guidWSPackPackageCmdSet" id="grupo01ToolBarWSPack" priority="0x0100">
         <Parent guid="guidWSPackPackageCmdSet" id="toolBarWSPack" />
@@ -294,9 +303,9 @@
       <Group guid="guidWSPackPackageCmdSet" id="grupo07ToolBarWSPack" priority="0x0700">
         <Parent guid="guidWSPackPackageCmdSet" id="toolBarWSPack" />
       </Group>
-      <!-- endregion -->
+      <!-- #endregion -->
 
-      <!-- Region Documentação -->
+      <!-- #region Documentação -->
       <!-- Grupo 01 de Documentação -->
       <Group guid="guidWSPackPackageCmdSet" id="grupo01Documentacao" priority="0x0100">
         <Parent guid="guidWSPackPackageCmdSet" id="subMenuDocumentacao" />
@@ -305,45 +314,511 @@
       <Group guid="guidWSPackPackageCmdSet" id="grupo02Documentacao" priority="0x0200">
         <Parent guid="guidWSPackPackageCmdSet" id="subMenuDocumentacao" />
       </Group>
-      <!-- endregion -->
+      <!-- #endregion -->
 
       <!-- Refactor -->
       <Group guid="guidWSPackPackageCmdSet" id="grupo01Refactor" priority="0x9999">
         <Parent guid="guidRefactor" id="grupoRefactor" />
       </Group>
-      
-    <!-- File -->
+
+      <!-- File -->
       <Group guid="guidWSPackPackageCmdSet" id="grupo01File" priority="0xFEFF">
         <Parent guid="guidFileProjetos" id="menuFile" />
       </Group>
-      
+
       <!-- Git - View Changes -->
       <Group guid="guidWSPackPackageCmdSet" id="grupo01GitViewChanges" priority="0x0900">
         <Parent guid="guidGit" id="menuGitChanges" />
       </Group>
 
     </Groups>
-    
+
 
     <Buttons>
 
-      <!-- region Menu principal -->
+      <!-- #region Menu principal -->
+      
+      <!-- #region Grupo 01 -->
+      <!-- Buscar Changesets -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdSearchChangesets" priority="0x0100" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo01MenuPrincipal" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Buscar Changesets</MenuText>
+          <ButtonText>WSPack.BuscarChangesets</ButtonText>
+        </Strings>
+      </Button>
+      <!-- Template com informações do Check In-->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdTemplateCheckIn" priority="0x0200" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo01MenuPrincipal" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Template do Check In</MenuText>
+          <ButtonText>WSPack.TemplateCheckIn</ButtonText>
+          <ToolTipText>Abre a tela para definição de Template com informações do Check In</ToolTipText>
+        </Strings>
+      </Button>
+      <!-- Gerenciador de favoritos do TFS-->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdTFSFavoritesManager" priority="0x0300" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo01MenuPrincipal" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Gerenciador de favoritos do TFS</MenuText>
+          <ButtonText>WSPack.GerenciadorFavoritosTFS</ButtonText>
+          <ToolTipText>Abrir uma tela gerenciar favoritos do TFS</ToolTipText>
+        </Strings>
+      </Button>
+      <!-- #endregion -->
+      
+      <!-- #region Grupo 02 -->
+      
+      <!-- #region Documentação -->
+      <!-- Gerar documentação -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdDocumentation" priority="0x0100" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo01Documentacao" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Gerar documentação</MenuText>
+          <ToolTipText>Gerar documentação do código fonte C#</ToolTipText>
+          <ButtonText>GerarDocumentacao</ButtonText>
+        </Strings>
+      </Button>
+      <!-- Criar regra -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdDocumentationCreateRule" priority="0x0200" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo01Documentacao" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Criar regra</MenuText>
+          <ToolTipText>Criar regra para o elemento selecionado</ToolTipText>
+          <ButtonText>CriarRegra</ButtonText>
+        </Strings>
+      </Button>
+      <!-- Dicionário -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdDocumentationDictionary" priority="0x0100" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo02Documentacao" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Dicionário</MenuText>
+          <ToolTipText>Abrir a configuração do dicinário</ToolTipText>
+          <ButtonText>Dicionario</ButtonText>
+        </Strings>
+      </Button>
+      <!-- Regras -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdDocumentationRules" priority="0x0200" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo02Documentacao" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Regras</MenuText>
+          <ToolTipText>Abrir a configuração de regras </ToolTipText>
+          <ButtonText>Regras</ButtonText>
+        </Strings>
+      </Button>
+      <!-- #endregion -->
+      
+      <!-- #region Marcadores -->
+      <!-- Janela de marcadores -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdBookmarkWindow" priority="0x0100" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo01Marcadores" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Janela de marcadores</MenuText>
+          <ButtonText>JanelaMarcadores</ButtonText>
+        </Strings>
+      </Button>
+      <!-- Limpar marcadores -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdClearAllBookmarks" priority="0x0200" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo01Marcadores" />
+        <Icon guid="guidvsct" id="clearBookmark" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Limpar marcadores</ButtonText>
+          <LocCanonicalName>LimparMarcadores</LocCanonicalName>
+        </Strings>
+      </Button>
+
+      <!-- #region Alterar marcadores -->
+      <!-- Alternar marcador: 1 -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdToggleBookmark1" priority="0x0100" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo02Marcadores" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <Strings>
+          <ButtonText>AlternarMarcador1</ButtonText>
+          <MenuText>Alternar marcador: 1</MenuText>
+        </Strings>
+      </Button>
+      <!-- Alternar marcador: 2 -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdToggleBookmark2" priority="0x0200" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo02Marcadores" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <Strings>
+          <ButtonText>AlternarMarcador2</ButtonText>
+          <MenuText>Alternar marcador: 2</MenuText>
+        </Strings>
+      </Button>
+      <!-- Alternar marcador: 3 -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdToggleBookmark3" priority="0x0300" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo02Marcadores" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <Strings>
+          <ButtonText>AlternarMarcador3</ButtonText>
+          <MenuText>Alternar marcador: 3</MenuText>
+        </Strings>
+      </Button>
+      <!-- Alternar marcador: 4 -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdToggleBookmark4" priority="0x0400" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo02Marcadores" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <Strings>
+          <ButtonText>AlternarMarcador4</ButtonText>
+          <MenuText>Alternar marcador: 4</MenuText>
+        </Strings>
+      </Button>
+      <!-- Alternar marcador: 5 -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdToggleBookmark5" priority="0x0500" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo02Marcadores" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <Strings>
+          <ButtonText>AlternarMarcador5</ButtonText>
+          <MenuText>Alternar marcador: 5</MenuText>
+        </Strings>
+      </Button>
+      <!-- Alternar marcador: 6 -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdToggleBookmark6" priority="0x0600" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo02Marcadores" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <Strings>
+          <ButtonText>AlternarMarcador6</ButtonText>
+          <MenuText>Alternar marcador: 6</MenuText>
+        </Strings>
+      </Button>
+      <!-- Alternar marcador: 7 -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdToggleBookmark7" priority="0x0700" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo02Marcadores" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <Strings>
+          <ButtonText>AlternarMarcador7</ButtonText>
+          <MenuText>Alternar marcador: 7</MenuText>
+        </Strings>
+      </Button>
+      <!-- Alternar marcador: 8 -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdToggleBookmark8" priority="0x0800" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo02Marcadores" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <Strings>
+          <ButtonText>AlternarMarcador8</ButtonText>
+          <MenuText>Alternar marcador: 8</MenuText>
+        </Strings>
+      </Button>
+      <!-- Alternar marcador: 9 -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdToggleBookmark9" priority="0x0900" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo02Marcadores" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <Strings>
+          <ButtonText>AlternarMarcador9</ButtonText>
+          <MenuText>Alternar marcador: 9</MenuText>
+        </Strings>
+      </Button>
+      <!-- Alternar marcador: 0 -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdToggleBookmark0" priority="0x1000" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo02Marcadores" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <Strings>
+          <ButtonText>AlternarMarcador0</ButtonText>
+          <MenuText>Alternar marcador: 0</MenuText>
+        </Strings>
+      </Button>
+      <!-- #endregion -->
+
+      <!-- #region Ir para marcador -->
+      <!-- Ir para marcador 1 -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdGotoBookmark1" priority="0x0100" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo03Marcadores" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <Strings>
+          <MenuText>Ir para marcador: 1</MenuText>
+          <ButtonText>IrParaMarcador1</ButtonText>
+        </Strings>
+      </Button>
+      <!-- Ir para marcador 2 -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdGotoBookmark2" priority="0x0200" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo03Marcadores" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <Strings>
+          <MenuText>Ir para marcador: 2</MenuText>
+          <ButtonText>IrParaMarcador2</ButtonText>
+        </Strings>
+      </Button>
+      <!-- Ir para marcador 3 -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdGotoBookmark3" priority="0x0300" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo03Marcadores" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <Strings>
+          <MenuText>Ir para marcador: 3</MenuText>
+          <ButtonText>IrParaMarcador3</ButtonText>
+        </Strings>
+      </Button>
+      <!-- Ir para marcador 4 -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdGotoBookmark4" priority="0x0400" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo03Marcadores" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <Strings>
+          <MenuText>Ir para marcador: 4</MenuText>
+          <ButtonText>IrParaMarcador4</ButtonText>
+        </Strings>
+      </Button>
+      <!-- Ir para marcador 5 -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdGotoBookmark5" priority="0x0500" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo03Marcadores" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <Strings>
+          <MenuText>Ir para marcador: 5</MenuText>
+          <ButtonText>IrParaMarcador5</ButtonText>
+        </Strings>
+      </Button>
+      <!-- Ir para marcador 6 -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdGotoBookmark6" priority="0x0600" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo03Marcadores" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <Strings>
+          <MenuText>Ir para marcador: 6</MenuText>
+          <ButtonText>IrParaMarcador6</ButtonText>
+        </Strings>
+      </Button>
+      <!-- Ir para marcador 7 -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdGotoBookmark7" priority="0x0700" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo03Marcadores" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <Strings>
+          <MenuText>Ir para marcador: 7</MenuText>
+          <ButtonText>IrParaMarcador7</ButtonText>
+        </Strings>
+      </Button>
+      <!-- Ir para marcador 8 -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdGotoBookmark8" priority="0x0800" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo03Marcadores" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <Strings>
+          <MenuText>Ir para marcador: 8</MenuText>
+          <ButtonText>IrParaMarcador8</ButtonText>
+        </Strings>
+      </Button>
+      <!-- Ir para marcador 9 -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdGotoBookmark9" priority="0x0900" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo03Marcadores" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <Strings>
+          <MenuText>Ir para marcador: 9</MenuText>
+          <ButtonText>IrParaMarcador9</ButtonText>
+        </Strings>
+      </Button>
+      <!-- Ir para marcador 0 -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdGotoBookmark0" priority="0x1000" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo03Marcadores" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <Strings>
+          <MenuText>Ir para marcador: 0</MenuText>
+          <ButtonText>IrParaMarcador0</ButtonText>
+        </Strings>
+      </Button>
+      <!-- #endregion-->
+      
+      <!-- #endregion -->
+      
+      <!-- #region Uteis -->
+      <!-- Testar MessageBox -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdMessageBoxTester" priority="0x0100" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo01SubMenuUtils" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Testar MessageBox</MenuText>
+          <ButtonText>WSPack.TestarMessageBox</ButtonText>
+          <ToolTipText>Abrir uma tela para testar Diálogo de mensagem</ToolTipText>
+        </Strings>
+      </Button>
+      <!-- Variáveis de ambiente -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdVariaviesAmbiente" priority="0x0200" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo01SubMenuUtils" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Variáveis de ambiente</MenuText>
+          <ButtonText>WSPack.VariaveisAmbiente</ButtonText>
+          <ToolTipText>Exibir as variáveis de ambiente</ToolTipText>
+        </Strings>
+      </Button>
+      <!-- Registro de atividade -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdActivityLog" priority="0x0300" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo01SubMenuUtils" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Registro de atividade (Activity Log)</MenuText>
+          <ButtonText>WSPack.ActivityLog</ButtonText>
+          <ToolTipText>Exibir o Registor de atividade</ToolTipText>
+        </Strings>
+      </Button>
+      <!-- Registro de diagnóstico -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdDiagnosticLog" priority="0x0400" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo01SubMenuUtils" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Registro de diagnóstico (Diagnostic Log)</MenuText>
+          <ButtonText>WSPack.DiagnosticLog</ButtonText>
+          <ToolTipText>Exibir o Registor de diagnóstico</ToolTipText>
+        </Strings>
+      </Button>
+      <!-- #endregion -->
+      
+      <!-- #endregion -->
+      
+      <!-- #region Grupo 03 -->
+      <!-- StartPage (WSPack) -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdWSPackStartPage" priority="0x0100" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo03MenuPrincipal" />
+        <Icon guid="guidvsct2" id="home2" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Página inicial</MenuText>
+          <ButtonText>WSPack.StartPage</ButtonText>
+          <ToolTipText>Abrir a página inicial do WSPack</ToolTipText>
+        </Strings>
+      </Button>
+      <!-- Abrir Solution / Projeto da  StartPage -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdOpenSolutionProjectStartPage" priority="0x0200" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo03MenuPrincipal" />
+        <Icon guid="guidvsct2" id="openSolutionProject" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Abrir Solution / Projeto</MenuText>
+          <ButtonText>WSPack.AbrirSolutionProjetoStartPage</ButtonText>
+          <ToolTipText>Abrir uma Solution / Projeto cadastrado na página inicial</ToolTipText>
+        </Strings>
+      </Button>
+      <!-- #endregion -->
+          
+      <!-- #region Grupo 04 -->
       <Button guid="guidWSPackPackageCmdSet" id="cmdParameters" priority="0x0100" type="Button">
-        <Parent guid="guidWSPackPackageCmdSet" id="grupo04MenuPricipal" />
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo04MenuPrincipal" />
         <Strings>
           <MenuText>Parâmetros</MenuText>
           <ButtonText>WSPack.Parametros</ButtonText>
         </Strings>
       </Button>
       <Button guid="guidWSPackPackageCmdSet" id="cmdAbout" priority="0x0200" type="Button">
-        <Parent guid="guidWSPackPackageCmdSet" id="grupo04MenuPricipal" />
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo04MenuPrincipal" />
         <Strings>
           <MenuText>Sobre</MenuText>
           <ButtonText>WSPack.Sobre</ButtonText>
         </Strings>
       </Button>
+      <!-- #endregion -->
+      
+      <!-- #endregion -->
+      
+      <!-- #region Source Control Explorer -->
+      <!-- Buscar changeSets no Source Control Explorer-->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdSearchChangesetsSSE" priority="0x001" type="Button">
+        <Parent guid="guidSourceControlExplorer" id="grupoFindSourceControlExplorer" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Buscar Changeset</MenuText>
+          <ButtonText>WSPack.BuscarChangesetSCE</ButtonText>
+          <ToolTipText>Abre a tela para buscar Changeset no TFS</ToolTipText>
+        </Strings>
+      </Button>
+      
+      <!-- Adicionar favorito -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdTFSAddFavorite" priority="0x0100" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupoAdicionarRemoverFavoritos" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Adicionar favorito</MenuText>
+          <ButtonText>WSPack.AdicionarFavorito</ButtonText>
+        </Strings>
+      </Button>
+      
+      <!-- Remover favorito -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdTFSRemoveFavorite" priority="0x0200" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupoAdicionarRemoverFavoritos" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Remover favorito</MenuText>
+          <ButtonText>WSPack.RemoverFavorito</ButtonText>
+        </Strings>
+      </Button>
+      
+      <!-- Localizar no TFS -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdSouceControlExplorerLocateItem" priority="0x0400" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupoAdicionarRemoverFavoritos" />
+        <Strings>
+          <MenuText>Localizar um item</MenuText>
+          <ButtonText>WSPack.SCELocateItemInTFS</ButtonText>
+          <ToolTipText>Localizar um item no TFS com base no caminho 'Server' ou caminho 'Local'</ToolTipText>
+        </Strings>
+      </Button>
+      
+      <!-- Gerenciar favoritos -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdTFSFavoritesManager" priority="0x0100" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="subGrupoFavoritosIrPara" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Gerenciador de favoritos</MenuText>
+          <ButtonText>WSPack.GerenciadorFavoritos</ButtonText>
+        </Strings>
+      </Button>
+      
+      <!-- Favoritos adicionados -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdTFSAddedFavorites" priority="0x0100" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="subGrupoFavoritosAdicionados" />
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>DynamicItemStart</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>!!! Menu inválido !!!</ButtonText>
+        </Strings>
+      </Button>
+      
+      <!-- CollapseAll no Pending Changes Include no Source Control Explorer-->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdCollapseAllIncludedPendingChanges" priority="0x200" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupoCollapseAllIncludedPendingChanges" />
+        <Strings>
+          <MenuText>Recolher todos</MenuText>
+          <ButtonText>WSPack.RecolherTodosInclude</ButtonText>
+          <ToolTipText>Recolher todos os nodos</ToolTipText>
+        </Strings>
+      </Button>
+      
+      <!-- CollapseAll no Pending Changes Exclude no Source Control Explorer-->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdCollapseAllExcludedPendingChanges" priority="0x200" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupoCollapseAllExcludedPendingChanges" />
+        <Strings>
+          <MenuText>Recolher todos</MenuText>
+          <ButtonText>WSPack.RecolherTodosExclude</ButtonText>
+          <ToolTipText>Recolher todos os nodos</ToolTipText>
+        </Strings>
+      </Button>
+      <!-- #endregion -->
 
-      <!-- Region SolutionExplorer-->
+      <!-- #region SolutionExplorer-->
       <!-- Localizar no TFS -->
       <Button guid="guidWSPackPackageCmdSet" id="cmdLocateInTFSSolutionExplorer" priority="0x0100" type="Button">
         <Parent guid="guidWSPackPackageCmdSet" id="subGrupo01SolutionExplorer" />
@@ -354,7 +829,8 @@
           <ToolTipText>Localizar o item selecionado no TFS</ToolTipText>
         </Strings>
       </Button>
-      
+      <!-- #endregion -->
+
     </Buttons>
 
     <Bitmaps>

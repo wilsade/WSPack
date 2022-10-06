@@ -7,10 +7,10 @@
 
       <!-- Menus e Grupos. Começar com 2000. Cresce de 1 em 1 -->
       <IDSymbol name="WSPackMenu" value="0x2000"/>
-      <IDSymbol name="grupo01MenuPricipal" value="0x2001" />
-      <IDSymbol name="grupo02MenuPricipal" value="0x2002" />
-      <IDSymbol name="grupo03MenuPricipal" value="0x2003" />
-      <IDSymbol name="grupo04MenuPricipal" value="0x0204" />
+      <IDSymbol name="grupo01MenuPrincipal" value="0x2001" />
+      <IDSymbol name="grupo02MenuPrincipal" value="0x2002" />
+      <IDSymbol name="grupo03MenuPrincipal" value="0x2003" />
+      <IDSymbol name="grupo04MenuPrincipal" value="0x0204" />
 
       <IDSymbol name="menuWSPackCodeEditor" value="0x02005"/>
       <IDSymbol name="grupoCodeEditor" value="0x02006"/>
@@ -82,7 +82,93 @@
       <IDSymbol name="cmdParameters" value="0x0101" />
       <IDSymbol name="cmdLocateInTFS" value="0x0102"/>
       <IDSymbol name="cmdLocateInTFSSolutionExplorer" value="0x0103"/>
-
+      <IDSymbol name="cmdLocateInWindowsCodeEditor" value="0x0104"/>
+      <IDSymbol name="cmdLocateInWindowsSolutionExplorer" value="0x0105"/>
+      <IDSymbol name="cmdLocateInSolutionExplorer" value="0x0106"/>
+      <IDSymbol name="cmdCopyLocalPath" value="0x0107"/>
+      <IDSymbol name="cmdCopyLocalPathSolutionExplorer" value="0x0108"/>
+      <IDSymbol name="cmdCopyLocalPathSourceControlExplorer" value="0x0109"/>
+      <IDSymbol name="cmdCopyServerPath" value="0x0110"/>
+      <IDSymbol name="cmdCopyServerPathSolutionExplorer" value="0x0111"/>
+      <IDSymbol name="cmdCopyServerPathSourceControlExplorer" value="0x0112"/>
+      <IDSymbol name="cmdOpenInEditor" value="0x0113"/>
+      <IDSymbol name="cmdOpenInEditorSolutionExplorer" value="0x0114"/>
+      <IDSymbol name="cmdOpenInEditorSourceControlExplorer" value="0x0115"/>
+      <IDSymbol name="cmdOpenOutputPath" value="0x0116"/>
+      <IDSymbol name="cmdOpenOutputPathSolutionExplorer" value="0x0117"/>
+      <IDSymbol name="cmdOpenCmdPrompt" value="0x0118"/>
+      <IDSymbol name="cmdOpenCmdPromptSolutionExplorer" value="0x0119"/>
+      <IDSymbol name="cmdDestroyTFSItem" value="0x0120"/>
+      <IDSymbol name="cmdLocateInWindowsSourceControlExplorer" value="0x0121"/>
+      <IDSymbol name="cmdDefineTabOrder" value="0x0122"/>
+      <IDSymbol name="cmdTFSFavoritesManager" value="0x0123"/>
+      <IDSymbol name="cmdTFSAddFavorite" value="0x0124" />
+      <IDSymbol name="cmdTFSRemoveFavorite" value="0x0125" />
+      <IDSymbol name="cmdSSEGetItemsComboBox" value="0x0126"/>
+      <IDSymbol name="cmdSSEComboBoxFavoritos" value="0x0127"/>
+      <IDSymbol name="cmdSearchChangesets" value="0x0128" />
+      <IDSymbol name="cmdSearchChangesetsSSE" value="0x0129" />
+      <IDSymbol name="cmdDocumentation" value="0x0130"/>
+      <IDSymbol name="cmdDocumentationDictionary" value="0x0131"/>
+      <IDSymbol name="cmdDocumentationRules" value="0x0132"/>
+      <IDSymbol name="cmdDocumentationCreateRule" value="0x0133"/>
+      <IDSymbol name="cmdToggleBookmark1" value="0x0134"/>
+      <IDSymbol name="cmdToggleBookmark2" value="0x0135"/>
+      <IDSymbol name="cmdToggleBookmark3" value="0x0136"/>
+      <IDSymbol name="cmdToggleBookmark4" value="0x0137"/>
+      <IDSymbol name="cmdToggleBookmark5" value="0x0138"/>
+      <IDSymbol name="cmdToggleBookmark6" value="0x0139"/>
+      <IDSymbol name="cmdToggleBookmark7" value="0x0140"/>
+      <IDSymbol name="cmdToggleBookmark8" value="0x0141"/>
+      <IDSymbol name="cmdToggleBookmark9" value="0x0142"/>
+      <IDSymbol name="cmdToggleBookmark0" value="0x0143"/>
+      <IDSymbol name="cmdGotoBookmark1" value="0x0144"/>
+      <IDSymbol name="cmdGotoBookmark2" value="0x0145"/>
+      <IDSymbol name="cmdGotoBookmark3" value="0x0146"/>
+      <IDSymbol name="cmdGotoBookmark4" value="0x0147"/>
+      <IDSymbol name="cmdGotoBookmark5" value="0x0148"/>
+      <IDSymbol name="cmdGotoBookmark6" value="0x0149"/>
+      <IDSymbol name="cmdGotoBookmark7" value="0x0150"/>
+      <IDSymbol name="cmdGotoBookmark8" value="0x0151"/>
+      <IDSymbol name="cmdGotoBookmark9" value="0x0152"/>
+      <IDSymbol name="cmdGotoBookmark0" value="0x0153"/>
+      <IDSymbol name="cmdBookmarkWindow" value="0x0154"/>
+      <IDSymbol name="cmdClearAllBookmarks" value="0x0155"/>
+      <IDSymbol name="cmdTemplateCheckIn" value="0x0156"/>
+      <IDSymbol name="cmdCollapseAllIncludedPendingChanges" value="0x0157"/>
+      <IDSymbol name="cmdCollapseAllExcludedPendingChanges" value="0x0158"/>
+      <IDSymbol name="cmdGenerateResource" value="0x0159"/>
+      <IDSymbol name="cmdMessageBoxTester" value="0x0160"/>
+      <IDSymbol name="cmdWorkOffline" value="0x0161"/>
+      <IDSymbol name="cmdWSPackStartPage" value="0x0162"/>
+      <IDSymbol name="cmdSolutionExplorerLocalizarItem" value="0x0163"/>
+      <IDSymbol name="cmdSouceControlExplorerLocateItem" value="0x0164"/>
+      <IDSymbol name="cmdProjectCommandLineArgs" value="0x0165"/>
+      <IDSymbol name="cmdProjectCommandLineArgsStartupProject" value="0x0166"/>
+      <IDSymbol name="cmdOpenSolutionProjectStartPage" value="0x0167"/>
+      <IDSymbol name="cmdMergeInViewHistory" value="0x0168"/>
+      <IDSymbol name="cmdRestartVisualStudio" value="0x0169"/>
+      <IDSymbol name="cmdRestartVisualStudioAsADM" value="0x0170"/>
+      <IDSymbol name="cmdSCENavigateBack" value="0x0171"/>
+      <IDSymbol name="cmdSCENavigateForward" value="0x0172"/>
+      <IDSymbol name="cmdSCENavigateUp" value="0x0173"/>
+      <IDSymbol name="cmdSCENavigateClear" value="0x0174"/>
+      <IDSymbol name="cmdSCENavigateSolutionProject" value="0x0175"/>
+      <IDSymbol name="cmdSCEGotoFavoritoAtualTFS" value="0x0176"/>
+      <IDSymbol name="cmdVariaviesAmbiente" value="0x0177"/>
+      <IDSymbol name="cmdActivityLog" value="0x0178"/>
+      <IDSymbol name="cmdDiagnosticLog" value="0x0179"/>
+      <IDSymbol name="cmdFlexUndo" value="0x0180"/>
+      <IDSymbol name="cmdFlexViewHistory" value="0x0181"/>
+      <IDSymbol name="cmdFlexCompare" value="0x0182"/>
+      <IDSymbol name="cmdFlexCommit" value="0x0183"/>
+      <IDSymbol name="cmdGitRepository" value="0x0184"/>
+      <IDSymbol name="cmdSourceControlExplorerToolbar" value="0x0185"/>
+      <IDSymbol name="cmdFlexGitChanges" value="0x0186"/>
+      <IDSymbol name="cmdGitColapseAllChanges" value="0x0187"/>
+      <IDSymbol name="cmdChangeSourceControl" value="0x0188"/>
+      <IDSymbol name="cmdGitPullToolbarSolutionExplorer" value="0x0189"/>
+      <IDSymbol name="cmdDisconnectAndClose" value="0x0190"/>
     </GuidSymbol>
   </Symbols>
 </CommandTable>
