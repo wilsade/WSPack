@@ -141,9 +141,15 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\..\WSPack.VisualStudio.Shared\Resources\AboutCommand.png">
-      <Link>Resources\AboutCommand.png</Link>
-    </Content>
+    <Resource Include="..\..\WSPack.VisualStudio.Shared\Resources\vsctImages.png">
+      <Link>Resources\vsctImages.png</Link>
+    </Resource>
+    <Resource Include="..\..\WSPack.VisualStudio.Shared\Resources\vsctImages2.png">
+      <Link>Resources\vsctImages2.png</Link>
+    </Resource>
+    <Resource Include="..\..\WSPack.VisualStudio.Shared\Resources\vsctImages3.png">
+      <Link>Resources\vsctImages3.png</Link>
+    </Resource>
     <Content Include="..\..\WSPack.VisualStudio.Shared\Resources\WSPackLogo.ico">
       <Link>Resources\WSPackLogo.ico</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

@@ -2,13 +2,33 @@
 <CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
  
   <Symbols>
-    <GuidSymbol name="guidImages" value="{caf05c4e-87f7-4c17-9f18-9503f836f611}" >
-      <IDSymbol name="bmpPic1" value="1" />
-      <IDSymbol name="bmpPic2" value="2" />
-      <IDSymbol name="bmpPicSearch" value="3" />
-      <IDSymbol name="bmpPicX" value="4" />
-      <IDSymbol name="bmpPicArrows" value="5" />
-      <IDSymbol name="bmpPicStrikethrough" value="6" />
+    <GuidSymbol name="guidvsct" value="{a7634229-58d0-4224-8a5f-b3df9f9df16e}">
+      <IDSymbol name="openFolder" value="1" />
+      <IDSymbol name="tabOrder" value="2" />
+      <IDSymbol name="resString" value="3" />
+      <IDSymbol name="clearBookmark" value="4" />
+      <IDSymbol name="home" value="5" />
+      <IDSymbol name="gotoDeclaration" value="6" />
+      <IDSymbol name="projectCmdLineArgsStartupProject" value="7" />
+      <IDSymbol name="projectCmdLineArgs" value="8" />
+      <IDSymbol name="prompt" value="9" />
+    </GuidSymbol>
+
+    <GuidSymbol name="guidvsct2" value="{212A1B3D-E7BF-4B1D-80BC-EADC776D0662}">
+      <IDSymbol name="openSolutionProject" value="1" />
+      <IDSymbol name="home2" value="2" />
+      <IDSymbol name="arrowLeft" value="3" />
+      <IDSymbol name="arrowRight" value="4" />
+      <IDSymbol name="arrowUp" value="5" />
+      <IDSymbol name="clearNavigation" value="6" />
+      <IDSymbol name="gotoProject" value="7" />
+      <IDSymbol name="gotoFavoritoAtual" value="8" />
+      <IDSymbol name="gitRepository" value="9" />
+    </GuidSymbol>
+
+    <GuidSymbol name="guidvsct3" value="{A7D2B3F2-F844-4019-A9BA-00C32A1D0681}">
+      <IDSymbol name="gitToolWindow" value="1" />
+      <IDSymbol name="gitPull" value="2" />
     </GuidSymbol>
   </Symbols>
   
