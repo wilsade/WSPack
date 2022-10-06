@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <Symbols>
+    <GuidSymbol name="guidFile" value="{5BF14E63-E267-4787-B20B-B814FD043B38}">
+      <IDSymbol name="cmdFileTfsUndoCheckOut" value="21008"/>
+      <IDSymbol name="cmdFileTfsCheckIn" value="21014"/>
+      <IDSymbol name="cmdFileTfsCompare" value="21506"/>
+      <IDSymbol name="cmdFileTfsHistory" value="21508"/>
+    </GuidSymbol>
+
+    <GuidSymbol name="guidFileProjetos" value="{D309F791-903F-11D0-9EFC-00A0C911004F}">
+      <IDSymbol name="menuFile" value="128"/>
+      <IDSymbol name="grupoVSMenuProjetosRecentes" value="781"/>
+    </GuidSymbol>
+
+    <GuidSymbol name="guidFileAbaCodeEditor" value="{1496A755-94DE-11D0-8C3F-00C04FC2AAE2}">
+      <IDSymbol name="cmdFileCloseAllButThis" value="1650"/>
+    </GuidSymbol>
+  </Symbols>
+</CommandTable>

@@ -70,7 +70,7 @@
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Options\BlocksExpandableOptions.cs">
       <Link>Options\BlocksExpandableOptions.cs</Link>
-	  <DependentUpon>PageMEFObjects.cs</DependentUpon>
+      <DependentUpon>PageMEFObjects.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Options\FolderPathEditor.cs">
       <Link>Options\FolderPathEditor.cs</Link>
@@ -86,7 +86,7 @@
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Options\MetricsExpandableOptions.cs">
       <Link>Options\MetricsExpandableOptions.cs</Link>
-	  <DependentUpon>PageMEFObjects.cs</DependentUpon>
+      <DependentUpon>PageMEFObjects.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Options\OptionsPageConsts.cs">
       <Link>Options\OptionsPageConsts.cs</Link>
@@ -155,8 +155,20 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
+    <Content Include="..\..\WSPack.VisualStudio.Shared\VSCTs\guidCodeEditor.vsct">
+      <Link>VSCTs\guidCodeEditor.vsct</Link>
+    </Content>
+    <Content Include="..\..\WSPack.VisualStudio.Shared\VSCTs\guidFile.vsct">
+      <Link>VSCTs\guidFile.vsct</Link>
+    </Content>
     <Content Include="..\..\WSPack.VisualStudio.Shared\VSCTs\guidImages.vsct">
       <Link>VSCTs\guidImages.vsct</Link>
+    </Content>
+    <Content Include="..\..\WSPack.VisualStudio.Shared\VSCTs\guidSolutionExplorer.vsct">
+      <Link>VSCTs\guidSolutionExplorer.vsct</Link>
+    </Content>
+    <Content Include="..\..\WSPack.VisualStudio.Shared\VSCTs\guidSourceControlExplorer.vsct">
+      <Link>VSCTs\guidSourceControlExplorer.vsct</Link>
     </Content>
     <Content Include="..\..\WSPack.VisualStudio.Shared\VSCTs\guidSymbols.vsct">
       <Link>VSCTs\guidSymbols.vsct</Link>

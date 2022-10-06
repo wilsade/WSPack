@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <Symbols>
+
+    <!-- This is the guid used to group the menu commands together -->
+    <GuidSymbol name="guidSourceControlExplorer" value="{FFE1131C-8EA1-4D05-9728-34AD4611BDA9}">
+
+      <IDSymbol name="menuSourceControlExplorer" value="4113" />
+      <IDSymbol name="subGrupoAdvancedSourceControlExplorer" value="4115" />
+      <IDSymbol name="subGrupoFindSourceControlExplorer" value="4129" />
+      <IDSymbol name="menuHistoryChangesets" value="4160"/>
+      <IDSymbol name="grupoPendingChangesIncludedSourceControlExplorer" value="4241" />
+      <IDSymbol name="grupoPendingChangesExcludedSourceControlExplorer" value="4242" />
+      <IDSymbol name="cmdViewTfsSourceControlExplorer" value="4612"/>
+      <IDSymbol name="grupo04ViewHistory" value="4467"/>
+
+      <IDSymbol name="grupoToolBarSourceControlExplorer00" value="0x1100"/>
+      <IDSymbol name="grupoToolBarSourceControlExplorer01" value="0x1101"/>
+      <IDSymbol name="grupoToolBarSourceControlExplorer02" value="0x1102"/>      
+      <IDSymbol name="grupoToolBarSourceControlExplorer06" value="0x1106"/>
+      
+      <IDSymbol name="grupoFindSourceControlExplorer" value="0x1117"/>
+      <IDSymbol name="grupoAdvancedSourceControlExplorer" value="0x1118"/>
+    </GuidSymbol>
+
+    <GuidSymbol name="guidSCEToolBar" value="{FFE1131C-8EA1-4D05-9728-34AD4611BDA9}">
+      <IDSymbol name="cmdSCEViewFolders" value="6144"/>
+      <IDSymbol name="cmdSCEShowDeletedItems" value="6145"/>
+      <IDSymbol name="cmdSCESRefresh" value="4808"/>
+
+      <IDSymbol name="cmdSCENewFolder" value="6146"/>
+      <IDSymbol name="cmdSCENewItem" value="6147"/>
+      <IDSymbol name="cmdSCEDelete" value="6148"/>
+
+      <IDSymbol name="cmdSCEGetLatestVersion" value="6149"/>
+      <IDSymbol name="cmdSCECheckOut" value="6150"/>
+      <IDSymbol name="cmdSCECheckIn" value="6151"/>
+      <IDSymbol name="cmdSCEUndo" value="6152"/>
+
+      <IDSymbol name="cmdSCECompareFolders" value="6157"/>
+      <IDSymbol name="cmdSCEHistory" value="6154"/>
+      <IDSymbol name="cmdSCEFindChangeSets" value="6159"/>
+    </GuidSymbol>
+
+    <GuidSymbol name="guidGit" value="{57735D06-C920-4415-A2E0-7D6E6FBDFA99}">
+      <IDSymbol name="menuGitChanges" value="61457"/>
+      <IDSymbol name="cmdTeamGitPull" value="4147"/>
+      <IDSymbol name="cmdViewGitRepositoryWindow" value="4207"/>
+    </GuidSymbol>
+
+    <!-- Team Foundation Server -->
+    <GuidSymbol name="guidTeamFoundationServer" value="{D309F791-903F-11D0-9EFC-00A0C911004F}">
+      <IDSymbol name="menuTeamFoundationServer" value="1792"/>
+    </GuidSymbol>
+
+    <!-- TFS -->
+    <GuidSymbol name="guidTFS" value="{E234E66E-BA64-4D71-B304-16F0A4C793F5}">
+      <IDSymbol name="cmdConnectTFS" value="17680"/>
+    </GuidSymbol>
+    
+  </Symbols>
+</CommandTable>

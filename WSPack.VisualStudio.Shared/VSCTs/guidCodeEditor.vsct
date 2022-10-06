@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <Symbols>
+    <GuidSymbol name="guidCodeEditor" value="{D309F791-903F-11D0-9EFC-00A0C911004F}">
+      <IDSymbol name="menuCodeEditor" value="1037"/>
+
+      <IDSymbol name="menuAbaCodeEditor" value="1067" />
+    </GuidSymbol>
+
+    <GuidSymbol name="guidCodeEditorHTML" value="{78F03954-2FB8-4087-8CE7-59D71710B3BB}">
+      <IDSymbol name="menuCodeEditorHTML" value="1"/>
+    </GuidSymbol>
+
+    <GuidSymbol name="guidCodeEditorXAML" value="{4C87B692-1202-46AA-B64C-EF01FAEC53DA}">
+      <IDSymbol name="menuCodeEditorXAML" value="259"/>
+    </GuidSymbol>
+
+    <GuidSymbol name="guidRefactor" value="{5D7E7F65-A63F-46EE-84F1-990B2CAB23F9}">
+      <IDSymbol name="grupoRefactor" value="1175"/>
+    </GuidSymbol>
+  </Symbols>
+
+</CommandTable>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  
+  <Symbols>
+    <GuidSymbol name="guidSolutionExplorer" value="{D309F791-903F-11D0-9EFC-00A0C911004F}" >
+      <IDSymbol name="menuSolutionExplorerProjeto" value="1026" />
+      <IDSymbol name="menuSolutionExplorerSolution" value="1043" />
+      <IDSymbol name="menuSolutionExplorerItem" value="1072" />
+      <IDSymbol name="menuSolutionExplorerFolder" value="1073"/>
+      <IDSymbol name="menuSolutionExplorerAppDesignerFolder" value="1107" />
+
+      <IDSymbol name="menuSolutionExplorerWebProject" value="1136"/>
+      <IDSymbol name="menuSolutionExplorerWebFolder" value="1137"/>
+      <IDSymbol name="menuSolutionExplorerWebItem" value="1138"/>
+      <IDSymbol name="menuSolutionExplorerWebSubNode" value="1140"/>
+    </GuidSymbol>
+
+    <!-- Solution Explorer Setup Project-->
+    <GuidSymbol name="guidSolutionExplorerSetupProject" value="{66D6F801-B1EC-40A4-BB15-318617E96DAD}" >
+      <IDSymbol name="menuSolutionExplorerSetupProject" value="101"/>
+    </GuidSymbol>
+  </Symbols>
+  
+</CommandTable>

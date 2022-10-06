@@ -5,10 +5,15 @@
   <Extern href="vsshlids.h"/>
   <Extern href="guidSymbols.vsct"/>
   <Extern href="guidImages.vsct"/>
+  <Extern href="guidSolutionExplorer.vsct" />
+  <Extern href="guidSourceControlExplorer.vsct" />
+  <Extern href="guidCodeEditor.vsct" />
+  <Extern href="guidFile.vsct" />
 
   <Commands package="guidWSPackPackage">
 
     <Menus>
+      <!-- Region Menu WSPack no menu do Visual Studio -->
       <Menu guid="guidWSPackPackageCmdSet" id="WSPackMenu" priority="0x100" type="Menu">
         <Parent guid="guidSHLMainMenu" id="IDG_VS_MM_TOOLSADDINS" />
         <Strings>
@@ -16,6 +21,85 @@
           <ButtonText>WSPack</ButtonText>
         </Strings>
       </Menu>
+
+      <!-- Marcadores -->
+      <!-- Sub menu "Marcadores" no Menu principal -->
+      <Menu guid="guidWSPackPackageCmdSet" id="subMenuMarcadores" priority="0x0100" type="Menu">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo02MenuPricipal" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <CommandName>Marcadores</CommandName>
+          <ButtonText>WSPack.Marcadores</ButtonText>
+        </Strings>
+      </Menu>
+
+      <!-- Sub menu "Utils" no Menu principal -->
+      <Menu guid="guidWSPackPackageCmdSet" id="subMenuUtils" priority="0x0200" type="Menu">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo02MenuPricipal" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <CommandName>Úteis</CommandName>
+          <ButtonText>WSPack.Uteis</ButtonText>
+        </Strings>
+      </Menu>
+
+      <!-- Sub menu "Favoritos - Ir para" do Source Control Explorer -->
+      <Menu guid="guidWSPackPackageCmdSet" id="menuFavoritosIrPara" priority="0x300" type="Menu">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupoAdicionarRemoverFavoritos" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <CommandName>Favoritos - Ir para:</CommandName>
+          <ButtonText>WSPack.FavoritosIrPara</ButtonText>
+        </Strings>
+      </Menu>
+
+      <!-- Region WSPack no CodeEditor -->
+      <Menu guid="guidWSPackPackageCmdSet" id="menuWSPackCodeEditor" priority="0x100" type="Menu">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupoCodeEditor" />
+        <Strings>
+          <CommandName>WS Pack</CommandName>
+          <ButtonText>WSPack</ButtonText>
+        </Strings>
+      </Menu>
+
+      <!-- Region WSPack no SolutionExplorer -->
+      <Menu guid="guidWSPackPackageCmdSet" id="subMenu01SolutionExplorer" priority="0x100" type="Menu">
+        <Parent guid="guidWSPackPackageCmdSet" id="todosMenusSolutionExplorer" />
+        <Strings>
+          <CommandName>WS Pack</CommandName>
+          <ButtonText>WSPack</ButtonText>
+        </Strings>
+      </Menu>
+
+      <!-- Region Toolbar WSPack -->
+      <Menu guid="guidWSPackPackageCmdSet" id="toolBarWSPack" priority="0x0001" type="Toolbar">
+        <Parent guid="guidWSPackPackageCmdSet" id="wsPackToolBarId" />
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <Strings>
+          <CommandName>WS Pack</CommandName>
+          <ButtonText>WSPack</ButtonText>
+        </Strings>
+      </Menu>
+
+      <!-- Documentação -->
+      <Menu guid="guidWSPackPackageCmdSet" id="subMenuDocumentacao" priority="0x0100" type="Menu">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo02MenuPricipal" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <CommandName>Documentação</CommandName>
+          <ButtonText>WSPack.Documentacao</ButtonText>
+        </Strings>
+      </Menu>
+
+      <!-- MenuController na ToolBar do Source Control Explorer -->
+      <Menu guid="guidWSPackPackageCmdSet" id="menuControllerToolbarSCE" priority="0x006" type="MenuController">
+        <Parent guid="guidSourceControlExplorer" id="grupoToolBarSourceControlExplorer00" />
+        <Strings>
+          <CommandName>WSPack.MenuSCE</CommandName>
+          <ButtonText>WSPack.MenuSCE</ButtonText>
+        </Strings>
+      </Menu>
+      
     </Menus>
 
     <!-- In this section you can define new menu groups. 
@@ -24,10 +108,218 @@
          The parent of a group must be a menu. -->
     <Groups>
 
+      <!-- Grupo de projetos da MenuController da ToolBar -->
+      <Group guid="guidWSPackPackageCmdSet" id="grupo01MenuControllerToolbarSCE" priority="0x0100">
+        <Parent guid="guidWSPackPackageCmdSet" id="menuControllerToolbarSCE" />
+      </Group>
+      <Group guid="guidWSPackPackageCmdSet" id="grupo02MenuControllerToolbarSCE" priority="0x0200">
+        <Parent guid="guidWSPackPackageCmdSet" id="menuControllerToolbarSCE" />
+      </Group>
+      <Group guid="guidWSPackPackageCmdSet" id="grupo03MenuControllerToolbarSCE" priority="0x0300">
+        <Parent guid="guidWSPackPackageCmdSet" id="menuControllerToolbarSCE" />
+      </Group>
+      <Group guid="guidWSPackPackageCmdSet" id="grupo04MenuControllerToolbarSCE" priority="0x0400">
+        <Parent guid="guidWSPackPackageCmdSet" id="menuControllerToolbarSCE" />
+      </Group>
+
       <!-- Region Menu principal -->
-      <!-- Grupo 01 -->
       <Group guid="guidWSPackPackageCmdSet" id="grupo01MenuPricipal" priority="0x0100">
         <Parent guid="guidWSPackPackageCmdSet" id="WSPackMenu" />
+      </Group>
+      <Group guid="guidWSPackPackageCmdSet" id="grupo02MenuPricipal" priority="0x0200">
+        <Parent guid="guidWSPackPackageCmdSet" id="WSPackMenu" />
+      </Group>
+      <Group guid="guidWSPackPackageCmdSet" id="grupo03MenuPricipal" priority="0x0300">
+        <Parent guid="guidWSPackPackageCmdSet" id="WSPackMenu" />
+      </Group>
+      <Group guid="guidWSPackPackageCmdSet" id="grupo04MenuPricipal" priority="0x0400">
+        <Parent guid="guidWSPackPackageCmdSet" id="WSPackMenu" />
+      </Group>
+
+      <!-- Marcadores -->
+      <!-- Grupo 01 de Marcadores -->
+      <Group guid="guidWSPackPackageCmdSet" id="grupo01Marcadores" priority="0x0100">
+        <Parent guid="guidWSPackPackageCmdSet" id="subMenuMarcadores" />
+      </Group>
+      <!-- Grupo 02 de Marcadores -->
+      <Group guid="guidWSPackPackageCmdSet" id="grupo02Marcadores" priority="0x0200">
+        <Parent guid="guidWSPackPackageCmdSet" id="subMenuMarcadores" />
+      </Group>
+      <!-- Grupo 03 de Marcadores -->
+      <Group guid="guidWSPackPackageCmdSet" id="grupo03Marcadores" priority="0x0300">
+        <Parent guid="guidWSPackPackageCmdSet" id="subMenuMarcadores" />
+      </Group>
+
+      <!-- Grupo 01 de Utils -->
+      <Group guid="guidWSPackPackageCmdSet" id="grupo01SubMenuUtils" priority="0x0100">
+        <Parent guid="guidWSPackPackageCmdSet" id="subMenuUtils" />
+      </Group>
+
+      <!-- Region Source Control Explorer -->
+      <!-- Grupo "Adicionar/Remover favoritos" do Source Control Explorer -->
+      <Group guid="guidWSPackPackageCmdSet" id="grupoAdicionarRemoverFavoritos" priority="0x001">
+        <Parent guid="guidSourceControlExplorer" id="menuSourceControlExplorer" />
+      </Group>
+
+      <!-- Sub grupo "Favoritos - Ir para:" do Source Control Explorer -->
+      <Group guid="guidWSPackPackageCmdSet" id="subGrupoFavoritosIrPara" priority="0x0100">
+        <Parent guid="guidWSPackPackageCmdSet" id="menuFavoritosIrPara" />
+      </Group>
+
+      <!-- Sub grupo "Favoritos adicionados" do Source Control Explorer -->
+      <Group guid="guidWSPackPackageCmdSet" id="subGrupoFavoritosAdicionados" priority="0x0200">
+        <Parent guid="guidWSPackPackageCmdSet" id="menuFavoritosIrPara" />
+      </Group>
+
+      <!-- Region CodeEditor -->
+      <!-- Grupo para o Menu -->
+      <Group guid="guidWSPackPackageCmdSet" id="grupoCodeEditor" priority="0x0001">
+      </Group>
+
+      <!-- Subgrupo 01 do CodeEditor-->
+      <Group guid="guidWSPackPackageCmdSet" id="subGrupo01CodeEditor" priority="0x0100">
+        <Parent guid="guidWSPackPackageCmdSet" id="menuWSPackCodeEditor" />
+      </Group>
+
+      <!-- Subgrupo 02 do CodeEditor-->
+      <Group guid="guidWSPackPackageCmdSet" id="subGrupo02CodeEditor" priority="0x0200">
+        <Parent guid="guidWSPackPackageCmdSet" id="menuWSPackCodeEditor" />
+      </Group>
+
+      <!-- Subgrupo 03 do CodeEditor-->
+      <Group guid="guidWSPackPackageCmdSet" id="subGrupo03CodeEditor" priority="0x0300">
+        <Parent guid="guidWSPackPackageCmdSet" id="menuWSPackCodeEditor" />
+      </Group>
+
+      <!-- Subgrupo 04 do CodeEditor-->
+      <Group guid="guidWSPackPackageCmdSet" id="subGrupo04CodeEditor" priority="0x0400">
+        <Parent guid="guidWSPackPackageCmdSet" id="menuWSPackCodeEditor" />
+      </Group>
+
+      <!-- Aba do CodeEditor-->
+      <Group guid="guidWSPackPackageCmdSet" id="grupoAbaCodeEditor" priority="0x0001">
+        <Parent guid="guidCodeEditor" id="menuAbaCodeEditor" />
+      </Group>
+      
+      <!-- Region SolutionExplorer -->
+      <!-- Grupo que contém todos os menus do Solution Explorer -->
+      <Group guid="guidWSPackPackageCmdSet" id="todosMenusSolutionExplorer" priority="0x0001">
+        <Parent guid="guidSolutionExplorer" id="menuSolutionExplorerItem" />
+      </Group>
+
+      <!-- Subgrupo 01 do Solution Explorer -->
+      <Group guid="guidWSPackPackageCmdSet" id="subGrupo01SolutionExplorer" priority="0x0100">
+        <Parent guid="guidWSPackPackageCmdSet" id="subMenu01SolutionExplorer" />
+      </Group>
+
+      <!-- Subgrupo 02 do Solution Explorer -->
+      <Group guid="guidWSPackPackageCmdSet" id="subGrupo02SolutionExplorer" priority="0x0200">
+        <Parent guid="guidWSPackPackageCmdSet" id="subMenu01SolutionExplorer" />
+      </Group>
+
+      <!-- Subgrupo 03 do Solution Explorer -->
+      <Group guid="guidWSPackPackageCmdSet" id="subGrupo03SolutionExplorer" priority="0x0300">
+        <Parent guid="guidWSPackPackageCmdSet" id="subMenu01SolutionExplorer" />
+      </Group>
+
+      <!-- Subgrupo 04 do Solution Explorer -->
+      <Group guid="guidWSPackPackageCmdSet" id="subGrupo04SolutionExplorer" priority="0x0400">
+        <Parent guid="guidWSPackPackageCmdSet" id="subMenu01SolutionExplorer" />
+      </Group>
+
+      <!-- Toolbar do Solution Explorer -->
+      <Group guid="guidWSPackPackageCmdSet" id="grupoSolutionExplorerToolbar" priority="0xF000">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_TOOL_PROJWIN" />
+      </Group>
+
+      <!-- Region Source Control Explorer -->
+      <!-- Sub grupo "Advanced" 01 do Source Control Explorer -->
+      <Group guid="guidWSPackPackageCmdSet" id="subGrupoAdvanced01SourceControlExplorer" priority="0x0500">
+        <Parent guid="guidSourceControlExplorer" id="subGrupoAdvancedSourceControlExplorer" />
+      </Group>
+
+      <!-- Sub grupo "Advanced" 02 do Source Control Explorer -->
+      <Group guid="guidWSPackPackageCmdSet" id="subGrupoAdvanced02SourceControlExplorer" priority="0x0600">
+        <Parent guid="guidSourceControlExplorer" id="subGrupoAdvancedSourceControlExplorer" />
+      </Group>
+
+      <!-- Grupo "Pending Changes Include Changes" do Source Control Explorer -->
+      <Group guid="guidWSPackPackageCmdSet" id="grupoCollapseAllIncludedPendingChanges" priority="0x0100">
+        <Parent guid="guidSourceControlExplorer" id="grupoPendingChangesIncludedSourceControlExplorer" />
+      </Group>
+
+      <!-- Grupo "Pending Changes Exclude Changes" do Source Control Explorer -->
+      <Group guid="guidWSPackPackageCmdSet" id="grupoCollapseAllExcludedPendingChanges" priority="0x0100">
+        <Parent guid="guidSourceControlExplorer" id="grupoPendingChangesExcludedSourceControlExplorer" />
+      </Group>
+      <!-- endregion -->
+
+      <!-- Team Foundation Server -->
+      <Group guid="guidWSPackPackageCmdSet" id="grupo01TeamFoundationServer" priority="0x9999">
+        <Parent guid="guidTeamFoundationServer" id="menuTeamFoundationServer" />
+      </Group>
+
+      <!-- Region Toolbar WSPack -->
+      <!-- Grupo01 da ToolBar -->
+      <Group guid="guidWSPackPackageCmdSet" id="grupo01ToolBarWSPack" priority="0x0100">
+        <Parent guid="guidWSPackPackageCmdSet" id="toolBarWSPack" />
+      </Group>
+
+      <!-- Grupo02 da ToolBar -->
+      <Group guid="guidWSPackPackageCmdSet" id="grupo02ToolBarWSPack" priority="0x0200">
+        <Parent guid="guidWSPackPackageCmdSet" id="toolBarWSPack" />
+      </Group>
+
+      <!-- Grupo03 da ToolBar -->
+      <Group guid="guidWSPackPackageCmdSet" id="grupo03ToolBarWSPack" priority="0x0300">
+        <Parent guid="guidWSPackPackageCmdSet" id="toolBarWSPack" />
+      </Group>
+
+      <!-- Grupo04 da ToolBar -->
+      <Group guid="guidWSPackPackageCmdSet" id="grupo04ToolBarWSPack" priority="0x0400">
+        <Parent guid="guidWSPackPackageCmdSet" id="toolBarWSPack" />
+      </Group>
+
+      <!-- Grupo05 da ToolBar -->
+      <Group guid="guidWSPackPackageCmdSet" id="grupo05ToolBarWSPack" priority="0x0500">
+        <Parent guid="guidWSPackPackageCmdSet" id="toolBarWSPack" />
+      </Group>
+
+      <!-- Grupo06 da ToolBar -->
+      <Group guid="guidWSPackPackageCmdSet" id="grupo06ToolBarWSPack" priority="0x0600">
+        <Parent guid="guidWSPackPackageCmdSet" id="toolBarWSPack" />
+      </Group>
+
+      <!-- Grupo07 da ToolBar -->
+      <Group guid="guidWSPackPackageCmdSet" id="grupo07ToolBarWSPack" priority="0x0700">
+        <Parent guid="guidWSPackPackageCmdSet" id="toolBarWSPack" />
+      </Group>
+      <!-- endregion -->
+
+      <!-- Region Documentação -->
+      <!-- Grupo 01 de Documentação -->
+      <Group guid="guidWSPackPackageCmdSet" id="grupo01Documentacao" priority="0x0100">
+        <Parent guid="guidWSPackPackageCmdSet" id="subMenuDocumentacao" />
+      </Group>
+      <!-- Grupo 02 de Documentação -->
+      <Group guid="guidWSPackPackageCmdSet" id="grupo02Documentacao" priority="0x0200">
+        <Parent guid="guidWSPackPackageCmdSet" id="subMenuDocumentacao" />
+      </Group>
+      <!-- endregion -->
+
+      <!-- Refactor -->
+      <Group guid="guidWSPackPackageCmdSet" id="grupo01Refactor" priority="0x9999">
+        <Parent guid="guidRefactor" id="grupoRefactor" />
+      </Group>
+      
+    <!-- File -->
+      <Group guid="guidWSPackPackageCmdSet" id="grupo01File" priority="0xFEFF">
+        <Parent guid="guidFileProjetos" id="menuFile" />
+      </Group>
+      
+      <!-- Git - View Changes -->
+      <Group guid="guidWSPackPackageCmdSet" id="grupo01GitViewChanges" priority="0x0900">
+        <Parent guid="guidGit" id="menuGitChanges" />
       </Group>
 
     </Groups>
@@ -35,18 +327,31 @@
 
     <Buttons>
 
-      <Button guid="guidWSPackPackageCmdSet" id="cmdParameters" priority="0x0101" type="Button">
-        <Parent guid="guidWSPackPackageCmdSet" id="grupo01MenuPricipal" />
+      <!-- region Menu principal -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdParameters" priority="0x0100" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo04MenuPricipal" />
         <Strings>
           <MenuText>Parâmetros</MenuText>
           <ButtonText>WSPack.Parametros</ButtonText>
         </Strings>
       </Button>
       <Button guid="guidWSPackPackageCmdSet" id="cmdAbout" priority="0x0200" type="Button">
-        <Parent guid="guidWSPackPackageCmdSet" id="grupo01MenuPricipal" />
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo04MenuPricipal" />
         <Strings>
           <MenuText>Sobre</MenuText>
           <ButtonText>WSPack.Sobre</ButtonText>
+        </Strings>
+      </Button>
+
+      <!-- Region SolutionExplorer-->
+      <!-- Localizar no TFS -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdLocateInTFSSolutionExplorer" priority="0x0100" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="subGrupo01SolutionExplorer" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Localizar no TFS</MenuText>
+          <ButtonText>WSPack.LocalizarTFSSolutionExplorer</ButtonText>
+          <ToolTipText>Localizar o item selecionado no TFS</ToolTipText>
         </Strings>
       </Button>
       

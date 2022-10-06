@@ -13,5 +13,7 @@ namespace WSPack.VisualStudio.Shared.Commands
   {
     internal const int About = 0x0100;
     internal const int Parameters = 0x0101;
+    internal const int LocateInTFS = 0x0102;
+    internal const int LocateInTFSSolutionExplorer = 0x0103;
   }
 }
