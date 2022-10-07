@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  
+  <Symbols>
+    <!-- Tools -->
+    <GuidSymbol name="guidTools" value="{25FD982B-8CAE-4CBD-A440-E03FFCCDE106}">
+      <IDSymbol name="cmdManageNuGetPackagesforSolution" value="512"/>      
+    </GuidSymbol>
+  </Symbols>
+  
+</CommandTable>

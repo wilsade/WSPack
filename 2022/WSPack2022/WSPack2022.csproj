@@ -147,6 +147,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\..\WSPack.VisualStudio.Shared\VSCTs\guidTools.vsct">
+      <Link>VSCTs\guidTools.vsct</Link>
+    </Content>
     <Resource Include="..\..\WSPack.VisualStudio.Shared\Resources\vsctImages.png">
       <Link>Resources\vsctImages.png</Link>
     </Resource>
@@ -160,6 +163,9 @@
       <Link>Resources\WSPackLogo.ico</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\..\WSPack.VisualStudio.Shared\VSCTs\guidBuildProjectView.vsct">
+      <Link>VSCTs\guidBuildProjectView.vsct</Link>
     </Content>
     <Content Include="..\..\WSPack.VisualStudio.Shared\VSCTs\guidCodeEditor.vsct">
       <Link>VSCTs\guidCodeEditor.vsct</Link>

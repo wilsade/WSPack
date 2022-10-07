@@ -9,6 +9,9 @@
   <Extern href="guidSourceControlExplorer.vsct" />
   <Extern href="guidCodeEditor.vsct" />
   <Extern href="guidFile.vsct" />
+  <Extern href="guidBuildProjectView.vsct" />
+  <Extern href="guidTools.vsct" />
+  <Include href="KnownImageIds.vsct" />
 
   <Commands package="guidWSPackPackage">
 
@@ -333,11 +336,10 @@
 
     </Groups>
 
-
     <Buttons>
 
       <!-- #region Menu principal -->
-      
+
       <!-- #region Grupo 01 -->
       <!-- Buscar Changesets -->
       <Button guid="guidWSPackPackageCmdSet" id="cmdSearchChangesets" priority="0x0100" type="Button">
@@ -369,9 +371,9 @@
         </Strings>
       </Button>
       <!-- #endregion -->
-      
+
       <!-- #region Grupo 02 -->
-      
+
       <!-- #region Documentação -->
       <!-- Gerar documentação -->
       <Button guid="guidWSPackPackageCmdSet" id="cmdDocumentation" priority="0x0100" type="Button">
@@ -414,7 +416,7 @@
         </Strings>
       </Button>
       <!-- #endregion -->
-      
+
       <!-- #region Marcadores -->
       <!-- Janela de marcadores -->
       <Button guid="guidWSPackPackageCmdSet" id="cmdBookmarkWindow" priority="0x0100" type="Button">
@@ -641,9 +643,9 @@
         </Strings>
       </Button>
       <!-- #endregion-->
-      
+
       <!-- #endregion -->
-      
+
       <!-- #region Uteis -->
       <!-- Testar MessageBox -->
       <Button guid="guidWSPackPackageCmdSet" id="cmdMessageBoxTester" priority="0x0100" type="Button">
@@ -686,9 +688,9 @@
         </Strings>
       </Button>
       <!-- #endregion -->
-      
+
       <!-- #endregion -->
-      
+
       <!-- #region Grupo 03 -->
       <!-- StartPage (WSPack) -->
       <Button guid="guidWSPackPackageCmdSet" id="cmdWSPackStartPage" priority="0x0100" type="Button">
@@ -713,7 +715,7 @@
         </Strings>
       </Button>
       <!-- #endregion -->
-          
+
       <!-- #region Grupo 04 -->
       <Button guid="guidWSPackPackageCmdSet" id="cmdParameters" priority="0x0100" type="Button">
         <Parent guid="guidWSPackPackageCmdSet" id="grupo04MenuPrincipal" />
@@ -730,9 +732,9 @@
         </Strings>
       </Button>
       <!-- #endregion -->
-      
+
       <!-- #endregion -->
-      
+
       <!-- #region Source Control Explorer -->
       <!-- Buscar changeSets no Source Control Explorer-->
       <Button guid="guidWSPackPackageCmdSet" id="cmdSearchChangesetsSSE" priority="0x001" type="Button">
@@ -744,7 +746,7 @@
           <ToolTipText>Abre a tela para buscar Changeset no TFS</ToolTipText>
         </Strings>
       </Button>
-      
+
       <!-- Adicionar favorito -->
       <Button guid="guidWSPackPackageCmdSet" id="cmdTFSAddFavorite" priority="0x0100" type="Button">
         <Parent guid="guidWSPackPackageCmdSet" id="grupoAdicionarRemoverFavoritos" />
@@ -754,7 +756,7 @@
           <ButtonText>WSPack.AdicionarFavorito</ButtonText>
         </Strings>
       </Button>
-      
+
       <!-- Remover favorito -->
       <Button guid="guidWSPackPackageCmdSet" id="cmdTFSRemoveFavorite" priority="0x0200" type="Button">
         <Parent guid="guidWSPackPackageCmdSet" id="grupoAdicionarRemoverFavoritos" />
@@ -764,7 +766,7 @@
           <ButtonText>WSPack.RemoverFavorito</ButtonText>
         </Strings>
       </Button>
-      
+
       <!-- Localizar no TFS -->
       <Button guid="guidWSPackPackageCmdSet" id="cmdSouceControlExplorerLocateItem" priority="0x0400" type="Button">
         <Parent guid="guidWSPackPackageCmdSet" id="grupoAdicionarRemoverFavoritos" />
@@ -774,7 +776,7 @@
           <ToolTipText>Localizar um item no TFS com base no caminho 'Server' ou caminho 'Local'</ToolTipText>
         </Strings>
       </Button>
-      
+
       <!-- Gerenciar favoritos -->
       <Button guid="guidWSPackPackageCmdSet" id="cmdTFSFavoritesManager" priority="0x0100" type="Button">
         <Parent guid="guidWSPackPackageCmdSet" id="subGrupoFavoritosIrPara" />
@@ -784,7 +786,7 @@
           <ButtonText>WSPack.GerenciadorFavoritos</ButtonText>
         </Strings>
       </Button>
-      
+
       <!-- Favoritos adicionados -->
       <Button guid="guidWSPackPackageCmdSet" id="cmdTFSAddedFavorites" priority="0x0100" type="Button">
         <Parent guid="guidWSPackPackageCmdSet" id="subGrupoFavoritosAdicionados" />
@@ -796,7 +798,7 @@
           <ButtonText>!!! Menu inválido !!!</ButtonText>
         </Strings>
       </Button>
-      
+
       <!-- CollapseAll no Pending Changes Include no Source Control Explorer-->
       <Button guid="guidWSPackPackageCmdSet" id="cmdCollapseAllIncludedPendingChanges" priority="0x200" type="Button">
         <Parent guid="guidWSPackPackageCmdSet" id="grupoCollapseAllIncludedPendingChanges" />
@@ -806,7 +808,7 @@
           <ToolTipText>Recolher todos os nodos</ToolTipText>
         </Strings>
       </Button>
-      
+
       <!-- CollapseAll no Pending Changes Exclude no Source Control Explorer-->
       <Button guid="guidWSPackPackageCmdSet" id="cmdCollapseAllExcludedPendingChanges" priority="0x200" type="Button">
         <Parent guid="guidWSPackPackageCmdSet" id="grupoCollapseAllExcludedPendingChanges" />
@@ -816,6 +818,287 @@
           <ToolTipText>Recolher todos os nodos</ToolTipText>
         </Strings>
       </Button>
+
+      <!-- #region Submenu Advanced -->
+      <!-- Destruir item no Source Control Explorer -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdDestroyTFSItem" priority="0x100" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="subGrupoAdvanced01SourceControlExplorer" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Destruir este item (remover completamente)</MenuText>
+          <ButtonText>WSPack.DestruirItemRemoverCompletamente</ButtonText>
+          <ToolTipText>Destruir o item e removê-lo completamente do TFS</ToolTipText>
+        </Strings>
+      </Button>
+
+      <!-- Localizar no Windows -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdLocateInWindowsSourceControlExplorer" priority="0x0100" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="subGrupoAdvanced02SourceControlExplorer" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Localizar no Windows</MenuText>
+          <ButtonText>WSPack.LocalizarWindowsSCE</ButtonText>
+          <ToolTipText>Localizar uma pasta ou arquivo no Windows</ToolTipText>
+        </Strings>
+      </Button>
+      <!-- Copiar caminho 'Local' do item -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdCopyLocalPathSourceControlExplorer" priority="0x0200" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="subGrupoAdvanced02SourceControlExplorer" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Copiar caminho 'Local' do item</MenuText>
+          <ButtonText>WSPack.CopiarCaminhoLocalItemSCE</ButtonText>
+          <ToolTipText>Copiar o caminho 'Local' completo do item para a área de transferência</ToolTipText>
+        </Strings>
+      </Button>
+      <!-- Copiar caminho 'Server' do item -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdCopyServerPathSourceControlExplorer" priority="0x0300" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="subGrupoAdvanced02SourceControlExplorer" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Copiar caminho 'Server' do item</MenuText>
+          <ButtonText>WSPack.CopiarCaminhoServerItemSCE</ButtonText>
+          <ToolTipText>Copiar o caminho 'Server' completo do item para a área de transferência</ToolTipText>
+        </Strings>
+      </Button>
+      <!-- Abrir no editor de texto -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdOpenInEditorSourceControlExplorer" priority="0x0400" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="subGrupoAdvanced02SourceControlExplorer" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Abrir este item no editor de texto</MenuText>
+          <ButtonText>WSPack.AbrirEditorTextoSCE</ButtonText>
+          <ToolTipText>Abrir este item no editor de texto definido</ToolTipText>
+        </Strings>
+      </Button>
+      <!-- #endregion -->
+
+      <!-- Fazer merge no View History -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdMergeInViewHistory" priority="0x0300" type="Button">
+        <Parent guid="guidSourceControlExplorer" id="grupo04ViewHistory" />
+        <Strings>
+          <MenuText>Fazer Merge deste Changeset</MenuText>
+          <ButtonText>WSPack.FazerMergeViewHistory</ButtonText>
+          <ToolTipText>Abre uma tela para fazer um Merge do Changeset</ToolTipText>
+        </Strings>
+      </Button>
+
+      <!-- #region Toolbar SCE -->
+      <!-- Limpar historico de navegacao -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdSCENavigateClear" type="Button" priority="0x0697">
+        <Parent guid="guidSourceControlExplorer" id="grupoToolBarSourceControlExplorer06" />
+        <Icon guid="guidvsct2" id="clearNavigation" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>Pict</CommandFlag>
+        <CommandFlag>AllowVisibilityChangeOnToolBar</CommandFlag>
+        <Strings>
+          <ButtonText>Limpar histórico de navegação</ButtonText>
+          <MenuText>WSPack.SCENavigateClear</MenuText>
+          <ToolTipText>Limpar histórico de navegação do Source Control Explorer</ToolTipText>
+        </Strings>
+      </Button>
+      <!-- Navegar back -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdSCENavigateBack" type="Button" priority="0x0698">
+        <Parent guid="guidSourceControlExplorer" id="grupoToolBarSourceControlExplorer06" />
+        <Icon guid="guidvsct2" id="arrowLeft" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText></ButtonText>
+          <MenuText>WSPack.SCENavigateBack</MenuText>
+          <ToolTipText>Navegar para o item anterior no Source Control Explorer</ToolTipText>
+        </Strings>
+      </Button>
+      <!-- Navegar forward -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdSCENavigateForward" type="Button" priority="0x0699">
+        <Parent guid="guidSourceControlExplorer" id="grupoToolBarSourceControlExplorer06" />
+        <Icon guid="guidvsct2" id="arrowRight" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText></ButtonText>
+          <MenuText>WSPack.SCENavigateForward</MenuText>
+          <ToolTipText>Navegar para o próximo item no Source Control Explorer</ToolTipText>
+        </Strings>
+      </Button>
+      <!-- Navegar up -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdSCENavigateUp" type="Button" priority="0x0700">
+        <Parent guid="guidSourceControlExplorer" id="grupoToolBarSourceControlExplorer06" />
+        <Icon guid="guidvsct2" id="arrowUp" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText></ButtonText>
+          <MenuText>WSPack.SCENavigateUp</MenuText>
+          <ToolTipText>Ir para um item acima no Source Control Explorer</ToolTipText>
+        </Strings>
+      </Button>
+      <!-- Ir para solution/projeto -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdSCENavigateSolutionProject" type="Button" priority="0x0701">
+        <Parent guid="guidSourceControlExplorer" id="grupoToolBarSourceControlExplorer06" />
+        <Icon guid="guidvsct2" id="gotoProject" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText></ButtonText>
+          <MenuText>WSPack.SCENavigateSolutionProject</MenuText>
+          <ToolTipText>Ir para Solution/Projeto nesta pasta do Source Control Explorer</ToolTipText>
+        </Strings>
+      </Button>
+      <!-- Ir para o favorito selecionado -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdSCEGotoFavoritoAtualTFS" type="Button" priority="0x0703">
+        <Parent guid="guidSourceControlExplorer" id="grupoToolBarSourceControlExplorer06" />
+        <Icon guid="guidvsct2" id="gotoFavoritoAtual" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>SCEgotoFavoritoAtual</ButtonText>
+          <MenuText>WSPack.SCEgotoFavoritoAtual</MenuText>
+          <ToolTipText>Ir para o favorito selecionado</ToolTipText>
+        </Strings>
+      </Button>
+      <!-- #endregion -->
+
+      <!-- #endregion -->
+
+      <!-- #Region CodeEditor-->
+      <!-- Localizar no TFS -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdLocateInTFS" priority="0x0100" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="subGrupo01CodeEditor" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Localizar no TFS</MenuText>
+          <ButtonText>WSPack.LocalizarTFSCodeEditor</ButtonText>
+        </Strings>
+      </Button>
+      <!-- Localizar no Windows -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdLocateInWindowsCodeEditor" priority="0x0200" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="subGrupo01CodeEditor" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Localizar no Windows</MenuText>
+          <ButtonText>WSPack.LocalizarWindowsCodeEditor</ButtonText>
+          <ToolTipText>Localizar uma pasta ou arquivo no Windows</ToolTipText>
+        </Strings>
+      </Button>
+      <!-- Localizar no Solution Explorer -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdLocateInSolutionExplorer" priority="0x0300" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="subGrupo01CodeEditor" />
+        <Icon guid="guidvsct" id="gotoDeclaration" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Localizar no Solution Explorer</MenuText>
+          <ButtonText>WSPack.LocalizarSolutionExplorerCodeEditor</ButtonText>
+          <ToolTipText>Localizar um documento no Solution Explorer</ToolTipText>
+        </Strings>
+      </Button>
+
+      <!-- Copiar caminho 'Local' do item -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdCopyLocalPath" priority="0x0100" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="subGrupo02CodeEditor" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Copiar caminho 'Local' do item</MenuText>
+          <ButtonText>WSPack.CopiarCaminhoLocalItemCodeEditor</ButtonText>
+          <ToolTipText>Copiar o caminho 'Local' completo do item para a área de transferência</ToolTipText>
+        </Strings>
+      </Button>
+      <!-- Copiar caminho 'Server' do item -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdCopyServerPath" priority="0x0200" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="subGrupo02CodeEditor" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Copiar caminho 'Server' do item</MenuText>
+          <ButtonText>WSPack.CopiarCaminhoServerItemCodeEditor</ButtonText>
+          <ToolTipText>Copiar o caminho 'Server' completo do item para a área de transferência</ToolTipText>
+        </Strings>
+      </Button>
+
+      <!-- Abrir no editor de texto -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdOpenInEditor" priority="0x0100" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="subGrupo03CodeEditor" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Abrir este item no editor de texto</MenuText>
+          <ButtonText>WSPack.AbrirEditorTextoCodeEditor</ButtonText>
+          <ToolTipText>Abrir este item no editor de texto definido</ToolTipText>
+        </Strings>
+      </Button>
+      <!-- Abrir Output Path -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdOpenOutputPath" priority="0x0200" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="subGrupo03CodeEditor" />
+        <Icon guid="guidvsct" id="openFolder" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <MenuText>Abrir o Output Path</MenuText>
+          <ButtonText>WSPack.AbrirOutputPathCodeEditor</ButtonText>
+          <ToolTipText>Abrir o Output Path da configuração ativa</ToolTipText>
+        </Strings>
+      </Button>
+      <!-- Abrir o Prompt -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdOpenCmdPrompt" priority="0x0300" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="subGrupo03CodeEditor" />
+        <Icon guid="guidvsct" id="prompt" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Abrir o Prompt de comando</MenuText>
+          <ButtonText>WSPack.AbrirCmdPromptCodeEditor</ButtonText>
+          <ToolTipText>Abrir o Prompt de comando do desenvolvedor</ToolTipText>
+        </Strings>
+      </Button>
+
+      <!-- Gerar Resource -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdGenerateResource" priority="0x0400" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="subGrupo04CodeEditor" />
+        <Icon guid="guidvsct" id="resString" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Gerar Resource string</MenuText>
+          <ButtonText>WSPack.GerarResource</ButtonText>
+          <ToolTipText>Geração de Resource</ToolTipText>
+        </Strings>
+      </Button>
+
+      <!-- #region Documentação -->
+      <!-- Gerar documentação -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdDocumentation" priority="0x0100" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo01Documentacao" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Gerar documentação</MenuText>
+          <ButtonText>WSPack.GerarDocumentacaoCodeEditor</ButtonText>
+          <ToolTipText>Gerar documentação do código fonte C#</ToolTipText>
+        </Strings>
+      </Button>
+      <!-- Criar regra -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdDocumentationCreateRule" priority="0x0200" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo01Documentacao" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Criar regra</MenuText>
+          <ButtonText>WSPack.CriarRegraCodeEditor</ButtonText>
+          <ToolTipText>Criar regra para o elemento selecionado</ToolTipText>
+        </Strings>
+      </Button>
+
+      <!-- Dicionário -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdDocumentationDictionary" priority="0x0100" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo02Documentacao" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Dicionário</MenuText>
+          <ButtonText>WSPack.DicionarioCodeEditor</ButtonText>
+          <ToolTipText>Abrir a configuração do dicinário</ToolTipText>
+        </Strings>
+      </Button>
+      <!-- Regras -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdDocumentationRules" priority="0x0200" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo02Documentacao" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Regras</MenuText>
+          <ButtonText>WSPack.RegrasCodeEditor</ButtonText>
+          <ToolTipText>Abrir a configuração de regras </ToolTipText>
+        </Strings>
+      </Button>
+      <!-- #endregion -->
+
       <!-- #endregion -->
 
       <!-- #region SolutionExplorer-->
@@ -829,9 +1112,277 @@
           <ToolTipText>Localizar o item selecionado no TFS</ToolTipText>
         </Strings>
       </Button>
+      <!-- Localizar no Windows -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdLocateInWindowsSolutionExplorer" priority="0x0200" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="subGrupo01SolutionExplorer" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Localizar no Windows</MenuText>
+          <ButtonText>WSPack.LocalizarWindowsSolutionExplorer</ButtonText>
+          <ToolTipText>Localizar o item selecionado no Windows</ToolTipText>
+        </Strings>
+      </Button>
+
+      <!-- Copiar caminho local -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdCopyLocalPathSolutionExplorer" priority="0x0100" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="subGrupo02SolutionExplorer" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>CopiarCaminhoLocal</ButtonText>
+          <MenuText>Copiar caminho 'Local' do item</MenuText>
+          <ToolTipText>Copiar o caminho 'Local' do item para a área de transferência</ToolTipText>
+        </Strings>
+      </Button>
+      <!-- Copiar caminho server -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdCopyServerPathSolutionExplorer" priority="0x0200" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="subGrupo02SolutionExplorer" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Copiar caminho 'Server' do item</MenuText>
+          <ButtonText>WSPack.CopiarCaminhoServerSolutionExplorer</ButtonText>
+          <ToolTipText>Copiar o caminho 'Server' do item para a área de transferência</ToolTipText>
+        </Strings>
+      </Button>
+
+      <!-- Abrir no editor -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdOpenInEditorSolutionExplorer" priority="0x0100" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="subGrupo03SolutionExplorer" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Abrir este item no editor de texto</MenuText>
+          <ButtonText>WSPack.AbrirEditorTextoSolutionExplorer</ButtonText>
+          <ToolTipText>Abrir este item no editor de texto</ToolTipText>
+        </Strings>
+      </Button>
+      <!-- Abrir Output Path -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdOpenOutputPathSolutionExplorer" priority="0x0200" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="subGrupo03SolutionExplorer" />
+        <Icon guid="guidvsct" id="openFolder" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <MenuText>Abrir o Output Path</MenuText>
+          <ButtonText>WSPack.AbrirOutputPathSolutionExplorer</ButtonText>
+          <ToolTipText>Abrir o Output Path da configuração ativa</ToolTipText>
+        </Strings>
+      </Button>
+      <!-- Abrir o Prompt -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdOpenCmdPromptSolutionExplorer" priority="0x0300" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="subGrupo03SolutionExplorer" />
+        <Icon guid="guidvsct" id="prompt" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Abrir o Prompt de comando</MenuText>
+          <ButtonText>WSPack.AbrirCmdPromptSolutionExplorer</ButtonText>
+          <ToolTipText>Abrir o Prompt de comando do desenvolvedor</ToolTipText>
+        </Strings>
+      </Button>
+
+      <!-- Setar parâmetros de linha de comando -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdProjectCommandLineArgs" priority="0x0400" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="subGrupo04SolutionExplorer" />
+        <Icon guid="guidvsct" id="projectCmdLineArgs" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Parâmetros de linha de comando do projeto</MenuText>
+          <ButtonText>WSPack.ParametrosLinhaComandoProjetoSolutionExplorer</ButtonText>
+          <ToolTipText>Abrir uma tela para atribuir parâmetros de linha de comando no projeto</ToolTipText>
+        </Strings>
+      </Button>
+
+      <!-- Toolbar do Solution Explorer -->
+      <!-- Localizar um item -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdSolutionExplorerLocalizarItem" priority="0x0100" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupoSolutionExplorerToolbar" />
+        <Icon guid="guidvsct" id="gotoDeclaration" />
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Localizar um item</MenuText>
+          <ButtonText>WSPack.LocalizarItemSolutionExplorer</ButtonText>
+          <ToolTipText>Localizar um item no Solution Explorer</ToolTipText>
+        </Strings>
+      </Button>
+      <!-- Git.Pull -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdGitPullToolbarSolutionExplorer" priority="0x0200" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupoSolutionExplorerToolbar" />
+        <Icon guid="guidvsct3" id="gitPull" />
+        <CommandFlag>DefaultInvisible</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Fazer Pull</MenuText>
+          <ButtonText>WSPack.FazerPullToolbarSolutionExplorer</ButtonText>
+          <ToolTipText>Fazer Pull</ToolTipText>
+        </Strings>
+      </Button>
       <!-- #endregion -->
 
+      <!-- Trabalhar Offline no Team Foundation Server -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdWorkOffline" type="Button" priority="0x900">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo01TeamFoundationServer" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Trabalhar Offline</MenuText>
+          <ButtonText>WSPack.TrabalharOffline</ButtonText>
+        </Strings>
+      </Button>
+
+      <!-- #region Menu File -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdRestartVisualStudio" priority="0x0100" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo01File" />
+        <Strings>
+          <MenuText>Reiniciar Visual Studio</MenuText>
+          <ButtonText>WSPack.ReiniciarVS</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidWSPackPackageCmdSet" id="cmdRestartVisualStudioAsADM" priority="0x0200" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo01File" />
+        <Strings>
+          <MenuText>Reiniciar Visual Studio (Adm)</MenuText>
+          <ButtonText>WSPack.ReiniciarVSAsAdm</ButtonText>
+          <ToolTipText>Reiniciar o Visual Studio como Administrador</ToolTipText>
+        </Strings>
+      </Button>
+      <Button guid="guidWSPackPackageCmdSet" id="cmdDisconnectAndClose" priority="0x0300" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo01File" />
+        <Icon guid="ImageCatalogGuid" id="Exit" />
+        <CommandFlag>IconIsMoniker</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <MenuText>Desconectar-se e sair</MenuText>
+          <ButtonText>WSPack.DisconnectAndClose</ButtonText>
+          <ToolTipText>Desconectar-se do servidor e fechar o Visual Studio </ToolTipText>
+        </Strings>
+      </Button>
+      <!-- #endregion-->
+
+      <!-- #region Toolbar WSPack -->
+
+      <!-- #region Grupo 02 -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdChangeSourceControl" type="Button" priority="0x100">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo02ToolBarWSPack" />
+        <Icon guid="ImageCatalogGuid" id="ChangeSourceControl" />
+        <CommandFlag>IconIsMoniker</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>Change Source Control</ButtonText>
+          <MenuText>WSPack.ChangeSourceControlToolbar</MenuText>
+          <ToolTipText>Alterar o PlugIn de controle de fonte</ToolTipText>
+        </Strings>
+      </Button>
+      <Button guid="guidWSPackPackageCmdSet" id="cmdSourceControlExplorerToolbar" type="Button" priority="0x202">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo02ToolBarWSPack" />
+        <Icon guid="ImageCatalogGuid" id="SourceControlExplorer" />
+        <CommandFlag>IconIsMoniker</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>AllowVisibilityChangeOnToolBar</CommandFlag>
+        <Strings>
+          <ButtonText>Source Control Explorer</ButtonText>
+          <MenuText>WSPack.SourceControlExplorerToolbar</MenuText>
+        </Strings>
+      </Button>
+      <Button guid="guidWSPackPackageCmdSet" id="cmdGitRepository" type="Button" priority="0x202">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo02ToolBarWSPack" />
+        <Icon guid="guidvsct2" id="gitRepository" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>AllowVisibilityChangeOnToolBar</CommandFlag>
+        <Strings>
+          <ButtonText>Git Repository</ButtonText>
+          <MenuText>WSPack.GitRepository</MenuText>
+        </Strings>
+      </Button>
+      <Button guid="guidWSPackPackageCmdSet" id="cmdFlexUndo" type="Button" priority="0x203">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo02ToolBarWSPack" />
+        <Icon guid="ImageCatalogGuid" id="Undo" />
+        <CommandFlag>IconIsMoniker</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>Flex Undo</ButtonText>
+          <MenuText>WSPack.FlexUndo</MenuText>
+        </Strings>
+      </Button>
+      <Button guid="guidWSPackPackageCmdSet" id="cmdFlexViewHistory" type="Button" priority="0x204">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo02ToolBarWSPack" />
+        <Icon guid="ImageCatalogGuid" id="History" />
+        <CommandFlag>IconIsMoniker</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>Flex View History</ButtonText>
+          <MenuText>WSPack.FlexViewHistory</MenuText>
+        </Strings>
+      </Button>
+      <Button guid="guidWSPackPackageCmdSet" id="cmdFlexCompare" type="Button" priority="0x205">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo02ToolBarWSPack" />
+        <Icon guid="ImageCatalogGuid" id="CompareFiles" />
+        <CommandFlag>IconIsMoniker</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>Flex Compare</ButtonText>
+          <MenuText>WSPack.FlexCompare</MenuText>
+        </Strings>
+      </Button>
+      <Button guid="guidWSPackPackageCmdSet" id="cmdFlexCommit" type="Button" priority="0x206">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo02ToolBarWSPack" />
+        <Icon guid="ImageCatalogGuid" id="CheckIn" />
+        <CommandFlag>IconIsMoniker</CommandFlag>
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>TextChanges</CommandFlag>
+        <Strings>
+          <ButtonText>Flex Commit</ButtonText>
+          <MenuText>WSPack.FlexCommit</MenuText>
+        </Strings>
+      </Button>
+      <Button guid="guidWSPackPackageCmdSet" id="cmdFlexGitChanges" type="Button" priority="0x207">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo02ToolBarWSPack" />
+        <Icon guid="guidvsct3" id="gitToolWindow" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>AllowVisibilityChangeOnToolBar</CommandFlag>
+        <Strings>
+          <ButtonText>Git Changes</ButtonText>
+          <MenuText>WSPack.FlexCommit</MenuText>
+        </Strings>
+      </Button>
+      <!-- #endregion -->
+
+      <Button guid="guidWSPackPackageCmdSet" id="cmdDefineTabOrder" type="Button" priority="0x500">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo05ToolBarWSPack" />
+        <Icon guid="guidvsct" id="tabOrder" />
+        <Strings>
+          <MenuText>Definir tabulação</MenuText>
+          <ButtonText>WSPack.DefinirTabulacao</ButtonText>
+          <ToolTipText>Definir tabulação do controle selecionado</ToolTipText>
+        </Strings>
+      </Button>
+
+      <!-- #endregion -->
+
+      <!-- Git - View Changes - Recolher todos -->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdGitColapseAllChanges" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo01GitViewChanges" />
+        <Strings>
+          <MenuText>Recolher todos</MenuText>
+          <ButtonText>WSPack.GitViewChangesCollapseAll</ButtonText>
+        </Strings>
+      </Button>
+
     </Buttons>
+
+    <Combos>
+      <!-- Favoritos no Source Control Explorer -->
+      <Combo guid="guidWSPackPackageCmdSet" id="cmdSSEComboBoxFavoritos" priority="0x0702" type="DropDownCombo" defaultWidth="175" idCommandList="cmdSSEGetItemsComboBox">
+        <Parent guid="guidSourceControlExplorer" id="grupoToolBarSourceControlExplorer06" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <CommandFlag>IconAndText</CommandFlag>
+        <CommandFlag>CommandWellOnly</CommandFlag>
+        <Strings>
+          <ButtonText>Favoritos:</ButtonText>
+          <ToolTipText>Navegar para um item do TFS previamente adicionado como favorito</ToolTipText>
+        </Strings>
+      </Combo>
+    </Combos>
 
     <Bitmaps>
       <Bitmap guid="guidvsct" href="..\Resources\vsctImages.png" usedList="openFolder, tabOrder, resString, clearBookmark, home, gotoDeclaration,                projectCmdLineArgsStartupProject, projectCmdLineArgs, prompt" />
@@ -840,6 +1391,215 @@
 
       <Bitmap guid="guidvsct3" href="..\Resources\vsctImages3.png" usedList="gitToolWindow, gitPull" />
     </Bitmaps>
+
   </Commands>
+
+  <CommandPlacements>
+
+    <!-- #region CodeEditor -->
+    <!-- Menu WS Pack -->
+    <CommandPlacement guid="guidWSPackPackageCmdSet" id="grupoCodeEditor" priority="0x0001">
+      <Parent guid="guidCodeEditor" id="menuCodeEditor" />
+    </CommandPlacement>
+
+    <!-- Grupo marcadores no CodeEditor -->
+    <CommandPlacement guid="guidWSPackPackageCmdSet" id="subMenuMarcadores" priority="0x0200">
+      <Parent guid="guidWSPackPackageCmdSet" id="subGrupo04CodeEditor" />
+    </CommandPlacement>
+
+    <!-- Grupo Documentação no CodeEditor -->
+    <CommandPlacement guid="guidWSPackPackageCmdSet" id="subMenuDocumentacao" priority="0x0300">
+      <Parent guid="guidWSPackPackageCmdSet" id="subGrupo04CodeEditor" />
+    </CommandPlacement>
+
+    <!-- Localizar no TFS na aba do CodeEditor -->
+    <CommandPlacement guid="guidWSPackPackageCmdSet" id="cmdLocateInTFS" priority="0x0100">
+      <Parent guid="guidWSPackPackageCmdSet" id="grupoAbaCodeEditor" />
+    </CommandPlacement>
+
+    <!-- Localizar no SolutionExplorer na aba do CodeEditor -->
+    <CommandPlacement guid="guidWSPackPackageCmdSet" id="cmdLocateInSolutionExplorer" priority="0x0200">
+      <Parent guid="guidWSPackPackageCmdSet" id="grupoAbaCodeEditor" />
+    </CommandPlacement>
+    <!-- #endregion -->
+
+    <!-- #region SolutionExplorer -->
+    <!-- Menu 'Folder' no Solution Explorer -->
+    <CommandPlacement guid="guidWSPackPackageCmdSet" id="todosMenusSolutionExplorer" priority="0x001">
+      <Parent guid="guidSolutionExplorer" id="menuSolutionExplorerFolder" />
+    </CommandPlacement>
+
+    <!-- Menu 'Projeto' no Solution Explorer -->
+    <CommandPlacement guid="guidWSPackPackageCmdSet" id="todosMenusSolutionExplorer" priority="0x001">
+      <Parent guid="guidSolutionExplorer" id="menuSolutionExplorerProjeto" />
+    </CommandPlacement>
+
+    <!-- Menu 'Solution' no Solution Explorer -->
+    <CommandPlacement guid="guidWSPackPackageCmdSet" id="todosMenusSolutionExplorer" priority="0x001">
+      <Parent guid="guidSolutionExplorer" id="menuSolutionExplorerSolution" />
+    </CommandPlacement>
+
+    <!-- Menu 'Properties' no Solution Explorer -->
+    <CommandPlacement guid="guidWSPackPackageCmdSet" id="todosMenusSolutionExplorer" priority="0x001">
+      <Parent guid="guidSolutionExplorer" id="menuSolutionExplorerAppDesignerFolder" />
+    </CommandPlacement>
+
+    <!-- Menu 'Web Project' no Solution Explorer -->
+    <CommandPlacement guid="guidWSPackPackageCmdSet" id="todosMenusSolutionExplorer" priority="0x001">
+      <Parent guid="guidSolutionExplorer" id="menuSolutionExplorerWebProject" />
+    </CommandPlacement>
+
+    <!-- Menu 'Web Folder' no Solution Explorer -->
+    <CommandPlacement guid="guidWSPackPackageCmdSet" id="todosMenusSolutionExplorer" priority="0x001">
+      <Parent guid="guidSolutionExplorer" id="menuSolutionExplorerWebFolder" />
+    </CommandPlacement>
+
+    <!-- Menu 'Web Item' no Solution Explorer -->
+    <CommandPlacement guid="guidWSPackPackageCmdSet" id="todosMenusSolutionExplorer" priority="0x001">
+      <Parent guid="guidSolutionExplorer" id="menuSolutionExplorerWebItem" />
+    </CommandPlacement>
+
+    <!-- Menu 'Web SubNode' no Solution Explorer -->
+    <CommandPlacement guid="guidWSPackPackageCmdSet" id="todosMenusSolutionExplorer" priority="0x001">
+      <Parent guid="guidSolutionExplorer" id="menuSolutionExplorerWebSubNode" />
+    </CommandPlacement>
+
+    <!-- Menu 'Setup Project' no Solution Explorer -->
+    <CommandPlacement guid="guidWSPackPackageCmdSet" id="todosMenusSolutionExplorer" priority="0x001">
+      <Parent guid="guidSolutionExplorerSetupProject" id="menuSolutionExplorerSetupProject" />
+    </CommandPlacement>
+    <!-- #endregion -->
+
+    <!-- #region Toolbar WSPack -->
+    <!-- Projetos recentes do Visual Studio -->
+    <CommandPlacement guid="guidFileProjetos" id="grupoVSMenuProjetosRecentes" priority="0x0100">
+      <Parent guid="guidWSPackPackageCmdSet" id="grupo01ToolBarWSPack" />
+    </CommandPlacement>
+
+    <!-- Abrir Solution / Projeto da página inicial -->
+    <CommandPlacement guid="guidWSPackPackageCmdSet" id="cmdOpenSolutionProjectStartPage" priority="0x0200">
+      <Parent guid="guidWSPackPackageCmdSet" id="grupo01ToolBarWSPack" />
+    </CommandPlacement>
+
+    <!-- Team.ConnecttoTeamFoundationServer -->
+    <CommandPlacement guid="guidTFS" id="cmdConnectTFS" priority="0x201">
+      <Parent guid="guidWSPackPackageCmdSet" id="grupo02ToolBarWSPack" />
+    </CommandPlacement>
+
+    <!-- Build.BuildSolution -->
+    <CommandPlacement guid="guidBuildProjectView" id="cmdBuildBuildSolution" priority="0x301">
+      <Parent guid="guidWSPackPackageCmdSet" id="grupo03ToolBarWSPack" />
+    </CommandPlacement>
+    <!-- Build.RebuildSolution -->
+    <CommandPlacement guid="guidBuildProjectView" id="cmdBuildRebuildSolution" priority="0x302">
+      <Parent guid="guidWSPackPackageCmdSet" id="grupo03ToolBarWSPack" />
+    </CommandPlacement>
+    <!-- Build.BuildSelection-->
+    <CommandPlacement guid="guidBuildProjectView" id="cmdBuildBuildSelection" priority="0x303">
+      <Parent guid="guidWSPackPackageCmdSet" id="grupo03ToolBarWSPack" />
+    </CommandPlacement>
+    <!-- Build.RebuildSelection -->
+    <CommandPlacement guid="guidBuildProjectView" id="cmdBuildRebuildSelection" priority="0x304">
+      <Parent guid="guidWSPackPackageCmdSet" id="grupo03ToolBarWSPack" />
+    </CommandPlacement>
+    <!-- Abrir Output Path -->
+    <CommandPlacement guid="guidWSPackPackageCmdSet" id="cmdOpenOutputPath" priority="0x305">
+      <Parent guid="guidWSPackPackageCmdSet" id="grupo03ToolBarWSPack" />
+    </CommandPlacement>
+    <!-- Project.SetasStartUpProject -->
+    <CommandPlacement guid="guidBuildProjectView" id="cmdProjectSetasStartUpProject" priority="0x401">
+      <Parent guid="guidWSPackPackageCmdSet" id="grupo04ToolBarWSPack" />
+    </CommandPlacement>
+    <!-- Project.Properties -->
+    <CommandPlacement guid="guidBuildProjectView" id="cmdProjectProperties" priority="0x402">
+      <Parent guid="guidWSPackPackageCmdSet" id="grupo04ToolBarWSPack" />
+    </CommandPlacement>
+
+    <!-- View.ViewCode -->
+    <CommandPlacement guid="guidBuildProjectView" id="cmdViewViewCode" priority="0x501">
+      <Parent guid="guidWSPackPackageCmdSet" id="grupo05ToolBarWSPack" />
+    </CommandPlacement>
+    <!-- View.ViewDesigner -->
+    <CommandPlacement guid="guidBuildProjectView" id="cmdViewViewDesigner" priority="0x502">
+      <Parent guid="guidWSPackPackageCmdSet" id="grupo05ToolBarWSPack" />
+    </CommandPlacement>
+
+    <!-- Tools.ManageNuGetPackagesforSolution -->
+    <CommandPlacement guid="guidTools" id="cmdManageNuGetPackagesforSolution" priority="0x602">
+      <Parent guid="guidWSPackPackageCmdSet" id="grupo06ToolBarWSPack" />
+    </CommandPlacement>
+
+    <!-- File.CloseAllButThis -->
+    <CommandPlacement guid="guidFileAbaCodeEditor" id="cmdFileCloseAllButThis" priority="0x701">
+      <Parent guid="guidWSPackPackageCmdSet" id="grupo07ToolBarWSPack" />
+    </CommandPlacement>
+
+    <!-- Window.CloseAllDocuments -->
+    <CommandPlacement guid="guidBuildProjectView" id="cmdWindowCloseAllDocuments" priority="0x702">
+      <Parent guid="guidWSPackPackageCmdSet" id="grupo07ToolBarWSPack" />
+    </CommandPlacement>
+    <!-- #endregion -->
+
+    <!-- #region Toolbar do Source Control Explorer -->
+    <CommandPlacement guid="guidSCEToolBar" id="cmdSCEViewFolders" priority="0x0010">
+      <Parent guid="guidWSPackPackageCmdSet" id="grupo01MenuControllerToolbarSCE" />
+    </CommandPlacement>
+    <CommandPlacement guid="guidSCEToolBar" id="cmdSCEShowDeletedItems" priority="0x0020">
+      <Parent guid="guidWSPackPackageCmdSet" id="grupo01MenuControllerToolbarSCE" />
+    </CommandPlacement>
+    <CommandPlacement guid="guidSCEToolBar" id="cmdSCESRefresh" priority="0x0030">
+      <Parent guid="guidWSPackPackageCmdSet" id="grupo01MenuControllerToolbarSCE" />
+    </CommandPlacement>
+
+    <CommandPlacement guid="guidSCEToolBar" id="cmdSCENewFolder" priority="0x0010">
+      <Parent guid="guidWSPackPackageCmdSet" id="grupo02MenuControllerToolbarSCE" />
+    </CommandPlacement>
+    <CommandPlacement guid="guidSCEToolBar" id="cmdSCENewItem" priority="0x0020">
+      <Parent guid="guidWSPackPackageCmdSet" id="grupo02MenuControllerToolbarSCE" />
+    </CommandPlacement>
+    <CommandPlacement guid="guidSCEToolBar" id="cmdSCEDelete" priority="0x0030">
+      <Parent guid="guidWSPackPackageCmdSet" id="grupo02MenuControllerToolbarSCE" />
+    </CommandPlacement>
+
+    <CommandPlacement guid="guidSCEToolBar" id="cmdSCEGetLatestVersion" priority="0x0010">
+      <Parent guid="guidWSPackPackageCmdSet" id="grupo03MenuControllerToolbarSCE" />
+    </CommandPlacement>
+    <CommandPlacement guid="guidSCEToolBar" id="cmdSCECheckOut" priority="0x0020">
+      <Parent guid="guidWSPackPackageCmdSet" id="grupo03MenuControllerToolbarSCE" />
+    </CommandPlacement>
+    <CommandPlacement guid="guidSCEToolBar" id="cmdSCECheckIn" priority="0x0030">
+      <Parent guid="guidWSPackPackageCmdSet" id="grupo03MenuControllerToolbarSCE" />
+    </CommandPlacement>
+    <CommandPlacement guid="guidSCEToolBar" id="cmdSCEUndo" priority="0x0040">
+      <Parent guid="guidWSPackPackageCmdSet" id="grupo03MenuControllerToolbarSCE" />
+    </CommandPlacement>
+
+    <CommandPlacement guid="guidSCEToolBar" id="cmdSCECompareFolders" priority="0x0010">
+      <Parent guid="guidWSPackPackageCmdSet" id="grupo04MenuControllerToolbarSCE" />
+    </CommandPlacement>
+    <CommandPlacement guid="guidSCEToolBar" id="cmdSCEHistory" priority="0x0020">
+      <Parent guid="guidWSPackPackageCmdSet" id="grupo04MenuControllerToolbarSCE" />
+    </CommandPlacement>
+    <CommandPlacement guid="guidSCEToolBar" id="cmdSCEFindChangeSets" priority="0x0030">
+      <Parent guid="guidWSPackPackageCmdSet" id="grupo04MenuControllerToolbarSCE" />
+    </CommandPlacement>
+    <!-- #endregion -->
+
+    <!-- Refactor -->
+    <CommandPlacement guid="guidWSPackPackageCmdSet" id="cmdGenerateResource" priority="0x0100">
+      <Parent guid="guidWSPackPackageCmdSet" id="grupo01Refactor" />
+    </CommandPlacement>
+
+  </CommandPlacements>
+
+  <VisibilityConstraints>
+    <!-- Botão Localizar um item no Solution Explorer -->
+    <VisibilityItem guid="guidWSPackPackageCmdSet" id="cmdSolutionExplorerLocalizarItem" context="UICONTEXT_SolutionHasSingleProject" />
+    <VisibilityItem guid="guidWSPackPackageCmdSet" id="cmdSolutionExplorerLocalizarItem" context="UICONTEXT_SolutionHasMultipleProjects" />
+
+    <!-- Parâmetros de linha de comando do projeto -->
+    <VisibilityItem guid="guidWSPackPackageCmdSet" id="cmdProjectCommandLineArgs" context="uiNotSolutionBuilding" />
+    <VisibilityItem guid="guidWSPackPackageCmdSet" id="cmdProjectCommandLineArgsStartupProject" context="uiNotSolutionBuilding" />
+  </VisibilityConstraints>
 
 </CommandTable>

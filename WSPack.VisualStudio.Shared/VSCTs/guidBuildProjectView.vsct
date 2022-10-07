@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <Symbols>
+    <!-- Build, Project, View -->
+    <GuidSymbol name="guidBuildProjectView" value="{5EFC7975-14BC-11CF-9B2B-00AA00573819}">
+      <IDSymbol name="cmdProjectSetasStartUpProject" value="246"/>
+      <IDSymbol name="cmdViewViewDesigner" value="332"/>
+      <IDSymbol name="cmdViewViewCode" value="333"/>
+      <IDSymbol name="cmdProjectProperties" value="396"/>
+      <IDSymbol name="cmdWindowCloseAllDocuments" value="627"/>
+      <IDSymbol name="cmdBuildBuildSolution" value="882"/>
+      <IDSymbol name="cmdBuildRebuildSolution" value="883"/>
+      <IDSymbol name="cmdBuildBuildSelection" value="886"/>
+      <IDSymbol name="cmdBuildRebuildSelection" value="887"/>
+      <IDSymbol name="cmdEditFindAllReferences" value="1915"/>
+    </GuidSymbol>
+  </Symbols>
+  
+</CommandTable>
