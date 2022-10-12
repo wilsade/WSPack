@@ -55,11 +55,61 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\BaseCommand.cs">
       <Link>Commands\BaseCommand.cs</Link>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyLocalPathBaseCommand.cs">
+      <Link>Commands\CopyLocalPathBaseCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyLocalPathCodeEditorCommand.cs">
+      <Link>Commands\CopyLocalPathCodeEditorCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyLocalPathSolutionExplorerCommand.cs">
+      <Link>Commands\CopyLocalPathSolutionExplorerCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyServerPathBaseCommand.cs">
+      <Link>Commands\CopyServerPathBaseCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\FlexCommandsCommand.cs">
+      <Link>Commands\FlexCommandsCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\FlexGitChanges.cs">
+      <Link>Commands\FlexGitChanges.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\FlexGitRepositoryCommand.cs">
+      <Link>Commands\FlexGitRepositoryCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\FlexSourceControlExplorerCommand.cs">
+      <Link>Commands\FlexSourceControlExplorerCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\LocateInTFSBaseCommand.cs">
+      <Link>Commands\LocateInTFSBaseCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\LocateInTFSCodeEditorCommand.cs">
+      <Link>Commands\LocateInTFSCodeEditorCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\LocateInTFSSolutionExplorerCommand.cs">
+      <Link>Commands\LocateInTFSSolutionExplorerCommand.cs</Link>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\ParametersCommand.cs">
       <Link>Commands\ParametersCommand.cs</Link>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\DispatchedPoller.cs">
+      <Link>DispatchedPoller.cs</Link>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Extensions\DteExtensions.cs">
       <Link>Extensions\DteExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Extensions\SourceControlExplorerExtensions.cs">
+      <Link>Extensions\SourceControlExplorerExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Extensions\TextEditorExtensions.cs">
+      <Link>Extensions\TextEditorExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Forms\ChooseWorkspaceLocalItemForm.cs">
+      <Link>Forms\ChooseWorkspaceLocalItemForm.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Forms\ChooseWorkspaceLocalItemForm.designer.cs">
+      <Link>Forms\ChooseWorkspaceLocalItemForm.designer.cs</Link>
+      <DependentUpon>ChooseWorkspaceLocalItemForm.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Options\BaseDialogPage.cs">
       <Link>Options\BaseDialogPage.cs</Link>
@@ -124,18 +174,35 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.TeamFoundation.Client">
+      <HintPath>$(DevEnvDir)CommonExtensions\Microsoft\TeamFoundation\Team Explorer\Microsoft.TeamFoundation.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.VersionControl.Client">
+      <HintPath>$(DevEnvDir)CommonExtensions\Microsoft\TeamFoundation\Team Explorer\Microsoft.TeamFoundation.VersionControl.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TeamFoundation">
+      <HintPath>$(DevEnvDir)CommonExtensions\Microsoft\TeamFoundation\Team Explorer\Microsoft.VisualStudio.TeamFoundation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TeamFoundation.VersionControl">
+      <HintPath>$(DevEnvDir)CommonExtensions\Microsoft\TeamFoundation\Team Explorer\Microsoft.VisualStudio.TeamFoundation.VersionControl.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.SDK" Version="16.0.200" ExcludeAssets="runtime" />
     <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="16.1.3121" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="..\..\WSPack.VisualStudio.Shared\Forms\ChooseWorkspaceLocalItemForm.resx">
+      <Link>Forms\ChooseWorkspaceLocalItemForm.resx</Link>
+      <DependentUpon>ChooseWorkspaceLocalItemForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="..\..\WSPack.VisualStudio.Shared\VSPackage.resx">
       <Link>VSPackage.resx</Link>
     </EmbeddedResource>

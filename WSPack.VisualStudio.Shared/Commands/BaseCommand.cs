@@ -6,7 +6,13 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
+using Microsoft.VisualStudio.ComponentModelHost;
+using Microsoft.VisualStudio.Editor;
 using Microsoft.VisualStudio.Shell;
+using Microsoft.VisualStudio.TextManager.Interop;
+
+using WSPack.Lib.Extensions;
+using WSPack.VisualStudio.Shared.Extensions;
 
 using Task = System.Threading.Tasks.Task;
 
@@ -17,6 +23,9 @@ namespace WSPack.VisualStudio.Shared.Commands
   /// </summary>
   internal abstract class BaseCommand
   {
+    IVsTextManager _textManager;
+    IVsEditorAdaptersFactoryService _editorAdapterFactory;
+
     /// <summary>
     /// Gets the service provider from the owner package.
     /// </summary>
@@ -51,9 +60,76 @@ namespace WSPack.VisualStudio.Shared.Commands
       commandService.AddCommand(_menu);
     }
 
+    /// <summary>
+    /// Recuperar o EditorAdapterFactory
+    /// </summary>
+    IVsEditorAdaptersFactoryService EditorAdapterFactory
+    {
+      get
+      {
+        if (_editorAdapterFactory == null)
+        {
+          IComponentModel model = (IComponentModel)Microsoft.VisualStudio.Shell.Package.GetGlobalService(typeof(SComponentModel));
+          _editorAdapterFactory = model.GetService<IVsEditorAdaptersFactoryService>();
+        }
+        return _editorAdapterFactory;
+      }
+    }
+
     protected virtual void BeforeExecute(object sender, EventArgs e)
     {
       // Implementado nos filhos
+    }
+
+    /// <summary>
+    /// Recuperar o caminho do documento ativo do CodeEditor
+    /// </summary>
+    /// <returns>true se foi possível recuperar um documento ativo do CodeEditor</returns>
+    protected string GetActiveDocumentPath()
+    {
+      if (GetActiveDocumentPath(out var localItem))
+        return localItem;
+      return string.Empty;
+    }
+
+    /// <summary>
+    /// Gets the editor active view.
+    /// </summary>
+    /// <returns>editor active view.</returns>
+    IVsTextView GetEditorActiveView()
+    {
+      if (_textManager == null)
+      {
+        _textManager = _package.GetService<SVsTextManager, IVsTextManager>();
+      }
+
+      _textManager.GetActiveView(1, null, out IVsTextView textViewCurrent);
+      return textViewCurrent;
+    }
+
+    /// <summary>
+    /// Recuperar o caminho do documento ativo do CodeEditor
+    /// </summary>
+    /// <param name="localItem">Caminho completo do documento</param>
+    /// <returns>true se foi possível recuperar um documento ativo do CodeEditor</returns>
+    protected bool GetActiveDocumentPath(out string localItem)
+    {
+      localItem = WSPackPackage.Dte.GetDocumentPath();
+      if (!localItem.IsNullOrEmptyEx())
+        return true;
+
+      IVsTextView editorView = GetEditorActiveView();
+      if (editorView != null)
+      {
+        var wpfView = EditorAdapterFactory.GetWpfTextView(editorView);
+        if (wpfView != null)
+        {
+          localItem = wpfView.GetDocumentPath();
+          return true;
+        }
+      }
+      localItem = null;
+      return false;
     }
 
     /// <summary>

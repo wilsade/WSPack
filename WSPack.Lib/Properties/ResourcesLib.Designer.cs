@@ -63,6 +63,16 @@ namespace WSPack.Lib.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
+        public static System.Drawing.Icon icoChoose_32 {
+            get {
+                object obj = ResourceManager.GetObject("icoChoose_32", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
         public static System.Drawing.Icon icoWSPackLogo {
             get {
                 object obj = ResourceManager.GetObject("icoWSPackLogo", resourceCulture);
