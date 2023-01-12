@@ -83,6 +83,8 @@ namespace WSPack
       OleMenuCommandService commandService = await GetServiceAsync(typeof(IMenuCommandService)) as OleMenuCommandService;
       await AboutCommand.InitializeAsync(this, commandService);
       await ParametersCommand.InitializeAsync(this, commandService);
+      await CopyLocalPathSolutionExplorerCommand.InitializeAsync(this, commandService);
+      await LocateInTFSSolutionExplorerCommand.InitializeAsync(this, commandService);
     }
 
     /// <summary>

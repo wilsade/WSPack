@@ -60,9 +60,11 @@
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyLocalPathCodeEditorCommand.cs">
       <Link>Commands\CopyLocalPathCodeEditorCommand.cs</Link>
+      <DependentUpon>CopyLocalPathBaseCommand.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyLocalPathSolutionExplorerCommand.cs">
       <Link>Commands\CopyLocalPathSolutionExplorerCommand.cs</Link>
+      <DependentUpon>CopyLocalPathBaseCommand.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyServerPathBaseCommand.cs">
       <Link>Commands\CopyServerPathBaseCommand.cs</Link>
@@ -72,21 +74,26 @@
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\FlexGitChanges.cs">
       <Link>Commands\FlexGitChanges.cs</Link>
+      <DependentUpon>FlexCommandsCommand.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\FlexGitRepositoryCommand.cs">
       <Link>Commands\FlexGitRepositoryCommand.cs</Link>
+      <DependentUpon>FlexCommandsCommand.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\FlexSourceControlExplorerCommand.cs">
       <Link>Commands\FlexSourceControlExplorerCommand.cs</Link>
+      <DependentUpon>FlexCommandsCommand.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\LocateInTFSBaseCommand.cs">
       <Link>Commands\LocateInTFSBaseCommand.cs</Link>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\LocateInTFSCodeEditorCommand.cs">
       <Link>Commands\LocateInTFSCodeEditorCommand.cs</Link>
+      <DependentUpon>LocateInTFSBaseCommand.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\LocateInTFSSolutionExplorerCommand.cs">
       <Link>Commands\LocateInTFSSolutionExplorerCommand.cs</Link>
+      <DependentUpon>LocateInTFSBaseCommand.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\ParametersCommand.cs">
       <Link>Commands\ParametersCommand.cs</Link>
