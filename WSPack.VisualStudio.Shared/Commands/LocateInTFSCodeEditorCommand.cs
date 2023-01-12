@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Task = System.Threading.Tasks.Task;
 namespace WSPack.VisualStudio.Shared.Commands
 {
   class LocateInTFSCodeEditorCommand : LocateInTFSBaseCommand
@@ -28,6 +29,22 @@ namespace WSPack.VisualStudio.Shared.Commands
 
     }
     #endregion
+
+    /// <summary>
+    /// Devolve a instãncia da classe: <see cref="LocateInTFSCodeEditorCommand"/>
+    /// </summary>
+    /// <value>Instância da classe: <see cref="LocateInTFSCodeEditorCommand"/></value>
+    public static LocateInTFSCodeEditorCommand Instance { get; private set; }
+
+    /// <summary>
+    /// Initializes the singleton instance of the command.
+    /// </summary>
+    /// <param name="package">Owner package, not null.</param>
+    public static async Task InitializeAsync(AsyncPackage package, OleMenuCommandService commandService)
+    {
+      await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(package.DisposalToken);
+      Instance = new LocateInTFSCodeEditorCommand(package, commandService);
+    }
 
     /// <summary>
     /// Recuperar o item local conforme tipo de comando

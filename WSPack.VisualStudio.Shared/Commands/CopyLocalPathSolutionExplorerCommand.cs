@@ -32,6 +32,10 @@ namespace WSPack.VisualStudio.Shared.Commands
     }
     #endregion
 
+    /// <summary>
+    /// Devolve a instãncia da classe: <see cref="CopyLocalPathSolutionExplorerCommand"/>
+    /// </summary>
+    /// <value>Instância da classe: <see cref="CopyLocalPathSolutionExplorerCommand"/></value>
     public static CopyLocalPathSolutionExplorerCommand Instance { get; private set; }
 
     /// <summary>

@@ -84,7 +84,9 @@ namespace WSPack
       await AboutCommand.InitializeAsync(this, commandService);
       await ParametersCommand.InitializeAsync(this, commandService);
       await CopyLocalPathSolutionExplorerCommand.InitializeAsync(this, commandService);
+      await CopyLocalPathCodeEditorCommand.InitializeAsync(this, commandService);
       await LocateInTFSSolutionExplorerCommand.InitializeAsync(this, commandService);
+      await LocateInTFSCodeEditorCommand.InitializeAsync(this, commandService);
     }
 
     /// <summary>
