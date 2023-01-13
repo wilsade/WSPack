@@ -69,6 +69,10 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyServerPathBaseCommand.cs">
       <Link>Commands\CopyServerPathBaseCommand.cs</Link>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyServerPathSolutionExplorerCommand.cs">
+      <Link>Commands\CopyServerPathSolutionExplorerCommand.cs</Link>
+      <DependentUpon>CopyServerPathBaseCommand.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\FlexCommandsCommand.cs">
       <Link>Commands\FlexCommandsCommand.cs</Link>
     </Compile>
@@ -183,6 +187,9 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.TeamFoundation.Client">
       <HintPath>$(DevEnvDir)CommonExtensions\Microsoft\TeamFoundation\Team Explorer\Microsoft.TeamFoundation.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Git.Provider">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\Microsoft.TeamFoundation.Git.Provider.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.TeamFoundation.VersionControl.Client">
       <HintPath>$(DevEnvDir)CommonExtensions\Microsoft\TeamFoundation\Team Explorer\Microsoft.TeamFoundation.VersionControl.Client.dll</HintPath>

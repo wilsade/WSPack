@@ -19,7 +19,8 @@ namespace WSPack.VisualStudio.Shared.Extensions
     /// <param name="forcePanelShow">true para forçar a exbibição do painel</param>
     /// <param name="message">A mensagem a ser escrita</param>
     /// <param name="parameters">Parâmetros da mensagem</param>
-    public static void WriteInOutPut(this EnvDTE80.DTE2 applicationObject, bool forcePanelShow, string message, params string[] parameters)
+    public static void WriteInOutPut(this EnvDTE80.DTE2 applicationObject, bool forcePanelShow,
+      string message)
     {
       try
       {
@@ -49,10 +50,7 @@ namespace WSPack.VisualStudio.Shared.Extensions
         else
           owp.Activate();
 
-        if (parameters?.Length > 0)
-          owp.OutputString(string.Format(message, parameters) + Environment.NewLine);
-        else
-          owp.OutputString(message + Environment.NewLine);
+        owp.OutputString(message + Environment.NewLine);
       }
       catch (Exception ex)
       {

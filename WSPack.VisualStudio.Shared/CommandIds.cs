@@ -19,6 +19,9 @@ namespace WSPack.VisualStudio.Shared.Commands
     internal const int CopyLocalPath = 0x0107;
     internal const int CopyLocalPathSolutionExplorer = 0x0108;
 
+
+    internal const int CopyServerPathSolutionExplorer = 0x0111;
+
     internal const int FlexGitRepository = 0x0184;
     internal const int FlexSourceControlExplorerToolbar = 0x0185;
     internal const int FlexGitChanges = 0x0186;

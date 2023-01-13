@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 
 using Microsoft.TeamFoundation.VersionControl.Client;
 using Microsoft.VisualStudio.TeamFoundation;
+using Microsoft.VisualStudio.TeamFoundation.Git.Extensibility;
 using Microsoft.VisualStudio.TeamFoundation.VersionControl;
 
+using WSPack.Lib.Extensions;
 using WSPack.VisualStudio.Shared.Extensions;
 using WSPack.VisualStudio.Shared.Forms;
 
@@ -72,9 +75,9 @@ namespace WSPack.VisualStudio.Shared
     /// <param name="forceShow">true para exibir o painel</param>
     /// <param name="message">A mensagem a ser escrita</param>
     /// <param name="parameters">Parâmetros da mensagem</param>
-    public static void LogOutputMessage(bool forceShow, string message, params string[] parameters)
+    public static void LogOutputMessage(bool forceShow, string messages)
     {
-      WSPackPackage.Dte.WriteInOutPut(forceShow, message, parameters);
+      WSPackPackage.Dte.WriteInOutPut(forceShow, messages);
     }
 
     /// <summary>
@@ -86,6 +89,32 @@ namespace WSPack.VisualStudio.Shared
       var vc = GetVersionControlServerExt();
       string serverItem = vc?.GetSelectedItem()?.SourceServerPath;
       return serverItem;
+    }
+
+
+    internal static bool TryGetGitServerItem(string localItem, out string serverItem)
+    {
+      serverItem = null;
+      try
+      {
+        Microsoft.VisualStudio.Shell.ThreadHelper.ThrowIfNotOnUIThread();
+
+        var sp = new Microsoft.VisualStudio.Shell.ServiceProvider((Microsoft.VisualStudio.OLE.Interop.IServiceProvider)WSPackPackage.Dte);
+        if (!(sp.GetService(typeof(IGitExt3)) is IGitExt3 gitExt3 && gitExt3.ActiveRepositories.FirstOrDefault() is IGitRepositoryInfo2 gitRepository))
+          return false;
+        var replacePath = localItem.ReplaceInsensitive(gitRepository.RepositoryPath, string.Empty)
+          .Replace("\\", "/");
+
+        IGitRemoteInfo remoteInfo = gitRepository.Remotes[0];
+        serverItem = $"{remoteInfo.FetchUrl}?path={replacePath}";
+
+        return serverItem != null;
+      }
+      catch (Exception ex)
+      {
+        LogOutputMessage(false, ex.ToString());
+        return false;
+      }
     }
 
     /// <summary>

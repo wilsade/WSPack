@@ -93,6 +93,8 @@ namespace WSPack
       await FlexGitChanges.InitializeAsync(this, commandService);
       await FlexGitRepositoryCommand.InitializeAsync(this, commandService);
       await FlexSourceControlExplorerCommand.InitializeAsync(this, commandService);
+
+      await CopyServerPathSolutionExplorerCommand.InitializeAsync(this, commandService);
     }
 
     /// <summary>

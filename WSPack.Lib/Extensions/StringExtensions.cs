@@ -56,5 +56,19 @@ namespace WSPack.Lib.Extensions
         return false;
       return self.EndsWith(str, StringComparison.OrdinalIgnoreCase);
     }
+
+    /// <summary>
+    /// Substituir texto sem considerar maiúsculas/minúsculas
+    /// </summary>
+    /// <param name="str">Texto original</param>
+    /// <param name="find">Procurar por</param>
+    /// <param name="replace">Substituir por</param>
+    /// <returns>string substituida</returns>
+    public static string ReplaceInsensitive(this string str, string find, string replace)
+    {
+      if (str.IsNullOrWhiteSpaceEx())
+        return str;
+      return Microsoft.VisualBasic.Strings.Replace(str, find, replace, 1, -1, Microsoft.VisualBasic.CompareMethod.Text);
+    }
   }
 }
