@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Task = System.Threading.Tasks.Task;
 using Microsoft.VisualStudio.Shell;
 
 using WSPack.Lib;
@@ -26,7 +26,6 @@ namespace WSPack.VisualStudio.Shared.Commands
     /// <param name="commandService">Command service</param>
     public FlexGitChanges(AsyncPackage package, OleMenuCommandService commandService) : base(package, commandService)
     {
-      Instance = this;
     }
 
     /// <summary>
@@ -34,6 +33,16 @@ namespace WSPack.VisualStudio.Shared.Commands
     /// </summary>
     /// <value>Instância da classe: <see cref="FlexGitChanges"/></value>
     public static FlexGitChanges Instance { get; private set; }
+
+    /// <summary>
+    /// Initializes the singleton instance of the command.
+    /// </summary>
+    /// <param name="package">Owner package, not null.</param>
+    public static async Task InitializeAsync(AsyncPackage package, OleMenuCommandService commandService)
+    {
+      await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(package.DisposalToken);
+      Instance = new FlexGitChanges(package, commandService);
+    }
 
     /// <summary>
     /// Texto padrão do comando
