@@ -75,9 +75,20 @@ namespace WSPack.VisualStudio.Shared
     /// <param name="forceShow">true para exibir o painel</param>
     /// <param name="message">A mensagem a ser escrita</param>
     /// <param name="parameters">Parâmetros da mensagem</param>
-    public static void LogOutputMessage(bool forceShow, string messages)
+    public static void LogOutputMessage(string messages)
     {
-      WSPackPackage.Dte.WriteInOutPut(forceShow, messages);
+      WSPackPackage.Dte.WriteInOutPut(false, messages);
+    }
+
+    /// <summary>
+    /// Escrever na janela: Output
+    /// </summary>
+    /// <param name="forceShow">true para exibir o painel</param>
+    /// <param name="message">A mensagem a ser escrita</param>
+    /// <param name="parameters">Parâmetros da mensagem</param>
+    public static void LogOutputMessageForceShow(string messages)
+    {
+      WSPackPackage.Dte.WriteInOutPut(true, messages);
     }
 
     /// <summary>
@@ -112,7 +123,7 @@ namespace WSPack.VisualStudio.Shared
       }
       catch (Exception ex)
       {
-        LogOutputMessage(false, ex.ToString());
+        LogOutputMessage(ex.ToString());
         return false;
       }
     }

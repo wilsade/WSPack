@@ -71,7 +71,7 @@
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyServerPathSolutionExplorerCommand.cs">
       <Link>Commands\CopyServerPathSolutionExplorerCommand.cs</Link>
-	  <DependentUpon>CopyServerPathBaseCommand.cs</DependentUpon>
+      <DependentUpon>CopyServerPathBaseCommand.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\FlexCommandsCommand.cs">
       <Link>Commands\FlexCommandsCommand.cs</Link>
@@ -98,6 +98,13 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\LocateInTFSSolutionExplorerCommand.cs">
       <Link>Commands\LocateInTFSSolutionExplorerCommand.cs</Link>
       <DependentUpon>LocateInTFSBaseCommand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\LocateInWindowsBaseCommand.cs">
+      <Link>Commands\LocateInWindowsBaseCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\LocateInWindowsSolutionExplorerCommand.cs">
+      <Link>Commands\LocateInWindowsSolutionExplorerCommand.cs</Link>
+	  <DependentUpon>LocateInWindowsBaseCommand.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\ParametersCommand.cs">
       <Link>Commands\ParametersCommand.cs</Link>

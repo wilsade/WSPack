@@ -68,7 +68,7 @@ namespace WSPack.VisualStudio.Shared.Commands
       ThreadHelper.ThrowIfNotOnUIThread();
       string serverItem = GetServerItem();
       if (string.IsNullOrEmpty(serverItem))
-        Utils.LogOutputMessage(true, ResourcesLib.StrNaoFoiPossivelRealizarEstaOperacao);
+        Utils.LogOutputMessageForceShow(ResourcesLib.StrNaoFoiPossivelRealizarEstaOperacao);
       else
       {
         CopyLocalPathBaseCommand.CopyToClipboard(serverItem);

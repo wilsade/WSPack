@@ -95,6 +95,8 @@ namespace WSPack
       await FlexSourceControlExplorerCommand.InitializeAsync(this, commandService);
 
       await CopyServerPathSolutionExplorerCommand.InitializeAsync(this, commandService);
+
+      await LocateInWindowsSolutionExplorerCommand.InitializeAsync(this, commandService);
     }
 
     /// <summary>

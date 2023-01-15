@@ -46,7 +46,7 @@ namespace WSPack.VisualStudio.Shared.Commands
     {
       var lstWorkspaceLocalItem = GetLocalItem();
       if (lstWorkspaceLocalItem == null || lstWorkspaceLocalItem.Count == 0)
-        Utils.LogOutputMessage(true, ResourcesLib.StrNaoFoiPossivelRealizarEstaOperacao);
+        Utils.LogOutputMessageForceShow(ResourcesLib.StrNaoFoiPossivelRealizarEstaOperacao);
       else
       {
         (Workspace Ws, string LocalItem) item = Utils.ChooseItem(lstWorkspaceLocalItem);

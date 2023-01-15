@@ -16,6 +16,8 @@ namespace WSPack.VisualStudio.Shared.Commands
     internal const int LocateInTFS = 0x0102;
     internal const int LocateInTFSSolutionExplorer = 0x0103;
 
+    internal const int LocateInWindowsSolutionExplorer = 0x0105;
+
     internal const int CopyLocalPath = 0x0107;
     internal const int CopyLocalPathSolutionExplorer = 0x0108;
 
