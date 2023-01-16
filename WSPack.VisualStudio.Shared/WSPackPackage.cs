@@ -97,6 +97,7 @@ namespace WSPack
       await CopyServerPathSolutionExplorerCommand.InitializeAsync(this, commandService);
 
       await LocateInWindowsSolutionExplorerCommand.InitializeAsync(this, commandService);
+      await LocateInWindowsCodeEditorCommand.InitializeAsync(this, commandService);
     }
 
     /// <summary>

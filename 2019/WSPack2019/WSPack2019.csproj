@@ -102,6 +102,10 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\LocateInWindowsBaseCommand.cs">
       <Link>Commands\LocateInWindowsBaseCommand.cs</Link>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\LocateInWindowsCodeEditorCommand.cs">
+      <Link>Commands\LocateInWindowsCodeEditorCommand.cs</Link>
+      <DependentUpon>LocateInWindowsBaseCommand.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\LocateInWindowsSolutionExplorerCommand.cs">
       <Link>Commands\LocateInWindowsSolutionExplorerCommand.cs</Link>
       <DependentUpon>LocateInWindowsBaseCommand.cs</DependentUpon>
