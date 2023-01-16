@@ -193,5 +193,19 @@ namespace WSPack.VisualStudio.Shared.Extensions
       else
         return lstItems.Items[0];
     }
+
+    /// <summary>
+    /// Recuperar o LocalItem com base em um serverItem
+    /// </summary>
+    /// <param name="tfsExt">TFS ext</param>
+    /// <param name="serverItem">Server item</param>
+    /// <returns>Lista contendo informações do workspace e do item local; ou lista vazia</returns>
+    public static List<(Workspace Ws, string LocalItem)> GetLocalItemForServerItem(this TeamFoundationServerExt tfsExt, string serverItem)
+    {
+      VersionControlServer vcServer = tfsExt.GetVersionControlServer();
+      if (vcServer != null && vcServer.GetWorkspaceForServerItem(serverItem, out var lstWorkspaceLocalItem))
+        return lstWorkspaceLocalItem;
+      return null;
+    }
   }
 }

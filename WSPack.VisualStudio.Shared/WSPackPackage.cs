@@ -98,6 +98,7 @@ namespace WSPack
 
       await LocateInWindowsSolutionExplorerCommand.InitializeAsync(this, commandService);
       await LocateInWindowsCodeEditorCommand.InitializeAsync(this, commandService);
+      await LocateInWindowsSourceControlExplorerCommand.InitializeAsync(this, commandService);
     }
 
     /// <summary>
