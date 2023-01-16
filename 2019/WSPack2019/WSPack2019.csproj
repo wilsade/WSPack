@@ -66,6 +66,10 @@
       <Link>Commands\CopyLocalPathSolutionExplorerCommand.cs</Link>
       <DependentUpon>CopyLocalPathBaseCommand.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyLocalPathSourceControlExplorerCommand.cs">
+      <Link>Commands\CopyLocalPathSourceControlExplorerCommand.cs</Link>
+      <DependentUpon>CopyLocalPathBaseCommand.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyServerPathBaseCommand.cs">
       <Link>Commands\CopyServerPathBaseCommand.cs</Link>
     </Compile>
@@ -123,6 +127,10 @@
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\OpenInEditorSolutionExplorerCommand.cs">
       <Link>Commands\OpenInEditorSolutionExplorerCommand.cs</Link>
+      <DependentUpon>OpenInEditorBaseCommand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\OpenInEditorSourceControlExplorerCommand.cs">
+      <Link>Commands\OpenInEditorSourceControlExplorerCommand.cs</Link>
       <DependentUpon>OpenInEditorBaseCommand.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\ParametersCommand.cs">

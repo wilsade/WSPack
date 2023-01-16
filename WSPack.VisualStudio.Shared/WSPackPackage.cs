@@ -86,6 +86,7 @@ namespace WSPack
 
       await CopyLocalPathSolutionExplorerCommand.InitializeAsync(this, commandService);
       await CopyLocalPathCodeEditorCommand.InitializeAsync(this, commandService);
+      await CopyLocalPathSourceControlExplorerCommand.InitializeAsync(this, commandService);
 
       await LocateInTFSSolutionExplorerCommand.InitializeAsync(this, commandService);
       await LocateInTFSCodeEditorCommand.InitializeAsync(this, commandService);
@@ -101,6 +102,7 @@ namespace WSPack
       await LocateInWindowsSourceControlExplorerCommand.InitializeAsync(this, commandService);
       await OpenInEditorSolutionExplorerCommand.InitializeAsync(this, commandService);
       await OpenInEditorCodeEditorCommand.InitializeAsync(this, commandService);
+      await OpenInEditorSourceControlExplorerCommand.InitializeAsync(this, commandService);
     }
 
     /// <summary>
