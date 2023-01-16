@@ -117,9 +117,13 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\OpenInEditorBaseCommand.cs">
       <Link>Commands\OpenInEditorBaseCommand.cs</Link>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\OpenInEditorCodeEditorCommand.cs">
+      <Link>Commands\OpenInEditorCodeEditorCommand.cs</Link>
+	  <DependentUpon>OpenInEditorBaseCommand.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\OpenInEditorSolutionExplorerCommand.cs">
       <Link>Commands\OpenInEditorSolutionExplorerCommand.cs</Link>
-	  <DependentUpon>OpenInEditorBaseCommand.cs</DependentUpon>
+      <DependentUpon>OpenInEditorBaseCommand.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\ParametersCommand.cs">
       <Link>Commands\ParametersCommand.cs</Link>
