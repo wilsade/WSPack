@@ -70,5 +70,16 @@ namespace WSPack.Lib.Extensions
         return str;
       return Microsoft.VisualBasic.Strings.Replace(str, find, replace, 1, -1, Microsoft.VisualBasic.CompareMethod.Text);
     }
+
+    /// <summary>
+    /// Formatar uma string
+    /// </summary>
+    /// <param name="self">string a ser formatada</param>
+    /// <param name="args">Argumentos</param>
+    /// <returns>string formatada</returns>
+    public static string FormatWith(this string self, params object[] args)
+    {
+      return string.Format(self, args);
+    }
   }
 }

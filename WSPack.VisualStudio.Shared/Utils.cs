@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 
 using Microsoft.TeamFoundation.VersionControl.Client;
@@ -16,6 +17,57 @@ namespace WSPack.VisualStudio.Shared
 {
   static class Utils
   {
+    static (bool Achou, string FullPath) GetNotepadPPFromRegistry()
+    {
+      try
+      {
+        var chave = Microsoft.Win32.Registry.LocalMachine.OpenSubKey("SOFTWARE\\Notepad++", false);
+        if (chave != null)
+        {
+          try
+          {
+            var valor = Convert.ToString(chave.GetValue(null));
+            if (!string.IsNullOrEmpty(valor))
+            {
+              string notepadPath = Path.Combine(valor, "notepad++.exe");
+              return (File.Exists(notepadPath), notepadPath);
+            }
+          }
+          finally
+          {
+            chave.Close();
+          }
+        }
+      }
+      catch (Exception ex)
+      {
+        Trace.WriteLine("Erro ao tentar recuperar notepad++ (registro): " + ex.Message);
+      }
+      return (false, null);
+    }
+
+    static (bool Achou, string FullPath) GetNotepadPPFromProgramFiles()
+    {
+      try
+      {
+        var paths = new string[] { Environment.ExpandEnvironmentVariables("%ProgramFiles(x86)%"),
+          Environment.ExpandEnvironmentVariables("%ProgramW6432%")};
+        foreach (var estePath in paths)
+        {
+          string notepadPath = Path.Combine(estePath, "Notepad++", "Notepad++.exe");
+          if (File.Exists(notepadPath))
+          {
+            return (File.Exists(notepadPath), notepadPath);
+          }
+        }
+      }
+      catch (Exception ex)
+      {
+        Trace.WriteLine("Erro ao tentar recuperar notepad++ (path): " + ex.Message);
+      }
+      return (false, null);
+    }
+
     internal static bool IsDebugOrDebugModeEnabled
     {
       get
@@ -89,6 +141,20 @@ namespace WSPack.VisualStudio.Shared
     public static void LogOutputMessageForceShow(string messages)
     {
       WSPackPackage.Dte.WriteInOutPut(true, messages);
+    }
+
+    /// <summary>
+    /// Verifica se o Notepad++ existe e retorna o caminho
+    /// </summary>
+    /// <param name="path">Caminho do notepad++.exe</param>
+    /// <returns>true se o notepad foi encontrado</returns>
+    internal static bool GetNotepadPP(out string path)
+    {
+      var tupla = GetNotepadPPFromRegistry();
+      if (!tupla.Achou)
+        tupla = GetNotepadPPFromProgramFiles();
+      path = tupla.FullPath;
+      return tupla.Achou;
     }
 
     /// <summary>

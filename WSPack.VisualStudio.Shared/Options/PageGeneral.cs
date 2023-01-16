@@ -36,6 +36,7 @@ namespace WSPack.VisualStudio.Shared.Options
       base.OnApply(e);
     }
 
+    #region Outros
     /// <summary>
     /// Caminho onde serão salvos os arquivos de configuração gerados
     /// </summary>
@@ -54,5 +55,16 @@ namespace WSPack.VisualStudio.Shared.Options
     [Description("Habilitar o modo de Depuração (Debug) para maior rastreabilidade do WSPack.")]
     [DefaultValue(false)]
     public bool EnableDebugMode { get; set; }
+    #endregion
+
+    /// <summary>
+    /// Editor de texto que deverá ser utilizado abertura de arquivos
+    /// </summary>
+    [Category(OptionsPageConsts.Editor)]
+    [DisplayName("Editor de texto")]
+    [Description("Editor de texto que deverá ser utilizado para abertura de arquivos. Informe o caminho completo do executável.")]
+    [Editor(typeof(PathExeEditor), typeof(System.Drawing.Design.UITypeEditor))]
+    [ReadOnly(false)]
+    public string EditorTexto { get; set; }
   }
 }
