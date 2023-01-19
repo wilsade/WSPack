@@ -75,12 +75,16 @@
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyServerPathCodeEditorCommand.cs">
       <Link>Commands\CopyServerPathCodeEditorCommand.cs</Link>
-	  <DependentUpon>CopyServerPathBaseCommand.cs</DependentUpon>
+      <DependentUpon>CopyServerPathBaseCommand.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyServerPathSolutionExplorerCommand.cs">
       <Link>Commands\CopyServerPathSolutionExplorerCommand.cs</Link>
       <DependentUpon>CopyServerPathBaseCommand.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyServerPathSourceControlExplorerCommand.cs">
+      <Link>Commands\CopyServerPathSourceControlExplorerCommand.cs</Link>
+      <DependentUpon>CopyServerPathBaseCommand.cs</DependentUpon>
+	</Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\FlexCommandsCommand.cs">
       <Link>Commands\FlexCommandsCommand.cs</Link>
     </Compile>
