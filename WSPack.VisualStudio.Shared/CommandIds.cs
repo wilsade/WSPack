@@ -21,7 +21,7 @@ namespace WSPack.VisualStudio.Shared.Commands
     internal const int CopyLocalPath = 0x0107;
     internal const int CopyLocalPathSolutionExplorer = 0x0108;
     internal const int CopyLocalPathSourceControlExplorer = 0x0109;
-
+    internal const int CopyServerPath = 0x0110;
 
     internal const int CopyServerPathSolutionExplorer = 0x0111;
     internal const int OpenInEditor = 0x0113;
