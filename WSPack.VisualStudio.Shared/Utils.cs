@@ -8,8 +8,10 @@ using Microsoft.TeamFoundation.VersionControl.Client;
 using Microsoft.VisualStudio.TeamFoundation;
 using Microsoft.VisualStudio.TeamFoundation.Git.Extensibility;
 using Microsoft.VisualStudio.TeamFoundation.VersionControl;
+using Microsoft.Win32;
 
 using WSPack.Lib.Extensions;
+using WSPack.VisualStudio.Shared.Commands;
 using WSPack.VisualStudio.Shared.Extensions;
 using WSPack.VisualStudio.Shared.Forms;
 
@@ -246,6 +248,43 @@ namespace WSPack.VisualStudio.Shared
     public static string GetSolutionExplorerSelectedItem()
     {
       return WSPackPackage.Dte.GetSolutionExplorerSelectedItem();
+    }
+
+    public static void LaunchBrowser(string fileName)
+    {
+      try
+      {
+        string browserName = "msedge.exe";
+        using (RegistryKey userChoiceKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\Shell\Associations\UrlAssociations\http\UserChoice"))
+        {
+          if (userChoiceKey != null)
+          {
+            object progIdValue = userChoiceKey.GetValue("Progid");
+            if (progIdValue != null)
+            {
+              if (progIdValue.ToString().ContainsInsensitive("chrome"))
+                browserName = "chrome.exe";
+              else if (progIdValue.ToString().ContainsInsensitive("firefox"))
+                browserName = "firefox.exe";
+              else if (progIdValue.ToString().ContainsInsensitive("safari"))
+                browserName = "safari.exe";
+              else if (progIdValue.ToString().ContainsInsensitive("opera"))
+                browserName = "opera.exe";
+            }
+          }
+        }
+
+        _ = Process.Start(new ProcessStartInfo(browserName, fileName));
+        LogOutputMessageForceShow("Caso o arquivo não seja exibido corretamente:" + Environment.NewLine +
+          "- Desabilite a segurança do Browser; ou" + Environment.NewLine +
+          "- Tente abrir no editor de texto; ou" + Environment.NewLine +
+          "- Tente abrir no Excel");
+      }
+      catch (Exception ex)
+      {
+        LogDebugError($"Erro ao abrir Browser no arquivo [{fileName}]: {ex.Message}");
+        OpenInEditorBaseCommand.OpenIt(fileName);
+      }
     }
   }
 }

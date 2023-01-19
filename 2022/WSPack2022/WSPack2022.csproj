@@ -52,6 +52,9 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\AboutCommand.cs">
       <Link>Commands\AboutCommand.cs</Link>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\ActivityLogCommand.cs">
+      <Link>Commands\ActivityLogCommand.cs</Link>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\BaseCommand.cs">
       <Link>Commands\BaseCommand.cs</Link>
     </Compile>
@@ -84,7 +87,7 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyServerPathSourceControlExplorerCommand.cs">
       <Link>Commands\CopyServerPathSourceControlExplorerCommand.cs</Link>
       <DependentUpon>CopyServerPathBaseCommand.cs</DependentUpon>
-	</Compile>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\FlexCommandsCommand.cs">
       <Link>Commands\FlexCommandsCommand.cs</Link>
     </Compile>

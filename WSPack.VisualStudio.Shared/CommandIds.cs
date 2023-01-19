@@ -31,6 +31,8 @@ namespace WSPack.VisualStudio.Shared.Commands
 
     internal const int LocateInWindowsSourceControlExplorer = 0x0121;
 
+    internal const int ActivityLog = 0x0178;
+
     internal const int FlexGitRepository = 0x0184;
     internal const int FlexSourceControlExplorerToolbar = 0x0185;
     internal const int FlexGitChanges = 0x0186;
