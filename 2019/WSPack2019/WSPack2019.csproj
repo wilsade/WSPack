@@ -129,6 +129,13 @@
       <Link>Commands\LocateInWindowsSourceControlExplorerCommand.cs</Link>
       <DependentUpon>LocateInWindowsBaseCommand.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\OpenCmdPromptBaseCommand.cs">
+      <Link>Commands\OpenCmdPromptBaseCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\OpenCmdPromptSolutionExplorerCommand.cs">
+      <Link>Commands\OpenCmdPromptSolutionExplorerCommand.cs</Link>
+	  <DependentUpon>OpenCmdPromptBaseCommand.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\OpenInEditorBaseCommand.cs">
       <Link>Commands\OpenInEditorBaseCommand.cs</Link>
     </Compile>
@@ -227,6 +234,9 @@
       <Link>Options\SortableExpandableObjectConverter.cs</Link>
       <DependentUpon>PropertyOrderAttribute.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\RegistroVisualStudioObj.cs">
+      <Link>RegistroVisualStudioObj.cs</Link>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\SharedAssemblyInfo.cs">
       <Link>SharedAssemblyInfo.cs</Link>
     </Compile>
@@ -237,6 +247,7 @@
       <Link>WSPackPackage.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistroVisualStudio2019Obj.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="source.extension.vsixmanifest">

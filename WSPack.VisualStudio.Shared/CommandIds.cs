@@ -31,6 +31,8 @@ namespace WSPack.VisualStudio.Shared.Commands
     internal const int OpenOutputPath = 0x0116;
     internal const int OpenOutputPathSolutionExplorer = 0x0117;
 
+    internal const int OpenCmdPromptSolutionExplorer = 0x0119;
+
     internal const int LocateInWindowsSourceControlExplorer = 0x0121;
 
     internal const int ActivityLog = 0x0178;
