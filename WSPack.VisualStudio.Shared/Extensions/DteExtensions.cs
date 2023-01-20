@@ -159,5 +159,34 @@ namespace WSPack.VisualStudio.Shared.Extensions
         return string.Empty;
       }
     }
+
+
+    /// <summary>
+    /// Recuperar o projeto selecionado no Solution Explorer
+    /// </summary>
+    /// <param name="dte">Aplicação do VS</param>
+    /// <returns>Projeto selecionado; null, caso contrário</returns>
+    public static EnvDTE.Project GetSolutionExplorerActiveProject(this EnvDTE80.DTE2 dte)
+    {
+      ThreadHelper.ThrowIfNotOnUIThread();
+      try
+      {
+        if (dte != null && dte.Solution != null && dte.Solution.Count > 0 && !string.IsNullOrEmpty(dte.Solution.FullName) &&
+            dte.Solution.Projects.Count > 0)
+        {
+          if (dte.ActiveSolutionProjects != null)
+          {
+            if (dte.ActiveSolutionProjects is Array array && array.Length > 0)
+              return array.GetValue(0) as EnvDTE.Project;
+          }
+        }
+      }
+      catch (Exception ex)
+      {
+        Utils.LogDebugError("Erro do VS ao dte.ActiveSolutionProjects != null: " + ex.Message);
+      }
+
+      return null;
+    }
   }
 }

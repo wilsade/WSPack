@@ -105,9 +105,10 @@ namespace WSPack
       await OpenInEditorSolutionExplorerCommand.InitializeAsync(this, commandService);
       await OpenInEditorCodeEditorCommand.InitializeAsync(this, commandService);
       await OpenInEditorSourceControlExplorerCommand.InitializeAsync(this, commandService);
-      
+
       await ActivityLogCommand.InitializeAsync(this, commandService);
-      
+
+      await OpenOutputPathSolutionExplorerCommand.InitializeAsync(this, commandService);
     }
 
     /// <summary>

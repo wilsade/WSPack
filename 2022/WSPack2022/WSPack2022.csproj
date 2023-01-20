@@ -144,6 +144,13 @@
       <Link>Commands\OpenInEditorSourceControlExplorerCommand.cs</Link>
       <DependentUpon>OpenInEditorBaseCommand.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\OpenOutputPathBaseCommand.cs">
+      <Link>Commands\OpenOutputPathBaseCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\OpenOutputPathSolutionExplorerCommand.cs">
+      <Link>Commands\OpenOutputPathSolutionExplorerCommand.cs</Link>
+	  <DependentUpon>OpenOutputPathBaseCommand.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\ParametersCommand.cs">
       <Link>Commands\ParametersCommand.cs</Link>
     </Compile>
