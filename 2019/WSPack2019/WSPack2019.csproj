@@ -132,9 +132,13 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\OpenCmdPromptBaseCommand.cs">
       <Link>Commands\OpenCmdPromptBaseCommand.cs</Link>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\OpenCmdPromptCodeEditorCommand.cs">
+      <Link>Commands\OpenCmdPromptCodeEditorCommand.cs</Link>
+      <DependentUpon>OpenCmdPromptBaseCommand.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\OpenCmdPromptSolutionExplorerCommand.cs">
       <Link>Commands\OpenCmdPromptSolutionExplorerCommand.cs</Link>
-	  <DependentUpon>OpenCmdPromptBaseCommand.cs</DependentUpon>
+      <DependentUpon>OpenCmdPromptBaseCommand.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\OpenInEditorBaseCommand.cs">
       <Link>Commands\OpenInEditorBaseCommand.cs</Link>
