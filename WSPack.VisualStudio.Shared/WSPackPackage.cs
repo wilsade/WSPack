@@ -109,6 +109,7 @@ namespace WSPack
       await ActivityLogCommand.InitializeAsync(this, commandService);
 
       await OpenOutputPathSolutionExplorerCommand.InitializeAsync(this, commandService);
+      await OpenOutputPathCommand.InitializeAsync(this, commandService);
     }
 
     /// <summary>

@@ -147,6 +147,10 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\OpenOutputPathBaseCommand.cs">
       <Link>Commands\OpenOutputPathBaseCommand.cs</Link>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\OpenOutputPathCommand.cs">
+      <Link>Commands\OpenOutputPathCommand.cs</Link>
+      <DependentUpon>OpenOutputPathBaseCommand.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\OpenOutputPathSolutionExplorerCommand.cs">
       <Link>Commands\OpenOutputPathSolutionExplorerCommand.cs</Link>
       <DependentUpon>OpenOutputPathBaseCommand.cs</DependentUpon>

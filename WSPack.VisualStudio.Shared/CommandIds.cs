@@ -28,7 +28,7 @@ namespace WSPack.VisualStudio.Shared.Commands
     internal const int OpenInEditor = 0x0113;
     internal const int OpenInEditorSolutionExplorer = 0x0114;
     internal const int OpenInEditorSourceControlExplorer = 0x0115;
-
+    internal const int OpenOutputPath = 0x0116;
     internal const int OpenOutputPathSolutionExplorer = 0x0117;
 
     internal const int LocateInWindowsSourceControlExplorer = 0x0121;
