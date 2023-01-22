@@ -68,6 +68,12 @@
     <Compile Include="Forms\ProcessForm.Designer.cs">
       <DependentUpon>ProcessForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ProjectCommandLineArgsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProjectCommandLineArgsForm.Designer.cs">
+      <DependentUpon>ProjectCommandLineArgsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="IProcessForm.cs" />
     <Compile Include="MessageBoxUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -86,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ProcessForm.resx">
       <DependentUpon>ProcessForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProjectCommandLineArgsForm.resx">
+      <DependentUpon>ProjectCommandLineArgsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\ResourcesLib.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

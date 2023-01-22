@@ -134,7 +134,7 @@
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\OpenCmdPromptCodeEditorCommand.cs">
       <Link>Commands\OpenCmdPromptCodeEditorCommand.cs</Link>
-	  <DependentUpon>OpenCmdPromptBaseCommand.cs</DependentUpon>
+      <DependentUpon>OpenCmdPromptBaseCommand.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\OpenCmdPromptSolutionExplorerCommand.cs">
       <Link>Commands\OpenCmdPromptSolutionExplorerCommand.cs</Link>
@@ -169,8 +169,26 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\ParametersCommand.cs">
       <Link>Commands\ParametersCommand.cs</Link>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\ProjectCommandLineArgsBaseCommand.cs">
+      <Link>Commands\ProjectCommandLineArgsBaseCommand.cs</Link>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\DispatchedPoller.cs">
       <Link>DispatchedPoller.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\DteProject\DteClassicProject.cs">
+      <Link>DteProject\DteClassicProject.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\DteProject\DteConfiguration.cs">
+      <Link>DteProject\DteConfiguration.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\DteProject\DteDotNetCoreStandardProject.cs">
+      <Link>DteProject\DteDotNetCoreStandardProject.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\DteProject\DteProjectHierarchy.cs">
+      <Link>DteProject\DteProjectHierarchy.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\DteProject\DteProjectObj.cs">
+      <Link>DteProject\DteProjectObj.cs</Link>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Extensions\DteExtensions.cs">
       <Link>Extensions\DteExtensions.cs</Link>
@@ -241,6 +259,9 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\RegistroVisualStudioObj.cs">
       <Link>RegistroVisualStudioObj.cs</Link>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\ResponseItem.cs">
+      <Link>ResponseItem.cs</Link>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\SharedAssemblyInfo.cs">
       <Link>SharedAssemblyInfo.cs</Link>
     </Compile>
@@ -284,6 +305,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.ProjectSystem.Managed">
+      <Version>2.0.6142705</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.SDK" Version="17.0.32112.339" ExcludeAssets="runtime" />
     <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="17.3.2093" />
   </ItemGroup>

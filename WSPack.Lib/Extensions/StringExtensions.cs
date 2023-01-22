@@ -81,5 +81,16 @@ namespace WSPack.Lib.Extensions
     {
       return string.Format(self, args);
     }
+
+    /// <summary>
+    /// Verificar se uma string é igual à outra (Case Insensitive)
+    /// </summary>
+    /// <param name="str">String</param>
+    /// <param name="value">Value</param>
+    /// <returns>true se as strings são iguais</returns>
+    public static bool EqualsInsensitive(this string str, string value)
+    {
+      return string.Equals(str, value, StringComparison.OrdinalIgnoreCase);
+    }
   }
 }

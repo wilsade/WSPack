@@ -1,11 +1,16 @@
 ﻿using System;
 using System.Diagnostics;
 
+using EnvDTE;
+
 using Microsoft.VisualStudio.Shell;
+using Microsoft.VisualStudio.Shell.Interop;
 using Microsoft.VisualStudio.TeamFoundation;
 using Microsoft.VisualStudio.TeamFoundation.VersionControl;
 
 using WSPack.Lib;
+using WSPack.Lib.Extensions;
+using WSPack.Lib.Properties;
 
 namespace WSPack.VisualStudio.Shared.Extensions
 {
@@ -187,6 +192,50 @@ namespace WSPack.VisualStudio.Shared.Extensions
       }
 
       return null;
+    }
+
+    /// <summary>
+    /// Recuperar a primeira propriedade que tenha um dos nomes informados
+    /// </summary>
+    /// <param name="properties">Enumerado de propriedades do objeto</param>
+    /// <param name="propertyNames">Lista de nomes para procurar</param>
+    /// <returns>primeira propriedade que tenha um dos nomes informados</returns>
+    public static ResponseItem<Property> GetProperty(this EnvDTE.Properties properties, params string[] propertyNames)
+    {
+      ThreadHelper.ThrowIfNotOnUIThread();
+      if (properties != null)
+      {
+        foreach (Property item in properties)
+        {
+          foreach (var propertyName in propertyNames)
+          {
+            if (propertyName.EqualsInsensitive(item.Name))
+            {
+              return new ResponseItem<Property>()
+              {
+                Item = item,
+                Success = true
+              };
+            }
+          }
+        }
+      }
+      return new ResponseItem<Property>()
+      {
+        Success = false,
+        ErrorMessage = ResourcesLib.StrPropriedadeNaoEncontrada
+      };
+    }
+
+    /// <summary>
+    /// Indica se o projeto é .Core / Standard ou Shared
+    /// </summary>
+    /// <param name="hierarchy">Hierarchy</param>
+    /// <returns>true se o projeto é .NetCore ou Standard</returns>
+    public static bool IsDotNetCoreStandardShared(this IVsHierarchy hierarchy)
+    {
+      ThreadHelper.ThrowIfNotOnUIThread();
+      return hierarchy.IsCapabilityMatch("CPS");
     }
   }
 }

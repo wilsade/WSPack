@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 using Microsoft.TeamFoundation.VersionControl.Client;
 using Microsoft.VisualStudio.TeamFoundation;
@@ -11,6 +13,7 @@ using Microsoft.VisualStudio.TeamFoundation.VersionControl;
 using Microsoft.Win32;
 
 using WSPack.Lib.Extensions;
+using WSPack.Lib.Properties;
 using WSPack.VisualStudio.Shared.Commands;
 using WSPack.VisualStudio.Shared.Extensions;
 using WSPack.VisualStudio.Shared.Forms;
@@ -285,6 +288,17 @@ namespace WSPack.VisualStudio.Shared
         LogDebugError($"Erro ao abrir Browser no arquivo [{fileName}]: {ex.Message}");
         OpenInEditorBaseCommand.OpenIt(fileName);
       }
+    }
+
+    /// <summary>
+    /// Executar uma ação na Thread principal
+    /// </summary>
+    /// <param name="action">Action</param>
+    /// <returns>Task</returns>
+    public static async Task ExecuteInMainThreadAsync(Action action)
+    {
+      await Microsoft.VisualStudio.Shell.ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(WSPackPackage.Instance.DisposalToken);
+      action.Invoke();
     }
   }
 }
