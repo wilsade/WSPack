@@ -237,5 +237,16 @@ namespace WSPack.VisualStudio.Shared.Extensions
       ThreadHelper.ThrowIfNotOnUIThread();
       return hierarchy.IsCapabilityMatch("CPS");
     }
+
+    /// <summary>
+    /// Indica se o projeto é um Solution folder
+    /// </summary>
+    /// <param name="project">Project</param>
+    /// <returns>true se o projeto é um Solution folder</returns>
+    public static bool IsSolutionFolder(this Project project)
+    {
+      ThreadHelper.ThrowIfNotOnUIThread();
+      return project.Kind == "{66A26720-8FB5-11D2-AA7E-00C04F688DDE}";
+    }
   }
 }

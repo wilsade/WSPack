@@ -39,7 +39,7 @@ namespace WSPack.VisualStudio.Shared.Commands
       : base(package, commandService)
     {
       _quebrarLinhas = true;
-      _menu.Supported = false;
+      //_menu.Supported = false;
     }
 
     /// <summary>

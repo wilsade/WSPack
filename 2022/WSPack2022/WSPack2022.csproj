@@ -172,6 +172,10 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\ProjectCommandLineArgsBaseCommand.cs">
       <Link>Commands\ProjectCommandLineArgsBaseCommand.cs</Link>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\ProjectCommandLineArgsCommand.cs">
+      <Link>Commands\ProjectCommandLineArgsCommand.cs</Link>
+	  <DependentUpon>ProjectCommandLineArgsBaseCommand.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\DispatchedPoller.cs">
       <Link>DispatchedPoller.cs</Link>
     </Compile>
@@ -302,6 +306,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
