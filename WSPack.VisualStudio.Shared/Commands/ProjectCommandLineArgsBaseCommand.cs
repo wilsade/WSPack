@@ -27,6 +27,7 @@ namespace WSPack.VisualStudio.Shared.Commands
   /// </summary>
   internal abstract class ProjectCommandLineArgsBaseCommand : BaseCommand
   {
+    EnvDTE.Command _commandProjectProperties;
     bool _quebrarLinhas;
 
     /// <summary>
@@ -39,7 +40,17 @@ namespace WSPack.VisualStudio.Shared.Commands
       : base(package, commandService)
     {
       _quebrarLinhas = true;
+      _menu.BeforeQueryStatus += _menu_BeforeQueryStatus;
       //_menu.Supported = false;
+    }
+
+    private void _menu_BeforeQueryStatus(object sender, EventArgs e)
+    {
+      if (_commandProjectProperties == null)
+        _commandProjectProperties = WSPackPackage.Dte.Commands.Item("Project.Properties");
+      _menu.Enabled = true;
+      if (_commandProjectProperties != null)
+        _menu.Enabled = _commandProjectProperties.IsAvailable;
     }
 
     /// <summary>

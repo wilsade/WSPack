@@ -113,6 +113,7 @@ namespace WSPack
       await OpenCmdPromptSolutionExplorerCommand.InitializeAsync(this, commandService);
       await OpenCmdPromptCodeEditorCommand.InitializeAsync(this, commandService);
       await ProjectCommandLineArgsCommand.InitializeAsync(this, commandService);
+      await StartupProjectCommandLineArgsCommand.InitializeAsync(this, commandService);
     }
 
     /// <summary>

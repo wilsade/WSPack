@@ -15,7 +15,7 @@ namespace WSPack.Lib
     /// <summary>
     /// Nº de versão do Package e Assembly
     /// </summary>
-    public const string NumeroVersao = "4.0.0.3";
+    public const string NumeroVersao = "4.0.0.4";
 
     /// <summary>
     /// WSPack

@@ -1189,6 +1189,18 @@
           <ToolTipText>Abrir uma tela para atribuir parâmetros de linha de comando no projeto</ToolTipText>
         </Strings>
       </Button>
+      
+      <!-- Setar parâmetros de linha de comando do projeto inicial-->
+      <Button guid="guidWSPackPackageCmdSet" id="cmdProjectCommandLineArgsStartupProject" priority="0x0403" type="Button">
+        <Parent guid="guidWSPackPackageCmdSet" id="grupo04ToolBarWSPack" />
+        <Icon guid="guidvsct" id="projectCmdLineArgsStartupProject" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>ParametrosLinhaComandoProjetoInicial</ButtonText>
+          <MenuText>Parâmetros de linha de comando do projeto inicial</MenuText>
+          <ToolTipText>Abrir uma tela para atribuir parâmetros de linha de comando no projeto inicial</ToolTipText>
+        </Strings>
+      </Button>
 
       <!-- Toolbar do Solution Explorer -->
       <!-- Localizar um item -->
