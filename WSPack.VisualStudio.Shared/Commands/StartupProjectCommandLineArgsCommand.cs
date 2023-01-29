@@ -67,6 +67,16 @@ namespace WSPack.VisualStudio.Shared.Commands
     protected override ResponseItem<DteProjectObj> GetProject()
     {
       ThreadHelper.ThrowIfNotOnUIThread();
+      ResponseItem<DteProjectObj> projeto = GetProjetoInicial();
+      return projeto;
+    }
+
+    /// <summary>
+    /// Tenta recuperar o projeto definido como projeto inicial da Solution
+    /// </summary>
+    /// <returns>Resultado da busca de projeto</returns>
+    public static ResponseItem<DteProjectObj> GetProjetoInicial()
+    {
       ResponseItem<Project> projeto = TryGetProjetoInicial();
       var resposta = new ResponseItem<DteProjectObj>()
       {
@@ -77,7 +87,7 @@ namespace WSPack.VisualStudio.Shared.Commands
       return resposta;
     }
 
-    ResponseItem<Project> TryGetProjetoInicial()
+    static ResponseItem<Project> TryGetProjetoInicial()
     {
       ThreadHelper.ThrowIfNotOnUIThread();
       var resposta = new ResponseItem<Project>();

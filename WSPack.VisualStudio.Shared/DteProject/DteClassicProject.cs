@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 using EnvDTE;
 
@@ -13,9 +14,15 @@ namespace WSPack.VisualStudio.Shared.DteProject
   {
     string _defineConstants;
 
+    /// <summary>
+    /// Inicialização da classe: <see cref="DteClassicProject"/>.
+    /// </summary>
+    /// <param name="parent">Projeto</param>
+    /// <param name="hierarchy">Hierarchy</param>
     public DteClassicProject(Project parent, IVsHierarchy hierarchy)
-      : base(parent, hierarchy)
+          : base(parent, hierarchy)
     {
+      
     }
 
     /// <summary>
@@ -62,6 +69,6 @@ namespace WSPack.VisualStudio.Shared.DteProject
         }
         return _defineConstants;
       }
-    }
+    }    
   }
 }

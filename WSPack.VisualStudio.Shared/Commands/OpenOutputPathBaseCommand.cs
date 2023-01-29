@@ -11,8 +11,10 @@ using System.Threading.Tasks;
 using Microsoft.TeamFoundation.VersionControl.Client;
 using Microsoft.VisualStudio.Shell;
 
+using WSPack.Lib.Extensions;
 using WSPack.Lib.Forms;
 using WSPack.Lib.Properties;
+using WSPack.VisualStudio.Shared.DteProject;
 using WSPack.VisualStudio.Shared.Extensions;
 
 using Task = System.Threading.Tasks.Task;
@@ -39,34 +41,45 @@ namespace WSPack.VisualStudio.Shared.Commands
     private void _menu_BeforeQueryStatus(object sender, EventArgs e)
     {
       ThreadHelper.ThrowIfNotOnUIThread();
-      EnvDTE.Project projeto = WSPackPackage.Dte.GetSolutionExplorerActiveProject();
       var menu = (OleMenuCommand)sender;
       menu.Visible = menu.Enabled = false;
 
       try
       {
-        if (projeto?.ConfigurationManager?.ActiveConfiguration?.Properties?.Count > 0)
-        {
-          menu.ParametersDescription = null;
+        if (string.IsNullOrWhiteSpace(WSPackPackage.Dte.Solution.FullName))
+          return;
 
-          string relativeOutput = Convert.ToString(projeto.ConfigurationManager.ActiveConfiguration.Properties.Item("OutputPath").Value);
-          relativeOutput = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(projeto.FullName), relativeOutput);
-          System.IO.DirectoryInfo dInfo = new System.IO.DirectoryInfo(relativeOutput);
+        DteProjectObj dteProjectObj = GetProject();
+        var target = dteProjectObj?.Properties.ActiveConfiguration.TargetFullPathName;
+        if (target.IsNullOrWhiteSpaceEx())
+          return;
 
-          string targetName = System.IO.Path.Combine(dInfo.FullName, projeto.Properties.Item("OutputFileName").Value.ToString());
-          if (System.IO.File.Exists(targetName))
-            menu.ParametersDescription = targetName;
-          else
-            menu.ParametersDescription = dInfo.FullName;
-          menu.Visible = menu.Enabled = System.IO.Directory.Exists(dInfo.FullName);
-
-          menu.Text = $"{ResourcesLib.StrAbrir} Output Path ({projeto.ConfigurationManager.ActiveConfiguration.ConfigurationName})";
-        }
+        var dirName = Path.GetDirectoryName(target);
+        if (File.Exists(target))
+          menu.ParametersDescription = target;
+        else
+          menu.ParametersDescription = Path.GetDirectoryName(target);
+        menu.Visible = menu.Enabled = System.IO.Directory.Exists(dirName);
+        menu.Text = $"{ResourcesLib.StrAbrir} Output Path ({dteProjectObj.Properties.ActiveConfiguration.Name})";
       }
       catch (Exception ex)
       {
-        Utils.LogDebugError($"Erro no ProcessBeforeExecute de OpenOutputPath: {ex.Message}");
+        Utils.LogDebugError($"Erro no _menu_BeforeQueryStatus de OpenOutputPath: {ex.Message}");
       }
+    }
+
+    private static DteProjectObj GetProject()
+    {
+      EnvDTE.Project projeto = WSPackPackage.Dte.GetSolutionExplorerActiveProject();
+      var dteProjectObj = DteProjectObj.Create(projeto);
+      if (dteProjectObj.IsSharedProject || dteProjectObj?.Properties.ActiveConfiguration == null)
+      {
+        ResponseItem<DteProjectObj> responseItem = StartupProjectCommandLineArgsCommand.GetProjetoInicial();
+        if (responseItem.Success)
+          dteProjectObj = responseItem.Item;
+      }
+
+      return dteProjectObj;
     }
 
     protected override void DoExecute(object sender, EventArgs e)

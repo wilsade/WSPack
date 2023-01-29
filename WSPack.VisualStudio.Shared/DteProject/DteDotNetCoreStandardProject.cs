@@ -13,6 +13,7 @@ using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 
 using WSPack.Lib.Extensions;
+using WSPack.VisualStudio.Shared.Extensions;
 
 namespace WSPack.VisualStudio.Shared.DteProject
 {
@@ -22,6 +23,7 @@ namespace WSPack.VisualStudio.Shared.DteProject
     IProjectServices _projectServices;
     ILaunchSettingsProvider _launchSettingsProvider;
     string _defineConstants;
+    string _targetFullPathName;
 
     class WritableLaunchProfile : ILaunchProfile
     {
@@ -57,7 +59,6 @@ namespace WSPack.VisualStudio.Shared.DteProject
     public DteDotNetCoreStandardProject(Project parent, IVsHierarchy hierarchy)
       : base(parent, hierarchy)
     {
-
     }
 
     void LoadLaunchProfile()

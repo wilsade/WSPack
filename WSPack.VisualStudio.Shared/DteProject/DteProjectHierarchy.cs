@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -21,12 +22,15 @@ namespace WSPack.VisualStudio.Shared.DteProject
   /// </summary>
   abstract class DteProjectHierarchy
   {
-    protected const string DEFINE_CONSTANTS = "DefineConstants";
+    public const string DEFINE_CONSTANTS = "DefineConstants";
+    public const string OUTPUT_PATH = "OutputPath";
+    public const string OUTPUT_FILENAME = "OutputFileName";
 
     private static readonly string[] _knownStartupProperties = { "CommandArguments", "StartArguments" };
     DteConfiguration _dteConfiguration;
     protected Configuration _configuration;
     Properties _properties;
+    protected string _targetFullPathName;
 
     /// <summary>
     /// Propriedade do projeto que contém os argumentos de linha de comando
@@ -149,6 +153,37 @@ namespace WSPack.VisualStudio.Shared.DteProject
     protected abstract string DefineConstants { get; }
 
     /// <summary>
+    /// Caminho completo do assembly. Ex: c:\pasta\subpasta\bin\projeto.dll
+    /// </summary>
+    protected virtual string TargetFullPathName
+    {
+      get
+      {
+        if (_targetFullPathName != null)
+          return _targetFullPathName;
+
+        ResponseItem<Property> defineOutput = _configuration.Properties.GetProperty(OUTPUT_PATH);
+        if (defineOutput.Success)
+        {
+          try
+          {
+            var outputPath = Convert.ToString(defineOutput.Item.Value);
+            var dirInfo = new DirectoryInfo(this.Parent.FullName);
+            var nameOnly = Parent.Properties.GetPropertyStringValue(DteProjectHierarchy.OUTPUT_FILENAME);
+            _targetFullPathName = Path.Combine(dirInfo.Parent.FullName, outputPath, nameOnly);
+          }
+          catch (Exception ex)
+          {
+            System.Diagnostics.Trace.WriteLine(ex.Message);
+          }
+        }
+        else
+          _targetFullPathName = string.Empty;
+        return _targetFullPathName;
+      }
+    }
+
+    /// <summary>
     /// Configuração ativa
     /// </summary>
     public DteConfiguration ActiveConfiguration
@@ -163,7 +198,7 @@ namespace WSPack.VisualStudio.Shared.DteProject
           {
             _configuration = config.Item;
             _dteConfiguration = new DteConfiguration(config.Item.ConfigurationName,
-              config.Item.PlatformName, DefineConstants);
+              config.Item.PlatformName, DefineConstants, TargetFullPathName);
           }
           else
             _ = Utils.ExecuteInMainThreadAsync(() => Utils.LogDebugMessage(config.ErrorMessage));

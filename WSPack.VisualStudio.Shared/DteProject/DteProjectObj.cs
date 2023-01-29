@@ -16,19 +16,31 @@ namespace WSPack.VisualStudio.Shared.DteProject
   {
     readonly Project _project;
     IVsSolution2 _solutionService;
-    string _name, _fullName, _uniqueName;
+    string _name, _fullName, _uniqueName, _outputFileName;
     DteProjectHierarchy _properties;
 
     #region Construtor
     /// <summary>
     /// Cria uma instância da classe <see cref="DteProject"/>
     /// </summary>
-    /// <param name="project"></param>
+    /// <param name="project">Projeto</param>
     public DteProjectObj(Project project)
     {
       _project = project;
     }
     #endregion
+
+    /// <summary>
+    /// Cria uma instância da classe <see cref="DteProject"/>
+    /// </summary>
+    /// <param name="project">Project</param>
+    /// <returns>Instancia da classe</returns>
+    public static DteProjectObj Create(Project project)
+    {
+      if (project != null)
+        return new DteProjectObj(project);
+      return null;
+    }
 
     /// <summary>
     /// Criar um projeto conforme o projeto ativo na solution
@@ -116,6 +128,28 @@ namespace WSPack.VisualStudio.Shared.DteProject
         return _uniqueName;
       }
     }
+
+    /// <summary>
+    /// Nome do assembly. Ex: projeto.exe  projeto.dll
+    /// </summary>
+    public string OutputFileName
+    {
+      get
+      {
+        if (_outputFileName == null)
+        {
+          var response = _project.Properties.GetProperty(DteProjectHierarchy.OUTPUT_FILENAME);
+          if (response.Success)
+            _outputFileName = Convert.ToString(response.Item.Value);
+        }
+        return _outputFileName;
+      }
+    }
+
+    /// <summary>
+    /// Indica se é Shared project
+    /// </summary>
+    public bool IsSharedProject => FullName.EndsWith(".shproj", StringComparison.OrdinalIgnoreCase);
 
     /// <summary>
     /// Propriedades específicas conforme o tipo de projeto

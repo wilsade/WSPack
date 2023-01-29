@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 
 using EnvDTE;
 
@@ -16,7 +18,6 @@ namespace WSPack.VisualStudio.Shared.Extensions
 {
   static class DteExtensions
   {
-
     /// <summary>
     /// Escrever na janela: Output
     /// </summary>
@@ -228,6 +229,20 @@ namespace WSPack.VisualStudio.Shared.Extensions
     }
 
     /// <summary>
+    /// Recuperar o valor string de uma propriedade
+    /// </summary>
+    /// <param name="properties">Enumerado de propriedades do objeto</param>
+    /// <param name="propName">Nome da propriedade</param>
+    /// <returns>valor string de uma propriedade</returns>
+    public static string GetPropertyStringValue(this EnvDTE.Properties properties, string propName)
+    {
+      ResponseItem<Property> response = GetProperty(properties, propName);
+      if (response.Success)
+        return Convert.ToString(response.Item.Value);
+      return "";
+    }
+
+    /// <summary>
     /// Indica se o projeto é .Core / Standard ou Shared
     /// </summary>
     /// <param name="hierarchy">Hierarchy</param>
@@ -247,6 +262,30 @@ namespace WSPack.VisualStudio.Shared.Extensions
     {
       ThreadHelper.ThrowIfNotOnUIThread();
       return project.Kind == "{66A26720-8FB5-11D2-AA7E-00C04F688DDE}";
+    }
+
+    [Conditional("DEBUG")]
+    public static void ImprimirPropriedades(this EnvDTE.Properties properties)
+    {
+      var lst = new List<(string Nome, object Valor)>();
+      for (int i = 1; i <= properties.Count; i++)
+      {
+        string name = "";
+        try
+        {
+          var prop = properties.Item(i);
+          name = prop.Name;
+          lst.Add((name, prop.Value));
+        }
+        catch (Exception comEx)
+        {
+          Trace.WriteLine($"Erro na propriedade {name}: {comEx.Message}");
+        }
+      }
+      foreach (var item in lst.OrderBy(x => x.Nome))
+      {
+        Trace.WriteLine($"{item.Nome}: {item.Valor}");
+      }
     }
   }
 }
