@@ -114,6 +114,7 @@ namespace WSPack
       await OpenCmdPromptCodeEditorCommand.InitializeAsync(this, commandService);
       await ProjectCommandLineArgsCommand.InitializeAsync(this, commandService);
       await StartupProjectCommandLineArgsCommand.InitializeAsync(this, commandService);
+      await LocateInSolutionExplorerCommand.InitializeAsync(this, commandService);
     }
 
     /// <summary>

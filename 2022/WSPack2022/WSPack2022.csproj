@@ -103,6 +103,9 @@
       <Link>Commands\FlexSourceControlExplorerCommand.cs</Link>
       <DependentUpon>FlexCommandsCommand.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\LocateInSolutionExplorerCommand.cs">
+      <Link>Commands\LocateInSolutionExplorerCommand.cs</Link>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\LocateInTFSBaseCommand.cs">
       <Link>Commands\LocateInTFSBaseCommand.cs</Link>
     </Compile>
@@ -178,7 +181,7 @@
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\StartupProjectCommandLineArgsCommand.cs">
       <Link>Commands\StartupProjectCommandLineArgsCommand.cs</Link>
-	  <DependentUpon>ProjectCommandLineArgsBaseCommand.cs</DependentUpon>
+      <DependentUpon>ProjectCommandLineArgsBaseCommand.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\DispatchedPoller.cs">
       <Link>DispatchedPoller.cs</Link>
