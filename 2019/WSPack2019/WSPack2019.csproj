@@ -91,6 +91,9 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\DestroyTFSItemCommand.cs">
       <Link>Commands\DestroyTFSItemCommand.cs</Link>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\DiagnosticLogCommand.cs">
+      <Link>Commands\DiagnosticLogCommand.cs</Link>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\FlexCommandsCommand.cs">
       <Link>Commands\FlexCommandsCommand.cs</Link>
     </Compile>
