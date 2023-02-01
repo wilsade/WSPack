@@ -36,6 +36,10 @@ namespace WSPack.VisualStudio.Shared.Commands
 
     internal const int LocateInWindowsSourceControlExplorer = 0x0121;
 
+    internal const int MessageBoxTester = 0x0160;
+    
+    
+    
     internal const int ProjectCommandLineArgs = 0x0165;
     internal const int ProjectCommandLineArgsStartupProject = 0x0166;
 

@@ -62,6 +62,12 @@
     <Compile Include="Forms\BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\MessageBoxTesterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MessageBoxTesterForm.Designer.cs">
+      <DependentUpon>MessageBoxTesterForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ProcessForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +95,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MessageBoxTesterForm.resx">
+      <DependentUpon>MessageBoxTesterForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ProcessForm.resx">
       <DependentUpon>ProcessForm.cs</DependentUpon>
