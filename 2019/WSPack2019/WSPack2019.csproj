@@ -88,6 +88,9 @@
       <Link>Commands\CopyServerPathSourceControlExplorerCommand.cs</Link>
       <DependentUpon>CopyServerPathBaseCommand.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\DestroyTFSItemCommand.cs">
+      <Link>Commands\DestroyTFSItemCommand.cs</Link>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\FlexCommandsCommand.cs">
       <Link>Commands\FlexCommandsCommand.cs</Link>
     </Compile>
@@ -300,6 +303,10 @@
     </Reference>
     <Reference Include="Microsoft.TeamFoundation.VersionControl.Client">
       <HintPath>$(DevEnvDir)CommonExtensions\Microsoft\TeamFoundation\Team Explorer\Microsoft.TeamFoundation.VersionControl.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.VersionControl.Common, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\Microsoft.TeamFoundation.VersionControl.Common.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.TeamFoundation">
       <HintPath>$(DevEnvDir)CommonExtensions\Microsoft\TeamFoundation\Team Explorer\Microsoft.VisualStudio.TeamFoundation.dll</HintPath>

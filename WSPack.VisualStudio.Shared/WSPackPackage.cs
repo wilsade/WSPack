@@ -115,6 +115,7 @@ namespace WSPack
       await ProjectCommandLineArgsCommand.InitializeAsync(this, commandService);
       await StartupProjectCommandLineArgsCommand.InitializeAsync(this, commandService);
       await LocateInSolutionExplorerCommand.InitializeAsync(this, commandService);
+      await DestroyTFSItemCommand.InitializeAsync(this, commandService);
     }
 
     /// <summary>

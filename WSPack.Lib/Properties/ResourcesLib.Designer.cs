@@ -19,7 +19,7 @@ namespace WSPack.Lib.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class ResourcesLib {
@@ -378,9 +378,11 @@ namespace WSPack.Lib.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to ATENÇÃO!
+        ///
         ///Deseja excluir este item e REMOVÊ-LO completamente do controle de fontes do TFS?
         ///{0}
-        ///Esta opção não poderá ser desfeita!!!.
+        ///
+        ///Esta operação não poderá ser desfeita!!!.
         /// </summary>
         public static string StrDestruirItemTFS {
             get {

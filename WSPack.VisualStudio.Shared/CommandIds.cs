@@ -31,8 +31,8 @@ namespace WSPack.VisualStudio.Shared.Commands
     internal const int OpenOutputPath = 0x0116;
     internal const int OpenOutputPathSolutionExplorer = 0x0117;
     internal const int OpenCmdPrompt = 0x0118;
-
     internal const int OpenCmdPromptSolutionExplorer = 0x0119;
+    internal const int DestroyTFSItem = 0x0120;
 
     internal const int LocateInWindowsSourceControlExplorer = 0x0121;
 

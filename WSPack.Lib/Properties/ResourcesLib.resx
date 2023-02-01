@@ -235,9 +235,11 @@ Deseja reiniciar agora?</value>
   </data>
   <data name="StrDestruirItemTFS" xml:space="preserve">
     <value>ATENÇÃO!
+
 Deseja excluir este item e REMOVÊ-LO completamente do controle de fontes do TFS?
 {0}
-Esta opção não poderá ser desfeita!!!</value>
+
+Esta operação não poderá ser desfeita!!!</value>
     <comment>1. Item do TFS</comment>
   </data>
   <data name="strDocumentoPossuiMarcadores" xml:space="preserve">
