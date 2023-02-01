@@ -39,6 +39,7 @@ namespace WSPack.VisualStudio.Shared.Commands
     internal const int ProjectCommandLineArgs = 0x0165;
     internal const int ProjectCommandLineArgsStartupProject = 0x0166;
 
+    internal const int VariaviesAmbiente = 0x0177;
     internal const int ActivityLog = 0x0178;
 
     internal const int FlexGitRepository = 0x0184;
