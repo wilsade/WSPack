@@ -201,7 +201,7 @@ namespace WSPack.VisualStudio.Shared.DteProject
               config.Item.PlatformName, DefineConstants, TargetFullPathName);
           }
           else
-            _ = Utils.ExecuteInMainThreadAsync(() => Utils.LogDebugMessage(config.ErrorMessage));
+            _ = Utils.ExecuteInMainThreadAsync(() => Utils.LogDebugMessageForceShow(config.ErrorMessage));
         }
         return _dteConfiguration;
       }

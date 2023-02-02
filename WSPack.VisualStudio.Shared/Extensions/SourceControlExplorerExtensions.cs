@@ -161,7 +161,7 @@ namespace WSPack.VisualStudio.Shared.Extensions
             if (lstWorkspaceLocalItem.Count > 1)
             {
               Utils.LogDebugMessage($"Mais de um localItem para o serverItem: {serverItem}" + Environment.NewLine +
-                string.Join(Environment.NewLine, lstWorkspaceLocalItem.Select(x => $"{x.Ws.Name} - {x.LocalItem}")), false);
+                string.Join(Environment.NewLine, lstWorkspaceLocalItem.Select(x => $"{x.Ws.Name} - {x.LocalItem}")));
             }
             return true;
           }

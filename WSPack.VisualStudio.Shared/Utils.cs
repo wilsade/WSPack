@@ -90,20 +90,41 @@ namespace WSPack.VisualStudio.Shared
     /// </summary>
     /// <param name="message">A mensagem a ser escrita</param>
     /// <param name="forceShow">true para exibir o painel</param>
-    public static void LogDebugMessage(string message, bool forceShow = true)
+    private static void LogDebugMessage(string message, bool forceShow)
     {
       if (!IsDebugOrDebugModeEnabled)
         return;
 
       try
       {
-        WSPackPackage.Dte.WriteInOutPut(forceShow, message);
+        if (forceShow)
+          WSPackPackage.Dte.WriteInOutPutForceShow(message);
+        else
+          WSPackPackage.Dte.WriteInOutPut(message);
         Trace.WriteLine(message);
       }
       catch (Exception ex)
       {
         Trace.WriteLine(ex.Message);
       }
+    }
+
+    /// <summary>
+    /// Escrever no Output apenas em modo de Debug
+    /// </summary>
+    /// <param name="message">A mensagem a ser escrita</param>
+    public static void LogDebugMessage(string message)
+    {
+      LogDebugMessage(message, false);
+    }
+
+    /// <summary>
+    /// Escrever no Output apenas em modo de Debug
+    /// </summary>
+    /// <param name="message">A mensagem a ser escrita</param>
+    public static void LogDebugMessageForceShow(string message)
+    {
+      LogDebugMessage(message, true);
     }
 
     /// <summary>
@@ -117,7 +138,7 @@ namespace WSPack.VisualStudio.Shared
 
       try
       {
-        WSPackPackage.Dte.WriteInOutPut(true, $"*** ERRO ***{Environment.NewLine}{message}");
+        WSPackPackage.Dte.WriteInOutPutForceShow($"*** ERRO ***{Environment.NewLine}{message}");
         Trace.WriteLine(message);
       }
       catch (Exception ex)
@@ -134,7 +155,7 @@ namespace WSPack.VisualStudio.Shared
     /// <param name="parameters">Parâmetros da mensagem</param>
     public static void LogOutputMessage(string messages)
     {
-      WSPackPackage.Dte.WriteInOutPut(false, messages);
+      WSPackPackage.Dte.WriteInOutPut(messages);
     }
 
     /// <summary>
@@ -145,7 +166,7 @@ namespace WSPack.VisualStudio.Shared
     /// <param name="parameters">Parâmetros da mensagem</param>
     public static void LogOutputMessageForceShow(string messages)
     {
-      WSPackPackage.Dte.WriteInOutPut(true, messages);
+      WSPackPackage.Dte.WriteInOutPutForceShow(messages);
     }
 
     /// <summary>
@@ -299,6 +320,29 @@ namespace WSPack.VisualStudio.Shared
     {
       await Microsoft.VisualStudio.Shell.ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(WSPackPackage.Instance.DisposalToken);
       action.Invoke();
+    }
+
+    /// <summary>
+    /// Exibir a janela para conectar-se ao TFS
+    /// </summary>
+    public static void ShowWindowConnectToTFS()
+    {
+      string command = "Team.ManageConnections";
+
+#if DEBUG
+      var lst = WSPackPackage.Dte.ListAllCommands();
+      Trace.WriteLine(string.Join(Environment.NewLine, lst));
+#endif
+
+      try
+      {
+        WSPackPackage.Dte.ExecuteCommand(command);
+      }
+      catch (Exception ex)
+      {
+        Trace.WriteLine(ex.Message);
+      }
+      WSPackPackage.Dte.WriteInOutPutForceShow(ResourcesLib.StrSourceControlExplorerNaoConfigurado);
     }
   }
 }

@@ -188,6 +188,9 @@
       <Link>Commands\ProjectCommandLineArgsCommand.cs</Link>
       <DependentUpon>ProjectCommandLineArgsBaseCommand.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\SearchChangesetsBaseCommand.cs">
+      <Link>Commands\SearchChangesetsBaseCommand.cs</Link>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\StartupProjectCommandLineArgsCommand.cs">
       <Link>Commands\StartupProjectCommandLineArgsCommand.cs</Link>
       <DependentUpon>ProjectCommandLineArgsBaseCommand.cs</DependentUpon>

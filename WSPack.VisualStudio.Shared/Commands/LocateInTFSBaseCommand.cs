@@ -45,42 +45,42 @@ namespace WSPack.VisualStudio.Shared.Commands
       var explorerToolWindowProp = tipo.GetProperty("ExplorerToolWindow", nonPublic);
       if (explorerToolWindowProp == null)
       {
-        Utils.LogDebugMessage($"{nameof(explorerToolWindowProp)} nulo");
+        Utils.LogDebugMessageForceShow($"{nameof(explorerToolWindowProp)} nulo");
         return null;
       }
 
       var explorerToolWindow = explorerToolWindowProp.GetValue(versionControl.Explorer);
       if (explorerToolWindow == null)
       {
-        Utils.LogDebugMessage($"{nameof(explorerToolWindow)} nulo");
+        Utils.LogDebugMessageForceShow($"{nameof(explorerToolWindow)} nulo");
         return null;
       }
 
       var sccExplorerProp = explorerToolWindow.GetType().GetProperty("SccExplorer");
       if (sccExplorerProp == null)
       {
-        Utils.LogDebugMessage($"{nameof(sccExplorerProp)} nulo");
+        Utils.LogDebugMessageForceShow($"{nameof(sccExplorerProp)} nulo");
         return null;
       }
 
       var sccExplorer = sccExplorerProp.GetValue(explorerToolWindow);
       if (sccExplorer == null)
       {
-        Utils.LogDebugMessage($"{nameof(sccExplorer)} nulo");
+        Utils.LogDebugMessageForceShow($"{nameof(sccExplorer)} nulo");
         return null;
       }
 
       var listViewExplorerField = sccExplorer.GetType().GetField("listViewExplorer");
       if (listViewExplorerField == null)
       {
-        Utils.LogDebugMessage($"{nameof(listViewExplorerField)} nulo");
+        Utils.LogDebugMessageForceShow($"{nameof(listViewExplorerField)} nulo");
         return null;
       }
 
       dynamic listViewExplorer = listViewExplorerField.GetValue(sccExplorer);
       if (listViewExplorer == null)
       {
-        Utils.LogDebugMessage($"{nameof(listViewExplorer)} nulo");
+        Utils.LogDebugMessageForceShow($"{nameof(listViewExplorer)} nulo");
         return null;
       }
       return listViewExplorer;
@@ -177,7 +177,7 @@ namespace WSPack.VisualStudio.Shared.Commands
         }
       }
       else
-        WSPackPackage.Dte.WriteInOutPut(true, ResourcesLib.StrNaoFoiPossivelRecuperarCaminhoLocalItem);
+        WSPackPackage.Dte.WriteInOutPutForceShow(ResourcesLib.StrNaoFoiPossivelRecuperarCaminhoLocalItem);
     }
 
     /// <summary>

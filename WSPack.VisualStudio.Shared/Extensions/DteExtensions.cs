@@ -25,7 +25,7 @@ namespace WSPack.VisualStudio.Shared.Extensions
     /// <param name="forcePanelShow">true para forçar a exbibição do painel</param>
     /// <param name="message">A mensagem a ser escrita</param>
     /// <param name="parameters">Parâmetros da mensagem</param>
-    public static void WriteInOutPut(this EnvDTE80.DTE2 applicationObject, bool forcePanelShow,
+    private static void WriteInOutPut(EnvDTE80.DTE2 applicationObject, bool forcePanelShow,
       string message)
     {
       try
@@ -62,6 +62,28 @@ namespace WSPack.VisualStudio.Shared.Extensions
       {
         Trace.WriteLine($"WriteInOutPut: {ex.Message}");
       }
+    }
+
+    /// <summary>
+    /// Escrever na janela: Output
+    /// </summary>
+    /// <param name="applicationObject">Aplicação DTE2</param>
+    /// <param name="message">A mensagem a ser escrita</param>
+    /// <param name="parameters">Parâmetros da mensagem</param>
+    public static void WriteInOutPut(this EnvDTE80.DTE2 applicationObject, string message)
+    {
+      WriteInOutPut(applicationObject, false, message);
+    }
+
+    /// <summary>
+    /// Escrever na janela: Output
+    /// </summary>
+    /// <param name="applicationObject">Aplicação DTE2</param>
+    /// <param name="message">A mensagem a ser escrita</param>
+    /// <param name="parameters">Parâmetros da mensagem</param>
+    public static void WriteInOutPutForceShow(this EnvDTE80.DTE2 applicationObject, string message)
+    {
+      WriteInOutPut(applicationObject, true, message);
     }
 
     /// <summary>
@@ -286,6 +308,36 @@ namespace WSPack.VisualStudio.Shared.Extensions
       {
         Trace.WriteLine($"{item.Nome}: {item.Valor}");
       }
+    }
+
+
+    /// <summary>
+    /// Listar todos os comandos do Dte
+    /// </summary>
+    /// <param name="dte">Aplicação do VS</param>
+    /// <param name="showShortcut">true para exibir a tecla de atalho</param>
+    /// <returns>Lista de comandos do Dte</returns>
+    public static SortedSet<string> ListAllCommands(this EnvDTE80.DTE2 dte, bool showShortcut = false)
+    {
+      ThreadHelper.ThrowIfNotOnUIThread($"{nameof(DteExtensions)}:{nameof(ListAllCommands)}");
+      var lst = new HashSet<string>();
+      for (int i = 1; i <= dte.Commands.Count; i++)
+      {
+        Command commandObj = dte.Commands.Item(i);
+
+        string estecomando = commandObj.LocalizedName;
+        if (string.IsNullOrEmpty(estecomando))
+          estecomando = commandObj.Name;
+
+        if (!string.IsNullOrEmpty(estecomando))
+        {
+          if (showShortcut && commandObj.Bindings is object[] array && array.Length > 0)
+            estecomando = $"{estecomando} [{array[0]}]";
+          lst.Add(estecomando);
+        }
+      }
+      var sortedSet = new SortedSet<string>(lst);
+      return sortedSet;
     }
   }
 }

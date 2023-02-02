@@ -233,7 +233,7 @@ namespace WSPack.VisualStudio.Shared.Extensions
 
         if (string.IsNullOrEmpty(filePath))
         {
-          Utils.LogDebugMessage($"{nameof(GetFilePath)} é nulo");
+          Utils.LogDebugMessageForceShow($"{nameof(GetFilePath)} é nulo");
         }
 
         return true;

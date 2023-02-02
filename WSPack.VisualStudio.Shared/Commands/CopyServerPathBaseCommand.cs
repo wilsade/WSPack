@@ -49,13 +49,13 @@ namespace WSPack.VisualStudio.Shared.Commands
           else
           {
             if (FlexSourceControlExplorerCommand.IsAvailable)
-              WSPackPackage.Dte.WriteInOutPut(true, tuple.ErrorMessage);
+              WSPackPackage.Dte.WriteInOutPutForceShow(tuple.ErrorMessage);
             return false;
           }
         }
         else
         {
-          WSPackPackage.Dte.WriteInOutPut(true, ResourcesLib.StrObjetoControleVersaoNaoDisponivel);
+          WSPackPackage.Dte.WriteInOutPutForceShow(ResourcesLib.StrObjetoControleVersaoNaoDisponivel);
           return false;
         }
       }
