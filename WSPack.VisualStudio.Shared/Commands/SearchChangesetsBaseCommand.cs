@@ -16,6 +16,7 @@ using WSPack.Lib.Extensions;
 using WSPack.Lib.Forms;
 using WSPack.Lib.Properties;
 using WSPack.VisualStudio.Shared.Extensions;
+using WSPack.VisualStudio.Shared.Forms;
 
 using Task = System.Threading.Tasks.Task;
 
@@ -47,11 +48,47 @@ namespace WSPack.VisualStudio.Shared.Commands
     protected override void DoExecute(object sender, EventArgs e)
     {
       ThreadHelper.ThrowIfNotOnUIThread();
-      // Não conectado. Mostrar tela para conectar-se ao TFS
-      if (!WSPackPackage.Dte.GetTeamFoundationServerExt().IsSourceControlExplorerActive())
+      if (WSPackPackage.Dte.GetTeamFoundationServerExt().IsSourceControlExplorerActive())
       {
-        Utils.ShowWindowConnectToTFS();
+        var VCExt = WSPackPackage.Dte.GetVersionControlExt();
+        if (VCExt?.Explorer == null)
+        {
+          MessageBoxUtils.ShowWarning(ResourcesLib.StrSourceControlExplorerNaoConfigurado);
+          return;
+        }
+        var resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchChangesetsForm));
+        string caption = resources.GetString("$this.Text");
+
+        // Form já está aberto?
+        IntPtr achou = NativeMethods.FindWindow(null, caption);
+        if (achou != IntPtr.Zero)
+        {
+          NativeMethods.ShowWindow(achou, SW_Modos.SW_RESTORE.GetHashCode());
+          NativeMethods.SetForegroundWindow(achou);
+        }
+        else
+        {
+          _ = Utils.GetVersionControlServerExt().Explorer;
+
+          IntPtr prt = Process.GetCurrentProcess().MainWindowHandle;
+          Win32WindowWrapper wrapper = new Win32WindowWrapper(prt);
+
+          // Descobrir o sender no SourceControlExplorer
+          SenderTypes senderType = SenderTypes.MenuWSPack;
+          if (sender is OleMenuCommand menu)
+          {
+            senderType = menu.CommandID.ID == CommandIds.SearchChangesets.GetHashCode() ?
+             SenderTypes.MenuWSPack : SenderTypes.SourceControlExplorer;
+          }
+
+          SearchChangesetsForm formBusca = new SearchChangesetsForm(senderType, WSPackConsts.SearchChangesetsConfigPath);
+          formBusca.Show(wrapper);
+        }
       }
+
+      // Não conectado. Mostrar tela para conectar-se ao TFS
+      else
+        Utils.ShowWindowConnectToTFS();
     }
   }
 }

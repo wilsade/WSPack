@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -91,6 +92,16 @@ namespace WSPack.Lib.Extensions
     public static bool EqualsInsensitive(this string str, string value)
     {
       return string.Equals(str, value, StringComparison.OrdinalIgnoreCase);
+    }
+
+    /// <summary>
+    /// Retornar apenas o nome do arquivo
+    /// </summary>
+    /// <param name="fileAndPath">Nome completo de um arquivo</param>
+    /// <returns>Nome do arquivo</returns>
+    public static string FileNameOnly(this string fileAndPath)
+    {
+      return Path.GetFileName(fileAndPath);
     }
   }
 }

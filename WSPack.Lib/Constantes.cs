@@ -41,5 +41,6 @@ namespace WSPack.Lib
     /// Release Notes Url
     /// </summary>
     public static readonly string GitHubWSPackReleaseNotes = $"{GitHubWSPackWiki}/Novidades-da-versão";
+
   }
 }

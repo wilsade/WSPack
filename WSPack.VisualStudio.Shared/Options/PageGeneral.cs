@@ -18,6 +18,10 @@ namespace WSPack.VisualStudio.Shared.Options
     {
       WSPackConfigPath = BaseDialogPage.BaseConfigPath;
       EnableDebugMode = false;
+      //OnGuardarOpcoes += PageGeneral_OnGuardarOpcoes;
+      //FormatOnSaveOptions = new FormatOnSaveExpandableOptions();
+      //ForceUTF8OnSaveOptions = new ForceUTF8OnSaveExpandableOptions();
+      //ShowGitPullInSolutionExplorerToolbar = true;
     }
 
     /// <summary>
@@ -35,6 +39,18 @@ namespace WSPack.VisualStudio.Shared.Options
 
       base.OnApply(e);
     }
+
+    #region Editor
+    /// <summary>
+    /// Editor de texto que deverá ser utilizado abertura de arquivos
+    /// </summary>
+    [Category(OptionsPageConsts.Editor)]
+    [DisplayName("Editor de texto")]
+    [Description("Editor de texto que deverá ser utilizado para abertura de arquivos. Informe o caminho completo do executável.")]
+    [Editor(typeof(PathExeEditor), typeof(System.Drawing.Design.UITypeEditor))]
+    [ReadOnly(false)]
+    public string EditorTexto { get; set; }
+    #endregion
 
     #region Outros
     /// <summary>
@@ -57,14 +73,15 @@ namespace WSPack.VisualStudio.Shared.Options
     public bool EnableDebugMode { get; set; }
     #endregion
 
+    #region TFS
     /// <summary>
-    /// Editor de texto que deverá ser utilizado abertura de arquivos
+    /// Um valor indicando se a tela de merge será aberta após o Check In
     /// </summary>
-    [Category(OptionsPageConsts.Editor)]
-    [DisplayName("Editor de texto")]
-    [Description("Editor de texto que deverá ser utilizado para abertura de arquivos. Informe o caminho completo do executável.")]
-    [Editor(typeof(PathExeEditor), typeof(System.Drawing.Design.UITypeEditor))]
-    [ReadOnly(false)]
-    public string EditorTexto { get; set; }
+    [Category(OptionsPageConsts.TFS)]
+    [DisplayName("Abrir tela de merge após Check In")]
+    [Description("Exibir um tela para escolha da branch de destino para efetuar operação de merge logo após o Check In")]
+    [DefaultValue(false)]
+    public bool AbrirTelaMerge { get; set; }
+    #endregion
   }
 }

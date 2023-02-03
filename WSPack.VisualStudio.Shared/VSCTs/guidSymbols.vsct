@@ -108,7 +108,7 @@
       <IDSymbol name="cmdSSEGetItemsComboBox" value="0x0126"/>
       <IDSymbol name="cmdSSEComboBoxFavoritos" value="0x0127"/>
       <IDSymbol name="cmdSearchChangesets" value="0x0128" />
-      <IDSymbol name="cmdSearchChangesetsSSE" value="0x0129" />
+      <IDSymbol name="cmdSearchChangesetsSourceControlExplorer" value="0x0129" />
       <IDSymbol name="cmdDocumentation" value="0x0130"/>
       <IDSymbol name="cmdDocumentationDictionary" value="0x0131"/>
       <IDSymbol name="cmdDocumentationRules" value="0x0132"/>

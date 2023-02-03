@@ -7,7 +7,9 @@ using Microsoft.TeamFoundation.VersionControl.Client;
 using Microsoft.VisualStudio.TeamFoundation;
 using Microsoft.VisualStudio.TeamFoundation.VersionControl;
 
+using WSPack.Lib;
 using WSPack.Lib.Extensions;
+using WSPack.Lib.Items;
 using WSPack.Lib.Properties;
 
 namespace WSPack.VisualStudio.Shared.Extensions
@@ -206,6 +208,40 @@ namespace WSPack.VisualStudio.Shared.Extensions
       if (vcServer != null && vcServer.GetWorkspaceForServerItem(serverItem, out var lstWorkspaceLocalItem))
         return lstWorkspaceLocalItem;
       return null;
+    }
+
+    /// <summary>
+    /// Verifica se existe workspace para um ServerItem
+    /// </summary>
+    /// <param name="vcServer">Controle de fontes (VersionControlServer)</param>
+    /// <param name="serverItem">Server item</param>
+    /// <returns>true se existe workspace para um ServerItem</returns>
+    public static bool HasWorkspaceForServerItem(this VersionControlServer vcServer, string serverItem)
+    {
+      return GetWorkspaceForServerItem(vcServer, serverItem, out _);
+    }
+
+    /// <summary>
+    /// Recuperar os Check In Notes definidos em um determinado caminho do servidor
+    /// </summary>
+    /// <param name="vcServer">VersionControlServer</param>
+    /// <param name="serverPath">Caminho de um item do TFS</param>
+    /// <returns>Lista de CheckInNotes definida no serverPath; todos os CheckInNotes caso contrário</returns>
+    public static IEnumerable<string> GetCheckInNotes(this VersionControlServer vcServer, string serverPath)
+    {
+      CheckinNoteFieldDefinition[] lstNotas = vcServer.GetCheckinNoteDefinitionsForServerPaths(
+        new string[] { serverPath });
+      if (lstNotas.Length > 0)
+      {
+        IEnumerable<string> lstAux = lstNotas.Select(x => x.Name);
+        return lstAux.ToArray();
+      }
+
+      else
+      {
+        string[] notas = vcServer.GetAllCheckinNoteFieldNames();
+        return notas;
+      }
     }
   }
 }

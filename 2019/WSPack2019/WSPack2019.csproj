@@ -191,6 +191,14 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\SearchChangesetsBaseCommand.cs">
       <Link>Commands\SearchChangesetsBaseCommand.cs</Link>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\SearchChangesetsCommand.cs">
+      <Link>Commands\SearchChangesetsCommand.cs</Link>
+      <DependentUpon>SearchChangesetsBaseCommand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\SearchChangesetsSourceControlExplorerCommand.cs">
+      <Link>Commands\SearchChangesetsSourceControlExplorerCommand.cs</Link>
+      <DependentUpon>SearchChangesetsBaseCommand.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\StartupProjectCommandLineArgsCommand.cs">
       <Link>Commands\StartupProjectCommandLineArgsCommand.cs</Link>
       <DependentUpon>ProjectCommandLineArgsBaseCommand.cs</DependentUpon>
@@ -219,6 +227,9 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Extensions\DteExtensions.cs">
       <Link>Extensions\DteExtensions.cs</Link>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Extensions\SearchChangesetsObj.cs">
+      <Link>Extensions\SearchChangesetsObj.cs</Link>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Extensions\SourceControlExplorerExtensions.cs">
       <Link>Extensions\SourceControlExplorerExtensions.cs</Link>
     </Compile>
@@ -232,6 +243,22 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Forms\ChooseWorkspaceLocalItemForm.designer.cs">
       <Link>Forms\ChooseWorkspaceLocalItemForm.designer.cs</Link>
       <DependentUpon>ChooseWorkspaceLocalItemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Forms\MergeHelperForm.cs">
+      <Link>Forms\MergeHelperForm.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Forms\MergeHelperForm.designer.cs">
+      <Link>Forms\MergeHelperForm.designer.cs</Link>
+      <DependentUpon>MergeHelperForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Forms\SearchChangesetsForm.cs">
+      <Link>Forms\SearchChangesetsForm.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Forms\SearchChangesetsForm.designer.cs">
+      <Link>Forms\SearchChangesetsForm.designer.cs</Link>
+      <DependentUpon>SearchChangesetsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Options\BaseDialogPage.cs">
       <Link>Options\BaseDialogPage.cs</Link>
@@ -294,6 +321,9 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Utils.cs">
       <Link>Utils.cs</Link>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\WSPackConsts.cs">
+      <Link>WSPackConsts.cs</Link>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\WSPackPackage.cs">
       <Link>WSPackPackage.cs</Link>
     </Compile>
@@ -310,6 +340,10 @@
     <Reference Include="Microsoft.TeamFoundation.Client">
       <HintPath>$(DevEnvDir)CommonExtensions\Microsoft\TeamFoundation\Team Explorer\Microsoft.TeamFoundation.Client.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Common, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\Microsoft.TeamFoundation.Common.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.TeamFoundation.Git.Provider">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\Microsoft.TeamFoundation.Git.Provider.dll</HintPath>
     </Reference>
@@ -319,6 +353,10 @@
     <Reference Include="Microsoft.TeamFoundation.VersionControl.Common, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\Microsoft.TeamFoundation.VersionControl.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Services.Common, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\Microsoft.VisualStudio.Services.Common.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.TeamFoundation">
       <HintPath>$(DevEnvDir)CommonExtensions\Microsoft\TeamFoundation\Team Explorer\Microsoft.VisualStudio.TeamFoundation.dll</HintPath>
@@ -345,6 +383,14 @@
     <EmbeddedResource Include="..\..\WSPack.VisualStudio.Shared\Forms\ChooseWorkspaceLocalItemForm.resx">
       <Link>Forms\ChooseWorkspaceLocalItemForm.resx</Link>
       <DependentUpon>ChooseWorkspaceLocalItemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\WSPack.VisualStudio.Shared\Forms\MergeHelperForm.resx">
+      <Link>Forms\MergeHelperForm.resx</Link>
+      <DependentUpon>MergeHelperForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\WSPack.VisualStudio.Shared\Forms\SearchChangesetsForm.resx">
+      <Link>Forms\SearchChangesetsForm.resx</Link>
+      <DependentUpon>SearchChangesetsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="..\..\WSPack.VisualStudio.Shared\VSPackage.resx">
       <Link>VSPackage.resx</Link>

@@ -344,5 +344,18 @@ namespace WSPack.VisualStudio.Shared
       }
       WSPackPackage.Dte.WriteInOutPutForceShow(ResourcesLib.StrSourceControlExplorerNaoConfigurado);
     }
+
+    /// <summary>
+    /// Escrever na janela: Output
+    /// </summary>
+    /// <param name="message">A mensagem a ser escrita</param>
+    /// <param name="parameters">Parâmetros da mensagem</param>
+    public static void LogOutputMessageSwitchToMainThread(string message, params string[] parameters)
+    {
+      _ = ExecuteInMainThreadAsync(() =>
+      {
+        WSPackPackage.Dte.WriteInOutPut(message, parameters);
+      });
+    }
   }
 }

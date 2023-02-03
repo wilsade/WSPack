@@ -737,7 +737,7 @@
 
       <!-- #region Source Control Explorer -->
       <!-- Buscar changeSets no Source Control Explorer-->
-      <Button guid="guidWSPackPackageCmdSet" id="cmdSearchChangesetsSSE" priority="0x001" type="Button">
+      <Button guid="guidWSPackPackageCmdSet" id="cmdSearchChangesetsSourceControlExplorer" priority="0x001" type="Button">
         <Parent guid="guidSourceControlExplorer" id="grupoFindSourceControlExplorer" />
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
