@@ -29,6 +29,7 @@ namespace WSPack
 
   [ProvideOptionPage(typeof(PageGeneral), Constantes.WSPack, "01GeralX", 110, 113, true, new string[] { "Mudar as opções do WSPack" }, Sort = 1)]
   [ProvideOptionPage(typeof(PageMEFObjects), Constantes.WSPack, "03ComponentesX", 110, 115, true, new string[] { "MEF Components" }, Sort = 3)]
+  [ProvideOptionPage(typeof(PageTemplateCheckIn), Constantes.WSPack, "05TemplateCheckInX", 110, 114, true, new string[] { "Template Check In" }, Sort = 5)]
 
   public sealed class WSPackPackage : AsyncPackage
   {
@@ -59,6 +60,11 @@ namespace WSPack
     public static PageGeneral ParametrosGerais => GetParametersPage<PageGeneral>();
 
     /// <summary>
+    /// Página de opções de Template com informações do Check In
+    /// </summary>
+    public static PageTemplateCheckIn ParametrosTemplateCheckIn { get; private set; }
+
+    /// <summary>
     /// Recuperar a página de opções de componentes: MEFObjects
     /// </summary>
     public static PageMEFObjects ParametrosMEFObjects => GetParametersPage<PageMEFObjects>();
@@ -79,6 +85,8 @@ namespace WSPack
 
       Dte = await GetServiceAsync(typeof(SDTE)) as DTE2;
       Assumes.Present(Dte);
+
+      ParametrosTemplateCheckIn = GetParametersPage<PageTemplateCheckIn>();
 
       OleMenuCommandService commandService = await GetServiceAsync(typeof(IMenuCommandService)) as OleMenuCommandService;
       await AboutCommand.InitializeAsync(this, commandService);

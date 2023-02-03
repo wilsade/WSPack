@@ -298,6 +298,10 @@
       <Link>Options\PageMEFObjects.cs</Link>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Options\PageTemplateCheckIn.cs">
+      <Link>Options\PageTemplateCheckIn.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Options\PathEditor.cs">
       <Link>Options\PathEditor.cs</Link>
       <DependentUpon>BaseEditor.cs</DependentUpon>
@@ -317,6 +321,14 @@
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\SharedAssemblyInfo.cs">
       <Link>SharedAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\UserControls\TemplateCheckInControl.cs">
+      <Link>UserControls\TemplateCheckInControl.cs</Link>
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\UserControls\TemplateCheckInControl.designer.cs">
+      <Link>UserControls\TemplateCheckInControl.designer.cs</Link>
+      <DependentUpon>TemplateCheckInControl.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Utils.cs">
       <Link>Utils.cs</Link>
@@ -391,6 +403,10 @@
     <EmbeddedResource Include="..\..\WSPack.VisualStudio.Shared\Forms\SearchChangesetsForm.resx">
       <Link>Forms\SearchChangesetsForm.resx</Link>
       <DependentUpon>SearchChangesetsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\WSPack.VisualStudio.Shared\UserControls\TemplateCheckInControl.resx">
+      <Link>UserControls\TemplateCheckInControl.resx</Link>
+      <DependentUpon>TemplateCheckInControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="..\..\WSPack.VisualStudio.Shared\VSPackage.resx">
       <Link>VSPackage.resx</Link>
