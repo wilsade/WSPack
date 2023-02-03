@@ -67,14 +67,14 @@ namespace WSPack.VisualStudio.Shared.Extensions
         VersionSpec.Latest,
         deletionId: 0,
         RecursionType.Full,
-        user,
+        searchParams.User,
         searchParams.SpecFrom,
         searchParams.SpecTo,
-        numMaxRegistros,
+        searchParams.NumMaxRegistros,
         includeChanges: false,
         slotMode: false
-        ).Cast<Changeset>().Where(x => x.Comment.ContainsInsensitive(comentario)).ToList();
-      if (includeChanges)
+        ).Cast<Changeset>().Where(x => x.Comment.ContainsInsensitive(searchParams.Comentario)).ToList();
+      if (searchParams.IncludeChanges)
       {
         foreach (var esteCS in lstQueryHistory)
         {

@@ -347,7 +347,7 @@
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
           <MenuText>Buscar Changesets</MenuText>
-          <ButtonText>WSPack.BuscarChangesets</ButtonText>
+          <ButtonText>BuscarChangesets</ButtonText>
         </Strings>
       </Button>
       <!-- Template com informações do Check In-->
@@ -356,7 +356,7 @@
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
           <MenuText>Template do Check In</MenuText>
-          <ButtonText>WSPack.TemplateCheckIn</ButtonText>
+          <ButtonText>TemplateCheckIn</ButtonText>
           <ToolTipText>Abre a tela para definição de Template com informações do Check In</ToolTipText>
         </Strings>
       </Button>
@@ -366,7 +366,7 @@
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
           <MenuText>Gerenciador de favoritos do TFS</MenuText>
-          <ButtonText>WSPack.GerenciadorFavoritosTFS</ButtonText>
+          <ButtonText>GerenciadorFavoritosTFS</ButtonText>
           <ToolTipText>Abrir uma tela gerenciar favoritos do TFS</ToolTipText>
         </Strings>
       </Button>
@@ -653,7 +653,7 @@
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
           <MenuText>Testar MessageBox</MenuText>
-          <ButtonText>WSPack.TestarMessageBox</ButtonText>
+          <ButtonText>TestarMessageBox</ButtonText>
           <ToolTipText>Abrir uma tela para testar Diálogo de mensagem</ToolTipText>
         </Strings>
       </Button>
@@ -663,7 +663,7 @@
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
           <MenuText>Variáveis de ambiente</MenuText>
-          <ButtonText>WSPack.VariaveisAmbiente</ButtonText>
+          <ButtonText>VariaveisAmbiente</ButtonText>
           <ToolTipText>Exibir as variáveis de ambiente</ToolTipText>
         </Strings>
       </Button>
@@ -673,7 +673,7 @@
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
           <MenuText>Registro de atividade (Activity Log)</MenuText>
-          <ButtonText>WSPack.ActivityLog</ButtonText>
+          <ButtonText>ActivityLog</ButtonText>
           <ToolTipText>Exibir o Registor de atividade</ToolTipText>
         </Strings>
       </Button>
@@ -683,7 +683,7 @@
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
           <MenuText>Registro de diagnóstico (Diagnostic Log)</MenuText>
-          <ButtonText>WSPack.DiagnosticLog</ButtonText>
+          <ButtonText>DiagnosticLog</ButtonText>
           <ToolTipText>Exibir o Registor de diagnóstico</ToolTipText>
         </Strings>
       </Button>
@@ -699,7 +699,7 @@
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
           <MenuText>Página inicial</MenuText>
-          <ButtonText>WSPack.StartPage</ButtonText>
+          <ButtonText>StartPage</ButtonText>
           <ToolTipText>Abrir a página inicial do WSPack</ToolTipText>
         </Strings>
       </Button>
@@ -710,7 +710,7 @@
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
           <MenuText>Abrir Solution / Projeto</MenuText>
-          <ButtonText>WSPack.AbrirSolutionProjetoStartPage</ButtonText>
+          <ButtonText>AbrirSolutionProjetoStartPage</ButtonText>
           <ToolTipText>Abrir uma Solution / Projeto cadastrado na página inicial</ToolTipText>
         </Strings>
       </Button>
@@ -721,14 +721,14 @@
         <Parent guid="guidWSPackPackageCmdSet" id="grupo04MenuPrincipal" />
         <Strings>
           <MenuText>Parâmetros</MenuText>
-          <ButtonText>WSPack.Parametros</ButtonText>
+          <ButtonText>Parametros</ButtonText>
         </Strings>
       </Button>
       <Button guid="guidWSPackPackageCmdSet" id="cmdAbout" priority="0x0200" type="Button">
         <Parent guid="guidWSPackPackageCmdSet" id="grupo04MenuPrincipal" />
         <Strings>
           <MenuText>Sobre</MenuText>
-          <ButtonText>WSPack.Sobre</ButtonText>
+          <ButtonText>Sobre</ButtonText>
         </Strings>
       </Button>
       <!-- #endregion -->
@@ -742,7 +742,7 @@
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
           <MenuText>Buscar Changeset</MenuText>
-          <ButtonText>WSPack.BuscarChangesetSCE</ButtonText>
+          <ButtonText>BuscarChangesetSCE</ButtonText>
           <ToolTipText>Abre a tela para buscar Changeset no TFS</ToolTipText>
         </Strings>
       </Button>
@@ -1062,7 +1062,7 @@
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
           <MenuText>Gerar documentação</MenuText>
-          <ButtonText>WSPack.GerarDocumentacaoCodeEditor</ButtonText>
+          <ButtonText>GerarDocumentacaoCodeEditor</ButtonText>
           <ToolTipText>Gerar documentação do código fonte C#</ToolTipText>
         </Strings>
       </Button>
@@ -1083,7 +1083,7 @@
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
           <MenuText>Dicionário</MenuText>
-          <ButtonText>WSPack.DicionarioCodeEditor</ButtonText>
+          <ButtonText>DicionarioCodeEditor</ButtonText>
           <ToolTipText>Abrir a configuração do dicinário</ToolTipText>
         </Strings>
       </Button>
@@ -1093,7 +1093,7 @@
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
           <MenuText>Regras</MenuText>
-          <ButtonText>WSPack.RegrasCodeEditor</ButtonText>
+          <ButtonText>RegrasCodeEditor</ButtonText>
           <ToolTipText>Abrir a configuração de regras </ToolTipText>
         </Strings>
       </Button>

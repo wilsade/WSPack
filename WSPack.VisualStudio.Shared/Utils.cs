@@ -350,11 +350,11 @@ namespace WSPack.VisualStudio.Shared
     /// </summary>
     /// <param name="message">A mensagem a ser escrita</param>
     /// <param name="parameters">Parâmetros da mensagem</param>
-    public static void LogOutputMessageSwitchToMainThread(string message, params string[] parameters)
+    public static void LogOutputMessageSwitchToMainThread(string message)
     {
       _ = ExecuteInMainThreadAsync(() =>
       {
-        WSPackPackage.Dte.WriteInOutPut(message, parameters);
+        WSPackPackage.Dte.WriteInOutPut(message);
       });
     }
   }

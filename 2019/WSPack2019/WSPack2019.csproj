@@ -203,6 +203,9 @@
       <Link>Commands\StartupProjectCommandLineArgsCommand.cs</Link>
       <DependentUpon>ProjectCommandLineArgsBaseCommand.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\TemplateCheckInCommand.cs">
+      <Link>Commands\TemplateCheckInCommand.cs</Link>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\VariaveisAmbienteCommand.cs">
       <Link>Commands\VariaveisAmbienteCommand.cs</Link>
     </Compile>
