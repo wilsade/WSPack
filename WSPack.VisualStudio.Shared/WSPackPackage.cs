@@ -127,8 +127,9 @@ namespace WSPack
       await VariaveisAmbienteCommand.InitializeAsync(this, commandService);
       await DiagnosticLogCommand.InitializeAsync(this, commandService);
       await MessageBoxTesterCommand.InitializeAsync(this, commandService);
-      await SearchChangesetsCommand.InitializeAsync(this, commandService);
       await TemplateCheckInCommand.InitializeAsync(this, commandService);
+      await SearchChangesetsCommand.InitializeAsync(this, commandService);
+      await SearchChangesetsSourceControlExplorerCommand.InitializeAsync(this, commandService);
     }
 
     /// <summary>
