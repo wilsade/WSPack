@@ -141,6 +141,9 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\MergeHelperCommand.cs">
       <Link>Commands\MergeHelperCommand.cs</Link>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\MergeInViewHistoryCommand.cs">
+      <Link>Commands\MergeInViewHistoryCommand.cs</Link>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\MessageBoxTesterCommand.cs">
       <Link>Commands\MessageBoxTesterCommand.cs</Link>
     </Compile>
