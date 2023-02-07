@@ -130,6 +130,7 @@ namespace WSPack
       await TemplateCheckInCommand.InitializeAsync(this, commandService);
       await SearchChangesetsCommand.InitializeAsync(this, commandService);
       await SearchChangesetsSourceControlExplorerCommand.InitializeAsync(this, commandService);
+      await MergeHelperCommand.InitializeAsync(this, commandService);
     }
 
     /// <summary>

@@ -339,5 +339,22 @@ namespace WSPack.VisualStudio.Shared.Extensions
       var sortedSet = new SortedSet<string>(lst);
       return sortedSet;
     }
+
+    /// <summary>
+    /// Exibir uma mensagem dentro do Visual Studio
+    /// </summary>
+    /// <param name="provider">Provider</param>
+    /// <param name="message">A mensagem a ser escrita</param>
+    public static void MessageBoxShellWarningOk(this IServiceProvider provider, string message,
+      string title = "Aviso")
+    {
+      VsShellUtilities.ShowMessageBox(
+        provider,
+        message,
+        title,
+        OLEMSGICON.OLEMSGICON_WARNING,
+        OLEMSGBUTTON.OLEMSGBUTTON_OK,
+        OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
+    }
   }
 }

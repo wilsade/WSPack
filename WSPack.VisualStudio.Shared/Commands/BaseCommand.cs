@@ -54,10 +54,13 @@ namespace WSPack.VisualStudio.Shared.Commands
       _package = package ?? throw new ArgumentNullException(nameof(package));
       commandService = commandService ?? throw new ArgumentNullException(nameof(commandService));
 
-      var menuCommandID = new CommandID(CommandSet, CommandId);
-      _menu = new OleMenuCommand(Execute, menuCommandID);
-      _menu.BeforeQueryStatus += BeforeExecute;
-      commandService.AddCommand(_menu);
+      if (CommandId != 0)
+      {
+        var menuCommandID = new CommandID(CommandSet, CommandId);
+        _menu = new OleMenuCommand(Execute, menuCommandID);
+        _menu.BeforeQueryStatus += BeforeExecute;
+        commandService.AddCommand(_menu);
+      }
     }
 
     /// <summary>
