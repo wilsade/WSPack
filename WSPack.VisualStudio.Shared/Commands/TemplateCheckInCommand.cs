@@ -64,29 +64,36 @@ namespace WSPack.VisualStudio.Shared.Commands
       WSPackPackage.Instance.ShowOptionPage(typeof(PageTemplateCheckIn));
     }
 
+    public static string GerarTemplateCheckIn(string template, Changeset changeSet)
+    {
+      return GerarTemplateCheckIn(template, changeSet.ChangesetId, changeSet.Comment,
+        changeSet.CreationDate, changeSet.Owner, changeSet.Changes.Select(x => x.Item.ServerItem));
+    }
+
     /// <summary>
     /// Gerar o Template com informações do Check In
     /// </summary>
     /// <param name="template">Template definido pelo usuário</param>
     /// <param name="changeSet">Informações do Changeset</param>
     /// <returns>Template formatado</returns>
-    public static string GerarTemplateCheckIn(string template, Changeset changeSet)
+    public static string GerarTemplateCheckIn(string template, int changesetId, string comment,
+      DateTime creationDate, string owner, IEnumerable<string> changes)
     {
       var strArquivos = new StringBuilder();
-      if (changeSet.Changes.Length > 0)
+      if (changes.Any())
       {
-        foreach (Change esteChange in changeSet.Changes)
+        foreach (var esteChange in changes)
         {
-          strArquivos.AppendLine(esteChange.Item.ServerItem);
+          strArquivos.AppendLine(esteChange);
         }
         strArquivos.Length -= 2;
       }
 
       template = template
-        .Replace("_ChangesetId_", changeSet.ChangesetId.ToString())
-        .Replace("_Comentario_", changeSet.Comment)
-        .Replace("_DataCheckIn_", changeSet.CreationDate.ToString())
-        .Replace("_Usuario_", changeSet.Owner)
+        .Replace("_ChangesetId_", changesetId.ToString())
+        .Replace("_Comentario_", comment)
+        .Replace("_DataCheckIn_", creationDate.ToString())
+        .Replace("_Usuario_", owner)
         .Replace("_ListaArquivos_", strArquivos.ToString());
 
       return template;

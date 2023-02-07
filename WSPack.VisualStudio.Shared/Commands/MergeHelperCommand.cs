@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using Microsoft.TeamFoundation.VersionControl.Client;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.TeamFoundation;
+using Microsoft.VisualStudio.TeamFoundation.VersionControl;
 
 using WSPack.Lib;
 using WSPack.Lib.Extensions;
@@ -75,6 +76,8 @@ namespace WSPack.VisualStudio.Shared.Commands
         {
           vcServer.CommitCheckin -= FezCheckIn;
           vcServer.CommitCheckin += FezCheckIn;
+          vcServer.OperationStarting -= VcServer_OperationStarting;
+          vcServer.OperationStarting += VcServer_OperationStarting;
         }
         else
         {
@@ -85,6 +88,30 @@ namespace WSPack.VisualStudio.Shared.Commands
       {
         Utils.LogOutputMessageSwitchToMainThread("tfs.ActiveProjectContext.DomainUri NULO");
       }
+    }
+
+    private void VcServer_OperationStarting(object sender, OperationEventArgs e)
+    {
+      if (e.Type != OperationEventType.Checkin)
+        return;
+      if (WSPackPackage.ParametrosTemplateCheckIn.TemplateCheckIn.IsNullOrWhiteSpaceEx())
+        return;
+      VersionControlExt controlExt = Utils.GetVersionControlServerExt();
+      if (!(controlExt?.PendingChanges is PendingChangesExt changesExt))
+        return;
+
+      VersionControlServer controlServer = sender as VersionControlServer;
+      string template = TemplateCheckInCommand.GerarTemplateCheckIn(WSPackPackage.ParametrosTemplateCheckIn.TemplateCheckIn,
+        0, changesExt.CheckinComment, DateTime.Now, controlServer.AuthorizedIdentity.UniqueName,
+        changesExt.IncludedChanges.Select(x => x.ServerItem));
+
+      template = "Template de CheckIn antes do CheckIn" + Environment.NewLine + template + Environment.NewLine;
+      _ = WriteInOutputSafeAsync(() =>
+      {
+        Trace.WriteLine("VcServer_OperationStarting: 1");
+        Utils.LogOutputMessage(template);
+        Trace.WriteLine("VcServer_OperationStarting: 2");
+      });
     }
 
     static async System.Threading.Tasks.Task WriteInOutputSafeAsync(Action action)
@@ -150,9 +177,7 @@ namespace WSPack.VisualStudio.Shared.Commands
         if (cs != null)
         {
           template = TemplateCheckInCommand.GerarTemplateCheckIn(template, cs);
-          //CopyLocalPathBaseCommand.CopyToClipboard(template);
-          //Instance._package.MessageBoxShellWarningOk(
-          //  ResourcesLib.StrCopiadoAreaTransferencia, "Template de CheckIn");
+          template = "Template após o CheckIn" + Environment.NewLine + template + Environment.NewLine;
           Trace.WriteLine("CheckTemplateCheckIn: a");
           _ = WriteInOutputSafeAsync(() =>
           {
