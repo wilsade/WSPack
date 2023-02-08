@@ -34,10 +34,10 @@ namespace WSPack.VisualStudio.Shared.Options
     {
       base.LoadSettingsFromStorage();
 
-      var lst = new List<Tuple<string, object>>
+      var lst = new List<(string PropName, object ExpObject)>
       {
-        Tuple.Create<string, object>(nameof(BlocksEndObj), BlocksEndObj),
-        Tuple.Create<string, object>(nameof(MetricsObj), MetricsObj)
+        (nameof(BlocksEndObj), BlocksEndObj),
+        (nameof(MetricsObj), MetricsObj)
       };
 
       LoadExpandableProperties("PageMEFObjects", lst);
@@ -49,10 +49,10 @@ namespace WSPack.VisualStudio.Shared.Options
     public override void SaveSettingsToStorage()
     {
       base.SaveSettingsToStorage();
-      var lst = new List<Tuple<string, object>>
+      var lst = new List<(string PropName, object ExpObject)>
       {
-        Tuple.Create<string, object>(nameof(BlocksEndObj), BlocksEndObj),
-        Tuple.Create<string, object>(nameof(MetricsObj), MetricsObj)
+        (nameof(BlocksEndObj), BlocksEndObj),
+        (nameof(MetricsObj), MetricsObj)
       };
 
       SaveExpandableProperties("PageMEFObjects", lst);

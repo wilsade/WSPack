@@ -26,7 +26,8 @@ namespace WSPack.VisualStudio.Shared.Options
 
     bool _guardouOpcoes = false;
 
-    static readonly string Settings_Store_Base_Name = $"ApplicationPrivateSettings\\{_typeOfThis.Assembly.GetProduct()}\\Options\\";
+    static readonly string Settings_Store_Base_Name =
+      $"ApplicationPrivateSettings\\{_typeOfThis.Namespace.Replace(".", "\\")}\\";
 
     IEnumerable<PropertyInfo> GetPropertiesFromObject(object obj) =>
       obj.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance)
@@ -41,6 +42,19 @@ namespace WSPack.VisualStudio.Shared.Options
     /// The show message on close
     /// </summary>
     protected static Action ShowMessageOnClose = null;
+
+    /// <summary>
+    /// Handles "apply" messages from the Visual Studio environment.
+    /// </summary>
+    /// <param name="e">Parâmetros</param>
+    /// <devdoc>
+    /// This method is called when VS wants to save the user's
+    /// changes then the dialog is dismissed.
+    /// </devdoc>
+    protected override void OnApply(PageApplyEventArgs e)
+    {
+      base.OnApply(e);
+    }
 
     /// <summary>
     /// Handles Close messages from the Visual Studio environment.
@@ -88,41 +102,40 @@ namespace WSPack.VisualStudio.Shared.Options
     /// </summary>
     protected event EventHandler<EventArgs> OnGuardarOpcoes;
 
-
     /// <summary>
     /// Carregar propriedades de um objeto expansível
     /// </summary>
     /// <param name="pageName">Nome da página de opções</param>
     /// <param name="lstExpandableObjects">Lista de propriedades: Nome da propriedade + Object expansivel</param>
-    protected void LoadExpandableProperties(string pageName, List<Tuple<string, object>> lstExpandableObjects)
+    protected void LoadExpandableProperties(string pageName, List<(string PropName, object ExpObject)> lstExpandableObjects)
     {
       try
       {
         SettingsStore settingsStore = WSPackPackage.Instance.GetReadOnlyUserSettingsStorage();
-        if (settingsStore != null)
+        if (settingsStore == null)
+          return;
+        
+        string collectionName = Settings_Store_Base_Name + pageName;
+        foreach (var estaTupla in lstExpandableObjects)
         {
-          string collectionName = Settings_Store_Base_Name + pageName;
-          foreach (var estaTupla in lstExpandableObjects)
+          IEnumerable<PropertyInfo> lstProps = GetPropertiesFromObject(estaTupla.ExpObject);
+          foreach (var estaProp in lstProps)
           {
-            IEnumerable<PropertyInfo> lstProps = GetPropertiesFromObject(estaTupla.Item2);
-            foreach (var estaProp in lstProps)
+            object valor;
+            string fullPropName = $"{estaTupla.PropName}.{estaProp.Name}";
+            if (settingsStore.PropertyExists(collectionName, fullPropName))
             {
-              object valor;
-              string propName = $"{estaTupla.Item1}.{estaProp.Name}";
-              if (settingsStore.PropertyExists(collectionName, propName))
-              {
-                if (estaProp.PropertyType == typeof(int))
-                  valor = settingsStore.GetInt32(collectionName, propName);
-                else if (estaProp.PropertyType == typeof(bool))
-                  valor = settingsStore.GetBoolean(collectionName, propName);
-                else
-                  valor = settingsStore.GetString(collectionName, propName);
-              }
+              if (estaProp.PropertyType == typeof(int))
+                valor = settingsStore.GetInt32(collectionName, fullPropName);
+              else if (estaProp.PropertyType == typeof(bool))
+                valor = settingsStore.GetBoolean(collectionName, fullPropName);
               else
-                valor = estaProp.GetCustomAttribute<DefaultValueAttribute>().Value;
-
-              estaProp.SetValue(estaTupla.Item2, valor);
+                valor = settingsStore.GetString(collectionName, fullPropName);
             }
+            else
+              valor = estaProp.GetCustomAttribute<DefaultValueAttribute>().Value;
+
+            estaProp.SetValue(estaTupla.ExpObject, valor);
           }
         }
       }
@@ -138,31 +151,31 @@ namespace WSPack.VisualStudio.Shared.Options
     /// </summary>
     /// <param name="pageName">Nome da página de opções</param>
     /// <param name="lstExpandableObjects">Lista de propriedades: Nome da propriedade + Object expansivel</param>
-    protected void SaveExpandableProperties(string pageName, List<Tuple<string, object>> lstExpandableObjects)
+    protected void SaveExpandableProperties(string pageName, List<(string PropName, object ExpObject)> lstExpandableObjects)
     {
       try
       {
         WritableSettingsStore settingsStore = WSPackPackage.Instance.GetWritableUserSettingsStorage();
-        if (settingsStore != null)
+        if (settingsStore == null)
+          return;
+
+        string collectionName = Settings_Store_Base_Name + pageName;
+        if (!settingsStore.CollectionExists(collectionName))
+          return;
+
+        foreach (var estaTupla in lstExpandableObjects)
         {
-          string collectionName = Settings_Store_Base_Name + pageName;
-          if (settingsStore.CollectionExists(collectionName))
+          IEnumerable<PropertyInfo> lstProps = GetPropertiesFromObject(estaTupla.ExpObject);
+          foreach (var estaProp in lstProps)
           {
-            foreach (var estaTupla in lstExpandableObjects)
-            {
-              IEnumerable<PropertyInfo> lstProps = GetPropertiesFromObject(estaTupla.Item2);
-              foreach (var estaProp in lstProps)
-              {
-                object valor = estaProp.GetValue(estaTupla.Item2);
-                string propName = $"{estaTupla.Item1}.{estaProp.Name}";
-                if (estaProp.PropertyType == typeof(int))
-                  settingsStore.SetInt32(collectionName, propName, Convert.ToInt32(valor));
-                else if (estaProp.PropertyType == typeof(bool))
-                  settingsStore.SetBoolean(collectionName, propName, Convert.ToBoolean(valor));
-                else
-                  settingsStore.SetString(collectionName, propName, Convert.ToString(valor));
-              }
-            }
+            object valor = estaProp.GetValue(estaTupla.ExpObject);
+            string fullPropName = $"{estaTupla.PropName}.{estaProp.Name}";
+            if (estaProp.PropertyType == typeof(int))
+              settingsStore.SetInt32(collectionName, fullPropName, Convert.ToInt32(valor));
+            else if (estaProp.PropertyType == typeof(bool))
+              settingsStore.SetBoolean(collectionName, fullPropName, Convert.ToBoolean(valor));
+            else
+              settingsStore.SetString(collectionName, fullPropName, Convert.ToString(valor));
           }
         }
       }

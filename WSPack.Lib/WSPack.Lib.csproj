@@ -81,6 +81,7 @@
     <Compile Include="Forms\ProjectCommandLineArgsForm.Designer.cs">
       <DependentUpon>ProjectCommandLineArgsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GitPullOnOpenSolutionOptions.cs" />
     <Compile Include="IProcessForm.cs" />
     <Compile Include="Items\CheckInNotesItem.cs" />
     <Compile Include="Items\SearchChangesetsParams.cs" />
@@ -94,6 +95,7 @@
       <DependentUpon>ResourcesLib.resx</DependentUpon>
     </Compile>
     <Compile Include="SenderTypes.cs" />
+    <Compile Include="SourceControlDefaultProvider.cs" />
     <Compile Include="Win32WindowWrapper.cs" />
     <Compile Include="XmlUtils.cs" />
   </ItemGroup>
