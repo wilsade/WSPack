@@ -221,6 +221,9 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\VariaveisAmbienteCommand.cs">
       <Link>Commands\VariaveisAmbienteCommand.cs</Link>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\WorkOfflineCommand.cs">
+      <Link>Commands\WorkOfflineCommand.cs</Link>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\DispatchedPoller.cs">
       <Link>DispatchedPoller.cs</Link>
     </Compile>

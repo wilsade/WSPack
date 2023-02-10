@@ -47,6 +47,7 @@ namespace WSPack.VisualStudio.Shared.Commands
     internal const int TemplateCheckIn = 0x0156;
 
     internal const int MessageBoxTester = 0x0160;
+    internal const int WorkOffline = 0x0161;
 
 
 

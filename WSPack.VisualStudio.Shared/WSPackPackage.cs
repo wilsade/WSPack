@@ -134,6 +134,7 @@ namespace WSPack
       await MergeInViewHistoryCommand.InitializeAsync(this, commandService);
       await RestartCommand.InitializeAsync(this, commandService);
       await DisconnectAndCloseCommand.InitializeAsync(this, commandService);
+      await WorkOfflineCommand.InitializeAsync(this, commandService);
     }
 
     /// <summary>
