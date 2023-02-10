@@ -94,6 +94,9 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\DiagnosticLogCommand.cs">
       <Link>Commands\DiagnosticLogCommand.cs</Link>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\DisconnectAndCloseCommand.cs">
+      <Link>Commands\DisconnectAndCloseCommand.cs</Link>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\FlexCommandsCommand.cs">
       <Link>Commands\FlexCommandsCommand.cs</Link>
     </Compile>
