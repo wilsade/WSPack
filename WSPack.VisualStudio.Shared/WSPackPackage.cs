@@ -132,6 +132,7 @@ namespace WSPack
       await SearchChangesetsSourceControlExplorerCommand.InitializeAsync(this, commandService);
       await MergeHelperCommand.InitializeAsync(this, commandService);
       await MergeInViewHistoryCommand.InitializeAsync(this, commandService);
+      await RestartCommand.InitializeAsync(this, commandService);
     }
 
     /// <summary>

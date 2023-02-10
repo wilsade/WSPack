@@ -194,6 +194,9 @@
       <Link>Commands\ProjectCommandLineArgsCommand.cs</Link>
       <DependentUpon>ProjectCommandLineArgsBaseCommand.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\RestartCommand.cs">
+      <Link>Commands\RestartCommand.cs</Link>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\SearchChangesetsBaseCommand.cs">
       <Link>Commands\SearchChangesetsBaseCommand.cs</Link>
     </Compile>
