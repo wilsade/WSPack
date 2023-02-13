@@ -45,7 +45,7 @@ namespace WSPack.VisualStudio.Shared.Commands
 
 
     internal const int TemplateCheckIn = 0x0156;
-
+    internal const int CollapseAllIncludedPendingChanges = 0x0157;
     internal const int MessageBoxTester = 0x0160;
     internal const int WorkOffline = 0x0161;
 
@@ -65,5 +65,7 @@ namespace WSPack.VisualStudio.Shared.Commands
     internal const int FlexSourceControlExplorerToolbar = 0x0185;
     internal const int FlexGitChanges = 0x0186;
     internal const int DisconnectAndClose = 0x0190;
+    
+    
   }
 }
