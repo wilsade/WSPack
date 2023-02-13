@@ -58,9 +58,13 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\BaseCommand.cs">
       <Link>Commands\BaseCommand.cs</Link>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CollapseAllExcludedPendingChangesCommand.cs">
+      <Link>Commands\CollapseAllExcludedPendingChangesCommand.cs</Link>
+	  <DependentUpon>CollapseAllPendingChangesBaseCommand.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CollapseAllIncludedPendingChangesCommand.cs">
       <Link>Commands\CollapseAllIncludedPendingChangesCommand.cs</Link>
-	  <DependentUpon>CollapseAllPendingChangesBaseCommand.cs</DependentUpon>
+      <DependentUpon>CollapseAllPendingChangesBaseCommand.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CollapseAllPendingChangesBaseCommand.cs">
       <Link>Commands\CollapseAllPendingChangesBaseCommand.cs</Link>

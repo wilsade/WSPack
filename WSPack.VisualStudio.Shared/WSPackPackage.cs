@@ -136,6 +136,7 @@ namespace WSPack
       await DisconnectAndCloseCommand.InitializeAsync(this, commandService);
       await WorkOfflineCommand.InitializeAsync(this, commandService);
       await CollapseAllIncludedPendingChangesCommand.InitializeAsync(this, commandService);
+      await CollapseAllExcludedPendingChangesCommand.InitializeAsync(this, commandService);
     }
 
     /// <summary>
