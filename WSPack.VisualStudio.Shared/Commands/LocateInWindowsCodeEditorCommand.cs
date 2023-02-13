@@ -20,7 +20,7 @@ using Task = System.Threading.Tasks.Task;
 namespace WSPack.VisualStudio.Shared.Commands
 {
   /// <summary>
-  /// Comando para exibição do Sobre
+  /// Comando para localizar o item da IDE no Windows
   /// </summary>
   internal sealed class LocateInWindowsCodeEditorCommand : LocateInWindowsBaseCommand
   {

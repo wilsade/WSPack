@@ -20,7 +20,7 @@ using Task = System.Threading.Tasks.Task;
 namespace WSPack.VisualStudio.Shared.Commands
 {
   /// <summary>
-  /// Comando para exibição do Sobre
+  /// Comando para Localizar um item do Source Control Explorer ]no Windows
   /// </summary>
   internal sealed class LocateInWindowsSourceControlExplorerCommand : LocateInWindowsBaseCommand
   {

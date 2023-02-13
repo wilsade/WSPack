@@ -25,7 +25,7 @@ using System.Text;
 namespace WSPack.VisualStudio.Shared.Commands
 {
   /// <summary>
-  /// Comando para exibição do Sobre
+  /// Comando para exibição das variáveis de ambiente
   /// </summary>
   internal sealed class VariaveisAmbienteCommand : BaseCommand
   {

@@ -25,7 +25,7 @@ using Microsoft.VisualStudio.TeamFoundation.VersionControl;
 namespace WSPack.VisualStudio.Shared.Commands
 {
   /// <summary>
-  /// Comando para exibição do Sobre
+  /// Comando para destruir um item do TFS
   /// </summary>
   internal sealed class DestroyTFSItemCommand : BaseCommand
   {

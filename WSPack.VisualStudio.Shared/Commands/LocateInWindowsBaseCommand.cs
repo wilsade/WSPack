@@ -19,7 +19,7 @@ using Task = System.Threading.Tasks.Task;
 namespace WSPack.VisualStudio.Shared.Commands
 {
   /// <summary>
-  /// Comando para exibição do Sobre
+  /// Comando para localizar um item no Windows
   /// </summary>
   internal abstract class LocateInWindowsBaseCommand : BaseCommand
   {

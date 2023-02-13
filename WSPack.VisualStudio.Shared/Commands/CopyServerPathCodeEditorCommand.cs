@@ -17,7 +17,7 @@ using Task = System.Threading.Tasks.Task;
 namespace WSPack.VisualStudio.Shared.Commands
 {
   /// <summary>
-  /// Comando para exibição do Sobre
+  /// Comando para copiar o caminho server de um item
   /// </summary>
   internal sealed class CopyServerPathCodeEditorCommand : CopyServerPathBaseCommand
   {

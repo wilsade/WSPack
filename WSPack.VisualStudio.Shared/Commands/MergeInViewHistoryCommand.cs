@@ -25,7 +25,7 @@ using Task = System.Threading.Tasks.Task;
 namespace WSPack.VisualStudio.Shared.Commands
 {
   /// <summary>
-  /// Comando para exibição do Sobre
+  /// Comando para Auxílio de merge no View History
   /// </summary>
   internal sealed class MergeInViewHistoryCommand : BaseCommand
   {

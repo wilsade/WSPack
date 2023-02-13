@@ -23,7 +23,7 @@ using Task = System.Threading.Tasks.Task;
 namespace WSPack.VisualStudio.Shared.Commands
 {
   /// <summary>
-  /// Comando para exibição do Sobre
+  /// Comando para reiniciar o VS
   /// </summary>
   internal sealed class RestartCommand : BaseCommand
   {

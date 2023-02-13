@@ -20,7 +20,7 @@ using Task = System.Threading.Tasks.Task;
 namespace WSPack.VisualStudio.Shared.Commands
 {
   /// <summary>
-  /// Comando para exibição do Sobre
+  /// Comando para exibição do Log Registro de atividade 
   /// </summary>
   internal sealed class ActivityLogCommand : BaseCommand
   {

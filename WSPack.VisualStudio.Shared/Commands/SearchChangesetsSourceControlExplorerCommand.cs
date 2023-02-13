@@ -22,7 +22,7 @@ using Task = System.Threading.Tasks.Task;
 namespace WSPack.VisualStudio.Shared.Commands
 {
   /// <summary>
-  /// Comando para exibição do Sobre
+  /// Comando para buscar changesets a partir do Source Control Explorer
   /// </summary>
   internal sealed class SearchChangesetsSourceControlExplorerCommand : SearchChangesetsBaseCommand
   {

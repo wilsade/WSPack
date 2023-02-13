@@ -20,7 +20,7 @@ using Task = System.Threading.Tasks.Task;
 namespace WSPack.VisualStudio.Shared.Commands
 {
   /// <summary>
-  /// Comando para exibição do Sobre
+  /// Comando para abrir o output path a partir da IDE
   /// </summary>
   internal sealed class OpenOutputPathCommand : OpenOutputPathBaseCommand
   {

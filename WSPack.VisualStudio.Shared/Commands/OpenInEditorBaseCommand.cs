@@ -22,7 +22,7 @@ using Task = System.Threading.Tasks.Task;
 namespace WSPack.VisualStudio.Shared.Commands
 {
   /// <summary>
-  /// Comando para exibição do Sobre
+  /// Comando para abrir um item no editor de texto
   /// </summary>
   internal abstract class OpenInEditorBaseCommand : BaseCommand
   {

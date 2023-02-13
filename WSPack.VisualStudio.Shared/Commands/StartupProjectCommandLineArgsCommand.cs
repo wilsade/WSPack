@@ -25,7 +25,7 @@ using Task = System.Threading.Tasks.Task;
 namespace WSPack.VisualStudio.Shared.Commands
 {
   /// <summary>
-  /// Comando para exibição do Sobre
+  /// Comando para definição de argumentos de linha de comando do projeto inicial
   /// </summary>
   internal sealed class StartupProjectCommandLineArgsCommand : ProjectCommandLineArgsBaseCommand
   {
