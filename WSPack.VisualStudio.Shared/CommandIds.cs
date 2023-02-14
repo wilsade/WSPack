@@ -35,6 +35,7 @@ namespace WSPack.VisualStudio.Shared.Commands
     internal const int DestroyTFSItem = 0x0120;
 
     internal const int LocateInWindowsSourceControlExplorer = 0x0121;
+    internal const int DefineTabOrder = 0x0122;
 
 
 
@@ -66,7 +67,7 @@ namespace WSPack.VisualStudio.Shared.Commands
     internal const int FlexSourceControlExplorerToolbar = 0x0185;
     internal const int FlexGitChanges = 0x0186;
     internal const int DisconnectAndClose = 0x0190;
-    
-    
+
+
   }
 }

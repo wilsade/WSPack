@@ -99,6 +99,9 @@
       <Link>Commands\CopyServerPathSourceControlExplorerCommand.cs</Link>
       <DependentUpon>CopyServerPathBaseCommand.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\DefineTabOrderCommand.cs">
+      <Link>Commands\DefineTabOrderCommand.cs</Link>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\DestroyTFSItemCommand.cs">
       <Link>Commands\DestroyTFSItemCommand.cs</Link>
     </Compile>

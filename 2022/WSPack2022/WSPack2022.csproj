@@ -60,7 +60,7 @@
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CollapseAllExcludedPendingChangesCommand.cs">
       <Link>Commands\CollapseAllExcludedPendingChangesCommand.cs</Link>
-	  <DependentUpon>CollapseAllPendingChangesBaseCommand.cs</DependentUpon>
+      <DependentUpon>CollapseAllPendingChangesBaseCommand.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CollapseAllIncludedPendingChangesCommand.cs">
       <Link>Commands\CollapseAllIncludedPendingChangesCommand.cs</Link>
@@ -98,6 +98,9 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyServerPathSourceControlExplorerCommand.cs">
       <Link>Commands\CopyServerPathSourceControlExplorerCommand.cs</Link>
       <DependentUpon>CopyServerPathBaseCommand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\DefineTabOrderCommand.cs">
+      <Link>Commands\DefineTabOrderCommand.cs</Link>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\DestroyTFSItemCommand.cs">
       <Link>Commands\DestroyTFSItemCommand.cs</Link>
