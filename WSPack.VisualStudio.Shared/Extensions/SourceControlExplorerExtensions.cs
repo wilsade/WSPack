@@ -243,5 +243,30 @@ namespace WSPack.VisualStudio.Shared.Extensions
         return notas;
       }
     }
+
+
+    /// <summary>
+    /// Recuperar o Workspace e o ServerItem com base no LocalItem
+    /// </summary>
+    /// <param name="vcServer">Controle de fontes (VersionControlServer)</param>
+    /// <param name="localItem">Local item</param>
+    /// <param name="workspace">Workspace</param>
+    /// <param name="serverItem">true se existe workspace para o LocalItem</param>
+    /// <returns></returns>
+    public static bool GetWorkspaceForLocalItem(this VersionControlServer vcServer, string localItem, out Workspace workspace, out string serverItem)
+    {
+      serverItem = null;
+      workspace = null;
+      if (vcServer == null)
+        return false;
+
+      workspace = vcServer.TryGetWorkspace(localItem);
+      if (workspace != null)
+      {
+        serverItem = workspace.TryGetServerItemForLocalItem(localItem);
+        return true;
+      }
+      return false;
+    }
   }
 }

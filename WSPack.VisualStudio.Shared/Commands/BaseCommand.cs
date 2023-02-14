@@ -64,6 +64,48 @@ namespace WSPack.VisualStudio.Shared.Commands
     }
 
     /// <summary>
+    /// Criar tecla de atalho para um comando
+    /// </summary>
+    /// <param name="commandName">Nome do comando.</param>
+    /// <param name="shortcut">Atalho. Ex: global::Ctrl+1</param>
+    /// <param name="rewrite">true para sobrescrever atalhos existentes</param>
+    /// <returns>true se conseguiu criar o atalho</returns>
+    protected static bool CreateKeyBindings(string commandName, string shortcut, bool rewrite)
+    {
+      bool ok = true;
+      EnvDTE.Command comando = null;
+      ThreadHelper.ThrowIfNotOnUIThread();
+      try
+      {
+        if (!commandName.Contains("."))
+          commandName = "WSPack." + commandName;
+        comando = WSPackPackage.Dte.Commands.Item(commandName, -1);
+      }
+      catch (Exception ex)
+      {
+        Utils.LogDebugMessageForceShow("CreateKeyBindings, comando não encontrado: " + commandName + ": " + ex.Message);
+      }
+
+      if (comando != null)
+      {
+        object[] objeto = (object[])comando.Bindings;
+        if (rewrite || objeto == null || objeto.Length == 0)
+        {
+          try
+          {
+            comando.Bindings = new object[1] { shortcut };
+          }
+          catch (Exception ex)
+          {
+            Utils.LogDebugError($"Atribuir shortcut [{shortcut}] para {commandName}: {ex.GetCompleteMessage()}");
+            ok = false;
+          }
+        }
+      }
+      return ok;
+    }
+
+    /// <summary>
     /// Recuperar o EditorAdapterFactory
     /// </summary>
     IVsEditorAdaptersFactoryService EditorAdapterFactory

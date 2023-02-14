@@ -48,6 +48,7 @@
     <Compile Include="CommandNames.cs" />
     <Compile Include="Constantes.cs" />
     <Compile Include="Extensions\AssemblyExtensions.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Extensions\GeneralExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\WinFormsExtensions.cs" />
@@ -90,6 +91,9 @@
     <Compile Include="GitPullOnOpenSolutionOptions.cs" />
     <Compile Include="IProcessForm.cs" />
     <Compile Include="Items\CheckInNotesItem.cs" />
+    <Compile Include="Items\GenerateResourceParams.cs" />
+    <Compile Include="Items\ProjectUsedResource.cs" />
+    <Compile Include="Items\ResourceEntry.cs" />
     <Compile Include="Items\SearchChangesetsParams.cs" />
     <Compile Include="MessageBoxUtils.cs" />
     <Compile Include="NativeMethods.cs" />

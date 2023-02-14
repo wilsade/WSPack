@@ -126,6 +126,13 @@
       <Link>Commands\FlexSourceControlExplorerCommand.cs</Link>
       <DependentUpon>FlexCommandsCommand.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\GenerateResourceCommand.cs">
+      <Link>Commands\GenerateResourceCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\GenerateResourceUtils.cs">
+      <Link>Commands\GenerateResourceUtils.cs</Link>
+	  <DependentUpon>GenerateResourceCommand.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\LocateInSolutionExplorerCommand.cs">
       <Link>Commands\LocateInSolutionExplorerCommand.cs</Link>
     </Compile>
@@ -211,6 +218,10 @@
       <Link>Commands\ProjectCommandLineArgsCommand.cs</Link>
       <DependentUpon>ProjectCommandLineArgsBaseCommand.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\ResourcesFileItem.cs">
+      <Link>Commands\ResourcesFileItem.cs</Link>
+	  <DependentUpon>GenerateResourceCommand.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\RestartCommand.cs">
       <Link>Commands\RestartCommand.cs</Link>
     </Compile>
@@ -224,6 +235,10 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\SearchChangesetsSourceControlExplorerCommand.cs">
       <Link>Commands\SearchChangesetsSourceControlExplorerCommand.cs</Link>
       <DependentUpon>SearchChangesetsBaseCommand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\SelectionReg.cs">
+      <Link>Commands\SelectionReg.cs</Link>
+	  <DependentUpon>GenerateResourceCommand.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\StartupProjectCommandLineArgsCommand.cs">
       <Link>Commands\StartupProjectCommandLineArgsCommand.cs</Link>
@@ -275,6 +290,14 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Forms\ChooseWorkspaceLocalItemForm.designer.cs">
       <Link>Forms\ChooseWorkspaceLocalItemForm.designer.cs</Link>
       <DependentUpon>ChooseWorkspaceLocalItemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Forms\GenerateResourceForm.cs">
+      <Link>Forms\GenerateResourceForm.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Forms\GenerateResourceForm.designer.cs">
+      <Link>Forms\GenerateResourceForm.designer.cs</Link>
+      <DependentUpon>GenerateResourceForm.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Forms\MergeHelperForm.cs">
       <Link>Forms\MergeHelperForm.cs</Link>
@@ -418,6 +441,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
@@ -442,6 +466,10 @@
     <EmbeddedResource Include="..\..\WSPack.VisualStudio.Shared\Forms\ChooseWorkspaceLocalItemForm.resx">
       <Link>Forms\ChooseWorkspaceLocalItemForm.resx</Link>
       <DependentUpon>ChooseWorkspaceLocalItemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\WSPack.VisualStudio.Shared\Forms\GenerateResourceForm.resx">
+      <Link>Forms\GenerateResourceForm.resx</Link>
+      <DependentUpon>GenerateResourceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="..\..\WSPack.VisualStudio.Shared\Forms\MergeHelperForm.resx">
       <Link>Forms\MergeHelperForm.resx</Link>

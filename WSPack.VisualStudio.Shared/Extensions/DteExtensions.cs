@@ -356,5 +356,63 @@ namespace WSPack.VisualStudio.Shared.Extensions
         OLEMSGBUTTON.OLEMSGBUTTON_OK,
         OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
     }
+
+
+    /// <summary>
+    /// Recuperar o documento ativo da IDE
+    /// </summary>
+    /// <param name="dte">Instância do VS</param>
+    /// <param name="document">Documento ativo ou null</param>
+    /// <returns>true se foi possível recuperar o documento ativo; false, caso contrário</returns>
+    public static bool GetActiveDocument(this EnvDTE80.DTE2 dte, out EnvDTE.Document document)
+    {
+      ThreadHelper.ThrowIfNotOnUIThread();
+      try
+      {
+        if (dte != null && dte.ActiveWindow != null && dte.ActiveWindow.Document != null
+          && dte.ActiveDocument != null && dte.ActiveDocument.ActiveWindow != null)
+        {
+          document = dte.ActiveDocument;
+          return true;
+        }
+      }
+      catch (Exception ex)
+      {
+        Utils.LogDebugError($"Erro ao recuperar documento ativo da DTE: {ex.Message}");
+      }
+      document = null;
+      return false;
+    }
+
+
+
+    /// <summary>
+    /// Recuperar uma propriedade do projeto
+    /// </summary>
+    /// <param name="projectItem">Project item</param>
+    /// <param name="propertyName">Nome da propriedade</param>
+    /// <returns>Property</returns>
+    public static object GetProperty(this ProjectItem projectItem, string propertyName)
+    {
+      try
+      {
+        return projectItem?.Properties?.OfType<Property>()
+            .Where(p =>
+            {
+              ThreadHelper.ThrowIfNotOnUIThread();
+              return p.Name == propertyName;
+            })
+            .Select(p =>
+            {
+              ThreadHelper.ThrowIfNotOnUIThread();
+              return p.Value;
+            })
+            .FirstOrDefault();
+      }
+      catch
+      {
+        return null;
+      }
+    }
   }
 }

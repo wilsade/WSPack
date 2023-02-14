@@ -138,6 +138,7 @@ namespace WSPack
       await CollapseAllIncludedPendingChangesCommand.InitializeAsync(this, commandService);
       await CollapseAllExcludedPendingChangesCommand.InitializeAsync(this, commandService);
       await DefineTabOrderCommand.InitializeAsync(this, commandService);
+      await GenerateResourceCommand.InitializeAsync(this, commandService);
     }
 
     /// <summary>

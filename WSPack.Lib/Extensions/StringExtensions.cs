@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -102,6 +103,65 @@ namespace WSPack.Lib.Extensions
     public static string FileNameOnly(this string fileAndPath)
     {
       return Path.GetFileName(fileAndPath);
+    }
+
+    /// <summary>
+    /// Indica se a string representa um arquivo CSharp
+    /// </summary>
+    /// <param name="str">string</param>
+    /// <returns>true se a string representa um arquivo CSharp</returns>
+    public static bool IsCSharpFile(this string str)
+    {
+      if (str.IsNullOrWhiteSpaceEx())
+        return false;
+      return str.EndsWithInsensitive(".cs");
+    }
+
+    /// <summary>
+    /// Remover acentos
+    /// </summary>
+    /// <param name="text">Text</param>
+    /// <returns></returns>
+    public static string RemoveAccents(this string text)
+    {
+      StringBuilder sbReturn = new StringBuilder();
+      var arrayText = text.Normalize(NormalizationForm.FormD).ToCharArray();
+      foreach (char letter in arrayText)
+      {
+        if (CharUnicodeInfo.GetUnicodeCategory(letter) != UnicodeCategory.NonSpacingMark)
+          sbReturn.Append(letter);
+      }
+      return sbReturn.ToString();
+    }
+
+    /// <summary>
+    /// Converer a primeira letra da string para maiúscula
+    /// </summary>
+    /// <param name="self">string a ser convertida</param>
+    /// <returns>string com a primeira letra em maiúscula</returns>
+    public static string ToFirstCharToUpper(this string self)
+    {
+      if (string.IsNullOrWhiteSpace(self))
+        return self;
+
+      if (self.Length == 1)
+        return self.ToUpperInvariant();
+
+      return char.ToUpperInvariant(self[0]) + self.Substring(1);
+    }
+
+    /// <summary>
+    /// Indica se o arquivo é somente leitura
+    /// </summary>
+    /// <param name="fileName">Nome do arquivo</param>
+    /// <returns>true se o arquivo é somente leitura</returns>
+    public static bool IsReadOnlyFile(this string fileName)
+    {
+      // Create a new FileInfo object.
+      var fInfo = new FileInfo(fileName);
+
+      // Return the IsReadOnly property value.
+      return fInfo.IsReadOnly;
     }
   }
 }
