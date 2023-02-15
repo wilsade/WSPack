@@ -126,12 +126,15 @@
       <Link>Commands\FlexSourceControlExplorerCommand.cs</Link>
       <DependentUpon>FlexCommandsCommand.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\FormatOnSaveCommand.cs">
+      <Link>Commands\FormatOnSaveCommand.cs</Link>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\GenerateResourceCommand.cs">
       <Link>Commands\GenerateResourceCommand.cs</Link>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\GenerateResourceUtils.cs">
       <Link>Commands\GenerateResourceUtils.cs</Link>
-	  <DependentUpon>GenerateResourceCommand.cs</DependentUpon>
+      <DependentUpon>GenerateResourceCommand.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\LocateInSolutionExplorerCommand.cs">
       <Link>Commands\LocateInSolutionExplorerCommand.cs</Link>
@@ -220,7 +223,7 @@
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\ResourcesFileItem.cs">
       <Link>Commands\ResourcesFileItem.cs</Link>
-	  <DependentUpon>GenerateResourceCommand.cs</DependentUpon>
+      <DependentUpon>GenerateResourceCommand.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\RestartCommand.cs">
       <Link>Commands\RestartCommand.cs</Link>
@@ -238,7 +241,7 @@
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\SelectionReg.cs">
       <Link>Commands\SelectionReg.cs</Link>
-	  <DependentUpon>GenerateResourceCommand.cs</DependentUpon>
+      <DependentUpon>GenerateResourceCommand.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\StartupProjectCommandLineArgsCommand.cs">
       <Link>Commands\StartupProjectCommandLineArgsCommand.cs</Link>

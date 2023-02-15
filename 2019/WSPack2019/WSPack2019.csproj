@@ -126,6 +126,9 @@
       <Link>Commands\FlexSourceControlExplorerCommand.cs</Link>
       <DependentUpon>FlexCommandsCommand.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\FormatOnSaveCommand.cs">
+      <Link>Commands\FormatOnSaveCommand.cs</Link>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\GenerateResourceCommand.cs">
       <Link>Commands\GenerateResourceCommand.cs</Link>
     </Compile>
