@@ -119,6 +119,10 @@
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\FlexCommitCommand.cs">
       <Link>Commands\FlexCommitCommand.cs</Link>
+      <DependentUpon>FlexCommandsCommand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\FlexCompareCommand.cs">
+      <Link>Commands\FlexCompareCommand.cs</Link>
 	  <DependentUpon>FlexCommandsCommand.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\FlexGitChanges.cs">
