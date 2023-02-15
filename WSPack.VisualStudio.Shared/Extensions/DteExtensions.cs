@@ -357,6 +357,21 @@ namespace WSPack.VisualStudio.Shared.Extensions
         OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
     }
 
+    /// <summary>
+    /// Exibir uma mensagem de erro do Visual Studio
+    /// </summary>
+    /// <param name="provider">Package</param>
+    /// <param name="message">A mensagem a ser escrita</param>
+    public static void ShowErrorMessage(this IServiceProvider provider, string message)
+    {
+      VsShellUtilities.ShowMessageBox(
+          provider,
+          message,
+          ResourcesLib.StrErro,
+          OLEMSGICON.OLEMSGICON_CRITICAL,
+          OLEMSGBUTTON.OLEMSGBUTTON_OK,
+          OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
+    }
 
     /// <summary>
     /// Recuperar o documento ativo da IDE

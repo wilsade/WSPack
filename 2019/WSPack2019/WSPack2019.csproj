@@ -58,6 +58,9 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\BaseCommand.cs">
       <Link>Commands\BaseCommand.cs</Link>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\ChangeSourceControlCommand.cs">
+      <Link>Commands\ChangeSourceControlCommand.cs</Link>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CollapseAllExcludedPendingChangesCommand.cs">
       <Link>Commands\CollapseAllExcludedPendingChangesCommand.cs</Link>
       <DependentUpon>CollapseAllPendingChangesBaseCommand.cs</DependentUpon>

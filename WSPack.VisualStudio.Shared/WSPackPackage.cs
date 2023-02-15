@@ -50,6 +50,21 @@ namespace WSPack
     public static System.IServiceProvider ServiceProvider => (IServiceProvider)Instance;
 
     /// <summary>
+    /// Serviço de solution
+    /// </summary>
+    public IVsSolution SolutionSevice { get; private set; }
+
+    /// <summary>
+    /// Serviço para o controle de fonte
+    /// </summary>
+    public IVsGetScciProviderInterface ScciProviderInterface { get; private set; }
+
+    /// <summary>
+    /// Serviço para o controle de fonte
+    /// </summary>
+    public IVsRegisterScciProvider ScciProvider { get; private set; }
+
+    /// <summary>
     /// WSPackPackage GUID string.
     /// </summary>
     public const string PackageGuidString = "fac153ab-13d6-4424-9548-cf4dfed7750f";
@@ -89,6 +104,16 @@ namespace WSPack
       ParametrosTemplateCheckIn = GetParametersPage<PageTemplateCheckIn>();
 
       OleMenuCommandService commandService = await GetServiceAsync(typeof(IMenuCommandService)) as OleMenuCommandService;
+
+      SolutionSevice = await GetServiceAsync(typeof(SVsSolution)) as IVsSolution;
+      Assumes.Present(SolutionSevice);
+
+      ScciProviderInterface = await GetServiceAsync(typeof(IVsRegisterScciProvider)) as IVsGetScciProviderInterface;
+      Assumes.Present(ScciProviderInterface);
+
+      ScciProvider = await GetServiceAsync(typeof(IVsRegisterScciProvider)) as IVsRegisterScciProvider;
+      Assumes.Present(ScciProvider);
+
       await AboutCommand.InitializeAsync(this, commandService);
       await ParametersCommand.InitializeAsync(this, commandService);
 
@@ -99,9 +124,9 @@ namespace WSPack
       await LocateInTFSSolutionExplorerCommand.InitializeAsync(this, commandService);
       await LocateInTFSCodeEditorCommand.InitializeAsync(this, commandService);
 
+      await FlexSourceControlExplorerCommand.InitializeAsync(this, commandService);
       await FlexGitChanges.InitializeAsync(this, commandService);
       await FlexGitRepositoryCommand.InitializeAsync(this, commandService);
-      await FlexSourceControlExplorerCommand.InitializeAsync(this, commandService);
 
       await CopyServerPathSolutionExplorerCommand.InitializeAsync(this, commandService);
       await CopyServerPathCodeEditorCommand.InitializeAsync(this, commandService);
@@ -142,6 +167,7 @@ namespace WSPack
       await FormatOnSaveCommand.InitializeAsync(this, commandService);
       await ForceUTF8OnSaveCommand.InitializeAsync(this, commandService);
       await SolutionExplorerLocateItemCommand.InitializeAsync(this, commandService);
+      await ChangeSourceControlCommand.InitializeAsync(this, commandService);
     }
 
     /// <summary>

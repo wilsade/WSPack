@@ -66,6 +66,7 @@ namespace WSPack.VisualStudio.Shared.Commands
     internal const int FlexGitRepository = 0x0184;
     internal const int FlexSourceControlExplorerToolbar = 0x0185;
     internal const int FlexGitChanges = 0x0186;
+    internal const int ChangeSourceControl = 0x0188;
     internal const int DisconnectAndClose = 0x0190;
 
 
