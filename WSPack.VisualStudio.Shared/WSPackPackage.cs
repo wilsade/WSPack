@@ -140,6 +140,7 @@ namespace WSPack
       await DefineTabOrderCommand.InitializeAsync(this, commandService);
       await GenerateResourceCommand.InitializeAsync(this, commandService);
       await FormatOnSaveCommand.InitializeAsync(this, commandService);
+      await ForceUTF8OnSaveCommand.InitializeAsync(this, commandService);
     }
 
     /// <summary>

@@ -1,21 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.Design;
-using System.Diagnostics;
-using System.Globalization;
-using System.IO;
 using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 
-using Microsoft.TeamFoundation.VersionControl.Client;
 using Microsoft.VisualStudio.Shell;
 
 using WSPack.Lib;
 using WSPack.Lib.Extensions;
-using WSPack.Lib.Forms;
-using WSPack.Lib.Properties;
-using WSPack.VisualStudio.Shared.Extensions;
 using WSPack.VisualStudio.Shared.Options;
 
 using Task = System.Threading.Tasks.Task;
@@ -72,9 +61,7 @@ namespace WSPack.VisualStudio.Shared.Commands
         if (!GetActiveDocumentPath(out string path))
           return;
 
-        string extensaoAtual = System.IO.Path.GetExtension(path).Replace(".", string.Empty);
-        var splitted = quaisExtensoes.Split(new string[] { ";", " " }, StringSplitOptions.RemoveEmptyEntries);
-        if (!splitted.Any(x => x.Replace(".", "").EqualsInsensitive(extensaoAtual)))
+        if (!IsExtensaoValida(path, quaisExtensoes))
           return;
 
         ThreadHelper.ThrowIfNotOnUIThread();
@@ -91,6 +78,13 @@ namespace WSPack.VisualStudio.Shared.Commands
       {
         Utils.LogDebugError("Não consegui formatar o documento: " + ex.Message);
       }
+    }
+
+    public static bool IsExtensaoValida(string documentFullPath, string quaisExtensoes)
+    {
+      string extensaoAtual = System.IO.Path.GetExtension(documentFullPath).Replace(".", string.Empty);
+      var splitted = quaisExtensoes.Split(new string[] { ";", " " }, StringSplitOptions.RemoveEmptyEntries);
+      return splitted.Any(x => x.Replace(".", "").EqualsInsensitive(extensaoAtual));
     }
 
     /// <summary>
