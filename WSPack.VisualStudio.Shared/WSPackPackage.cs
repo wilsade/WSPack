@@ -129,6 +129,7 @@ namespace WSPack
       await FlexGitRepositoryCommand.InitializeAsync(this, commandService);
       await FlexUndoCommand.InitializeAsync(this, commandService);
       await FlexViewHistoryCommand.InitializeAsync(this, commandService);
+      await FlexCommitCommand.InitializeAsync(this, commandService);
 
       await CopyServerPathSolutionExplorerCommand.InitializeAsync(this, commandService);
       await CopyServerPathCodeEditorCommand.InitializeAsync(this, commandService);
