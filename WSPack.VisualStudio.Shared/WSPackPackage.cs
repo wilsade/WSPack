@@ -141,6 +141,7 @@ namespace WSPack
       await GenerateResourceCommand.InitializeAsync(this, commandService);
       await FormatOnSaveCommand.InitializeAsync(this, commandService);
       await ForceUTF8OnSaveCommand.InitializeAsync(this, commandService);
+      await SolutionExplorerLocateItemCommand.InitializeAsync(this, commandService);
     }
 
     /// <summary>

@@ -39,8 +39,6 @@ namespace WSPack.VisualStudio.Shared.Commands
 
 
 
-
-
     internal const int SearchChangesets = 0x0128;
     internal const int SearchChangesetsSourceControlExplorer = 0x0129;
 
@@ -51,6 +49,7 @@ namespace WSPack.VisualStudio.Shared.Commands
     internal const int GenerateResource = 0x0159;
     internal const int MessageBoxTester = 0x0160;
     internal const int WorkOffline = 0x0161;
+    internal const int SolutionExplorerLocalizarItem = 0x0163;
 
 
 

@@ -246,6 +246,9 @@
       <Link>Commands\SelectionReg.cs</Link>
       <DependentUpon>GenerateResourceCommand.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\SolutionExplorerLocateItemCommand.cs">
+      <Link>Commands\SolutionExplorerLocateItemCommand.cs</Link>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\StartupProjectCommandLineArgsCommand.cs">
       <Link>Commands\StartupProjectCommandLineArgsCommand.cs</Link>
       <DependentUpon>ProjectCommandLineArgsBaseCommand.cs</DependentUpon>
