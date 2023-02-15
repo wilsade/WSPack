@@ -63,6 +63,7 @@ namespace WSPack.VisualStudio.Shared.Commands
     internal const int ActivityLog = 0x0178;
     internal const int DiagnosticLog = 0x0179;
     internal const int FlexUndo = 0x0180;
+    internal const int FlexViewHistory = 0x0181;
 
     internal const int FlexGitRepository = 0x0184;
     internal const int FlexSourceControlExplorerToolbar = 0x0185;

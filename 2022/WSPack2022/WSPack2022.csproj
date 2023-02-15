@@ -131,6 +131,10 @@
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\FlexUndoCommand.cs">
       <Link>Commands\FlexUndoCommand.cs</Link>
+      <DependentUpon>FlexCommandsCommand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\FlexViewHistoryCommand.cs">
+      <Link>Commands\FlexViewHistoryCommand.cs</Link>
 	  <DependentUpon>FlexCommandsCommand.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\ForceUTF8OnSaveCommand.cs">
