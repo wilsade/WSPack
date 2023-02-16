@@ -158,6 +158,9 @@
       <Link>Commands\GenerateResourceUtils.cs</Link>
       <DependentUpon>GenerateResourceCommand.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\GitPullToolbarSolutionExplorerCommand.cs">
+      <Link>Commands\GitPullToolbarSolutionExplorerCommand.cs</Link>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\LocateInSolutionExplorerCommand.cs">
       <Link>Commands\LocateInSolutionExplorerCommand.cs</Link>
     </Compile>

@@ -357,5 +357,70 @@ namespace WSPack.VisualStudio.Shared
         WSPackPackage.Dte.WriteInOutPut(message);
       });
     }
+
+    /// <summary>
+    /// Escrever na janela: Output
+    /// </summary>
+    /// <param name="message">A mensagem a ser escrita</param>
+    /// <param name="parameters">Parâmetros da mensagem</param>
+    public static void LogOutputMessageSwitchToMainThreadForceShow(string message)
+    {
+      _ = ExecuteInMainThreadAsync(() =>
+      {
+        WSPackPackage.Dte.WriteInOutPutForceShow(message);
+      });
+    }
+
+    /// <summary>
+    /// Tentar fazer pull na solution
+    /// </summary>
+    /// <param name="solutionFullPath">Solution full path</param>
+    /// <returns></returns>
+    public static async Task TryPullAsync(string solutionFullPath)
+    {
+      var str = new StringBuilder();
+      var task = Task.Run(() =>
+      {
+        ProcessStartInfo info = RegistroVisualStudioObj.Instance.GitProcessStartInfo();
+        if (File.Exists(info.FileName))
+        {
+          info.Arguments = "pull";
+          info.WorkingDirectory = Path.GetDirectoryName(solutionFullPath);
+          str.AppendLine($"Solution: {solutionFullPath}");
+          str.AppendLine($"[{DateTime.Now}] Fazendo Pull via linha de comando.");
+          using (var processo = Process.Start(info))
+          {
+            processo.WaitForExit((int)TimeSpan.FromSeconds(60).TotalMilliseconds);
+            if (processo.ExitCode != 0)
+            {
+              str.AppendLine($"Código de retorno: {processo.ExitCode}");
+              var output = processo.StandardOutput.ReadToEnd();
+              var erros = processo.StandardError.ReadToEnd();
+              if (!output.IsNullOrWhiteSpaceEx())
+                str.AppendLine("Output" + Environment.NewLine + output);
+              if (!erros.IsNullOrWhiteSpaceEx())
+                str.AppendLine("Erros" + Environment.NewLine + erros);
+            }
+            else
+            {
+              string output = processo.StandardOutput.ReadToEnd();
+              if (!output.IsNullOrWhiteSpaceEx() && output.Split(new string[] { Environment.NewLine, "\n" },
+                StringSplitOptions.RemoveEmptyEntries).Length > 1)
+                str.AppendLine($"[{DateTime.Now}] {ResourcesLib.StrGitOperacaoPullRealizada}");
+              else
+                str.AppendLine(output.Trim());
+            }
+          }
+        }
+        else
+          str.AppendLine(ResourcesLib.StrItemNaoEncontrado.FormatWith(info.FileName));
+      }).ContinueWith(next =>
+      {
+        LogOutputMessageSwitchToMainThread(str.ToString());
+        if (next.IsFaulted && next.Exception != null)
+          LogOutputMessageSwitchToMainThreadForceShow(next.Exception.GetCompleteMessage());
+      }, TaskScheduler.Default);
+      await task;
+    }
   }
 }

@@ -72,7 +72,7 @@ namespace WSPack.VisualStudio.Shared.Commands
     {
       EnvDTE.Project projeto = WSPackPackage.Dte.GetSolutionExplorerActiveProject();
       var dteProjectObj = DteProjectObj.Create(projeto);
-      if (dteProjectObj == null)
+      if (dteProjectObj == null || dteProjectObj.FullName.IsNullOrWhiteSpaceEx())
         return null;
       if (dteProjectObj.IsSharedProject || dteProjectObj?.Properties.ActiveConfiguration == null)
       {

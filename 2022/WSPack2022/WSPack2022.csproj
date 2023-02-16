@@ -123,7 +123,7 @@
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\FlexCompareCommand.cs">
       <Link>Commands\FlexCompareCommand.cs</Link>
-	  <DependentUpon>FlexCommandsCommand.cs</DependentUpon>
+      <DependentUpon>FlexCommandsCommand.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\FlexGitChanges.cs">
       <Link>Commands\FlexGitChanges.cs</Link>
@@ -157,6 +157,9 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\GenerateResourceUtils.cs">
       <Link>Commands\GenerateResourceUtils.cs</Link>
       <DependentUpon>GenerateResourceCommand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\GitPullToolbarSolutionExplorerCommand.cs">
+      <Link>Commands\GitPullToolbarSolutionExplorerCommand.cs</Link>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\LocateInSolutionExplorerCommand.cs">
       <Link>Commands\LocateInSolutionExplorerCommand.cs</Link>

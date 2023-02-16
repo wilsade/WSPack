@@ -24,6 +24,7 @@ namespace WSPack
   /// </summary>
   [InstalledProductRegistration("#110", "#112", Constantes.NumeroVersao, IconResourceID = 401)]
   [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
+  [ProvideAutoLoad(UIContextGuids80.NoSolution, PackageAutoLoadFlags.BackgroundLoad)]
   [Guid(PackageGuidString)]
   [ProvideMenuResource("Menus.ctmenu", 1)]
 
@@ -172,6 +173,7 @@ namespace WSPack
       await ForceUTF8OnSaveCommand.InitializeAsync(this, commandService);
       await SolutionExplorerLocateItemCommand.InitializeAsync(this, commandService);
       await ChangeSourceControlCommand.InitializeAsync(this, commandService);
+      await GitPullToolbarSolutionExplorerCommand.InitializeAsync(this, commandService);
     }
 
     /// <summary>
