@@ -158,6 +158,9 @@
       <Link>Commands\GenerateResourceUtils.cs</Link>
       <DependentUpon>GenerateResourceCommand.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\GitChangesCollapseAllCommand.cs">
+      <Link>Commands\GitChangesCollapseAllCommand.cs</Link>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\GitPullToolbarSolutionExplorerCommand.cs">
       <Link>Commands\GitPullToolbarSolutionExplorerCommand.cs</Link>
     </Compile>
@@ -470,6 +473,8 @@
     <Reference Include="Microsoft.VisualStudio.TeamFoundation.VersionControl">
       <HintPath>$(DevEnvDir)CommonExtensions\Microsoft\TeamFoundation\Team Explorer\Microsoft.VisualStudio.TeamFoundation.VersionControl.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />

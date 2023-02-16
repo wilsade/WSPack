@@ -174,6 +174,7 @@ namespace WSPack
       await SolutionExplorerLocateItemCommand.InitializeAsync(this, commandService);
       await ChangeSourceControlCommand.InitializeAsync(this, commandService);
       await GitPullToolbarSolutionExplorerCommand.InitializeAsync(this, commandService);
+      await GitChangesCollapseAllCommand.InitializeAsync(this, commandService);
     }
 
     /// <summary>
