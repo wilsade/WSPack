@@ -274,12 +274,18 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\SolutionExplorerLocateItemCommand.cs">
       <Link>Commands\SolutionExplorerLocateItemCommand.cs</Link>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\SourceControlExplorerLocateItemCommand.cs">
+      <Link>Commands\SourceControlExplorerLocateItemCommand.cs</Link>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\StartupProjectCommandLineArgsCommand.cs">
       <Link>Commands\StartupProjectCommandLineArgsCommand.cs</Link>
       <DependentUpon>ProjectCommandLineArgsBaseCommand.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\TemplateCheckInCommand.cs">
       <Link>Commands\TemplateCheckInCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\TFSFavoritesManagerCommand.cs">
+      <Link>Commands\TFSFavoritesManagerCommand.cs</Link>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\VariaveisAmbienteCommand.cs">
       <Link>Commands\VariaveisAmbienteCommand.cs</Link>

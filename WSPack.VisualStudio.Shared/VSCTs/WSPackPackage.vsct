@@ -768,11 +768,11 @@
       </Button>
 
       <!-- Localizar no TFS -->
-      <Button guid="guidWSPackPackageCmdSet" id="cmdSouceControlExplorerLocateItem" priority="0x0400" type="Button">
+      <Button guid="guidWSPackPackageCmdSet" id="cmdSourceControlExplorerLocateItem" priority="0x0400" type="Button">
         <Parent guid="guidWSPackPackageCmdSet" id="grupoAdicionarRemoverFavoritos" />
         <Strings>
           <MenuText>Localizar um item</MenuText>
-          <ButtonText>WSPack.SCELocateItemInTFS</ButtonText>
+          <ButtonText>SCELocateItemInTFS</ButtonText>
           <ToolTipText>Localizar um item no TFS com base no caminho 'Server' ou caminho 'Local'</ToolTipText>
         </Strings>
       </Button>
@@ -963,7 +963,7 @@
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
           <MenuText>Localizar no TFS</MenuText>
-          <ButtonText>WSPack.LocalizarTFSCodeEditor</ButtonText>
+          <ButtonText>LocalizarTFSCodeEditor</ButtonText>
         </Strings>
       </Button>
       <!-- Localizar no Windows -->
@@ -972,7 +972,7 @@
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
           <MenuText>Localizar no Windows</MenuText>
-          <ButtonText>WSPack.LocalizarWindowsCodeEditor</ButtonText>
+          <ButtonText>LocalizarWindowsCodeEditor</ButtonText>
           <ToolTipText>Localizar uma pasta ou arquivo no Windows</ToolTipText>
         </Strings>
       </Button>
@@ -983,7 +983,7 @@
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
           <MenuText>Localizar no Solution Explorer</MenuText>
-          <ButtonText>WSPack.LocalizarSolutionExplorerCodeEditor</ButtonText>
+          <ButtonText>LocalizarSolutionExplorerCodeEditor</ButtonText>
           <ToolTipText>Localizar um documento no Solution Explorer</ToolTipText>
         </Strings>
       </Button>
@@ -994,7 +994,7 @@
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
           <MenuText>Copiar caminho 'Local' do item</MenuText>
-          <ButtonText>WSPack.CopiarCaminhoLocalItemCodeEditor</ButtonText>
+          <ButtonText>CopiarCaminhoLocalItemCodeEditor</ButtonText>
           <ToolTipText>Copiar o caminho 'Local' completo do item para a área de transferência</ToolTipText>
         </Strings>
       </Button>
@@ -1004,7 +1004,7 @@
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
           <MenuText>Copiar caminho 'Server' do item</MenuText>
-          <ButtonText>WSPack.CopiarCaminhoServerItemCodeEditor</ButtonText>
+          <ButtonText>CopiarCaminhoServerItemCodeEditor</ButtonText>
           <ToolTipText>Copiar o caminho 'Server' completo do item para a área de transferência</ToolTipText>
         </Strings>
       </Button>
@@ -1015,7 +1015,7 @@
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
           <MenuText>Abrir este item no editor de texto</MenuText>
-          <ButtonText>WSPack.AbrirEditorTextoCodeEditor</ButtonText>
+          <ButtonText>AbrirEditorTextoCodeEditor</ButtonText>
           <ToolTipText>Abrir este item no editor de texto definido</ToolTipText>
         </Strings>
       </Button>
@@ -1027,7 +1027,7 @@
         <CommandFlag>TextChanges</CommandFlag>
         <Strings>
           <MenuText>Abrir o Output Path</MenuText>
-          <ButtonText>WSPack.AbrirOutputPathCodeEditor</ButtonText>
+          <ButtonText>AbrirOutputPathCodeEditor</ButtonText>
           <ToolTipText>Abrir o Output Path da configuração ativa</ToolTipText>
         </Strings>
       </Button>
@@ -1038,7 +1038,7 @@
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
           <MenuText>Abrir o Prompt de comando</MenuText>
-          <ButtonText>WSPack.AbrirCmdPromptCodeEditor</ButtonText>
+          <ButtonText>AbrirCmdPromptCodeEditor</ButtonText>
           <ToolTipText>Abrir o Prompt de comando do desenvolvedor</ToolTipText>
         </Strings>
       </Button>
@@ -1108,7 +1108,7 @@
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
           <MenuText>Localizar no TFS</MenuText>
-          <ButtonText>WSPack.LocalizarTFSSolutionExplorer</ButtonText>
+          <ButtonText>LocalizarTFSSolutionExplorer</ButtonText>
           <ToolTipText>Localizar o item selecionado no TFS</ToolTipText>
         </Strings>
       </Button>
@@ -1118,7 +1118,7 @@
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
           <MenuText>Localizar no Windows</MenuText>
-          <ButtonText>WSPack.LocalizarWindowsSolutionExplorer</ButtonText>
+          <ButtonText>LocalizarWindowsSolutionExplorer</ButtonText>
           <ToolTipText>Localizar o item selecionado no Windows</ToolTipText>
         </Strings>
       </Button>
@@ -1139,7 +1139,7 @@
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
           <MenuText>Copiar caminho 'Server' do item</MenuText>
-          <ButtonText>WSPack.CopiarCaminhoServerSolutionExplorer</ButtonText>
+          <ButtonText>CopiarCaminhoServerSolutionExplorer</ButtonText>
           <ToolTipText>Copiar o caminho 'Server' do item para a área de transferência</ToolTipText>
         </Strings>
       </Button>
@@ -1150,7 +1150,7 @@
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
           <MenuText>Abrir este item no editor de texto</MenuText>
-          <ButtonText>WSPack.AbrirEditorTextoSolutionExplorer</ButtonText>
+          <ButtonText>AbrirEditorTextoSolutionExplorer</ButtonText>
           <ToolTipText>Abrir este item no editor de texto</ToolTipText>
         </Strings>
       </Button>
@@ -1162,7 +1162,7 @@
         <CommandFlag>TextChanges</CommandFlag>
         <Strings>
           <MenuText>Abrir o Output Path</MenuText>
-          <ButtonText>WSPack.AbrirOutputPathSolutionExplorer</ButtonText>
+          <ButtonText>AbrirOutputPathSolutionExplorer</ButtonText>
           <ToolTipText>Abrir o Output Path da configuração ativa</ToolTipText>
         </Strings>
       </Button>
@@ -1173,7 +1173,7 @@
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
           <MenuText>Abrir o Prompt de comando</MenuText>
-          <ButtonText>WSPack.AbrirCmdPromptSolutionExplorer</ButtonText>
+          <ButtonText>AbrirCmdPromptSolutionExplorer</ButtonText>
           <ToolTipText>Abrir o Prompt de comando do desenvolvedor</ToolTipText>
         </Strings>
       </Button>
@@ -1185,7 +1185,7 @@
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
           <MenuText>Parâmetros de linha de comando do projeto</MenuText>
-          <ButtonText>WSPack.ParametrosLinhaComandoProjetoSolutionExplorer</ButtonText>
+          <ButtonText>ParametrosLinhaComandoProjetoSolutionExplorer</ButtonText>
           <ToolTipText>Abrir uma tela para atribuir parâmetros de linha de comando no projeto</ToolTipText>
         </Strings>
       </Button>

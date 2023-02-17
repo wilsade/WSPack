@@ -1,5 +1,7 @@
 ﻿using System.IO;
 
+using WSPack.VisualStudio.Shared.Options;
+
 namespace WSPack.VisualStudio.Shared
 {
   /// <summary>
@@ -12,5 +14,12 @@ namespace WSPack.VisualStudio.Shared
     /// </summary>
     public static string SearchChangesetsConfigPath = Path.Combine(
       WSPackPackage.ParametrosGerais.WSPackConfigPath, "SearchChangesetsParams.cfg");
+
+    /// <summary>
+    /// Caminho do arquivo de configuração dos favoritos do TFS
+    /// </summary>
+    public static string TFSFavoritesConfigPath => Path.Combine(
+      WSPackPackage.GetParametersPage<PageGeneral>().WSPackConfigPath,
+      "TFSFavoritesParams.cfg");
   }
 }

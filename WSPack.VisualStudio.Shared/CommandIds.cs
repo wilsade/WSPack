@@ -36,6 +36,7 @@ namespace WSPack.VisualStudio.Shared.Commands
 
     internal const int LocateInWindowsSourceControlExplorer = 0x0121;
     internal const int DefineTabOrder = 0x0122;
+    internal const int TFSFavoritesManager = 0x0123;
 
 
 
@@ -49,10 +50,9 @@ namespace WSPack.VisualStudio.Shared.Commands
     internal const int GenerateResource = 0x0159;
     internal const int MessageBoxTester = 0x0160;
     internal const int WorkOffline = 0x0161;
+
     internal const int SolutionExplorerLocalizarItem = 0x0163;
-
-
-
+    internal const int SourceControlExplorerLocateItem = 0x0164;
     internal const int ProjectCommandLineArgs = 0x0165;
     internal const int ProjectCommandLineArgsStartupProject = 0x0166;
 

@@ -83,10 +83,50 @@ namespace WSPack.Lib.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
+        public static System.Drawing.Icon icoFavorites {
+            get {
+                object obj = ResourceManager.GetObject("icoFavorites", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
         public static System.Drawing.Icon icoWSPackLogo {
             get {
                 object obj = ResourceManager.GetObject("icoWSPackLogo", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap imgCreate {
+            get {
+                object obj = ResourceManager.GetObject("imgCreate", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap imgDelete {
+            get {
+                object obj = ResourceManager.GetObject("imgDelete", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap imgPencil {
+            get {
+                object obj = ResourceManager.GetObject("imgPencil", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

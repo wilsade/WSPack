@@ -70,6 +70,12 @@
     <Compile Include="Forms\DefineTabOrderForm.Designer.cs">
       <DependentUpon>DefineTabOrderForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\LookupListBaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LookupListBaseForm.Designer.cs">
+      <DependentUpon>LookupListBaseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MessageBoxTesterForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,13 +100,22 @@
     <Compile Include="Forms\SolutionExplorerLocateItemForm.Designer.cs">
       <DependentUpon>SolutionExplorerLocateItemForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\TFSFavoritesManagerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TFSFavoritesManagerForm.Designer.cs">
+      <DependentUpon>TFSFavoritesManagerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GitPullOnOpenSolutionOptions.cs" />
     <Compile Include="IProcessForm.cs" />
     <Compile Include="Items\CheckInNotesItem.cs" />
     <Compile Include="Items\GenerateResourceParams.cs" />
+    <Compile Include="Items\LookupGridItem.cs" />
     <Compile Include="Items\ProjectUsedResource.cs" />
     <Compile Include="Items\ResourceEntry.cs" />
     <Compile Include="Items\SearchChangesetsParams.cs" />
+    <Compile Include="Items\TFSFavoritesParams.cs" />
+    <Compile Include="ITFSFavoritesManagerForm.cs" />
     <Compile Include="MessageBoxUtils.cs" />
     <Compile Include="NativeMethods.cs" />
     <Compile Include="OperatorTypes.cs" />
@@ -126,6 +141,9 @@
     <EmbeddedResource Include="Forms\DefineTabOrderForm.resx">
       <DependentUpon>DefineTabOrderForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LookupListBaseForm.resx">
+      <DependentUpon>LookupListBaseForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MessageBoxTesterForm.resx">
       <DependentUpon>MessageBoxTesterForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,6 +155,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SolutionExplorerLocateItemForm.resx">
       <DependentUpon>SolutionExplorerLocateItemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TFSFavoritesManagerForm.resx">
+      <DependentUpon>TFSFavoritesManagerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\ResourcesLib.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -157,6 +178,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ArrowUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Favorites-icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\create-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pencil-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

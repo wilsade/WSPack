@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Windows.Forms;
 
 using Microsoft.TeamFoundation.Client;
 using Microsoft.TeamFoundation.VersionControl.Client;
@@ -267,6 +270,88 @@ namespace WSPack.VisualStudio.Shared.Extensions
         return true;
       }
       return false;
+    }
+
+    /// <summary>
+    /// Verifica se o item existe no TFS
+    /// </summary>
+    /// <param name="teamFoundationServer">teamFoundationServer</param>
+    /// <param name="serverItem">Server item</param>
+    /// <param name="msg">Msg</param>
+    /// <returns>true se o item existe</returns>
+    public static bool ItemExists(this TeamFoundationServerExt teamFoundationServer, string serverItem, out string msg)
+    {
+      return ItemExists(teamFoundationServer?.GetVersionControlServer(), serverItem, out msg);
+    }
+
+    /// <summary>
+    /// Verifica se o item existe no TFS
+    /// </summary>
+    /// <param name="vcServer">vcServer</param>
+    /// <param name="serverItem">Server item</param>
+    /// <param name="msg">Msg</param>
+    /// <returns>true se o item existe</returns>
+    public static bool ItemExists(this VersionControlServer vcServer, string serverItem, out string msg)
+    {
+      if (vcServer != null)
+      {
+        msg = "";
+        var achei = vcServer.TryGetItem(serverItem);
+        if (achei == null)
+          msg = ResourcesLib.StrItemNaoEncontrado.FormatWith(serverItem);
+        return achei != null;
+      }
+      else
+      {
+        msg = ResourcesLib.StrNaoFoiPossivelRealizarEstaOperacao;
+        return false;
+      }
+    }
+
+
+    /// <summary>
+    /// Abre um diálogo para escolher um item do TFS
+    /// </summary>
+    /// <param name="vcServer">Version Control Server</param>
+    /// <param name="preSelectItem">Pré-selecionar um item (pode ser null)</param>
+    /// <returns>Item escolhido; null, se nenhum item foi escolhido</returns>
+    internal static string ShowChooseTFSItemDialog(this VersionControlServer vcServer, string preSelectItem)
+    {
+      try
+      {
+        Assembly controlsAssembly = Assembly.Load(@"Microsoft.TeamFoundation.VersionControl.Controls");
+        Type vcChooseItemDialogType = controlsAssembly.GetType("Microsoft.TeamFoundation.VersionControl.Controls.DialogChooseItem");
+
+        ConstructorInfo ci = vcChooseItemDialogType.GetConstructor(
+                BindingFlags.Instance | BindingFlags.NonPublic,
+                null,
+                new Type[] { typeof(VersionControlServer), typeof(string), typeof(string) },
+                null);
+
+        Form _chooseItemDialog = null;
+        PropertyInfo _selectItemProperty = null;
+        DialogResult dialogResult;
+
+        _chooseItemDialog = (Form)ci.Invoke(new object[] { vcServer, string.IsNullOrEmpty(preSelectItem) ||
+          preSelectItem.Length <= 2 ? "$/" : Path.GetDirectoryName(preSelectItem), preSelectItem });
+        _chooseItemDialog.StartPosition = FormStartPosition.CenterScreen;
+        _selectItemProperty = vcChooseItemDialogType.GetProperty("SelectedItem", BindingFlags.Instance | BindingFlags.NonPublic);
+
+        _chooseItemDialog.StartPosition = FormStartPosition.CenterScreen;
+        if (_chooseItemDialog.ShowDialog() == DialogResult.OK)
+        {
+          dialogResult = _chooseItemDialog.DialogResult;
+          Item selectedItem = (Item)_selectItemProperty.GetValue(_chooseItemDialog, null);
+          string itemEscolhido = selectedItem.ServerItem;
+          return itemEscolhido;
+        }
+      }
+      catch (Exception ex)
+      {
+        MessageBoxUtils.ShowError(ex.Message);
+      }
+
+      return null;
     }
   }
 }
