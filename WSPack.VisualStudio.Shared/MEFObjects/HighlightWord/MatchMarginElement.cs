@@ -11,6 +11,7 @@ using Microsoft.VisualStudio.Text.Classification;
 using Microsoft.VisualStudio.Text.Editor;
 
 using WSPack.Lib.Extensions;
+using WSPack.VisualStudio.Shared.MEFObjects.Bookmarks;
 
 namespace WSPack.VisualStudio.Shared.MEFObjects.HighlightWord
 {
@@ -124,12 +125,9 @@ namespace WSPack.VisualStudio.Shared.MEFObjects.HighlightWord
           }
         }
       }
-
-#warning CheckBookmarks
-      //CheckBookmarks(lstMatches, drawingContext);
+      CheckBookmarks(lstMatches, drawingContext);
     }
 
-    /*
     double GetVerticalOffsetForBookmark(Bookmark bm)
     {
       try
@@ -216,7 +214,6 @@ namespace WSPack.VisualStudio.Shared.MEFObjects.HighlightWord
       var outroRec = new Rect(0, y, BookmarkMargin.ComprimentoBordaMarcador, BookmarkMargin.AlturaBordaMarcador);
       drawingContext.DrawRectangle(vb, null, outroRec);
     }
-    */
 
     private void DrawMark(DrawingContext drawingContext, Brush brush, double y)
     {

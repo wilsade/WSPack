@@ -22,6 +22,7 @@ using WSPack.Lib.Extensions;
 using WSPack.Lib.Properties;
 using WSPack.VisualStudio.Shared;
 using WSPack.VisualStudio.Shared.Commands;
+using WSPack.VisualStudio.Shared.MEFObjects.Bookmarks;
 using WSPack.VisualStudio.Shared.Options;
 
 using Task = System.Threading.Tasks.Task;
@@ -48,7 +49,7 @@ namespace WSPack
         termValues: new[] { UIContextGuids80.SolutionHasSingleProject,
           UIContextGuids80.SolutionHasMultipleProjects, UIContextGuids80.SolutionBuilding }
   )]
-  public sealed class WSPackPackage : AsyncPackage
+  public sealed class WSPackPackage : AsyncPackage, IVsPersistSolutionOpts
   {
     private const string UiNotSolutionBuilding = "24551deb-f034-43e9-a279-0e541241687e";
 
@@ -291,6 +292,41 @@ namespace WSPack
       }
       return false;
     }
+
+    #region IVsPersistSolutionOpts Members
+
+    //int IVsPersistSolutionOpts.LoadUserOptions(IVsSolutionPersistence pPersistence, uint grfLoadOpts)
+    /// <summary>
+    /// Loads user options for a given solution.
+    /// </summary>
+    /// <param name="pPersistence">[in] Pointer to the  interface on which the VSPackage should call its  method for each stream name it wants to read from the user options (.opt) file.</param>
+    /// <param name="grfLoadOpts">[in] User options whose value is taken from the  DWORD.</param>
+    /// <returns>If the method succeeds, it returns <see cref="F:Microsoft.VisualStudio.VSConstants.S_OK" />. If it fails, it returns an error code.</returns>
+    public int LoadUserOptions(IVsSolutionPersistence pPersistence, uint grfLoadOpts)
+    {
+      ThreadHelper.ThrowIfNotOnUIThread();
+      return BookmarkController.Instance.LoadUserOptions(this, pPersistence, grfLoadOpts);
+    }
+
+    int IVsPersistSolutionOpts.ReadUserOptions(IStream pOptionsStream, string pszKey)
+    {
+      ThreadHelper.ThrowIfNotOnUIThread();
+      return BookmarkController.Instance.ReadUserOptions(pOptionsStream, pszKey);
+    }
+
+    int IVsPersistSolutionOpts.SaveUserOptions(IVsSolutionPersistence pPersistence)
+    {
+      ThreadHelper.ThrowIfNotOnUIThread();
+      int res = BookmarkController.Instance.SaveUserOptions(this, pPersistence);
+      return res;
+    }
+
+    int IVsPersistSolutionOpts.WriteUserOptions(IStream pOptionsStream, string pszKey)
+    {
+      ThreadHelper.ThrowIfNotOnUIThread();
+      return BookmarkController.Instance.WriteUserOptions(pOptionsStream, pszKey);
+    }
+    #endregion
   }
 
   /// <summary>

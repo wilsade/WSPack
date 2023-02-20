@@ -390,6 +390,18 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\MEFObjects\BaseAdornment.cs">
       <Link>MEFObjects\BaseAdornment.cs</Link>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\MEFObjects\Bookmarks\Bookmark.cs">
+      <Link>MEFObjects\Bookmarks\Bookmark.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\MEFObjects\Bookmarks\BookmarkController.cs">
+      <Link>MEFObjects\Bookmarks\BookmarkController.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\MEFObjects\Bookmarks\BookmarkMargin.cs">
+      <Link>MEFObjects\Bookmarks\BookmarkMargin.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\MEFObjects\Bookmarks\BookmarkProvider.cs">
+      <Link>MEFObjects\Bookmarks\BookmarkProvider.cs</Link>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\MEFObjects\FileMargin\FileMarginElement.cs">
       <Link>MEFObjects\FileMargin\FileMarginElement.cs</Link>
     </Compile>
@@ -485,6 +497,9 @@
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\SharedAssemblyInfo.cs">
       <Link>SharedAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\StreamWrapper.cs">
+      <Link>StreamWrapper.cs</Link>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\UserControls\TemplateCheckInControl.cs">
       <Link>UserControls\TemplateCheckInControl.cs</Link>
