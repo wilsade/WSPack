@@ -218,14 +218,14 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\MessageBoxTesterCommand.cs">
       <Link>Commands\MessageBoxTesterCommand.cs</Link>
     </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\OpenCmdPromptBaseCommand.cs">
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\OpenCmdPromptCommands\OpenCmdPromptBaseCommand.cs">
       <Link>Commands\OpenCmdPromptBaseCommand.cs</Link>
     </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\OpenCmdPromptCodeEditorCommand.cs">
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\OpenCmdPromptCommands\OpenCmdPromptCodeEditorCommand.cs">
       <Link>Commands\OpenCmdPromptCodeEditorCommand.cs</Link>
       <DependentUpon>OpenCmdPromptBaseCommand.cs</DependentUpon>
     </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\OpenCmdPromptSolutionExplorerCommand.cs">
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\OpenCmdPromptCommands\OpenCmdPromptSolutionExplorerCommand.cs">
       <Link>Commands\OpenCmdPromptSolutionExplorerCommand.cs</Link>
       <DependentUpon>OpenCmdPromptBaseCommand.cs</DependentUpon>
     </Compile>
