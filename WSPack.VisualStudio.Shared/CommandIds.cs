@@ -11,6 +11,11 @@ namespace WSPack.VisualStudio.Shared.Commands
   /// </summary>
   static class CommandIds
   {
+    /// <summary>
+    /// Favoritos do TFS já adicionados
+    /// </summary>
+    internal const int TFSAddedFavorites = 0x700;
+
     internal const int About = 0x0100;
     internal const int Parameters = 0x0101;
     internal const int LocateInTFS = 0x0102;

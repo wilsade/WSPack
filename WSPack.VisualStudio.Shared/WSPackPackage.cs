@@ -1,17 +1,25 @@
-﻿using EnvDTE80;
+﻿using System;
+using System.ComponentModel.Design;
+using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Threading;
+using System.Threading.Tasks;
+
+using EnvDTE80;
 
 using Microsoft;
+using Microsoft.VisualStudio.OLE.Interop;
 using Microsoft.VisualStudio.Settings;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using Microsoft.VisualStudio.Shell.Settings;
 
-using System;
-using System.ComponentModel.Design;
-using System.Runtime.InteropServices;
-using System.Threading;
-
 using WSPack.Lib;
+using WSPack.Lib.Extensions;
+using WSPack.Lib.Properties;
 using WSPack.VisualStudio.Shared.Commands;
 using WSPack.VisualStudio.Shared.Options;
 
@@ -48,7 +56,7 @@ namespace WSPack
     /// <summary>
     /// ServiceProvider
     /// </summary>
-    public static System.IServiceProvider ServiceProvider => (IServiceProvider)Instance;
+    public static System.IServiceProvider ServiceProvider => (System.IServiceProvider)Instance;
 
     /// <summary>
     /// Serviço de solution
@@ -179,6 +187,7 @@ namespace WSPack
       await SourceControlExplorerLocateItemCommand.InitializeAsync(this, commandService);
       await ComboBoxSSEPopulateCommand.InitializeAsync(this, commandService);
       await ComboBoxSSEClickCommand.InitializeAsync(this, commandService);
+      await TFSAddedFavoritesCommand.InitializeAsync(this, commandService);
     }
 
     /// <summary>
@@ -207,7 +216,6 @@ namespace WSPack
       return null;
     }
 
-
     /// <summary>
     /// Recuperar uma página de opções do WSPack
     /// </summary>
@@ -225,6 +233,19 @@ namespace WSPack
         return page;
       }
       return null;
+    }
+
+    /// <summary>
+    /// Gets the pack service.
+    /// </summary>
+    /// <param name="t">Type do serviço a ser retornado.</param>
+    /// <returns></returns>
+    public async Task<T> GetPackServiceAsync<T>(Type t)
+    {
+      await JoinableTaskFactory.SwitchToMainThreadAsync();
+      var servico = await GetServiceAsync(t);
+      Assumes.Present(servico);
+      return (T)servico;
     }
 
     bool GetShellSettingsManager(out ShellSettingsManager manager)

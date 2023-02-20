@@ -64,6 +64,17 @@ namespace WSPack.VisualStudio.Shared.Commands
     }
 
     /// <summary>
+    /// Get command service
+    /// </summary>
+    protected async Task<OleMenuCommandService> GetCommandServiceAsync()
+    {
+      OleMenuCommandService obj = await WSPackPackage.Instance
+        .GetPackServiceAsync<OleMenuCommandService>(typeof(IMenuCommandService))
+        .ConfigureAwait(false);
+      return obj;
+    }
+
+    /// <summary>
     /// Criar tecla de atalho para um comando
     /// </summary>
     /// <param name="commandName">Nome do comando.</param>
