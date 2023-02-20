@@ -65,6 +65,17 @@
       <Link>Commands\CopyServerPathSolutionExplorerCommand.cs</Link>
       <DependentUpon>CopyServerPathBaseCommand.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\LocateInTFSCommands\LocateInTFSBaseCommand.cs">
+      <Link>Commands\LocateInTFSBaseCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\LocateInTFSCommands\LocateInTFSCodeEditorCommand.cs">
+      <Link>Commands\LocateInTFSCodeEditorCommand.cs</Link>
+      <DependentUpon>LocateInTFSBaseCommand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\LocateInTFSCommands\LocateInTFSSolutionExplorerCommand.cs">
+      <Link>Commands\LocateInTFSSolutionExplorerCommand.cs</Link>
+      <DependentUpon>LocateInTFSBaseCommand.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\\CollapseAllPendingChangesCommands\CollapseAllExcludedPendingChangesCommand.cs">
       <Link>Commands\CollapseAllExcludedPendingChangesCommand.cs</Link>
       <DependentUpon>CollapseAllPendingChangesBaseCommand.cs</DependentUpon>
@@ -182,17 +193,6 @@
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\LocateInSolutionExplorerCommand.cs">
       <Link>Commands\LocateInSolutionExplorerCommand.cs</Link>
-    </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\LocateInTFSBaseCommand.cs">
-      <Link>Commands\LocateInTFSBaseCommand.cs</Link>
-    </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\LocateInTFSCodeEditorCommand.cs">
-      <Link>Commands\LocateInTFSCodeEditorCommand.cs</Link>
-      <DependentUpon>LocateInTFSBaseCommand.cs</DependentUpon>
-    </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\LocateInTFSSolutionExplorerCommand.cs">
-      <Link>Commands\LocateInTFSSolutionExplorerCommand.cs</Link>
-      <DependentUpon>LocateInTFSBaseCommand.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\LocateInWindowsBaseCommand.cs">
       <Link>Commands\LocateInWindowsBaseCommand.cs</Link>
