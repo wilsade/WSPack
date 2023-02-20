@@ -387,11 +387,42 @@
       <Link>Forms\SearchChangesetsForm.designer.cs</Link>
       <DependentUpon>SearchChangesetsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\MEFObjects\BaseAdornment.cs">
+      <Link>MEFObjects\BaseAdornment.cs</Link>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\MEFObjects\FileMargin\FileMarginElement.cs">
       <Link>MEFObjects\FileMargin\FileMarginElement.cs</Link>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\MEFObjects\FileMargin\FileMarginProvider.cs">
       <Link>MEFObjects\FileMargin\FileMarginProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\MEFObjects\HighlightWord\HighlightWordFormatDefinition.cs">
+      <Link>MEFObjects\HighlightWord\HighlightWordFormatDefinition.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\MEFObjects\HighlightWord\HighlightWordTag.cs">
+      <Link>MEFObjects\HighlightWord\HighlightWordTag.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\MEFObjects\HighlightWord\HighlightWordTagger.cs">
+      <Link>MEFObjects\HighlightWord\HighlightWordTagger.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\MEFObjects\HighlightWord\HighlightWordTaggerProvider.cs">
+      <Link>MEFObjects\HighlightWord\HighlightWordTaggerProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\MEFObjects\HighlightWord\MatchColorFormat.cs">
+      <Link>MEFObjects\HighlightWord\MatchColorFormat.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\MEFObjects\HighlightWord\MatchMargin.cs">
+      <Link>MEFObjects\HighlightWord\MatchMargin.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\MEFObjects\HighlightWord\MatchMarginElement.cs">
+      <Link>MEFObjects\HighlightWord\MatchMarginElement.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\MEFObjects\HighlightWord\MatchMarginProvider.cs">
+      <Link>MEFObjects\HighlightWord\MatchMarginProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\MEFObjects\TimerBaseAdornment.cs">
+      <Link>MEFObjects\TimerBaseAdornment.cs</Link>
+      <DependentUpon>BaseAdornment.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Options\BaseDialogPage.cs">
       <Link>Options\BaseDialogPage.cs</Link>

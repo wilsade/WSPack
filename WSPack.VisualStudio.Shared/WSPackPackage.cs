@@ -20,6 +20,7 @@ using Microsoft.VisualStudio.Shell.Settings;
 using WSPack.Lib;
 using WSPack.Lib.Extensions;
 using WSPack.Lib.Properties;
+using WSPack.VisualStudio.Shared;
 using WSPack.VisualStudio.Shared.Commands;
 using WSPack.VisualStudio.Shared.Options;
 
@@ -260,6 +261,26 @@ namespace WSPack
       return (T)servico;
     }
 
+
+    /// <summary>
+    /// Recuperar o Guid Id do esquema de cores instalado
+    /// </summary>
+    /// <returns>Guid Id do esquema de cores instalado</returns>
+    public static string GetInstalledColorTheme()
+    {
+      try
+      {
+        dynamic colorThemeService = GetGlobalService(typeof(SVsColorThemeService));
+        Guid id = colorThemeService.CurrentTheme.ThemeId;
+        return id.ToString();
+      }
+      catch (Exception ex)
+      {
+        Utils.LogDebugError("GetInstalledColorTheme: " + ex.Message);
+        return "";
+      }
+    }
+
     bool GetShellSettingsManager(out ShellSettingsManager manager)
     {
       manager = null;
@@ -270,6 +291,15 @@ namespace WSPack
       }
       return false;
     }
+  }
 
+  /// <summary>
+  /// SVsColorThemeService proxy
+  /// </summary>
+  [Guid("0D915B59-2ED7-472A-9DE8-9161737EA1C5")]
+#pragma warning disable IDE1006 // Naming Styles
+  interface SVsColorThemeService
+#pragma warning restore IDE1006 // Naming Styles
+  {
   }
 }
