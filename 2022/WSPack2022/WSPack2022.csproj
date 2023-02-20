@@ -302,6 +302,10 @@
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\TFSFavoritiesCommands\TFSAddedFavoritesCommand.cs">
       <Link>Commands\TFSAddedFavoritesCommand.cs</Link>
+      <DependentUpon>TFSFavoritesManagerCommand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\TFSFavoritiesCommands\TFSAddFavoriteCommand.cs">
+      <Link>Commands\TFSAddFavoriteCommand.cs</Link>
 	  <DependentUpon>TFSFavoritesManagerCommand.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\TFSFavoritiesCommands\TFSFavoritesManagerCommand.cs">

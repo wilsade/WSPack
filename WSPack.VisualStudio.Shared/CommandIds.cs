@@ -42,8 +42,7 @@ namespace WSPack.VisualStudio.Shared.Commands
     internal const int LocateInWindowsSourceControlExplorer = 0x0121;
     internal const int DefineTabOrder = 0x0122;
     internal const int TFSFavoritesManager = 0x0123;
-
-
+    internal const int TFSAddFavorite = 0x0124;
 
     internal const int SSEGetItemsComboBox = 0x0126;
     internal const int SSEComboBoxFavoritos = 0x0127;
