@@ -27,7 +27,6 @@ namespace WSPack.VisualStudio.Shared.Commands
     internal const int CopyLocalPathSolutionExplorer = 0x0108;
     internal const int CopyLocalPathSourceControlExplorer = 0x0109;
     internal const int CopyServerPath = 0x0110;
-
     internal const int CopyServerPathSolutionExplorer = 0x0111;
     internal const int CopyServerPathSourceControlExplorer = 0x0112;
     internal const int OpenInEditor = 0x0113;
@@ -38,12 +37,11 @@ namespace WSPack.VisualStudio.Shared.Commands
     internal const int OpenCmdPrompt = 0x0118;
     internal const int OpenCmdPromptSolutionExplorer = 0x0119;
     internal const int DestroyTFSItem = 0x0120;
-
     internal const int LocateInWindowsSourceControlExplorer = 0x0121;
     internal const int DefineTabOrder = 0x0122;
     internal const int TFSFavoritesManager = 0x0123;
     internal const int TFSAddFavorite = 0x0124;
-
+    internal const int TFSRemoveFavorite = 0x0125;
     internal const int SSEGetItemsComboBox = 0x0126;
     internal const int SSEComboBoxFavoritos = 0x0127;
     internal const int SearchChangesets = 0x0128;

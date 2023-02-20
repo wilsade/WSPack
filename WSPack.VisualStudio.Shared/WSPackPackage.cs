@@ -189,6 +189,7 @@ namespace WSPack
       await ComboBoxSSEClickCommand.InitializeAsync(this, commandService);
       await TFSAddedFavoritesCommand.InitializeAsync(this, commandService);
       await TFSAddFavoriteCommand.InitializeAsync(this, commandService);
+      await TFSRemoveFavoriteCommand.InitializeAsync(this, commandService);
     }
 
     /// <summary>
