@@ -258,10 +258,10 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\ParametersCommand.cs">
       <Link>Commands\ParametersCommand.cs</Link>
     </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\ProjectCommandLineArgsBaseCommand.cs">
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\ProjectCommandLineArgsCommands\ProjectCommandLineArgsBaseCommand.cs">
       <Link>Commands\ProjectCommandLineArgsBaseCommand.cs</Link>
     </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\ProjectCommandLineArgsCommand.cs">
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\ProjectCommandLineArgsCommands\ProjectCommandLineArgsCommand.cs">
       <Link>Commands\ProjectCommandLineArgsCommand.cs</Link>
       <DependentUpon>ProjectCommandLineArgsBaseCommand.cs</DependentUpon>
     </Compile>
@@ -293,7 +293,7 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\SourceControlExplorerLocateItemCommand.cs">
       <Link>Commands\SourceControlExplorerLocateItemCommand.cs</Link>
     </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\StartupProjectCommandLineArgsCommand.cs">
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\ProjectCommandLineArgsCommands\StartupProjectCommandLineArgsCommand.cs">
       <Link>Commands\StartupProjectCommandLineArgsCommand.cs</Link>
       <DependentUpon>ProjectCommandLineArgsBaseCommand.cs</DependentUpon>
     </Compile>
