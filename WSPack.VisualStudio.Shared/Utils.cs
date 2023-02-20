@@ -422,5 +422,15 @@ namespace WSPack.VisualStudio.Shared
       }, TaskScheduler.Default);
       await task;
     }
+
+    /// <summary>
+    /// Indica se a string é Temp.txt
+    /// </summary>
+    /// <param name="path">string a ser verificada</param>
+    /// <returns>true se a string é Temp.txt</returns>
+    internal static bool IsTempTxt(this string path)
+    {
+      return string.Equals(path, "Temp.txt", StringComparison.OrdinalIgnoreCase);
+    }
   }
 }

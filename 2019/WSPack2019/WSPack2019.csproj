@@ -387,6 +387,12 @@
       <Link>Forms\SearchChangesetsForm.designer.cs</Link>
       <DependentUpon>SearchChangesetsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\MEFObjects\FileMargin\FileMarginElement.cs">
+      <Link>MEFObjects\FileMargin\FileMarginElement.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\MEFObjects\FileMargin\FileMarginProvider.cs">
+      <Link>MEFObjects\FileMargin\FileMarginProvider.cs</Link>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Options\BaseDialogPage.cs">
       <Link>Options\BaseDialogPage.cs</Link>
       <SubType>Component</SubType>
@@ -512,6 +518,7 @@
       <HintPath>$(DevEnvDir)CommonExtensions\Microsoft\TeamFoundation\Team Explorer\Microsoft.VisualStudio.TeamFoundation.VersionControl.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Design" />

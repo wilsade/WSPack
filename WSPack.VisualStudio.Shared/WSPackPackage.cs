@@ -40,8 +40,17 @@ namespace WSPack
   [ProvideOptionPage(typeof(PageMEFObjects), Constantes.WSPack, "03ComponentesX", 110, 115, true, new string[] { "MEF Components" }, Sort = 3)]
   [ProvideOptionPage(typeof(PageTemplateCheckIn), Constantes.WSPack, "05TemplateCheckInX", 110, 114, true, new string[] { "Template Check In" }, Sort = 5)]
 
+  [ProvideUIContextRule(UiNotSolutionBuilding,
+        name: "Not building",
+        expression: "(SolutionHasSingleProject | SolutionHasMultipleProjects) & !SolutionBuilding",
+        termNames: new[] { "SolutionHasSingleProject", "SolutionHasMultipleProjects", "SolutionBuilding" },
+        termValues: new[] { UIContextGuids80.SolutionHasSingleProject,
+          UIContextGuids80.SolutionHasMultipleProjects, UIContextGuids80.SolutionBuilding }
+  )]
   public sealed class WSPackPackage : AsyncPackage
   {
+    private const string UiNotSolutionBuilding = "24551deb-f034-43e9-a279-0e541241687e";
+
     /// <summary>
     /// Devolve a instãncia da classe: <see cref="WSPackPackage"/>
     /// </summary>

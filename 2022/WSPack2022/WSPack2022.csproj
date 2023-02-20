@@ -112,7 +112,7 @@
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyServerPathCommands\CopyServerPathSolutionExplorerCommand.cs">
       <Link>Commands\CopyServerPathSolutionExplorerCommand.cs</Link>
-	  <DependentUpon>CopyServerPathBaseCommand.cs</DependentUpon>
+      <DependentUpon>CopyServerPathBaseCommand.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyServerPathCommands\CopyServerPathSourceControlExplorerCommand.cs">
       <Link>Commands\CopyServerPathSourceControlExplorerCommand.cs</Link>
@@ -387,6 +387,12 @@
       <Link>Forms\SearchChangesetsForm.designer.cs</Link>
       <DependentUpon>SearchChangesetsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\MEFObjects\FileMargin\FileMarginElement.cs">
+      <Link>MEFObjects\FileMargin\FileMarginElement.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\MEFObjects\FileMargin\FileMarginProvider.cs">
+      <Link>MEFObjects\FileMargin\FileMarginProvider.cs</Link>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Options\BaseDialogPage.cs">
       <Link>Options\BaseDialogPage.cs</Link>
       <SubType>Component</SubType>
@@ -514,11 +520,13 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="WindowsBase" />
