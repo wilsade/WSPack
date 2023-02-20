@@ -272,14 +272,14 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\RestartCommand.cs">
       <Link>Commands\RestartCommand.cs</Link>
     </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\SearchChangesetsBaseCommand.cs">
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\SearchChangesetsCommands\SearchChangesetsBaseCommand.cs">
       <Link>Commands\SearchChangesetsBaseCommand.cs</Link>
     </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\SearchChangesetsCommand.cs">
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\SearchChangesetsCommands\SearchChangesetsCommand.cs">
       <Link>Commands\SearchChangesetsCommand.cs</Link>
       <DependentUpon>SearchChangesetsBaseCommand.cs</DependentUpon>
     </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\SearchChangesetsSourceControlExplorerCommand.cs">
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\SearchChangesetsCommands\SearchChangesetsSourceControlExplorerCommand.cs">
       <Link>Commands\SearchChangesetsSourceControlExplorerCommand.cs</Link>
       <DependentUpon>SearchChangesetsBaseCommand.cs</DependentUpon>
     </Compile>
