@@ -61,15 +61,15 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\ChangeSourceControlCommand.cs">
       <Link>Commands\ChangeSourceControlCommand.cs</Link>
     </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CollapseAllExcludedPendingChangesCommand.cs">
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\\CollapseAllPendingChangesCommands\CollapseAllExcludedPendingChangesCommand.cs">
       <Link>Commands\CollapseAllExcludedPendingChangesCommand.cs</Link>
       <DependentUpon>CollapseAllPendingChangesBaseCommand.cs</DependentUpon>
     </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CollapseAllIncludedPendingChangesCommand.cs">
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CollapseAllPendingChangesCommands\CollapseAllIncludedPendingChangesCommand.cs">
       <Link>Commands\CollapseAllIncludedPendingChangesCommand.cs</Link>
       <DependentUpon>CollapseAllPendingChangesBaseCommand.cs</DependentUpon>
     </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CollapseAllPendingChangesBaseCommand.cs">
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CollapseAllPendingChangesCommands\CollapseAllPendingChangesBaseCommand.cs">
       <Link>Commands\CollapseAllPendingChangesBaseCommand.cs</Link>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\ComboBoxCommands\BaseDropDownComboCommand.cs">
