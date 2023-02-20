@@ -167,10 +167,10 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\FormatOnSaveCommand.cs">
       <Link>Commands\FormatOnSaveCommand.cs</Link>
     </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\GenerateResourceCommand.cs">
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\GenerateResourceCommands\GenerateResourceCommand.cs">
       <Link>Commands\GenerateResourceCommand.cs</Link>
     </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\GenerateResourceUtils.cs">
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\GenerateResourceCommands\GenerateResourceUtils.cs">
       <Link>Commands\GenerateResourceUtils.cs</Link>
       <DependentUpon>GenerateResourceCommand.cs</DependentUpon>
     </Compile>
@@ -265,7 +265,7 @@
       <Link>Commands\ProjectCommandLineArgsCommand.cs</Link>
       <DependentUpon>ProjectCommandLineArgsBaseCommand.cs</DependentUpon>
     </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\ResourcesFileItem.cs">
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\GenerateResourceCommands\ResourcesFileItem.cs">
       <Link>Commands\ResourcesFileItem.cs</Link>
       <DependentUpon>GenerateResourceCommand.cs</DependentUpon>
     </Compile>
@@ -283,7 +283,7 @@
       <Link>Commands\SearchChangesetsSourceControlExplorerCommand.cs</Link>
       <DependentUpon>SearchChangesetsBaseCommand.cs</DependentUpon>
     </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\SelectionReg.cs">
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\GenerateResourceCommands\SelectionReg.cs">
       <Link>Commands\SelectionReg.cs</Link>
       <DependentUpon>GenerateResourceCommand.cs</DependentUpon>
     </Compile>
