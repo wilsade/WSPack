@@ -311,9 +311,13 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\TFSFavoritiesCommands\TFSFavoritesManagerCommand.cs">
       <Link>Commands\TFSFavoritesManagerCommand.cs</Link>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\TFSFavoritiesCommands\TFSGotoActiveFavoriteCommand.cs">
+      <Link>Commands\TFSGotoActiveFavoriteCommand.cs</Link>
+	  <DependentUpon>TFSFavoritesManagerCommand.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\TFSFavoritiesCommands\TFSRemoveFavoriteCommand.cs">
       <Link>Commands\TFSRemoveFavoriteCommand.cs</Link>
-	  <DependentUpon>TFSFavoritesManagerCommand.cs</DependentUpon>
+      <DependentUpon>TFSFavoritesManagerCommand.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\VariaveisAmbienteCommand.cs">
       <Link>Commands\VariaveisAmbienteCommand.cs</Link>

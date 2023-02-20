@@ -190,6 +190,7 @@ namespace WSPack
       await TFSAddedFavoritesCommand.InitializeAsync(this, commandService);
       await TFSAddFavoriteCommand.InitializeAsync(this, commandService);
       await TFSRemoveFavoriteCommand.InitializeAsync(this, commandService);
+      await TFSGotoActiveFavoriteCommand.InitializeAsync(this, commandService);
     }
 
     /// <summary>
