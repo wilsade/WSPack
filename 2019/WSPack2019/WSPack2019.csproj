@@ -229,18 +229,18 @@
       <Link>Commands\OpenCmdPromptSolutionExplorerCommand.cs</Link>
       <DependentUpon>OpenCmdPromptBaseCommand.cs</DependentUpon>
     </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\OpenInEditorBaseCommand.cs">
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\OpenInEditorCommands\OpenInEditorBaseCommand.cs">
       <Link>Commands\OpenInEditorBaseCommand.cs</Link>
     </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\OpenInEditorCodeEditorCommand.cs">
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\OpenInEditorCommands\OpenInEditorCodeEditorCommand.cs">
       <Link>Commands\OpenInEditorCodeEditorCommand.cs</Link>
       <DependentUpon>OpenInEditorBaseCommand.cs</DependentUpon>
     </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\OpenInEditorSolutionExplorerCommand.cs">
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\OpenInEditorCommands\OpenInEditorSolutionExplorerCommand.cs">
       <Link>Commands\OpenInEditorSolutionExplorerCommand.cs</Link>
       <DependentUpon>OpenInEditorBaseCommand.cs</DependentUpon>
     </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\OpenInEditorSourceControlExplorerCommand.cs">
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\OpenInEditorCommands\OpenInEditorSourceControlExplorerCommand.cs">
       <Link>Commands\OpenInEditorSourceControlExplorerCommand.cs</Link>
       <DependentUpon>OpenInEditorBaseCommand.cs</DependentUpon>
     </Compile>
