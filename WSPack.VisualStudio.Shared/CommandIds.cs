@@ -40,6 +40,8 @@ namespace WSPack.VisualStudio.Shared.Commands
 
 
 
+    internal const int SSEGetItemsComboBox = 0x0126;
+    internal const int SSEComboBoxFavoritos = 0x0127;
     internal const int SearchChangesets = 0x0128;
     internal const int SearchChangesetsSourceControlExplorer = 0x0129;
 

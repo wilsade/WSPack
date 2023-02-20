@@ -42,5 +42,9 @@ namespace WSPack.Lib
     /// </summary>
     public static readonly string GitHubWSPackReleaseNotes = $"{GitHubWSPackWiki}/Novidades-da-versão";
 
+    /// <summary>
+    /// string representando: [Gerenciador...]
+    /// </summary>
+    public static readonly string GerenciadorFavoritos = "[Gerenciador...]";
   }
 }

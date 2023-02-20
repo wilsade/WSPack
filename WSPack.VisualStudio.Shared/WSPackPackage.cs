@@ -177,6 +177,8 @@ namespace WSPack
       await GitChangesCollapseAllCommand.InitializeAsync(this, commandService);
       await TFSFavoritesManagerCommand.InitializeAsync(this, commandService);
       await SourceControlExplorerLocateItemCommand.InitializeAsync(this, commandService);
+      await ComboBoxSSEPopulateCommand.InitializeAsync(this, commandService);
+      await ComboBoxSSEClickCommand.InitializeAsync(this, commandService);
     }
 
     /// <summary>

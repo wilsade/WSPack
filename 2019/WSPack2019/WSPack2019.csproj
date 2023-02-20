@@ -80,6 +80,14 @@
       <Link>Commands\BaseGetItemListDropDownComboCommand.cs</Link>
       <DependentUpon>TFSFavoritesManagerCommand.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\ComboBoxCommands\ComboBoxSSEClickCommand.cs">
+      <Link>Commands\ComboBoxSSEClickCommand.cs</Link>
+      <DependentUpon>TFSFavoritesManagerCommand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\ComboBoxCommands\ComboBoxSSEPopulateCommand.cs">
+      <Link>Commands\ComboBoxSSEPopulateCommand.cs</Link>
+      <DependentUpon>TFSFavoritesManagerCommand.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyLocalPathBaseCommand.cs">
       <Link>Commands\CopyLocalPathBaseCommand.cs</Link>
     </Compile>
