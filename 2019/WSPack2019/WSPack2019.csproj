@@ -61,6 +61,10 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\ChangeSourceControlCommand.cs">
       <Link>Commands\ChangeSourceControlCommand.cs</Link>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyServerPathCommands\CopyServerPathSolutionExplorerCommand.cs">
+      <Link>Commands\CopyServerPathSolutionExplorerCommand.cs</Link>
+      <DependentUpon>CopyServerPathBaseCommand.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\\CollapseAllPendingChangesCommands\CollapseAllExcludedPendingChangesCommand.cs">
       <Link>Commands\CollapseAllExcludedPendingChangesCommand.cs</Link>
       <DependentUpon>CollapseAllPendingChangesBaseCommand.cs</DependentUpon>
@@ -103,18 +107,14 @@
       <Link>Commands\CopyLocalPathSourceControlExplorerCommand.cs</Link>
       <DependentUpon>CopyLocalPathBaseCommand.cs</DependentUpon>
     </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyServerPathBaseCommand.cs">
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyServerPathCommands\CopyServerPathBaseCommand.cs">
       <Link>Commands\CopyServerPathBaseCommand.cs</Link>
     </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyServerPathCodeEditorCommand.cs">
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyServerPathCommands\CopyServerPathCodeEditorCommand.cs">
       <Link>Commands\CopyServerPathCodeEditorCommand.cs</Link>
       <DependentUpon>CopyServerPathBaseCommand.cs</DependentUpon>
     </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyServerPathSolutionExplorerCommand.cs">
-      <Link>Commands\CopyServerPathSolutionExplorerCommand.cs</Link>
-      <DependentUpon>CopyServerPathBaseCommand.cs</DependentUpon>
-    </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyServerPathSourceControlExplorerCommand.cs">
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyServerPathCommands\CopyServerPathSourceControlExplorerCommand.cs">
       <Link>Commands\CopyServerPathSourceControlExplorerCommand.cs</Link>
       <DependentUpon>CopyServerPathBaseCommand.cs</DependentUpon>
     </Compile>

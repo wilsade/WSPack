@@ -103,18 +103,18 @@
       <Link>Commands\CopyLocalPathSourceControlExplorerCommand.cs</Link>
       <DependentUpon>CopyLocalPathBaseCommand.cs</DependentUpon>
     </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyServerPathBaseCommand.cs">
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyServerPathCommands\CopyServerPathBaseCommand.cs">
       <Link>Commands\CopyServerPathBaseCommand.cs</Link>
     </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyServerPathCodeEditorCommand.cs">
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyServerPathCommands\CopyServerPathCodeEditorCommand.cs">
       <Link>Commands\CopyServerPathCodeEditorCommand.cs</Link>
       <DependentUpon>CopyServerPathBaseCommand.cs</DependentUpon>
     </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyServerPathSolutionExplorerCommand.cs">
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyServerPathCommands\CopyServerPathSolutionExplorerCommand.cs">
       <Link>Commands\CopyServerPathSolutionExplorerCommand.cs</Link>
-      <DependentUpon>CopyServerPathBaseCommand.cs</DependentUpon>
+	  <DependentUpon>CopyServerPathBaseCommand.cs</DependentUpon>
     </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyServerPathSourceControlExplorerCommand.cs">
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyServerPathCommands\CopyServerPathSourceControlExplorerCommand.cs">
       <Link>Commands\CopyServerPathSourceControlExplorerCommand.cs</Link>
       <DependentUpon>CopyServerPathBaseCommand.cs</DependentUpon>
     </Compile>
@@ -313,7 +313,7 @@
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\TFSFavoritiesCommands\TFSGotoActiveFavoriteCommand.cs">
       <Link>Commands\TFSGotoActiveFavoriteCommand.cs</Link>
-	  <DependentUpon>TFSFavoritesManagerCommand.cs</DependentUpon>
+      <DependentUpon>TFSFavoritesManagerCommand.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\TFSFavoritiesCommands\TFSRemoveFavoriteCommand.cs">
       <Link>Commands\TFSRemoveFavoriteCommand.cs</Link>
