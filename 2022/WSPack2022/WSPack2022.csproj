@@ -88,18 +88,18 @@
       <Link>Commands\ComboBoxSSEPopulateCommand.cs</Link>
       <DependentUpon>TFSFavoritesManagerCommand.cs</DependentUpon>
     </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyLocalPathBaseCommand.cs">
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyLocalPathCommands\CopyLocalPathBaseCommand.cs">
       <Link>Commands\CopyLocalPathBaseCommand.cs</Link>
     </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyLocalPathCodeEditorCommand.cs">
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyLocalPathCommands\CopyLocalPathCodeEditorCommand.cs">
       <Link>Commands\CopyLocalPathCodeEditorCommand.cs</Link>
       <DependentUpon>CopyLocalPathBaseCommand.cs</DependentUpon>
     </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyLocalPathSolutionExplorerCommand.cs">
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyLocalPathCommands\CopyLocalPathSolutionExplorerCommand.cs">
       <Link>Commands\CopyLocalPathSolutionExplorerCommand.cs</Link>
       <DependentUpon>CopyLocalPathBaseCommand.cs</DependentUpon>
     </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyLocalPathSourceControlExplorerCommand.cs">
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyLocalPathCommands\CopyLocalPathSourceControlExplorerCommand.cs">
       <Link>Commands\CopyLocalPathSourceControlExplorerCommand.cs</Link>
       <DependentUpon>CopyLocalPathBaseCommand.cs</DependentUpon>
     </Compile>
