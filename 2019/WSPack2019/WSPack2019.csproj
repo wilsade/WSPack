@@ -141,34 +141,34 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\DisconnectAndCloseCommand.cs">
       <Link>Commands\DisconnectAndCloseCommand.cs</Link>
     </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\FlexCommandsCommand.cs">
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\FlexCommands\FlexCommandsCommand.cs">
       <Link>Commands\FlexCommandsCommand.cs</Link>
     </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\FlexCommitCommand.cs">
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\FlexCommands\FlexCommitCommand.cs">
       <Link>Commands\FlexCommitCommand.cs</Link>
       <DependentUpon>FlexCommandsCommand.cs</DependentUpon>
     </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\FlexCompareCommand.cs">
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\FlexCommands\FlexCompareCommand.cs">
       <Link>Commands\FlexCompareCommand.cs</Link>
       <DependentUpon>FlexCommandsCommand.cs</DependentUpon>
     </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\FlexGitChanges.cs">
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\FlexCommands\FlexGitChanges.cs">
       <Link>Commands\FlexGitChanges.cs</Link>
       <DependentUpon>FlexCommandsCommand.cs</DependentUpon>
     </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\FlexGitRepositoryCommand.cs">
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\FlexCommands\FlexGitRepositoryCommand.cs">
       <Link>Commands\FlexGitRepositoryCommand.cs</Link>
       <DependentUpon>FlexCommandsCommand.cs</DependentUpon>
     </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\FlexSourceControlExplorerCommand.cs">
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\FlexCommands\FlexSourceControlExplorerCommand.cs">
       <Link>Commands\FlexSourceControlExplorerCommand.cs</Link>
       <DependentUpon>FlexCommandsCommand.cs</DependentUpon>
     </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\FlexUndoCommand.cs">
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\FlexCommands\FlexUndoCommand.cs">
       <Link>Commands\FlexUndoCommand.cs</Link>
       <DependentUpon>FlexCommandsCommand.cs</DependentUpon>
     </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\FlexViewHistoryCommand.cs">
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\FlexCommands\FlexViewHistoryCommand.cs">
       <Link>Commands\FlexViewHistoryCommand.cs</Link>
       <DependentUpon>FlexCommandsCommand.cs</DependentUpon>
     </Compile>
