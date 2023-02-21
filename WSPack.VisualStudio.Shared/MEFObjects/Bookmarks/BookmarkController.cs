@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -8,6 +9,7 @@ using EnvDTE;
 
 using EnvDTE80;
 
+using Microsoft.Internal.VisualStudio.Shell;
 using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.OLE.Interop;
 using Microsoft.VisualStudio.Shell;
@@ -434,9 +436,9 @@ namespace WSPack.VisualStudio.Shared.MEFObjects.Bookmarks
       using (var bw = new System.IO.BinaryWriter(storageStream))
       {
         var x = new System.Xml.Serialization.XmlSerializer(typeof(BindingList<Bookmark>));
-
-        if (_dicBookmarks.ContainsKey(_dte.Solution.FullName))
-          x.Serialize(storageStream, _dicBookmarks[_dte.Solution.FullName]);
+        string nome = _dte.Solution.FullName;
+        if (_dicBookmarks.ContainsKey(nome))
+          x.Serialize(storageStream, _dicBookmarks[nome]);
       }
     }
 
@@ -448,8 +450,9 @@ namespace WSPack.VisualStudio.Shared.MEFObjects.Bookmarks
         var x = new System.Xml.Serialization.XmlSerializer(typeof(BindingList<Bookmark>));
         try
         {
+          string nome = _dte.Solution.FullName;
           BindingList<Bookmark> o = x.Deserialize(storageStream) as BindingList<Bookmark>;
-          _dicBookmarks[_dte.Solution.FullName] = o;
+          _dicBookmarks[nome] = o;
           _carregouBookmarks = true;
         }
         catch (Exception ex)
@@ -465,7 +468,7 @@ namespace WSPack.VisualStudio.Shared.MEFObjects.Bookmarks
       ThreadHelper.ThrowIfNotOnUIThread();
       try
       {
-        using (var wrapper = new StreamWrapper(pOptionsStream))
+        using (var wrapper = new DataStreamFromComStream(pOptionsStream))
         {
           if (pszKey == GetChave)
           {
@@ -474,9 +477,15 @@ namespace WSPack.VisualStudio.Shared.MEFObjects.Bookmarks
         }
         return VSConstants.S_OK;
       }
+      catch (Exception comEx)
+      {
+        Trace.Write(comEx.ToString());
+        return VSConstants.S_FALSE;
+      }
       finally
       {
-        System.Runtime.InteropServices.Marshal.ReleaseComObject(pOptionsStream);
+        if (System.Runtime.InteropServices.Marshal.IsComObject(pOptionsStream))
+          System.Runtime.InteropServices.Marshal.ReleaseComObject(pOptionsStream);
       }
     }
 
@@ -485,7 +494,8 @@ namespace WSPack.VisualStudio.Shared.MEFObjects.Bookmarks
       ThreadHelper.ThrowIfNotOnUIThread();
       try
       {
-        using (var wrapper = new StreamWrapper(pOptionsStream))
+        
+        using (var wrapper = new DataStreamFromComStream(pOptionsStream))
         {
           if (pszKey == GetChave)
           {
@@ -495,9 +505,15 @@ namespace WSPack.VisualStudio.Shared.MEFObjects.Bookmarks
 
         return VSConstants.S_OK;
       }
+      catch (Exception comEx)
+      {
+        Trace.Write(comEx.ToString());
+        return VSConstants.S_FALSE;
+      }
       finally
       {
-        System.Runtime.InteropServices.Marshal.ReleaseComObject(pOptionsStream);
+        if (System.Runtime.InteropServices.Marshal.IsComObject(pOptionsStream))
+          System.Runtime.InteropServices.Marshal.ReleaseComObject(pOptionsStream);
       }
     }
 
@@ -509,9 +525,15 @@ namespace WSPack.VisualStudio.Shared.MEFObjects.Bookmarks
         ThreadHelper.ThrowIfNotOnUIThread();
         int i = pPersistence.LoadPackageUserOpts(host, GetChave);
       }
+      catch (Exception comEx)
+      {
+        Trace.WriteLine(comEx.ToString());
+        return VSConstants.S_FALSE;
+      }
       finally
       {
-        System.Runtime.InteropServices.Marshal.ReleaseComObject(pPersistence);
+        if (System.Runtime.InteropServices.Marshal.IsComObject(pPersistence))
+          System.Runtime.InteropServices.Marshal.ReleaseComObject(pPersistence);
       }
 
       return VSConstants.S_OK;
@@ -524,9 +546,15 @@ namespace WSPack.VisualStudio.Shared.MEFObjects.Bookmarks
         ThreadHelper.ThrowIfNotOnUIThread();
         int i = pPersistence.SavePackageUserOpts(host, GetChave);
       }
+      catch (Exception comEx)
+      {
+        Trace.WriteLine(comEx.ToString());
+        return VSConstants.S_FALSE;
+      }
       finally
       {
-        System.Runtime.InteropServices.Marshal.ReleaseComObject(pPersistence);
+        if (System.Runtime.InteropServices.Marshal.IsComObject(pPersistence))
+          System.Runtime.InteropServices.Marshal.ReleaseComObject(pPersistence);
       }
 
       return VSConstants.S_OK;
