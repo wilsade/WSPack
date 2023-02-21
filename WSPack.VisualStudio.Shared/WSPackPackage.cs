@@ -204,6 +204,7 @@ namespace WSPack
       await TFSGotoActiveFavoriteCommand.InitializeAsync(this, commandService);
       await ToggleBookmarkBaseCommand.InitializeAsync(this, commandService);
       await GotoBookmarkCommand.InitializeAsync(this, commandService);
+      await ClearAllBookmarksCommand.InitializeAsync(this, commandService);
     }
 
     /// <summary>
