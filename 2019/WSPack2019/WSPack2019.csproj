@@ -61,6 +61,10 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\Bookmarks\BookmarkBaseCommand.cs">
       <Link>Commands\BookmarkBaseCommand.cs</Link>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\Bookmarks\GotoBookmarkCommand.cs">
+      <Link>Commands\GotoBookmarkCommand.cs</Link>
+      <DependentUpon>BookmarkBaseCommand.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\Bookmarks\ToggleBookmarkBaseCommand.cs">
       <Link>Commands\ToggleBookmarkBaseCommand.cs</Link>
       <DependentUpon>BookmarkBaseCommand.cs</DependentUpon>

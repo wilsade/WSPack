@@ -203,6 +203,7 @@ namespace WSPack
       await TFSRemoveFavoriteCommand.InitializeAsync(this, commandService);
       await TFSGotoActiveFavoriteCommand.InitializeAsync(this, commandService);
       await ToggleBookmarkBaseCommand.InitializeAsync(this, commandService);
+      await GotoBookmarkCommand.InitializeAsync(this, commandService);
     }
 
     /// <summary>
