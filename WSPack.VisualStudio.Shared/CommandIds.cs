@@ -47,6 +47,28 @@ namespace WSPack.VisualStudio.Shared.Commands
     internal const int SearchChangesets = 0x0128;
     internal const int SearchChangesetsSourceControlExplorer = 0x0129;
 
+    internal const int ToggleBookmark1 = 0x0134;
+    internal const int ToggleBookmark2 = 0x0135;
+    internal const int ToggleBookmark3 = 0x0136;
+    internal const int ToggleBookmark4 = 0x0137;
+    internal const int ToggleBookmark5 = 0x0138;
+    internal const int ToggleBookmark6 = 0x0139;
+    internal const int ToggleBookmark7 = 0x0140;
+    internal const int ToggleBookmark8 = 0x0141;
+    internal const int ToggleBookmark9 = 0x0142;
+    internal const int ToggleBookmark0 = 0x0143;
+    internal const int GotoBookmark1 = 0x0144;
+    internal const int GotoBookmark2 = 0x0145;
+    internal const int GotoBookmark3 = 0x0146;
+    internal const int GotoBookmark4 = 0x0147;
+    internal const int GotoBookmark5 = 0x0148;
+    internal const int GotoBookmark6 = 0x0149;
+    internal const int GotoBookmark7 = 0x0150;
+    internal const int GotoBookmark8 = 0x0151;
+    internal const int GotoBookmark9 = 0x0152;
+    internal const int GotoBookmark0 = 0x0153;
+    internal const int BookmarkWindow = 0x0154;
+    internal const int ClearAllBookmarks = 0x0155;
 
     internal const int TemplateCheckIn = 0x0156;
     internal const int CollapseAllIncludedPendingChanges = 0x0157;

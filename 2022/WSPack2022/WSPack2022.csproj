@@ -58,6 +58,13 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\BaseCommand.cs">
       <Link>Commands\BaseCommand.cs</Link>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\Bookmarks\BookmarkBaseCommand.cs">
+      <Link>Commands\BookmarkBaseCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\Bookmarks\ToggleBookmarkBaseCommand.cs">
+      <Link>Commands\ToggleBookmarkBaseCommand.cs</Link>
+	  <DependentUpon>BookmarkBaseCommand.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\ChangeSourceControlCommand.cs">
       <Link>Commands\ChangeSourceControlCommand.cs</Link>
     </Compile>
