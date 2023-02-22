@@ -432,5 +432,31 @@ namespace WSPack.VisualStudio.Shared
     {
       return string.Equals(path, "Temp.txt", StringComparison.OrdinalIgnoreCase);
     }
+
+    /// <summary>
+    /// Indica se a Solution é controlada no Git
+    /// </summary>
+    /// <param name="solutionFullPath">Caminho completo da solution no Windows</param>
+    /// <returns>true se a Solution é controlada no Git</returns>
+    public static bool IsSolutionGitControlled(string solutionFullPath)
+    {
+      var solutionDir = new DirectoryInfo(Path.GetDirectoryName(solutionFullPath));
+      DirectoryInfo currdir = solutionDir;
+      bool achei = false;
+      while (true)
+      {
+        if (Directory.Exists(Path.Combine(currdir.FullName, ".git")))
+        {
+          achei = true;
+          break;
+        }
+
+        if (currdir.Parent == null)
+          break;
+
+        currdir = currdir.Parent;
+      }
+      return achei;
+    }
   }
 }

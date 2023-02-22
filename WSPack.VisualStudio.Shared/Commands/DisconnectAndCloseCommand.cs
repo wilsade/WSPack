@@ -42,6 +42,7 @@ namespace WSPack.VisualStudio.Shared.Commands
     protected DisconnectAndCloseCommand(AsyncPackage package, OleMenuCommandService commandService)
       : base(package, commandService)
     {
+      ThreadHelper.ThrowIfNotOnUIThread();
       _command = WSPackPackage.Dte.Commands.Item(CommandNames.TeamDisconnectfromServer);
       _menu.BeforeQueryStatus += _menu_BeforeQueryStatus;
     }

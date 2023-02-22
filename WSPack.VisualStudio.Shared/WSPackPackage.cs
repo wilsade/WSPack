@@ -1,9 +1,6 @@
 ﻿using System;
 using System.ComponentModel.Design;
 using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
-using System.IO;
-using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
@@ -19,7 +16,6 @@ using Microsoft.VisualStudio.Shell.Settings;
 
 using WSPack.Lib;
 using WSPack.Lib.Extensions;
-using WSPack.Lib.Properties;
 using WSPack.VisualStudio.Shared;
 using WSPack.VisualStudio.Shared.Commands;
 using WSPack.VisualStudio.Shared.MEFObjects.Bookmarks;
@@ -60,14 +56,31 @@ namespace WSPack
     public static WSPackPackage Instance { get; private set; }
 
     /// <summary>
+    /// Indica se WSPack2019Package está carregada
+    /// </summary>
+    public static bool IsLoaded
+    {
+      get => _isLoaded;
+      set
+      {
+        _isLoaded = value;
+        if (_isLoaded)
+        {
+          Trace.WriteLine("WSPackage carregada");
+        }
+      }
+    }
+
+    /// <summary>
     /// DTE
     /// </summary>
     public static DTE2 Dte;
+    private static bool _isLoaded = false;
 
     /// <summary>
     /// ServiceProvider
     /// </summary>
-    public static System.IServiceProvider ServiceProvider => (System.IServiceProvider)Instance;
+    public static System.IServiceProvider ServiceProvider => Instance;
 
     /// <summary>
     /// Serviço de solution
@@ -120,6 +133,18 @@ namespace WSPack
 
       Dte = await GetServiceAsync(typeof(SDTE)) as DTE2;
       Assumes.Present(Dte);
+
+      try
+      {
+        // HACK: Verificar instalação dos snippets
+#warning IMPLEMENTAR: Snippets
+        CheckSnippets();
+      }
+      catch (Exception ex)
+      {
+        Trace.WriteLine($"Erro no CheckSnippets: {ex.Message}");
+        Utils.LogDebugError($"Erro no CheckSnippets: {ex.GetCompleteMessage()}");
+      }
 
       ParametrosTemplateCheckIn = GetParametersPage<PageTemplateCheckIn>();
 
@@ -205,6 +230,56 @@ namespace WSPack
       await ToggleBookmarkBaseCommand.InitializeAsync(this, commandService);
       await GotoBookmarkCommand.InitializeAsync(this, commandService);
       await ClearAllBookmarksCommand.InitializeAsync(this, commandService);
+
+      _ = new SourceControlSolutionController();
+
+      IsLoaded = true;
+      Trace.WriteLine("\r\n...InitializeAsync: fim...\r\n");
+    }
+
+    private void CheckSnippets()
+    {/*
+      const string collectionName = @"Languages\CodeExpansions\CSharp\";
+      const string PATH = "Path";
+      const string WSPACKSNIPPETS = "WSPackSnippets";
+
+      // Achou a coleção de snippets
+      WritableSettingsStore configurationSettingsStore = GetWritableUserSettingsStorage();
+      if (configurationSettingsStore.CollectionExists(collectionName))
+      {
+        // Achou os caminhos dos snippets
+        var str = configurationSettingsStore.GetString(collectionName, PATH, "");
+        if (!str.IsNullOuEmpty())
+        {
+          // Possui "WSSnippets" válidos?
+          var valoresPath = str.Split(';');
+          var lstWSSinippets = valoresPath.Where(x => x.ContainsInsensitive(WSPACKSNIPPETS));
+          bool tem = false;
+          foreach (var item in lstWSSinippets)
+          {
+            if (!Directory.Exists(item))
+            {
+              // Excluir inválidos
+              str = str.Replace(";" + item, "");
+            }
+            else
+              tem = true;
+          }
+
+          // Se não tem, adiciona os snippets atualizados
+          if (!tem)
+          {
+            string validPath = Path.GetDirectoryName(typeof(WSPack2019Package).Assembly.Location);
+            validPath = Path.Combine(validPath, WSPACKSNIPPETS);
+            if (Directory.Exists(validPath))
+            {
+              str += $";{validPath}";
+              configurationSettingsStore.SetString(collectionName, PATH, str);
+              Trace.WriteLine("Snippets adicionados");
+            }
+          }
+        }
+      }*/
     }
 
     /// <summary>
@@ -287,6 +362,7 @@ namespace WSPack
 
     bool GetShellSettingsManager(out ShellSettingsManager manager)
     {
+      ThreadHelper.ThrowIfNotOnUIThread();
       manager = null;
       if (GetService(typeof(SVsSettingsManager)) is IVsSettingsManager obj)
       {

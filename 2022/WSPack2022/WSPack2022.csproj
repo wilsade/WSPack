@@ -63,7 +63,7 @@
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\Bookmarks\ClearAllBookmarksCommand.cs">
       <Link>Commands\ClearAllBookmarksCommand.cs</Link>
-	  <DependentUpon>BookmarkBaseCommand.cs</DependentUpon>
+      <DependentUpon>BookmarkBaseCommand.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\Bookmarks\GotoBookmarkCommand.cs">
       <Link>Commands\GotoBookmarkCommand.cs</Link>
@@ -512,6 +512,9 @@
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\SharedAssemblyInfo.cs">
       <Link>SharedAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\SourceControlSolutionController.cs">
+      <Link>SourceControlSolutionController.cs</Link>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\StreamWrapper.cs">
       <Link>StreamWrapper.cs</Link>

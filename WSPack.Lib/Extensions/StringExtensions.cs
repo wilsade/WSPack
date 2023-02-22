@@ -163,5 +163,17 @@ namespace WSPack.Lib.Extensions
       // Return the IsReadOnly property value.
       return fInfo.IsReadOnly;
     }
+
+    /// <summary>
+    /// Concatenar quebra de linha em uma string
+    /// </summary>
+    /// <param name="str">string</param>
+    /// <returns>string com quebra de linha</returns>
+    public static string NewLine(this string str)
+    {
+      if (str != null)
+        return str + Environment.NewLine;
+      return str;
+    }
   }
 }

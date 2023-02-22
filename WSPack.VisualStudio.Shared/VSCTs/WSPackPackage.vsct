@@ -1262,7 +1262,7 @@
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
           <MenuText>Desconectar-se e sair</MenuText>
-          <ButtonText>WSPack.DisconnectAndClose</ButtonText>
+          <ButtonText>DisconnectAndClose</ButtonText>
           <ToolTipText>Desconectar-se do servidor e fechar o Visual Studio </ToolTipText>
         </Strings>
       </Button>

@@ -513,6 +513,9 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\SharedAssemblyInfo.cs">
       <Link>SharedAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\SourceControlSolutionController.cs">
+      <Link>SourceControlSolutionController.cs</Link>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\StreamWrapper.cs">
       <Link>StreamWrapper.cs</Link>
     </Compile>
