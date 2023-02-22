@@ -511,9 +511,9 @@ Favor selecionar um texto ou posicionar o cursor sobre uma string.</value>
 Por favor, certifique-se de que o cursor está posicionado na mesma linha do item desejado.</value>
   </data>
   <data name="StrToolTipLabelRodape" xml:space="preserve">
-    <value>Clique........: Copiar nome 'Local' do arquivo
-Clique direito: Copiar nome 'Server' do arquivo
-Ctrl+Clique...: Abrir local do arquivo
+    <value>Clique.............: Copiar nome 'Local' do arquivo
+Clique direito.: Copiar nome 'Server' do arquivo
+Ctrl+Clique....: Abrir local do arquivo
 {0}</value>
     <comment>1. Informações do arquivo</comment>
   </data>
