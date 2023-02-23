@@ -130,18 +130,18 @@ namespace WSPack.Lib.CSharp.Walkers
         startPosition = leadingTrivia.ElementAt(tupla.LineIndex).GetLocation().GetLineSpan().EndLinePosition;
 
         // Pegar o elemento que contém uma linha com documentação do tipo /// <summary>
-        var trivia = leadingTrivia.FirstOrDefault(x => x.Kind() == SyntaxKind.SingleLineDocumentationCommentTrivia);
+        var trivia = leadingTrivia.FirstOrDefault(x => x.IsKind(SyntaxKind.SingleLineDocumentationCommentTrivia));
 
         // Verifica se o método está comentado com barra-barra //
-        if (trivia != null && trivia.Kind() == SyntaxKind.None)
-          trivia = leadingTrivia.FirstOrDefault(x => x.Kind() == SyntaxKind.SingleLineCommentTrivia);
+        if (trivia != null && trivia.IsKind(SyntaxKind.None))
+          trivia = leadingTrivia.FirstOrDefault(x => x.IsKind(SyntaxKind.SingleLineCommentTrivia));
 
         // SingleLineDocumentationCommentTrivia tem o início do caracter sem contar o ///.
         // Ou seja, /// <summary>: a coluna posição não vai pegar a primeira barra
         else
           ajustePosicaoLineDocumentation = 3;
 
-        if (trivia != null && trivia.Kind() != SyntaxKind.None)
+        if (trivia != null && !trivia.IsKind(SyntaxKind.None))
         {
           var posicaoCandidato = trivia.GetLocation().GetLineSpan().StartLinePosition;
           startPosition = posicaoCandidato;
@@ -175,8 +175,8 @@ namespace WSPack.Lib.CSharp.Walkers
       Location triviaDebugLoc = triviaDebug.GetLocation();
 #endif
       // Se o método não tem comentário e tem uma region acima dele, o "#if region NOME" estava sendo o start do método
-      SyntaxTrivia ifTrivia = leadingTrivia.FirstOrDefault(x => x.Kind() == SyntaxKind.IfDirectiveTrivia);
-      if (ifTrivia.Kind() != SyntaxKind.None)
+      SyntaxTrivia ifTrivia = leadingTrivia.FirstOrDefault(x => x.IsKind(SyntaxKind.IfDirectiveTrivia));
+      if (!ifTrivia.IsKind(SyntaxKind.None))
       {
         // Se tem #if, geralmente vai ser:
         // 0: EndOfLineTrivia

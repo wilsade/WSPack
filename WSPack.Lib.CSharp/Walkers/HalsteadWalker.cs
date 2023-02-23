@@ -62,24 +62,24 @@ namespace WSPack.Lib.CSharp.Walkers
 
       public int GetLength()
       {
-        return checked(this.NumOperators + this.NumOperands);
+        return checked(NumOperators + NumOperands);
       }
 
       public int GetVocabulary()
       {
-        return checked(this.NumUniqueOperators + this.NumUniqueOperands);
+        return checked(NumUniqueOperators + NumUniqueOperands);
       }
 
       public double GetDifficulty()
       {
-        return (double)this.NumUniqueOperators / 2.0 * ((double)this.NumOperands / (double)this.NumUniqueOperands);
+        return NumUniqueOperators / 2.0 * (NumOperands / (double)NumUniqueOperands);
       }
 
       public double? GetVolume()
       {
         double newBase = 2.0;
-        double num = (double)this.GetVocabulary();
-        double num2 = (double)this.GetLength();
+        double num = GetVocabulary();
+        double num2 = GetLength();
         if (num == 0.0)
         {
           return null;
@@ -89,8 +89,8 @@ namespace WSPack.Lib.CSharp.Walkers
 
       public double? GetEffort()
       {
-        double difficulty = this.GetDifficulty();
-        double? volume = this.GetVolume();
+        double difficulty = GetDifficulty();
+        double? volume = GetVolume();
         if (!volume.HasValue)
         {
           return null;
@@ -106,7 +106,7 @@ namespace WSPack.Lib.CSharp.Walkers
 
       public double? GetBugs()
       {
-        double? volume = this.GetVolume();
+        double? volume = GetVolume();
         if (!volume.HasValue)
         {
           return null;
@@ -334,20 +334,20 @@ namespace WSPack.Lib.CSharp.Walkers
     private bool CalculateGenericPropertyMetrics(RoslynMemberNode node)
     {
       PropertyDeclarationSyntax propertyDeclarationSyntax;
-      if ((propertyDeclarationSyntax = (node.SyntaxNode as PropertyDeclarationSyntax)) != null)
+      if ((propertyDeclarationSyntax = node.SyntaxNode as PropertyDeclarationSyntax) != null)
       {
         bool flag = propertyDeclarationSyntax.Modifiers.Any((SyntaxToken x) => x.ValueText == "static");
         if (MemberBodySelector.FindBody(node) == null)
         {
           if (node.Kind == MemberKindEnum.GetProperty)
           {
-            _metrics = (flag ? DefaultHalsteadMetrics.GenericStaticGetPropertyMetrics : DefaultHalsteadMetrics.GenericInstanceGetPropertyMetrics);
+            _metrics = flag ? DefaultHalsteadMetrics.GenericStaticGetPropertyMetrics : DefaultHalsteadMetrics.GenericInstanceGetPropertyMetrics;
             return true;
           }
 
           else if (node.Kind == MemberKindEnum.SetProperty)
           {
-            _metrics = (flag ? DefaultHalsteadMetrics.GenericStaticSetPropertyMetrics : DefaultHalsteadMetrics.GenericInstanceSetPropertyMetrics);
+            _metrics = flag ? DefaultHalsteadMetrics.GenericStaticSetPropertyMetrics : DefaultHalsteadMetrics.GenericInstanceSetPropertyMetrics;
             return true;
           }
         }
@@ -363,8 +363,8 @@ namespace WSPack.Lib.CSharp.Walkers
     {
       base.VisitBlock(node);
       IEnumerable<SyntaxToken> tokens = node.DescendantTokens(null, false).ToList();
-      IDictionary<SyntaxKind, IList<string>> dictionary = HalsteadWalker.ParseTokens(tokens, HalsteadOperands.All);
-      IDictionary<SyntaxKind, IList<string>> dictionary2 = HalsteadWalker.ParseTokens(tokens, HalsteadOperators.All);
+      IDictionary<SyntaxKind, IList<string>> dictionary = ParseTokens(tokens, HalsteadOperands.All);
+      IDictionary<SyntaxKind, IList<string>> dictionary2 = ParseTokens(tokens, HalsteadOperators.All);
       DefaultHalsteadMetrics halsteadMetrics = new DefaultHalsteadMetrics
       {
         NumOperands = dictionary.Values.SelectMany((IList<string> x) => x).Count(),

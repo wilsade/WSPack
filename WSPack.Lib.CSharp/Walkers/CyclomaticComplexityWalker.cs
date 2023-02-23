@@ -78,7 +78,7 @@ namespace WSPack.Lib.CSharp.Walkers
       base.VisitConditionalExpression(node);
       checked
       {
-        if (node.QuestionToken.Kind() == SyntaxKind.QuestionToken && node.ColonToken.Kind() == SyntaxKind.ColonToken)
+        if (node.QuestionToken.IsKind(SyntaxKind.QuestionToken) && node.ColonToken.IsKind(SyntaxKind.ColonToken))
         {
           _counter++;
         }
@@ -139,7 +139,7 @@ namespace WSPack.Lib.CSharp.Walkers
       {
         CheckParent(node.Parent);
       }
-      else if (node.Parent.Kind() == SyntaxKind.CollectionInitializerExpression)
+      else if (node.Parent.IsKind(SyntaxKind.CollectionInitializerExpression))
       {
         CheckParent(node.Parent.Parent);
       }
