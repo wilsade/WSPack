@@ -530,6 +530,9 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Utils.cs">
       <Link>Utils.cs</Link>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\WPFs\VisualSutioStylerController.cs">
+      <Link>WPFs\VisualSutioStylerController.cs</Link>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\WSPackConsts.cs">
       <Link>WSPackConsts.cs</Link>
     </Compile>

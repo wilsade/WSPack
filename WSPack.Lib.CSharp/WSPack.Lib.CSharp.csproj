@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1885E570-4918-4411-BD23-C31A9A7AC985}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WSPack.Lib.CSharp</RootNamespace>
+    <AssemblyName>WSPack.Lib.CSharp</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Internals\CognitiveComplexityWalkerState.cs" />
+    <Compile Include="Internals\CSharpSyntaxWalkerHelper.cs" />
+    <Compile Include="Internals\MemberBodySelector.cs" />
+    <Compile Include="Internals\MemberKindEnum.cs" />
+    <Compile Include="Internals\RoslynMemberNode.cs" />
+    <Compile Include="Internals\SecondaryLocation.cs" />
+    <Compile Include="Internals\SyntaxKindEx.cs" />
+    <Compile Include="Models\BaseMetricModel.cs" />
+    <Compile Include="Models\BlockModel.cs" />
+    <Compile Include="Models\CognitiveComplexityModel.cs" />
+    <Compile Include="Models\CyclomaticComplexityModel.cs" />
+    <Compile Include="Models\LinesOfCodeModel.cs" />
+    <Compile Include="Models\LocationModel.cs" />
+    <Compile Include="Models\MaintainabilityModel.cs" />
+    <Compile Include="Models\MethodModel.cs" />
+    <Compile Include="Models\MetricsLevels.cs" />
+    <Compile Include="Models\MetricsModel.cs" />
+    <Compile Include="Objects\CSharpParserObj.cs" />
+    <Compile Include="Objects\MethodMetricsObj.cs" />
+    <Compile Include="Objects\ParseOptions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Walkers\BlocksWalker.cs" />
+    <Compile Include="Walkers\CognitiveComplexityWalker.cs" />
+    <Compile Include="Walkers\CyclomaticComplexityWalker.cs" />
+    <Compile Include="Walkers\HalsteadWalker.cs" />
+    <Compile Include="Walkers\LogicalComplexityWalker.cs" />
+    <Compile Include="Walkers\MethodLocalVariablesWalker.cs" />
+    <Compile Include="Walkers\MethodsWalker.cs" />
+    <Compile Include="Walkers\StatementsWalker.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp">
+      <Version>4.4.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

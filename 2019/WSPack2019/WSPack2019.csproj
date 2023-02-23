@@ -35,7 +35,7 @@
     <OutputPath>bin\</OutputPath>
     <DefineConstants>TRACE;DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>0</WarningLevel>
+    <WarningLevel>2</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -529,6 +529,9 @@
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Utils.cs">
       <Link>Utils.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\WPFs\VisualSutioStylerController.cs">
+      <Link>WPFs\VisualSutioStylerController.cs</Link>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\WSPackConsts.cs">
       <Link>WSPackConsts.cs</Link>
