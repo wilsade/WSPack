@@ -29,6 +29,11 @@ namespace WSPack2019
     #endregion
 
     /// <summary>
+    /// Versão do Visual Studio. Ex: 2019 / 2022
+    /// </summary>
+    public override string Version => "2019";
+
+    /// <summary>
     /// Devolve a instância da classe <see cref="RegistroVisualStudio2019Obj"/>
     /// </summary>
     public static RegistroVisualStudio2019Obj CreateInstance() => new RegistroVisualStudio2019Obj();

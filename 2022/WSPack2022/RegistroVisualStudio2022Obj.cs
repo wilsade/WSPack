@@ -20,9 +20,14 @@ namespace WSPack2022
     }
 
     /// <summary>
+    /// Versão do Visual Studio. Ex: 2019 / 2022
+    /// </summary>
+    public override string Version => "2022";
+
+    /// <summary>
     /// Devolve a instância da classe <see cref="RegistroVisualStudio2022Obj"/>
     /// </summary>
     public static RegistroVisualStudio2022Obj CreateInstance() => new RegistroVisualStudio2022Obj();
-    
+
   }
 }

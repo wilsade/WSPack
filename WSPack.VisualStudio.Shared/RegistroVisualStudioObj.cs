@@ -22,12 +22,16 @@ namespace WSPack.VisualStudio.Shared
     protected const string UseSolutionNavigatorGraphProvider = "UseSolutionNavigatorGraphProvider";
 
     /// <summary>
+    /// Versão do Visual Studio. Ex: 2019 / 2022
+    /// </summary>
+    public abstract string Version { get; }
+
+    /// <summary>
     /// Devolve uma instância especializada classe <see cref="RegistroVisualStudioObj"/>
     /// </summary>
     public static RegistroVisualStudioObj Instance
     {
-      get
-      {
+      get {
         if (_instance == null)
         {
           var tipos = Assembly.GetExecutingAssembly().GetTypes();
@@ -44,8 +48,7 @@ namespace WSPack.VisualStudio.Shared
     /// </summary>
     public string DirectoryFullPath
     {
-      get
-      {
+      get {
         if (_directoryFullPath == null)
         {
           Process p = Process.GetCurrentProcess();
@@ -111,8 +114,7 @@ namespace WSPack.VisualStudio.Shared
     /// </summary>
     public virtual bool UseSolutionMemberNavigator
     {
-      get
-      {
+      get {
         SettingsStore store = WSPackPackage.Instance.GetReadOnlyUserSettingsStorage();
         if (store != null && store.CollectionExists(""))
         {
@@ -122,8 +124,7 @@ namespace WSPack.VisualStudio.Shared
         return true;
       }
 
-      set
-      {
+      set {
         WritableSettingsStore store = WSPackPackage.Instance.GetWritableUserSettingsStorage();
         if (store != null && store.CollectionExists(""))
         {

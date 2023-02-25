@@ -1,0 +1,26 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:WSPack.VisualStudio.Shared.WPFs">
+
+    <Style x:Key="lbThemed"
+        TargetType="Label">
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static local:VisualSutioStylerController.ToolWindowTextBrushKey}}" />
+        <Setter Property="Background" Value="{DynamicResource {x:Static local:VisualSutioStylerController.ToolWindowBackgroundBrushKey}}" />
+    </Style>
+    <Style TargetType="TextBox">
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static local:VisualSutioStylerController.ToolWindowTextBrushKey}}" />
+        <Setter Property="Background" Value="{DynamicResource {x:Static local:VisualSutioStylerController.ToolWindowBackgroundBrushKey}}" />
+    </Style>
+
+    <TextBlock x:Key="kBlock" Name="blBlock">
+        <Label Name="lbSymbol"
+            Margin="0,0,-10,0"
+            Content="&lt;&lt;"
+            Foreground="Red" />
+        <Label Name="lbBlock"
+            Content="IBlock"
+            Style="{StaticResource lbThemed}" />
+    </TextBlock>
+
+</ResourceDictionary>
