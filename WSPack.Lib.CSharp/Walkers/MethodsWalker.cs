@@ -191,6 +191,25 @@ namespace WSPack.Lib.CSharp.Walkers
           code = leadingTrivia.Skip(posWhiteSpace).ToSyntaxTriviaList().ToString();
         }
       }
+      else
+      {
+        SyntaxTrivia regionTrivia = leadingTrivia.FirstOrDefault(x => x.IsKind(SyntaxKind.RegionDirectiveTrivia));
+        if (!regionTrivia.IsKind(SyntaxKind.None))
+        {
+          // Se tem #if, geralmente vai ser:
+          // 0: EndOfLineTrivia
+          // 1: WhitespaceTrivia
+          // 2: RegionDirectiveTrivia
+          // 3: WhitespaceTrivia
+          // Não vamos considerar as posições 0, 1 e 2
+          int posicao = leadingTrivia.IndexOf(SyntaxKind.RegionDirectiveTrivia)+1;
+          if (posicao > 1 && leadingTrivia.Count >= posicao)
+          {
+            line = posicao;
+            code = leadingTrivia.Skip(posicao).ToSyntaxTriviaList().ToString();
+          }
+        }
+      }
 
       return (code, line);
     }
