@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WSPack.Lib
+﻿namespace WSPack.Lib
 {
   /// <summary>
   /// Definição de constantes

@@ -18,6 +18,69 @@ namespace WSPack.VisualStudio.Shared.Extensions
 {
   static class DteExtensions
   {
+    enum LineTypeEnum
+    {
+      Previous, Next, Current
+    }
+
+    /// <summary>
+    /// Recuperar o conteúdo da linha conforme o ponto de edição
+    /// </summary>
+    /// <param name="selection">Ponto de edição</param>
+    /// <param name="tipo">Tipo da linha a ser recuperada</param>
+    /// <returns>conteúdo da linha; string.Empty caso contrário</returns>
+    static string LineContent(TextSelection selection, LineTypeEnum tipo)
+    {
+      ThreadHelper.ThrowIfNotOnUIThread();
+      if (tipo != LineTypeEnum.Current && selection.TopPoint.Line == 1)
+        return string.Empty;
+
+      EditPoint editPoint = selection.ActivePoint.CreateEditPoint();
+      return LineContent(editPoint, tipo);
+    }
+
+    /// <summary>
+    /// Recuperar o conteúdo da linha conforme o ponto de edição
+    /// </summary>
+    /// <param name="editPoint">Ponto de edição</param>
+    /// <param name="tipo">Tipo da linha a ser recuperada</param>
+    /// <returns>conteúdo da linha; string.Empty caso contrário</returns>
+    static string LineContent(EditPoint editPoint, LineTypeEnum tipo)
+    {
+      ThreadHelper.ThrowIfNotOnUIThread();
+      string conteudo;
+      int x = 0;
+      int y = 0;
+
+      switch (tipo)
+      {
+        case LineTypeEnum.Previous:
+          x = editPoint.Line - 1;
+          y = editPoint.Line;
+          break;
+        case LineTypeEnum.Next:
+          x = editPoint.Line + 1;
+          y = editPoint.Line + 2;
+          break;
+        case LineTypeEnum.Current:
+          x = editPoint.Line;
+          y = editPoint.Line + 1;
+          break;
+      }
+
+      try
+      {
+        conteudo = editPoint.GetLines(x, y);
+      }
+      catch (Exception ex)
+      {
+        conteudo = string.Empty;
+        Trace.WriteLine("Não foi possível recuperar o conteúdo da linha: " + ex.Message);
+      }
+
+      return conteudo;
+    }
+
     /// <summary>
     /// Escrever na janela: Output
     /// </summary>
@@ -31,9 +94,9 @@ namespace WSPack.VisualStudio.Shared.Extensions
       try
       {
         ThreadHelper.ThrowIfNotOnUIThread();
-        EnvDTE.Window window = applicationObject.Windows.Item(EnvDTE.Constants.vsWindowKindOutput);
-        EnvDTE.OutputWindow outputWindow = (EnvDTE.OutputWindow)window.Object;
-        EnvDTE.OutputWindowPane owp = null;
+        Window window = applicationObject.Windows.Item(EnvDTE.Constants.vsWindowKindOutput);
+        OutputWindow outputWindow = (OutputWindow)window.Object;
+        OutputWindowPane owp = null;
 
         for (uint i = 1; i <= outputWindow.OutputWindowPanes.Count; i++)
         {
@@ -144,7 +207,7 @@ namespace WSPack.VisualStudio.Shared.Extensions
       string localItem = string.Empty;
       if (applicationObject.SelectedItems.Count > 0)
       {
-        EnvDTE.SelectedItem esteItem = applicationObject.SelectedItems.Item(1);
+        SelectedItem esteItem = applicationObject.SelectedItems.Item(1);
 
         if (esteItem.ProjectItem == null)
         {
@@ -194,7 +257,7 @@ namespace WSPack.VisualStudio.Shared.Extensions
     /// </summary>
     /// <param name="dte">Aplicação do VS</param>
     /// <returns>Projeto selecionado; null, caso contrário</returns>
-    public static EnvDTE.Project GetSolutionExplorerActiveProject(this EnvDTE80.DTE2 dte)
+    public static Project GetSolutionExplorerActiveProject(this EnvDTE80.DTE2 dte)
     {
       ThreadHelper.ThrowIfNotOnUIThread();
       try
@@ -205,7 +268,7 @@ namespace WSPack.VisualStudio.Shared.Extensions
           if (dte.ActiveSolutionProjects != null)
           {
             if (dte.ActiveSolutionProjects is Array array && array.Length > 0)
-              return array.GetValue(0) as EnvDTE.Project;
+              return array.GetValue(0) as Project;
           }
         }
       }
@@ -223,7 +286,7 @@ namespace WSPack.VisualStudio.Shared.Extensions
     /// <param name="properties">Enumerado de propriedades do objeto</param>
     /// <param name="propertyNames">Lista de nomes para procurar</param>
     /// <returns>primeira propriedade que tenha um dos nomes informados</returns>
-    public static ResponseItem<Property> GetProperty(this EnvDTE.Properties properties, params string[] propertyNames)
+    public static ResponseItem<Property> GetProperty(this Properties properties, params string[] propertyNames)
     {
       ThreadHelper.ThrowIfNotOnUIThread();
       if (properties != null)
@@ -256,8 +319,9 @@ namespace WSPack.VisualStudio.Shared.Extensions
     /// <param name="properties">Enumerado de propriedades do objeto</param>
     /// <param name="propName">Nome da propriedade</param>
     /// <returns>valor string de uma propriedade</returns>
-    public static string GetPropertyStringValue(this EnvDTE.Properties properties, string propName)
+    public static string GetPropertyStringValue(this Properties properties, string propName)
     {
+      ThreadHelper.ThrowIfNotOnUIThread();
       ResponseItem<Property> response = GetProperty(properties, propName);
       if (response.Success)
         return Convert.ToString(response.Item.Value);
@@ -287,8 +351,9 @@ namespace WSPack.VisualStudio.Shared.Extensions
     }
 
     [Conditional("DEBUG")]
-    public static void ImprimirPropriedades(this EnvDTE.Properties properties)
+    public static void ImprimirPropriedades(this Properties properties)
     {
+      ThreadHelper.ThrowIfNotOnUIThread();
       var lst = new List<(string Nome, object Valor)>();
       for (int i = 1; i <= properties.Count; i++)
       {
@@ -379,7 +444,7 @@ namespace WSPack.VisualStudio.Shared.Extensions
     /// <param name="dte">Instância do VS</param>
     /// <param name="document">Documento ativo ou null</param>
     /// <returns>true se foi possível recuperar o documento ativo; false, caso contrário</returns>
-    public static bool GetActiveDocument(this EnvDTE80.DTE2 dte, out EnvDTE.Document document)
+    public static bool GetActiveDocument(this EnvDTE80.DTE2 dte, out Document document)
     {
       ThreadHelper.ThrowIfNotOnUIThread();
       try
@@ -428,6 +493,27 @@ namespace WSPack.VisualStudio.Shared.Extensions
       {
         return null;
       }
+    }
+
+    /// <summary>
+    /// Indica se o documento é um arquivo CSharp
+    /// </summary>
+    /// <param name="doc">Doc</param>
+    /// <returns>true se o documento é um arquivo CSharp</returns>
+    public static bool IsCSharpFile(this Document doc)
+    {
+      return doc?.FullName?.IsCSharpFile() == true;
+    }
+
+    /// <summary>
+    /// Conteúdo da linha posterior
+    /// </summary>
+    /// <param name="selection">Ponto de edição</param>
+    /// <returns>Conteúdo da linha posterior</returns>
+    public static string GetNextLine(this TextSelection selection)
+    {
+      ThreadHelper.ThrowIfNotOnUIThread();
+      return LineContent(selection, LineTypeEnum.Next);
     }
   }
 }

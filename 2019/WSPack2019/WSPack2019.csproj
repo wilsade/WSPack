@@ -58,6 +58,10 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\BaseCommand.cs">
       <Link>Commands\BaseCommand.cs</Link>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\BaseKeyPressCommand.cs">
+      <Link>Commands\BaseKeyPressCommand.cs</Link>
+      <DependentUpon>BaseCommand.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\Bookmarks\BookmarkBaseCommand.cs">
       <Link>Commands\BookmarkBaseCommand.cs</Link>
     </Compile>
@@ -79,6 +83,9 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\CopyServerPathCommands\CopyServerPathSolutionExplorerCommand.cs">
       <Link>Commands\CopyServerPathSolutionExplorerCommand.cs</Link>
       <DependentUpon>CopyServerPathBaseCommand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\DocumentationCommands\DocumentationCommand.cs">
+      <Link>Commands\DocumentationCommand.cs</Link>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\LocateInTFSCommands\LocateInTFSBaseCommand.cs">
       <Link>Commands\LocateInTFSBaseCommand.cs</Link>
@@ -343,6 +350,105 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\DispatchedPoller.cs">
       <Link>DispatchedPoller.cs</Link>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\ConditionItem.cs">
+      <Link>DocumentationObjects\ConditionItem.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\DictionaryItem.cs">
+      <Link>DocumentationObjects\DictionaryItem.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\DocumentationBaseItem.cs">
+      <Link>DocumentationObjects\DocumentationBaseItem.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\DocumentationParams.cs">
+      <Link>DocumentationObjects\DocumentationParams.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\DocumentationSummaryObj.cs">
+      <Link>DocumentationObjects\DocumentationSummaryObj.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\DocumentationUtils.cs">
+      <Link>DocumentationObjects\DocumentationUtils.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\FileCodeModelWrapper\BaseElementEx.cs">
+      <Link>DocumentationObjects\FileCodeModelWrapper\BaseElementEx.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\FileCodeModelWrapper\EventElementEx.cs">
+      <Link>DocumentationObjects\FileCodeModelWrapper\EventElementEx.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\FileCodeModelWrapper\FieldElementEx.cs">
+      <Link>DocumentationObjects\FileCodeModelWrapper\FieldElementEx.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\FileCodeModelWrapper\IBaseElementEx.cs">
+      <Link>DocumentationObjects\FileCodeModelWrapper\IBaseElementEx.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\FileCodeModelWrapper\IMethodElementEx.cs">
+      <Link>DocumentationObjects\FileCodeModelWrapper\IMethodElementEx.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\FileCodeModelWrapper\MemberElementEx.cs">
+      <Link>DocumentationObjects\FileCodeModelWrapper\MemberElementEx.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\FileCodeModelWrapper\MethodElementEx.cs">
+      <Link>DocumentationObjects\FileCodeModelWrapper\MethodElementEx.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\FileCodeModelWrapper\ParameterElementEx.cs">
+      <Link>DocumentationObjects\FileCodeModelWrapper\ParameterElementEx.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\FileCodeModelWrapper\PropertyElementEx.cs">
+      <Link>DocumentationObjects\FileCodeModelWrapper\PropertyElementEx.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\FileCodeModelWrapper\TypeElementEx.cs">
+      <Link>DocumentationObjects\FileCodeModelWrapper\TypeElementEx.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\Macros\MacroBaseItems.cs">
+      <Link>DocumentationObjects\Macros\MacroBaseItems.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\Macros\MacroElementItems.cs">
+      <Link>DocumentationObjects\Macros\MacroElementItems.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\Macros\MacroEnvironmentItems.cs">
+      <Link>DocumentationObjects\Macros\MacroEnvironmentItems.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\Macros\MacroGroupItems.cs">
+      <Link>DocumentationObjects\Macros\MacroGroupItems.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\Macros\MacroMemberItems.cs">
+      <Link>DocumentationObjects\Macros\MacroMemberItems.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\Macros\MacroMemberTypeItem.cs">
+      <Link>DocumentationObjects\Macros\MacroMemberTypeItem.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\Macros\MacrosConsts.cs">
+      <Link>DocumentationObjects\Macros\MacrosConsts.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\Macros\MacroWordsItems.cs">
+      <Link>DocumentationObjects\Macros\MacroWordsItems.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\MemberRuleItem.cs">
+      <Link>DocumentationObjects\MemberRuleItem.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\MemberTypesEnum.cs">
+      <Link>DocumentationObjects\MemberTypesEnum.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\RuleBaseItem.cs">
+      <Link>DocumentationObjects\RuleBaseItem.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\SearchConditionsEnum.cs">
+      <Link>DocumentationObjects\SearchConditionsEnum.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\SummaryNodesNames.cs">
+      <Link>DocumentationObjects\SummaryNodesNames.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\TypeRuleItem.cs">
+      <Link>DocumentationObjects\TypeRuleItem.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\TypeTypesEnum.cs">
+      <Link>DocumentationObjects\TypeTypesEnum.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\XMLParamNode.cs">
+      <Link>DocumentationObjects\XMLParamNode.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\XMLSummaryDocObj.cs">
+      <Link>DocumentationObjects\XMLSummaryDocObj.cs</Link>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\DteProject\DteClassicProject.cs">
       <Link>DteProject\DteClassicProject.cs</Link>
     </Compile>
@@ -360,6 +466,9 @@
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Extensions\DteExtensions.cs">
       <Link>Extensions\DteExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Extensions\FileCodeModelExtensions.cs">
+      <Link>Extensions\FileCodeModelExtensions.cs</Link>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Extensions\SearchChangesetsObj.cs">
       <Link>Extensions\SearchChangesetsObj.cs</Link>

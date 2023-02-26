@@ -13,6 +13,54 @@ namespace WSPack.Lib.Extensions
   /// </summary>
   public static class StringExtensions
   {
+    static string Split(this string target, Func<char, char, bool> shouldSplit, string splitFiller = " ")
+    {
+      if (target == null)
+        throw new ArgumentNullException(nameof(target));
+
+      if (shouldSplit == null)
+        throw new ArgumentNullException(nameof(shouldSplit));
+
+      if (string.IsNullOrEmpty(splitFiller))
+        throw new ArgumentNullException(nameof(splitFiller));
+
+      int targetLength = target.Length;
+
+      // We know the resulting string is going to be atleast the length of target
+      StringBuilder result = new StringBuilder(targetLength);
+
+      result.Append(target[0]);
+
+      var lst = new List<string>();
+      bool achou = false;
+      var strTempWord = new StringBuilder();
+      strTempWord.Append(target[0]);
+
+      // Loop from the second character to the last character.
+      for (int i = 1; i < targetLength; ++i)
+      {
+        achou = false;
+        char firstChar = target[i - 1];
+        char secondChar = target[i];
+
+        if (shouldSplit(firstChar, secondChar))
+        {
+          achou = true;
+          lst.Add(strTempWord.ToString());
+          strTempWord.Clear();
+          // If a split should be performed add in the filler
+          result.Append(splitFiller);
+        }
+
+        strTempWord.Append(secondChar);
+        result.Append(secondChar);
+      }
+      if (!achou)
+        lst.Add(strTempWord.ToString());
+
+      return result.ToString();
+    }
+
     /// <summary>
     /// Indica se a string é nula ou vazia
     /// </summary>
@@ -174,6 +222,36 @@ namespace WSPack.Lib.Extensions
       if (str != null)
         return str + Environment.NewLine;
       return str;
+    }
+
+    /// <summary>
+    /// Separar as palavras presentes em uma string conforme delimitadores comuns/conhecidos
+    /// </summary>
+    /// <param name="str">string a ser separada</param>
+    /// <returns>Uma string conforme delimitadores comuns/conhecidos</returns>
+    public static string[] SplitWithDelimiters(this string str)
+    {
+      if (string.IsNullOrEmpty(str))
+        return null;
+      var splited = str.Split(new string[] { "*", "?", "|", "_", "-", ">", "<", "%", "=", "}",
+        "{", "$", "@", "&", "#", "'", "!", "[", "]", "\"", "(", ")", "\\", "/", ".", " ", ";",
+        ":", ",", Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+      return splited;
+    }
+
+    /// <summary>
+    /// Reparar as palavras conforme iniciais maiúsculas. Ex: CodColigada retorna Cod e Coligada
+    /// </summary>
+    /// <param name="str">String</param>
+    /// <returns>Palavras conforme iniciais maiúsculas</returns>
+    public static string[] PascalCaseSplit(this string str)
+    {
+      if (str.IsNullOrWhiteSpaceEx())
+        return new string[] { };
+
+      string pascalSeparated = str.Split((c1, c2) => char.IsDigit(c1) || char.IsDigit(c2) || (char.IsLower(c1) && char.IsUpper(c2)), " ");
+      var splited = pascalSeparated.SplitWithDelimiters();
+      return splited;
     }
   }
 }

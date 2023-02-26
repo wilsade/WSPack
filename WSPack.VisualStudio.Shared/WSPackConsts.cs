@@ -21,5 +21,12 @@ namespace WSPack.VisualStudio.Shared
     public static string TFSFavoritesConfigPath => Path.Combine(
       WSPackPackage.GetParametersPage<PageGeneral>().WSPackConfigPath,
       "TFSFavoritesParams.cfg");
+
+    /// <summary>
+    /// Caminho do arquivo de configuração de documentação
+    /// </summary>
+    public static string DocumentationConfigPath = Path.Combine(
+      WSPackPackage.ParametrosDocumentation.DocumentationPath, "WSPackDocumentation.cfg");
+
   }
 }

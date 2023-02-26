@@ -231,6 +231,8 @@ namespace WSPack
       await GotoBookmarkCommand.InitializeAsync(this, commandService);
       await ClearAllBookmarksCommand.InitializeAsync(this, commandService);
 
+      await DocumentationCommand.InitializeAsync(this, commandService);
+
       _ = new SourceControlSolutionController();
 
       IsLoaded = true;

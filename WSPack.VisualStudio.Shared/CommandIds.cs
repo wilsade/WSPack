@@ -46,6 +46,7 @@ namespace WSPack.VisualStudio.Shared.Commands
     internal const int SSEComboBoxFavoritos = 0x0127;
     internal const int SearchChangesets = 0x0128;
     internal const int SearchChangesetsSourceControlExplorer = 0x0129;
+    internal const int Documentation = 0x0130;
 
     internal const int ToggleBookmark1 = 0x0134;
     internal const int ToggleBookmark2 = 0x0135;
