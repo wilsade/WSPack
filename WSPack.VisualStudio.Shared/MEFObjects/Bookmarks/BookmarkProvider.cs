@@ -58,15 +58,6 @@ namespace WSPack.VisualStudio.Shared.MEFObjects.Bookmarks
         return null;
       }
 
-      // Usuário não quer usar marcadores
-      //if (WSPack2019Package.Instance == null ||
-      //  WSPack2019Package.ParametrosMEFObjects == null ||
-      //  !WSPack2019Package.ParametrosMEFObjects.UseBookmarks)
-      //{
-      //  //BookmarkController.Instance.IsBookmarkBarProvided = false;
-      //  return null;
-      //}
-
       try
       {
         IWpfTextViewMargin textViewMargin = new BookmarkMargin(wpfTextViewHost.TextView);

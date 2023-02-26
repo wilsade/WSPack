@@ -37,6 +37,7 @@ namespace WSPack
   [ProvideOptionPage(typeof(PageGeneral), Constantes.WSPack, "01GeralX", 110, 113, true, new string[] { "Mudar as opções do WSPack" }, Sort = 1)]
   [ProvideOptionPage(typeof(PageMEFObjects), Constantes.WSPack, "03ComponentesX", 110, 115, true, new string[] { "MEF Components" }, Sort = 3)]
   [ProvideOptionPage(typeof(PageTemplateCheckIn), Constantes.WSPack, "05TemplateCheckInX", 110, 114, true, new string[] { "Template Check In" }, Sort = 5)]
+  [ProvideOptionPage(typeof(PageDocumentation), Constantes.WSPack, "04DocumentacaoX", 110, 117, true, new string[] { "Documentacao summary" }, Sort = 4)]
 
   [ProvideUIContextRule(UiNotSolutionBuilding,
         name: "Not building",
@@ -56,7 +57,7 @@ namespace WSPack
     public static WSPackPackage Instance { get; private set; }
 
     /// <summary>
-    /// Indica se WSPack2019Package está carregada
+    /// Indica se WSPackPackage está carregada
     /// </summary>
     public static bool IsLoaded
     {
@@ -116,6 +117,11 @@ namespace WSPack
     /// Recuperar a página de opções de componentes: MEFObjects
     /// </summary>
     public static PageMEFObjects ParametrosMEFObjects => GetParametersPage<PageMEFObjects>();
+
+    /// <summary>
+    /// Página de opções de documentação (summary)
+    /// </summary>
+    public static PageDocumentation ParametrosDocumentation => GetParametersPage<PageDocumentation>();
 
     /// <summary>
     /// Initialization of the package; this method is called right after the package is sited, so this is the place

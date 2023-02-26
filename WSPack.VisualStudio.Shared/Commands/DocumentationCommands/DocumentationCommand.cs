@@ -41,8 +41,8 @@ namespace WSPack.VisualStudio.Shared.Commands
       : base(package, commandService)
     {
       ThreadHelper.ThrowIfNotOnUIThread();
-      if (!CreateKeyBindings("GerarDocumentacao", "Text Editor::Ctrl+Alt+D", false))
-        CreateKeyBindings("GerarDocumentacao", "Editor de Texto::Ctrl+Alt+D", false);
+      if (!CreateKeyBindings("GerarDocumentacaoCodeEditor", "Text Editor::Ctrl+Alt+D", false))
+        CreateKeyBindings("GerarDocumentacaoCodeEditor", "Editor de Texto::Ctrl+Alt+D", false);
       _menu.BeforeQueryStatus += _menu_BeforeQueryStatus;
     }
 
