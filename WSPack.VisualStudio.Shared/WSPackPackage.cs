@@ -38,6 +38,8 @@ namespace WSPack
   [ProvideOptionPage(typeof(PageMEFObjects), Constantes.WSPack, "03ComponentesX", 110, 115, true, new string[] { "MEF Components" }, Sort = 3)]
   [ProvideOptionPage(typeof(PageTemplateCheckIn), Constantes.WSPack, "05TemplateCheckInX", 110, 114, true, new string[] { "Template Check In" }, Sort = 5)]
   [ProvideOptionPage(typeof(PageDocumentation), Constantes.WSPack, "04DocumentacaoX", 110, 117, true, new string[] { "Documentacao summary" }, Sort = 4)]
+  [ProvideOptionPage(typeof(PageDocumentationAbbreviation), Constantes.WSPack, "04DocumentacaoX\\Abreviacoes", 110, 120, true, new string[] { "Documentacao abreviacao" }, Sort = 4)]
+  [ProvideOptionPage(typeof(PageDocumentationDictionary), Constantes.WSPack, "04DocumentacaoX\\Dicionario", 110, 118, true, new string[] { "Documentacao dicionario" }, Sort = 4)]
 
   [ProvideUIContextRule(UiNotSolutionBuilding,
         name: "Not building",
