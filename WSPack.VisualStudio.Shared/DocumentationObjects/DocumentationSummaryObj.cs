@@ -5,6 +5,7 @@ using EnvDTE;
 
 using EnvDTE80;
 
+using WSPack.Lib.DocumentationObjects;
 using WSPack.Lib.Extensions;
 using WSPack.VisualStudio.Shared.DocumentationObjects.FileCodeModelWrapper;
 using WSPack.VisualStudio.Shared.DocumentationObjects.Macros;

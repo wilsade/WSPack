@@ -1,4 +1,4 @@
-﻿namespace WSPack.VisualStudio.Shared.DocumentationObjects
+﻿namespace WSPack.Lib.DocumentationObjects
 {
   /// <summary>
   /// Definir condições para busca de nomes de Types/Members

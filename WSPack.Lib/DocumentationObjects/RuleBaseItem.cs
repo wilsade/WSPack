@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace WSPack.VisualStudio.Shared.DocumentationObjects
+namespace WSPack.Lib.DocumentationObjects
 {
   /// <summary>
   /// Item base para regra de documentação

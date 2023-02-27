@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WSPack.VisualStudio.Shared.DocumentationObjects
+namespace WSPack.Lib.DocumentationObjects
 {
   /// <summary>
   /// Definir tipos de Type

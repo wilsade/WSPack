@@ -1,6 +1,6 @@
 ﻿using System.Xml;
 
-namespace WSPack.VisualStudio.Shared.DocumentationObjects
+namespace WSPack.Lib.DocumentationObjects
 {
   /// <summary>
   /// Representa um nodo de parâmetro

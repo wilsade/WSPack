@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using EnvDTE80;
 using EnvDTE;
 using Microsoft.VisualStudio.Shell;
+using WSPack.Lib.DocumentationObjects;
 
 namespace WSPack.VisualStudio.Shared.DocumentationObjects.FileCodeModelWrapper
 {

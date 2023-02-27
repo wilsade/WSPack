@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Xml.Serialization;
 
-namespace WSPack.VisualStudio.Shared.DocumentationObjects
+namespace WSPack.Lib.DocumentationObjects
 {
   /// <summary>
   /// Item base de documentação

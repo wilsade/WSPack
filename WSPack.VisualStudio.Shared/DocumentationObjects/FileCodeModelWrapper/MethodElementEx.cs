@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EnvDTE80;
+using WSPack.Lib.DocumentationObjects;
 
 namespace WSPack.VisualStudio.Shared.DocumentationObjects.FileCodeModelWrapper
 {

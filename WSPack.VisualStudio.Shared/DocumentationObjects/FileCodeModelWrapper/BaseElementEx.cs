@@ -10,6 +10,7 @@ using WSPack.Lib.Extensions;
 using EnvDTE;
 using Microsoft.VisualStudio.Shell;
 using WSPack.VisualStudio.Shared.DocumentationObjects.Macros;
+using WSPack.Lib.DocumentationObjects;
 
 namespace WSPack.VisualStudio.Shared.DocumentationObjects.FileCodeModelWrapper
 {

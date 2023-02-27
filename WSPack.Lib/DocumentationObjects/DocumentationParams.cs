@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace WSPack.VisualStudio.Shared.DocumentationObjects
+namespace WSPack.Lib.DocumentationObjects
 {
   /// <summary>
   /// Definição de parâmetros de documentação

@@ -350,23 +350,8 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\DispatchedPoller.cs">
       <Link>DispatchedPoller.cs</Link>
     </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\ConditionItem.cs">
-      <Link>DocumentationObjects\ConditionItem.cs</Link>
-    </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\DictionaryItem.cs">
-      <Link>DocumentationObjects\DictionaryItem.cs</Link>
-    </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\DocumentationBaseItem.cs">
-      <Link>DocumentationObjects\DocumentationBaseItem.cs</Link>
-    </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\DocumentationParams.cs">
-      <Link>DocumentationObjects\DocumentationParams.cs</Link>
-    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\DocumentationSummaryObj.cs">
       <Link>DocumentationObjects\DocumentationSummaryObj.cs</Link>
-    </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\DocumentationUtils.cs">
-      <Link>DocumentationObjects\DocumentationUtils.cs</Link>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\FileCodeModelWrapper\BaseElementEx.cs">
       <Link>DocumentationObjects\FileCodeModelWrapper\BaseElementEx.cs</Link>
@@ -421,33 +406,6 @@
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\Macros\MacroWordsItems.cs">
       <Link>DocumentationObjects\Macros\MacroWordsItems.cs</Link>
-    </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\MemberRuleItem.cs">
-      <Link>DocumentationObjects\MemberRuleItem.cs</Link>
-    </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\MemberTypesEnum.cs">
-      <Link>DocumentationObjects\MemberTypesEnum.cs</Link>
-    </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\RuleBaseItem.cs">
-      <Link>DocumentationObjects\RuleBaseItem.cs</Link>
-    </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\SearchConditionsEnum.cs">
-      <Link>DocumentationObjects\SearchConditionsEnum.cs</Link>
-    </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\SummaryNodesNames.cs">
-      <Link>DocumentationObjects\SummaryNodesNames.cs</Link>
-    </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\TypeRuleItem.cs">
-      <Link>DocumentationObjects\TypeRuleItem.cs</Link>
-    </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\TypeTypesEnum.cs">
-      <Link>DocumentationObjects\TypeTypesEnum.cs</Link>
-    </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\XMLParamNode.cs">
-      <Link>DocumentationObjects\XMLParamNode.cs</Link>
-    </Compile>
-    <Compile Include="..\..\WSPack.VisualStudio.Shared\DocumentationObjects\XMLSummaryDocObj.cs">
-      <Link>DocumentationObjects\XMLSummaryDocObj.cs</Link>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\DteProject\DteClassicProject.cs">
       <Link>DteProject\DteClassicProject.cs</Link>

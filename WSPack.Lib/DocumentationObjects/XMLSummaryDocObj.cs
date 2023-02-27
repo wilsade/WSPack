@@ -6,7 +6,7 @@ using System.Xml;
 
 using WSPack.Lib.Extensions;
 
-namespace WSPack.VisualStudio.Shared.DocumentationObjects
+namespace WSPack.Lib.DocumentationObjects
 {
   /// <summary>
   /// Auxiliar na manipulação dos nodos XML de um summary

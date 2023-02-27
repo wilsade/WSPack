@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using WSPack.Lib.DocumentationObjects;
+
 namespace WSPack.VisualStudio.Shared.DocumentationObjects.FileCodeModelWrapper
 {
   /// <summary>

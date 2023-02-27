@@ -1,7 +1,7 @@
 ﻿
 using WSPack.Lib;
 
-namespace WSPack.VisualStudio.Shared.DocumentationObjects
+namespace WSPack.Lib.DocumentationObjects
 {
   /// <summary>
   /// DocumentationUtils
@@ -14,12 +14,12 @@ namespace WSPack.VisualStudio.Shared.DocumentationObjects
     /// <summary>
     /// Recuperar os parâmetros de documentação
     /// </summary>
-    public static DocumentationParams ReadDocumentationParams()
+    public static DocumentationParams ReadDocumentationParams(string documentationConfigPath)
     {
       lock (_locker)
       {
         if (_documentationParams == null)
-          _documentationParams = XmlUtils.ReadXMLParams<DocumentationParams>(WSPackConsts.DocumentationConfigPath);
+          _documentationParams = XmlUtils.ReadXMLParams<DocumentationParams>(documentationConfigPath);
         return _documentationParams;
       }
     }
@@ -28,11 +28,11 @@ namespace WSPack.VisualStudio.Shared.DocumentationObjects
     /// Salvar os parâmetros no arquivo de documentação
     /// </summary>
     /// <param name="documentation">Documentation</param>
-    public static void SaveDocumentationParams(DocumentationParams documentation)
+    public static void SaveDocumentationParams(DocumentationParams documentation, string documentationConfigPath)
     {
       lock (_locker)
       {
-        XmlUtils.SaveXMLParams(documentation, WSPackConsts.DocumentationConfigPath);
+        XmlUtils.SaveXMLParams(documentation, documentationConfigPath);
         _documentationParams = documentation;
       }
     }

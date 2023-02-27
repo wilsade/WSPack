@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using WSPack.Lib.DocumentationObjects;
 using WSPack.Lib.Extensions;
 
 namespace WSPack.VisualStudio.Shared.DocumentationObjects.FileCodeModelWrapper

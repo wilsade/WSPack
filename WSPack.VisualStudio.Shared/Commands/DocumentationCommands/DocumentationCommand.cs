@@ -9,6 +9,7 @@ using EnvDTE80;
 
 using Microsoft.VisualStudio.Shell;
 
+using WSPack.Lib.DocumentationObjects;
 using WSPack.Lib.Extensions;
 using WSPack.Lib.Properties;
 using WSPack.VisualStudio.Shared.DocumentationObjects;
@@ -131,7 +132,7 @@ namespace WSPack.VisualStudio.Shared.Commands
           WSPackPackage.Dte.SuppressUI = true;
           try
           {
-            var docParams = DocumentationUtils.ReadDocumentationParams();
+            var docParams = DocumentationUtils.ReadDocumentationParams(WSPackConsts.DocumentationConfigPath);
             DocumentationSummaryObj.IncludeSummaryInElement(baseElement, docParams, selection);
           }
           finally
@@ -171,7 +172,7 @@ namespace WSPack.VisualStudio.Shared.Commands
         TypeElementEx tipo = fcm.GetTypeWithinCursor();
         if (tipo != null)
         {
-          var documentationParams = DocumentationUtils.ReadDocumentationParams();
+          var documentationParams = DocumentationUtils.ReadDocumentationParams(WSPackConsts.DocumentationConfigPath);
 
           // Só vamos documentar o tipo se estivermos com o cursor nele ou na linha logo abaixo
           int linhaElemento = tipo.Line;
