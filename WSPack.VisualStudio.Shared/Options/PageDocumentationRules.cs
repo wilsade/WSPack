@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using WSPack2019.DocumentationObjects;
-using WSPack2019.UserControls;
 
-namespace WSPack2019.Options
+using WSPack.Lib.DocumentationObjects;
+using WSPack.VisualStudio.Shared.UserControls;
+
+namespace WSPack.VisualStudio.Shared.Options
 {
   /// <summary>
   /// Página de opção de regras de documentação
@@ -113,7 +110,7 @@ namespace WSPack2019.Options
 
     private void LoadDocumentationRules()
     {
-      DocumentationParams documentationParams = DocumentationUtils.ReadDocumentationParams();
+      DocumentationParams documentationParams = DocumentationUtils.ReadDocumentationParams(WSPackConsts.DocumentationConfigPath);
       CreateDocumentationControl();
       _documentationRulesControl.Bind(documentationParams.RuleList);
     }
@@ -127,9 +124,9 @@ namespace WSPack2019.Options
       MemberNodeExpanded = _documentationRulesControl.IsMemberNodeExpanded;
       base.SaveSettingsToStorage();
       var ruleItems = _documentationRulesControl.GetRules();
-      DocumentationParams documentationParams = DocumentationUtils.ReadDocumentationParams();
+      DocumentationParams documentationParams = DocumentationUtils.ReadDocumentationParams(WSPackConsts.DocumentationConfigPath);
       documentationParams.RuleList = ruleItems;
-      DocumentationUtils.SaveDocumentationParams(documentationParams);
+      DocumentationUtils.SaveDocumentationParams(documentationParams, WSPackConsts.DocumentationConfigPath);
     }
   }
 }

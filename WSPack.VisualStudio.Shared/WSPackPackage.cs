@@ -40,6 +40,7 @@ namespace WSPack
   [ProvideOptionPage(typeof(PageDocumentation), Constantes.WSPack, "04DocumentacaoX", 110, 117, true, new string[] { "Documentacao summary" }, Sort = 4)]
   [ProvideOptionPage(typeof(PageDocumentationAbbreviation), Constantes.WSPack, "04DocumentacaoX\\Abreviacoes", 110, 120, true, new string[] { "Documentacao abreviacao" }, Sort = 4)]
   [ProvideOptionPage(typeof(PageDocumentationDictionary), Constantes.WSPack, "04DocumentacaoX\\Dicionario", 110, 118, true, new string[] { "Documentacao dicionario" }, Sort = 4)]
+  [ProvideOptionPage(typeof(PageDocumentationRules), Constantes.WSPack, "04DocumentacaoX\\Regras", 110, 119, true, new string[] { "Documentacao dicionario" }, Sort = 4)]
 
   [ProvideUIContextRule(UiNotSolutionBuilding,
         name: "Not building",

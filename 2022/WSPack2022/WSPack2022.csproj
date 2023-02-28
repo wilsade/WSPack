@@ -453,6 +453,30 @@
       <Link>Forms\DocumentationMacrosForm.designer.cs</Link>
       <DependentUpon>DocumentationMacrosForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Forms\DocumentationRuleBaseForm.cs">
+      <Link>Forms\DocumentationRuleBaseForm.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Forms\DocumentationRuleBaseForm.designer.cs">
+      <Link>Forms\DocumentationRuleBaseForm.designer.cs</Link>
+      <DependentUpon>DocumentationRuleBaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Forms\DocumentationRuleMemberForm.cs">
+      <Link>Forms\DocumentationRuleMemberForm.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Forms\DocumentationRuleMemberForm.designer.cs">
+      <Link>Forms\DocumentationRuleMemberForm.designer.cs</Link>
+      <DependentUpon>DocumentationRuleMemberForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Forms\DocumentationRuleTypeForm.cs">
+      <Link>Forms\DocumentationRuleTypeForm.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Forms\DocumentationRuleTypeForm.designer.cs">
+      <Link>Forms\DocumentationRuleTypeForm.designer.cs</Link>
+      <DependentUpon>DocumentationRuleTypeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Forms\GenerateResourceForm.cs">
       <Link>Forms\GenerateResourceForm.cs</Link>
       <SubType>Form</SubType>
@@ -597,6 +621,11 @@
       <DependentUpon>PageDocumentationBaseGridDictionary.cs</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Options\PageDocumentationRules.cs">
+      <Link>Options\PageDocumentationRules.cs</Link>
+      <DependentUpon>PageDocumentationBaseGridDictionary.cs</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Options\PageGeneral.cs">
       <Link>Options\PageGeneral.cs</Link>
       <SubType>Component</SubType>
@@ -635,6 +664,14 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\StreamWrapper.cs">
       <Link>StreamWrapper.cs</Link>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\UserControls\DocumentationConditionControl.cs">
+      <Link>UserControls\DocumentationConditionControl.cs</Link>
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\UserControls\DocumentationConditionControl.designer.cs">
+      <Link>UserControls\DocumentationConditionControl.designer.cs</Link>
+      <DependentUpon>DocumentationConditionControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\UserControls\DocumentationDictionaryControl.cs">
       <Link>UserControls\DocumentationDictionaryControl.cs</Link>
       <SubType>UserControl</SubType>
@@ -642,6 +679,14 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\UserControls\DocumentationDictionaryControl.designer.cs">
       <Link>UserControls\DocumentationDictionaryControl.designer.cs</Link>
       <DependentUpon>DocumentationDictionaryControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\UserControls\DocumentationRulesControl.cs">
+      <Link>UserControls\DocumentationRulesControl.cs</Link>
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\UserControls\DocumentationRulesControl.designer.cs">
+      <Link>UserControls\DocumentationRulesControl.designer.cs</Link>
+      <DependentUpon>DocumentationRulesControl.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\UserControls\TemplateCheckInControl.cs">
       <Link>UserControls\TemplateCheckInControl.cs</Link>
@@ -744,6 +789,18 @@
       <Link>Forms\DocumentationMacrosForm.resx</Link>
       <DependentUpon>DocumentationMacrosForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="..\..\WSPack.VisualStudio.Shared\Forms\DocumentationRuleBaseForm.resx">
+      <Link>Forms\DocumentationRuleBaseForm.resx</Link>
+      <DependentUpon>DocumentationRuleBaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\WSPack.VisualStudio.Shared\Forms\DocumentationRuleMemberForm.resx">
+      <Link>Forms\DocumentationRuleMemberForm.resx</Link>
+      <DependentUpon>DocumentationRuleMemberForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\WSPack.VisualStudio.Shared\Forms\DocumentationRuleTypeForm.resx">
+      <Link>Forms\DocumentationRuleTypeForm.resx</Link>
+      <DependentUpon>DocumentationRuleTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="..\..\WSPack.VisualStudio.Shared\Forms\GenerateResourceForm.resx">
       <Link>Forms\GenerateResourceForm.resx</Link>
       <DependentUpon>GenerateResourceForm.cs</DependentUpon>
@@ -756,9 +813,17 @@
       <Link>Forms\SearchChangesetsForm.resx</Link>
       <DependentUpon>SearchChangesetsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="..\..\WSPack.VisualStudio.Shared\UserControls\DocumentationConditionControl.resx">
+      <Link>UserControls\DocumentationConditionControl.resx</Link>
+      <DependentUpon>DocumentationConditionControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="..\..\WSPack.VisualStudio.Shared\UserControls\DocumentationDictionaryControl.resx">
       <Link>UserControls\DocumentationDictionaryControl.resx</Link>
       <DependentUpon>DocumentationDictionaryControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\WSPack.VisualStudio.Shared\UserControls\DocumentationRulesControl.resx">
+      <Link>UserControls\DocumentationRulesControl.resx</Link>
+      <DependentUpon>DocumentationRulesControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="..\..\WSPack.VisualStudio.Shared\UserControls\TemplateCheckInControl.resx">
       <Link>UserControls\TemplateCheckInControl.resx</Link>

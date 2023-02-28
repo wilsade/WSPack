@@ -205,5 +205,50 @@
   <ItemGroup>
     <None Include="Resources\Delete-icon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TypeDefinition_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Code_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Class_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\interface_16xLG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Structure_grey_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enum_16xLG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delegate_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\field_16xLG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Property_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Event_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Method_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MethodInstance_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Parameter_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arrow-Down_vs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arrow_Up_vs.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
