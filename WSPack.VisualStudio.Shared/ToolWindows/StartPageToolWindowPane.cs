@@ -1,15 +1,12 @@
-﻿using Microsoft.VisualStudio.Shell;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Controls;
+
+using Microsoft.VisualStudio.Shell;
 
 using WSPack.Lib;
 using WSPack.Lib.Properties;
+using WSPack.Lib.WPF.Views;
 
 namespace WSPack.VisualStudio.Shared.ToolWindows
 {
@@ -33,13 +30,8 @@ namespace WSPack.VisualStudio.Shared.ToolWindows
     {
       ThreadHelper.ThrowIfNotOnUIThread($"Construtor: {nameof(StartPageToolWindowPane)}");
       Caption = $"{Constantes.WSPackStartPageTitle} [{ResourcesLib.StrIniciando}]";
-      //var startPageControl = new WSPackStartPage();
-      //base.Content = startPageControl;
-
-      base.Content = new Label
-      {
-        Content = "Em desenvolvimento"
-      };
+      var startPageControl = new WSPackStartPage();
+      base.Content = startPageControl;
 
       _ = System.Threading.Tasks.Task.Run(() =>
       {

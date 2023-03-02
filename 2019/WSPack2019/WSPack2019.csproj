@@ -895,6 +895,10 @@
       <Project>{1885e570-4918-4411-bd23-c31a9a7ac985}</Project>
       <Name>WSPack.Lib.CSharp</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\WSPack.Lib.WPF\WSPack.Lib.WPF.csproj">
+      <Project>{e3427edf-11c3-4a95-b82b-0ef3d604a1c1}</Project>
+      <Name>WSPack.Lib.WPF</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\WSPack.Lib\WSPack.Lib.csproj">
       <Project>{fc678443-87df-4a89-8a2f-a1cf1d69f51a}</Project>
       <Name>WSPack.Lib</Name>

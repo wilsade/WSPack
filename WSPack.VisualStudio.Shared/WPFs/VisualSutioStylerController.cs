@@ -1,11 +1,14 @@
 ﻿using Microsoft.VisualStudio.PlatformUI;
 using Microsoft.VisualStudio.Shell;
+
+using WSPack.Lib.WPF;
+
 namespace WSPack.VisualStudio.Shared.WPFs
 {
   /// <summary>
   /// Wrapper para cores e estilos do Visual Studio
   /// </summary>
-  public class VisualSutioStylerController
+  public class VisualSutioStylerController : IVisualSutioStylerController
   {
     #region Construtor
     /// <summary>
@@ -87,5 +90,8 @@ namespace WSPack.VisualStudio.Shared.WPFs
     /// Link hover style key
     /// </summary>
     public static object LinkHoverStyleKey { get; set; }
+
+    object IVisualSutioStylerController.GetGroupHeaderForegroundKey() => GroupHeaderForegroundKey;
+    object IVisualSutioStylerController.GetGroupHeaderStyleKey() => GroupHeaderStyleKey;
   }
 }

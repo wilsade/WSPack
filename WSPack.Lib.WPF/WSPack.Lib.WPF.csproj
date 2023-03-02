@@ -49,6 +49,12 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommonLib\WSTextBlock.cs" />
+    <Compile Include="IVisualSutioStylerController.cs" />
+    <Compile Include="Views\WSPackStartPage.xaml.cs">
+      <DependentUpon>WSPackStartPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VisualSutioFlexStylerController.cs" />
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -56,6 +62,10 @@
     <Compile Include="CustomControl1.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\WSPackStartPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
