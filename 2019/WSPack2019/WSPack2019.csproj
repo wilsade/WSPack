@@ -98,6 +98,9 @@
       <Link>Commands\LocateInTFSSolutionExplorerCommand.cs</Link>
       <DependentUpon>LocateInTFSBaseCommand.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\StartPageCommand.cs">
+      <Link>Commands\StartPageCommand.cs</Link>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\\CollapseAllPendingChangesCommands\CollapseAllExcludedPendingChangesCommand.cs">
       <Link>Commands\CollapseAllExcludedPendingChangesCommand.cs</Link>
       <DependentUpon>CollapseAllPendingChangesBaseCommand.cs</DependentUpon>
@@ -663,6 +666,9 @@
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\StreamWrapper.cs">
       <Link>StreamWrapper.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\ToolWindows\StartPageToolWindowPane.cs">
+      <Link>ToolWindows\StartPageToolWindowPane.cs</Link>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\UserControls\DocumentationConditionControl.cs">
       <Link>UserControls\DocumentationConditionControl.cs</Link>

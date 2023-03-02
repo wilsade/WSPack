@@ -20,6 +20,7 @@ using WSPack.VisualStudio.Shared;
 using WSPack.VisualStudio.Shared.Commands;
 using WSPack.VisualStudio.Shared.MEFObjects.Bookmarks;
 using WSPack.VisualStudio.Shared.Options;
+using WSPack.VisualStudio.Shared.ToolWindows;
 
 using Task = System.Threading.Tasks.Task;
 
@@ -49,9 +50,15 @@ namespace WSPack
         termValues: new[] { UIContextGuids80.SolutionHasSingleProject,
           UIContextGuids80.SolutionHasMultipleProjects, UIContextGuids80.SolutionBuilding }
   )]
+
+  [ProvideToolWindow(typeof(StartPageToolWindowPane),
+      Style = VsDockStyle.Tabbed,
+      Window = "DocumentWell",
+      Orientation = ToolWindowOrientation.none)]
   public sealed class WSPackPackage : AsyncPackage, IVsPersistSolutionOpts
   {
     private const string UiNotSolutionBuilding = "24551deb-f034-43e9-a279-0e541241687e";
+    static readonly Type _typeOfStartPageToolWindowPane = typeof(StartPageToolWindowPane);
 
     /// <summary>
     /// Devolve a instãncia da classe: <see cref="WSPackPackage"/>
@@ -241,6 +248,7 @@ namespace WSPack
       await ClearAllBookmarksCommand.InitializeAsync(this, commandService);
 
       await DocumentationCommand.InitializeAsync(this, commandService);
+      await StartPageCommand.InitializeAsync(this, commandService);
 
       _ = new SourceControlSolutionController();
 
@@ -415,6 +423,80 @@ namespace WSPack
     {
       ThreadHelper.ThrowIfNotOnUIThread();
       return BookmarkController.Instance.WriteUserOptions(pOptionsStream, pszKey);
+    }
+    #endregion
+
+    #region ToolWindows
+    /// <summary>
+    /// Returns the asynchronous tool window factory interface for the tool window identified by
+    ///             <paramref name="toolWindowType" />, if asynchronous creation is supported for the tool window.
+    ///             If asynchronous creation is not supported, null is returned.
+    /// </summary>
+    /// <param name="toolWindowType">Type of the window to be created</param>
+    /// <returns>The asynchronous factory interface, or null if not supported</returns>
+    public override IVsAsyncToolWindowFactory GetAsyncToolWindowFactory(Guid toolWindowType)
+    {
+      bool acheiGuid = //toolWindowType.Equals(Guid.Parse(BookmarkToolWindowPane.WindowGuidString)) ||
+       toolWindowType.Equals(Guid.Parse(StartPageToolWindowPane.StartPageGuidString));
+      return acheiGuid ? this : null;
+    }
+
+    /// <summary>
+    /// Returns the title string to use for the tool window.  If null is returned, the tool
+    ///             window's type name is used for the title.
+    /// </summary>
+    /// <param name="toolWindowType">Type of the window to be created</param>
+    /// <param name="id">Instance ID or 0 for single instance toolwindows</param>
+    /// <returns>The title string</returns>
+    protected override string GetToolWindowTitle(Type toolWindowType, int id)
+    {
+      string titulo;
+      /*//if (toolWindowType == _typeOfBookmarkToolWindowPane)
+      //  titulo = ResourcesLib.StrMarcadores;
+      //else*/
+      if (toolWindowType == _typeOfStartPageToolWindowPane)
+        titulo = Constantes.WSPackStartPageTitle;
+      else
+        titulo = base.GetToolWindowTitle(toolWindowType, id);
+      return titulo;
+    }
+
+    /// <summary>
+    /// Performs initialization in preparation for creating the tool window identified by
+    ///             <paramref name="toolWindowType" />.
+    /// </summary>
+    /// <param name="toolWindowType">Type of the window to be created</param>
+    /// <param name="id">Instance ID or 0 for single instance toolwindows</param>
+    /// <param name="cancellationToken">A cancellation token to monitor for initialization cancellation, which can occur when VS is shutting down.</param>
+    /// <returns>
+    ///             A task representing the initialization work.  The result of the task is a context
+    ///             object that will be passed to the passed to the matching <see cref="T:Microsoft.VisualStudio.Shell.ToolWindowPane" />
+    ///             constructor. If no object needs to be passed to the pane constructor,
+    ///             <see cref="F:Microsoft.VisualStudio.Shell.Package.ToolWindowCreationContext.Unspecified" /> can be returned.  In this case,
+    ///             the pane's default constructor will be invoked.
+    ///             </returns>
+    protected override async Task<object> InitializeToolWindowAsync(Type toolWindowType, int id, CancellationToken cancellationToken)
+    {
+      /*if (toolWindowType == _typeOfBookmarkToolWindowPane)
+      {
+        object state = "Não funcionou";
+        var t = Task.Run(() =>
+        {
+          Utils.LogDebugMessage("Carregar os marcadores");
+          state = "funcionou";
+        }).ConfigureAwait(false);
+        await t;
+
+        return state;
+      }
+      else*/
+      if (toolWindowType == _typeOfStartPageToolWindowPane)
+      {
+        object startPageState = "CarregarProjetos";
+        return startPageState;
+      }
+      else
+        return "ToolWindowDesconhecida";
     }
     #endregion
   }

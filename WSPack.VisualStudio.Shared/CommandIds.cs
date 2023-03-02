@@ -70,14 +70,13 @@ namespace WSPack.VisualStudio.Shared.Commands
     internal const int GotoBookmark0 = 0x0153;
     internal const int BookmarkWindow = 0x0154;
     internal const int ClearAllBookmarks = 0x0155;
-
     internal const int TemplateCheckIn = 0x0156;
     internal const int CollapseAllIncludedPendingChanges = 0x0157;
     internal const int CollapseAllExcludedPendingChanges = 0x0158;
     internal const int GenerateResource = 0x0159;
     internal const int MessageBoxTester = 0x0160;
     internal const int WorkOffline = 0x0161;
-
+    internal const int WSPackStartPage = 0x0162;
     internal const int SolutionExplorerLocalizarItem = 0x0163;
     internal const int SourceControlExplorerLocateItem = 0x0164;
     internal const int ProjectCommandLineArgs = 0x0165;

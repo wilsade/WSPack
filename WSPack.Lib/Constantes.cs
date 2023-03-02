@@ -39,5 +39,10 @@
     /// string representando: [Gerenciador...]
     /// </summary>
     public static readonly string GerenciadorFavoritos = "[Gerenciador...]";
+
+    /// <summary>
+    /// Título para a StartPage: StartPage (WSPack)
+    /// </summary>
+    public static readonly string WSPackStartPageTitle = $"Página inicial";
   }
 }

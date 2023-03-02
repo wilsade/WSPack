@@ -319,6 +319,9 @@
       <Link>Commands\StartupProjectCommandLineArgsCommand.cs</Link>
       <DependentUpon>ProjectCommandLineArgsBaseCommand.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\StartPageCommand.cs">
+      <Link>Commands\StartPageCommand.cs</Link>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\TemplateCheckInCommand.cs">
       <Link>Commands\TemplateCheckInCommand.cs</Link>
     </Compile>
@@ -663,6 +666,9 @@
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\StreamWrapper.cs">
       <Link>StreamWrapper.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\ToolWindows\StartPageToolWindowPane.cs">
+      <Link>ToolWindows\StartPageToolWindowPane.cs</Link>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\UserControls\DocumentationConditionControl.cs">
       <Link>UserControls\DocumentationConditionControl.cs</Link>
