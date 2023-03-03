@@ -16,11 +16,13 @@ using Microsoft.VisualStudio.Shell.Settings;
 
 using WSPack.Lib;
 using WSPack.Lib.Extensions;
+using WSPack.Lib.WPF;
 using WSPack.VisualStudio.Shared;
 using WSPack.VisualStudio.Shared.Commands;
 using WSPack.VisualStudio.Shared.MEFObjects.Bookmarks;
 using WSPack.VisualStudio.Shared.Options;
 using WSPack.VisualStudio.Shared.ToolWindows;
+using WSPack.VisualStudio.Shared.WPFs;
 
 using Task = System.Threading.Tasks.Task;
 
@@ -248,6 +250,7 @@ namespace WSPack
       await ClearAllBookmarksCommand.InitializeAsync(this, commandService);
 
       await DocumentationCommand.InitializeAsync(this, commandService);
+      VisualSutioFlexStylerController.Instance.Controller = new VisualSutioStylerController();
       await StartPageCommand.InitializeAsync(this, commandService);
 
       _ = new SourceControlSolutionController();

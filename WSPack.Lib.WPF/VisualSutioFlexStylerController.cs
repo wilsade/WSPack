@@ -8,7 +8,7 @@ using System.Windows;
 
 namespace WSPack.Lib.WPF
 {
-  class VisualSutioFlexStylerController
+  public class VisualSutioFlexStylerController
   {
     static VisualSutioFlexStylerController _instance;
     static readonly object _locker = new object();
@@ -18,22 +18,22 @@ namespace WSPack.Lib.WPF
     /// </summary>
     public VisualSutioFlexStylerController()
     {
-      if (DesignerProperties.GetIsInDesignMode(new DependencyObject()))
-        return;
+      //if (DesignerProperties.GetIsInDesignMode(new DependencyObject()))
+      //  return;
 
-      string location = typeof(VisualSutioFlexStylerController).Assembly.Location;
-      string path = Path.GetDirectoryName(location);
+      //string location = typeof(VisualSutioFlexStylerController).Assembly.Location;
+      //string path = Path.GetDirectoryName(location);
 
-      var regex = new Regex("WSPack\\d+\\.dll", RegexOptions.IgnoreCase | RegexOptions.Compiled);
-      string file = Directory.EnumerateFiles(path, "WSPack*.dll", SearchOption.TopDirectoryOnly)
-        .FirstOrDefault(x => regex.IsMatch(x));
+      //var regex = new Regex("WSPack\\d+\\.dll", RegexOptions.IgnoreCase | RegexOptions.Compiled);
+      //string file = Directory.EnumerateFiles(path, "WSPack*.dll", SearchOption.TopDirectoryOnly)
+      //  .FirstOrDefault(x => regex.IsMatch(x));
 
-      Assembly asm = Assembly.LoadFile(file);
-      Type tipo = asm.GetType("WSPack.VisualStudio.Shared.WPFs.VisualSutioStylerController");
-      Controller = Activator.CreateInstance(tipo) as IVisualSutioStylerController;
+      //Assembly asm = Assembly.LoadFile(file);
+      //Type tipo = asm.GetType("WSPack.VisualStudio.Shared.WPFs.VisualSutioStylerController");
+      //Controller = Activator.CreateInstance(tipo) as IVisualSutioStylerController;
     }
 
-    public IVisualSutioStylerController Controller { get; }
+    public IVisualSutioStylerController Controller { get; set; }
 
     /// <summary>
     /// Devolve a instãncia da classe: <see cref="VisualSutioFlexStylerController"/>
