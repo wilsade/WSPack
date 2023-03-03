@@ -278,8 +278,16 @@ namespace WSPack.Lib.DocumentationObjects
     /// <returns>Objeto para manipulação do summary</returns>
     public static XMLSummaryDocObj LoadOrCreate(string xmlContent)
     {
-      var obj = new XMLSummaryDocObj(xmlContent);
-      return obj;
+      try
+      {
+        var obj = new XMLSummaryDocObj(xmlContent);
+        return obj;
+      }
+      catch (Exception ex)
+      {
+        throw new Exception("Não foi possível ler a estrutura XML do summary." + Environment.NewLine +
+          "Favor verificar se existem caracteres XML especials no conteúdo do comentário.", ex);
+      }
     }
   }
 }
