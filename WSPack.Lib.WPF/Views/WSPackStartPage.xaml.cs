@@ -1,4 +1,7 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
+
+using WSPack.Lib.WPF.ViewModel;
 
 namespace WSPack.Lib.WPF.Views
 {
@@ -7,9 +10,21 @@ namespace WSPack.Lib.WPF.Views
   /// </summary>
   public partial class WSPackStartPage : UserControl
   {
+    internal StartPageViewModel _startPageViewModel;
+    internal static WSPackStartPage userControlDaStartPage;
+
+    /// <summary>
+    /// Inicialização da classe: <see cref="WSPackStartPage"/>.
+    /// </summary>
     public WSPackStartPage()
     {
       InitializeComponent();
+      if (System.ComponentModel.DesignerProperties.GetIsInDesignMode(new DependencyObject()))
+      {
+        _startPageViewModel = new StartPageViewModel();
+        DataContext = _startPageViewModel;
+        userControlDaStartPage = this;
+      }
     }
   }
 }

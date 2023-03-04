@@ -51,6 +51,16 @@
   <ItemGroup>
     <Compile Include="CommonLib\WSTextBlock.cs" />
     <Compile Include="IVisualSutioStylerController.cs" />
+    <Compile Include="Model\BaseModel.cs" />
+    <Compile Include="Model\CustomCommandModel.cs" />
+    <Compile Include="Model\GroupModel.cs" />
+    <Compile Include="Model\ProjectModel.cs" />
+    <Compile Include="Model\StartPageModel.cs" />
+    <Compile Include="Model\TFSProjectModel.cs" />
+    <Compile Include="SupportLib\ObservableObject.cs" />
+    <Compile Include="SupportLib\PropertySupport.cs" />
+    <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\StartPageViewModel.cs" />
     <Compile Include="Views\WSPackStartPage.xaml.cs">
       <DependentUpon>WSPackStartPage.xaml</DependentUpon>
     </Compile>
@@ -89,6 +99,12 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WSPack.Lib\WSPack.Lib.csproj">
+      <Project>{fc678443-87df-4a89-8a2f-a1cf1d69f51a}</Project>
+      <Name>WSPack.Lib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

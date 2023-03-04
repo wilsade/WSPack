@@ -11,7 +11,6 @@ namespace WSPack.Lib.WPF
   public class VisualSutioFlexStylerController
   {
     static VisualSutioFlexStylerController _instance;
-    static readonly object _locker = new object();
 
     /// <summary>
     /// Inicialização da classe: <see cref="VisualSutioFlexStylerController"/>.
@@ -40,16 +39,6 @@ namespace WSPack.Lib.WPF
     /// </summary>
     /// <value>Instância da classe: <see cref="VisualSutioFlexStylerController"/></value>
     public static VisualSutioFlexStylerController Instance
-    {
-      get
-      {
-        lock (_locker)
-        {
-          if (_instance == null)
-            _instance = new VisualSutioFlexStylerController();
-          return _instance;
-        }
-      }
-    }
+      => _instance ?? (_instance = new VisualSutioFlexStylerController());
   }
 }
