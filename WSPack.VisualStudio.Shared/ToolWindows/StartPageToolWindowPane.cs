@@ -22,7 +22,7 @@ namespace WSPack.VisualStudio.Shared.ToolWindows
     public const string StartPageGuidString = "9A72FF2F-4FA5-42B4-A5BA-D83DC0A498A7";
 
     /// <summary>
-    /// Inicialização da classe: <see cref="BookmarkToolWindowPane" />.
+    /// Inicialização da classe: <see cref="StartPageToolWindowPane" />.
     /// </summary>
     /// <param name="state">State</param>
     public StartPageToolWindowPane(object state)
@@ -35,11 +35,13 @@ namespace WSPack.VisualStudio.Shared.ToolWindows
 
       _ = System.Threading.Tasks.Task.Run(() =>
       {
-        //_ = startPageControl.LoadAsync();
+#pragma warning disable VSTHRD002 // Avoid problematic synchronous waits
+        startPageControl.LoadAsync(WSPackConsts.StartPageConfigPath).GetAwaiter().GetResult();
+#pragma warning restore VSTHRD002 // Avoid problematic synchronous waits
       })
         .ContinueWith(x =>
         {
-          //startPageControl.Configure();
+          startPageControl.Configure();
           Caption = Constantes.WSPackStartPageTitle;
         }, TaskScheduler.FromCurrentSynchronizationContext());
 

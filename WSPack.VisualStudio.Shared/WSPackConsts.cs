@@ -28,5 +28,10 @@ namespace WSPack.VisualStudio.Shared
     public static string DocumentationConfigPath = Path.Combine(
       WSPackPackage.ParametrosDocumentation.DocumentationPath, "WSPackDocumentation.cfg");
 
+    /// <summary>
+    /// Caminho do arquivo de configuração da StartPage
+    /// </summary>
+    public static string StartPageConfigPath = Path.Combine(
+      WSPackPackage.ParametrosGerais.WSPackConfigPath, "WSPackStartPage.cfg");
   }
 }

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 
 using WSPack.Lib.WPF.ViewModel;
@@ -25,6 +26,17 @@ namespace WSPack.Lib.WPF.Views
         DataContext = _startPageViewModel;
         userControlDaStartPage = this;
       }
+    }
+
+    public async Task LoadAsync(string startPageConfigPath)
+    {
+      _startPageViewModel = await StartPageViewModel.CreateOrLoadFromFileAsync(startPageConfigPath);
+    }
+
+    public void Configure()
+    {
+      DataContext = _startPageViewModel;
+      userControlDaStartPage = this;
     }
   }
 }

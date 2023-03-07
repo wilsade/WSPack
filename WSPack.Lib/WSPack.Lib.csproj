@@ -248,7 +248,7 @@
     <None Include="Resources\Arrow-Down_vs.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Arrow_Up_vs.png" />
+    <Resource Include="Resources\Arrow_Up_vs.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

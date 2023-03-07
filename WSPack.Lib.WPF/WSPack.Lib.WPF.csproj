@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -49,6 +50,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommonLib\WSGrid.cs" />
     <Compile Include="CommonLib\WSTextBlock.cs" />
     <Compile Include="IVisualSutioStylerController.cs" />
     <Compile Include="Model\BaseModel.cs" />
@@ -59,12 +61,27 @@
     <Compile Include="Model\TFSProjectModel.cs" />
     <Compile Include="SupportLib\ObservableObject.cs" />
     <Compile Include="SupportLib\PropertySupport.cs" />
+    <Compile Include="SupportLib\RelayCommand.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\GroupViewModel.cs" />
+    <Compile Include="ViewModel\GroupViewModel.Properties.cs">
+      <DependentUpon>GroupViewModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\StartPageViewModel.Commands.cs">
+      <DependentUpon>StartPageViewModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\StartPageViewModel.cs" />
+    <Compile Include="Views\StartPageEditWindow.xaml.cs">
+      <DependentUpon>StartPageEditWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\WSPackStartPage.xaml.cs">
       <DependentUpon>WSPackStartPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="VisualSutioFlexStylerController.cs" />
+    <Page Include="CommonLib\StartPageResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -72,6 +89,10 @@
     <Compile Include="CustomControl1.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\StartPageEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\WSPackStartPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -105,6 +126,10 @@
       <Project>{fc678443-87df-4a89-8a2f-a1cf1d69f51a}</Project>
       <Name>WSPack.Lib</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\startPage.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

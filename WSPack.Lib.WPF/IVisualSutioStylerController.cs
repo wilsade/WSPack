@@ -22,5 +22,10 @@ namespace WSPack.Lib.WPF
     /// </summary>
     /// <returns>Group header style key</returns>
     object GetGroupHeaderStyleKey();
+
+    /// <summary>
+    /// Tool window background brush key
+    /// </summary>
+    object GetToolWindowBackgroundBrushKey();
   }
 }

@@ -93,5 +93,6 @@ namespace WSPack.VisualStudio.Shared.WPFs
 
     object IVisualSutioStylerController.GetGroupHeaderForegroundKey() => GroupHeaderForegroundKey;
     object IVisualSutioStylerController.GetGroupHeaderStyleKey() => GroupHeaderStyleKey;
+    object IVisualSutioStylerController.GetToolWindowBackgroundBrushKey() => ToolWindowBackgroundBrushKey;
   }
 }

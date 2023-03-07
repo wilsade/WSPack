@@ -1,0 +1,34 @@
+﻿<Window
+    x:Class="WSPack.Lib.WPF.Views.StartPageEditWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:commonLib="clr-namespace:WSPack.Lib.WPF.CommonLib"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Edição da página inicial"
+    Icon="..\Resources\startpage.png"
+    WindowStartupLocation="CenterScreen"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+
+    <commonLib:WSGrid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackPanel x:Name="painelBotoesGrupos" Grid.Row="0" Grid.Column="0"
+                    Margin="0,0,0,3"
+                    Orientation="Horizontal">
+            <Button Name="btnMoveGroupUp"
+                    Margin="3,0,0,0"
+                    Background="Transparent"
+                    ToolTip="Alterar a ordem do grupo movendo-o para cima">
+                <Image
+                        Width="16"
+                        Height="16"
+                        Source="/WSPack.Lib;Component/Resources/Arrow_Up_vs.png" />
+            </Button>
+        </StackPanel>
+    </commonLib:WSGrid>
+</Window>

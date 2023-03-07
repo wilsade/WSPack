@@ -9,7 +9,15 @@
     d:DesignWidth="800"
     mc:Ignorable="d">
 
-    <Grid>
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\CommonLib\StartPageResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid ContextMenu="{StaticResource menuStartPage}">
 
         <!-- Coluna de projetos -->
         <Grid>
