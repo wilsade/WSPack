@@ -27,5 +27,17 @@ namespace WSPack.Lib.WPF
     /// Tool window background brush key
     /// </summary>
     object GetToolWindowBackgroundBrushKey();
+
+    /// <summary>
+    /// Recuperar o foreground
+    /// </summary>
+    /// <returns>Foreground</returns>
+    object GetForeground();
+
+    /// <summary>
+    /// Recuperar o background
+    /// </summary>
+    /// <returns>Background</returns>
+    object GetBackground();
   }
 }

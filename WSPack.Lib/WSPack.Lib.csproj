@@ -245,10 +245,16 @@
     <None Include="Resources\Parameter_16x.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Arrow-Down_vs.png" />
+    <Resource Include="Resources\Arrow-Down_vs.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Arrow_Up_vs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\NewFileCollection_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\icon-delete.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

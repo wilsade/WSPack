@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommonLib\WSGrid.cs" />
+    <Compile Include="CommonLib\WSImageButton.cs" />
     <Compile Include="CommonLib\WSTextBlock.cs" />
     <Compile Include="IVisualSutioStylerController.cs" />
     <Compile Include="Model\BaseModel.cs" />
@@ -71,6 +72,9 @@
       <DependentUpon>StartPageViewModel.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\StartPageViewModel.cs" />
+    <Compile Include="Views\StartPageEditToolbarControl.xaml.cs">
+      <DependentUpon>StartPageEditToolbarControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\StartPageEditWindow.xaml.cs">
       <DependentUpon>StartPageEditWindow.xaml</DependentUpon>
     </Compile>
@@ -89,6 +93,10 @@
     <Compile Include="CustomControl1.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\StartPageEditToolbarControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\StartPageEditWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
