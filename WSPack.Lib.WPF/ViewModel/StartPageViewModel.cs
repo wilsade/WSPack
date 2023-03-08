@@ -21,6 +21,7 @@ namespace WSPack.Lib.WPF.ViewModel
   public partial class StartPageViewModel : BaseViewModel
   {
     readonly StartPageModel _starPageModel;
+    GroupViewModel _selectedGroup;
     ObservableCollection<GroupViewModel> _lstGroups;
 
     #region Construtores
@@ -89,10 +90,10 @@ namespace WSPack.Lib.WPF.ViewModel
 
               esteGrupo.PropertyChanged += (x, y) =>
               {
-                //if (y.PropertyName == nameof(esteGrupo.GroupId))
-                //{
-                //  instance.RaisePropertyChanged(nameof(GroupList));
-                //}
+                if (y.PropertyName == nameof(esteGrupo.GroupId))
+                {
+                  instance.RaisePropertyChanged(nameof(GroupList));
+                }
               };
 
               //foreach (var esteProjeto in esteGrupo.ProjectList)

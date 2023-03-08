@@ -39,5 +39,11 @@ namespace WSPack.Lib.WPF
     /// </summary>
     /// <returns>Background</returns>
     object GetBackground();
+
+    /// <summary>
+    /// Recuperar o start page text control link selected key
+    /// </summary>
+    /// <returns>Start page text control link selected key</returns>
+    object GetStartPageTextControlLinkSelectedKey();
   }
 }

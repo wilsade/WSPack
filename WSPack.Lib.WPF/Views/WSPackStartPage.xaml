@@ -5,6 +5,8 @@
     xmlns:commonLib="clr-namespace:WSPack.Lib.WPF.CommonLib"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodel="clr-namespace:WSPack.Lib.WPF.ViewModel"
+    d:DataContext="{d:DesignInstance Type=viewmodel:StartPageViewModel}"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
@@ -12,7 +14,7 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="..\CommonLib\StartPageResources.xaml"/>
+                <ResourceDictionary Source="..\CommonLib\StartPageResources.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
@@ -27,8 +29,51 @@
                     <commonLib:WSTextBlock x:Name="lbInformacaoEdicaoStartPage"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Text="Clique com o botão direito para criar Grupos e Projetos">
-                    </commonLib:WSTextBlock>
+                        Text="Clique com o botão direito para criar Grupos e Projetos"
+                        Visibility="{Binding HasGroups, ConverterParameter=Inverted, Converter={StaticResource xBoolToVisibilityConverter}}" />
+
+                    <ItemsControl x:Name="icGrupos"
+                        IsTabStop="False"
+                        ItemsSource="{Binding GroupList}"
+                        Visibility="{Binding HasGroups, Converter={StaticResource xBoolToVisibilityConverter}}">
+
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                    <GroupBox x:Name="gbxGrupoComProjetos"
+                                        Height="Auto"
+                                        Margin="3,3,0,0"
+                                        BorderThickness="0"
+                                        FontSize="14"
+                                        IsTabStop="False"
+                                        Tag="{Binding}">
+                                        <GroupBox.Header>
+                                            <commonLib:WSUnderlineTextBlock
+                                                Margin="3,3,0,9"
+                                                Cursor="Hand"
+                                                FontSize="20"
+                                                Text="{Binding GroupCaption}"
+                                                ToolTip="Clique para abrir um projeto e já adicioná-lo ao grupo">
+                                                <TextBlock.InputBindings>
+                                                    <MouseBinding
+                                                        Command="{Binding AddProjectAndOpenCommand}"
+                                                        MouseAction="LeftClick" />
+                                                </TextBlock.InputBindings>
+                                            </commonLib:WSUnderlineTextBlock>
+                                        </GroupBox.Header>
+                                    </GroupBox>
+                                </ScrollViewer>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+
+                    </ItemsControl>
+
                 </Grid>
 
             </ScrollViewer>

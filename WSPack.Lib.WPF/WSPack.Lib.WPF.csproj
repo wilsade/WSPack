@@ -60,6 +60,8 @@
     <Compile Include="Model\ProjectModel.cs" />
     <Compile Include="Model\StartPageModel.cs" />
     <Compile Include="Model\TFSProjectModel.cs" />
+    <Compile Include="SupportLib\BoolToBaseVisibilityConverter.cs" />
+    <Compile Include="SupportLib\BoolToVisibilityConverter.cs" />
     <Compile Include="SupportLib\ObservableObject.cs" />
     <Compile Include="SupportLib\PropertySupport.cs" />
     <Compile Include="SupportLib\RelayCommand.cs" />
@@ -72,6 +74,10 @@
       <DependentUpon>StartPageViewModel.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\StartPageViewModel.cs" />
+    <Compile Include="ViewModel\StartPageViewModel.Properties.cs">
+      <DependentUpon>StartPageViewModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\WPFExtensions.cs" />
     <Compile Include="Views\StartPageEditToolbarControl.xaml.cs">
       <DependentUpon>StartPageEditToolbarControl.xaml</DependentUpon>
     </Compile>

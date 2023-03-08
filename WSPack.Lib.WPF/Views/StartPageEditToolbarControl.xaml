@@ -6,6 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:WSPack.Lib.WPF.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodel="clr-namespace:WSPack.Lib.WPF.ViewModel"
+    d:DataContext="{d:DesignInstance Type=viewmodel:StartPageViewModel}"
     d:DesignHeight="25"
     d:DesignWidth="400"
     mc:Ignorable="d">
@@ -25,7 +27,9 @@
         <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
         <commonLib:WSImageButton
             Background="Transparent"
-            MyImage="NewFileCollection_16x.png" />
+            Command="{Binding AddGroupCommand}"
+            MyImage="NewFileCollection_16x.png"
+            ToolTip="Adicionar grupo" />
         <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
         <commonLib:WSImageButton x:Name="btnRemoveGroup"
             Background="Transparent"

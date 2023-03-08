@@ -2,15 +2,17 @@
     x:Class="WSPack.Lib.WPF.Views.StartPageEditWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:commonLib="clr-namespace:WSPack.Lib.WPF.CommonLib"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:WSPack.Lib.WPF.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodel="clr-namespace:WSPack.Lib.WPF.ViewModel"
     Title="Edição da página inicial"
-    Icon="..\Resources\startpage.png"
-    WindowStartupLocation="CenterScreen"
     Width="800"
     Height="450"
+    d:DataContext="{d:DesignInstance Type=viewmodel:StartPageViewModel}"
+    Icon="..\Resources\startpage.png"
+    WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
     <commonLib:WSGrid>
@@ -19,7 +21,13 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <local:StartPageEditToolbarControl Grid.Row="0" Grid.Column="0"
-                                           Margin="3,3,0,0"/>
-        <commonLib:WSTextBlock Text="Olha eu aqui" Grid.Row="1"/>
+            Margin="3,3,0,0" />
+
+        <StackPanel Grid.Row="1">
+            <commonLib:WSTextBlock Text="Total de grupos" />
+            <commonLib:WSTextBlock Text="{Binding GroupList.Count}" />
+        </StackPanel>
+
+
     </commonLib:WSGrid>
 </Window>
