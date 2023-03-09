@@ -16,12 +16,12 @@ namespace WSPack.Lib.WPF.CommonLib
     /// </summary>
     public WSImageButton() : base()
     {
-      if (VisualSutioFlexStylerController.Instance?.Controller == null)
+      if (WSPackFlexSupport.Instance?.VSStyler == null)
         return;
       SetResourceReference(ForegroundProperty,
-        VisualSutioFlexStylerController.Instance.Controller.GetForeground());
+        WSPackFlexSupport.Instance.VSStyler.GetForeground());
       SetResourceReference(BackgroundProperty,
-        VisualSutioFlexStylerController.Instance.Controller.GetBackground());
+        WSPackFlexSupport.Instance.VSStyler.GetBackground());
     }
 
     /// <summary>

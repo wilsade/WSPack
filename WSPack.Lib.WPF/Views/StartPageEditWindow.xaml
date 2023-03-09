@@ -23,11 +23,26 @@
         <local:StartPageEditToolbarControl Grid.Row="0" Grid.Column="0"
             Margin="3,3,0,0" />
 
-        <StackPanel Grid.Row="1">
-            <commonLib:WSTextBlock Text="Total de grupos" />
-            <commonLib:WSTextBlock Text="{Binding GroupList.Count}" />
-        </StackPanel>
+        <ListBox Name="listaGrupos" Grid.Row="1"
+            BorderThickness="0"
+            ItemsSource="{Binding GroupList}"
+            SelectedItem="{Binding SelectedGroup}">
 
+            <!-- Painel para os grupos -->
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Vertical" />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+
+            <!-- Definir controles para os items do grupo -->
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <commonLib:WSTextBlock Text="{Binding GroupCaption}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+
+        </ListBox>
 
     </commonLib:WSGrid>
 </Window>

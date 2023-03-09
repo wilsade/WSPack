@@ -13,10 +13,10 @@ namespace WSPack.Lib.WPF.CommonLib
     /// </summary>
     public WSGrid() : base()
     {
-      if (VisualSutioFlexStylerController.Instance?.Controller == null)
+      if (WSPackFlexSupport.Instance?.VSStyler == null)
         return;
       SetResourceReference(BackgroundProperty,
-        VisualSutioFlexStylerController.Instance.Controller.GetToolWindowBackgroundBrushKey());
+        WSPackFlexSupport.Instance.VSStyler.GetToolWindowBackgroundBrushKey());
     }
   }
 }

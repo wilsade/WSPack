@@ -29,10 +29,8 @@ namespace WSPack.Lib.WPF.ViewModel
           {
             DataContext = this
           };
-          if (window.ShowDialog() ?? true)
-          {
-            MessageBoxUtils.ShowWarning("Atualizar");
-          }
+          window.ShowDialog();
+          Save();
         }
         var comando = new RelayCommand(edit);
         return comando;

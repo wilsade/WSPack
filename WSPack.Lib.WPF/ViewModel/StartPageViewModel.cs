@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Input;
+using System.Windows;
 using System.Xml.Serialization;
 
 using WSPack.Lib.WPF.Model;
-using WSPack.Lib.WPF.SupportLib;
-using WSPack.Lib.WPF.Views;
 
 namespace WSPack.Lib.WPF.ViewModel
 {
@@ -26,7 +22,7 @@ namespace WSPack.Lib.WPF.ViewModel
 
     #region Construtores
     /// <summary>
-    /// Inicialização da classe: <see cref="StartPageViewModel"/>.
+    /// Inicialização da classe: <see cref="StartPageViewModel" />.
     /// </summary>
     public StartPageViewModel()
     {
@@ -55,17 +51,18 @@ namespace WSPack.Lib.WPF.ViewModel
     /// Cria o modelo de visão da StartPage, seja via arquivo de configuração ou modelo em branco
     /// </summary>
     /// <param name="fileName">Nome do arquivo de configuração da StartPage</param>
-    /// <returns>Instância de <see cref="StartPageViewModel"/></returns>
-    public static async Task<StartPageViewModel> CreateOrLoadFromFileAsync(string fileName)
+    /// <param name="onError">Acontece em caso de erro</param>
+    /// <returns>Instância de <see cref="StartPageViewModel" /></returns>
+    public static async Task<StartPageViewModel> CreateOrLoadFromFileAsync()
     {
       Task<StartPageViewModel> task = Task.Run(() =>
       {
         StartPageViewModel instance = null;
 
         // Arquivo existe. Vamos ler a configuração existente.
-        if (File.Exists(fileName))
+        if (File.Exists(WSPackFlexSupport.Instance.PackSupport.StartPageConfigPath))
         {
-          using (var reader = new StreamReader(fileName))
+          using (var reader = new StreamReader(WSPackFlexSupport.Instance.PackSupport.StartPageConfigPath))
           {
             var serializer = new XmlSerializer(typeof(StartPageViewModel));
             //_deserializing = true;
@@ -109,7 +106,7 @@ namespace WSPack.Lib.WPF.ViewModel
         else
         {
           instance = new StartPageViewModel();
-          using (var writer = new StreamWriter(fileName, false, Encoding.UTF8))
+          using (var writer = new StreamWriter(WSPackFlexSupport.Instance.PackSupport.StartPageConfigPath, false, Encoding.UTF8))
           {
             XmlSerializer serializer = new XmlSerializer(typeof(StartPageViewModel));
             serializer.Serialize(writer, instance);
@@ -122,6 +119,30 @@ namespace WSPack.Lib.WPF.ViewModel
       return await task;
     }
 
+    /// <summary>
+    /// Salva o modelo no arquivo de configuração
+    /// </summary>
+    public void Save()
+    {
+      if (System.ComponentModel.DesignerProperties.GetIsInDesignMode(new DependencyObject()))
+        return;
+
+      //if (_deserializing)
+      //  return;
+
+      try
+      {
+        using (var writer = new StreamWriter(WSPackFlexSupport.Instance.PackSupport.StartPageConfigPath, false, Encoding.UTF8))
+        {
+          XmlSerializer serializer = new XmlSerializer(typeof(StartPageViewModel));
+          serializer.Serialize(writer, Instance);
+        }
+      }
+      catch (Exception ex)
+      {
+        WSPackFlexSupport.Instance.PackSupport.LogError($"Não foi possível salvar as configurações do arquivo da StartPage: {ex.Message}");
+      }
+    }
 
   }
 }

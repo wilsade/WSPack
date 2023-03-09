@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -28,11 +29,18 @@ namespace WSPack.Lib.WPF.Views
       }
     }
 
-    public async Task LoadAsync(string startPageConfigPath)
+    /// <summary>
+    /// Carregar a página inicial
+    /// </summary>
+    /// <returns>Task</returns>
+    public async Task LoadAsync()
     {
-      _startPageViewModel = await StartPageViewModel.CreateOrLoadFromFileAsync(startPageConfigPath);
+      _startPageViewModel = await StartPageViewModel.CreateOrLoadFromFileAsync();
     }
 
+    /// <summary>
+    /// Configurar
+    /// </summary>
     public void Configure()
     {
       DataContext = _startPageViewModel;

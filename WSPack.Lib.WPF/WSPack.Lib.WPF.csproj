@@ -54,6 +54,7 @@
     <Compile Include="CommonLib\WSImageButton.cs" />
     <Compile Include="CommonLib\WSTextBlock.cs" />
     <Compile Include="IVisualSutioStylerController.cs" />
+    <Compile Include="IWSPackSupport.cs" />
     <Compile Include="Model\BaseModel.cs" />
     <Compile Include="Model\CustomCommandModel.cs" />
     <Compile Include="Model\GroupModel.cs" />
@@ -87,7 +88,7 @@
     <Compile Include="Views\WSPackStartPage.xaml.cs">
       <DependentUpon>WSPackStartPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="VisualSutioFlexStylerController.cs" />
+    <Compile Include="WSPackFlexSupport.cs" />
     <Page Include="CommonLib\StartPageResources.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

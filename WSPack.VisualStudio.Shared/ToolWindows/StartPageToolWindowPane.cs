@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 
-using Microsoft.VisualStudio.Shell;
+using mvs = Microsoft.VisualStudio.Shell;
 
 using WSPack.Lib;
 using WSPack.Lib.Properties;
@@ -14,7 +14,7 @@ namespace WSPack.VisualStudio.Shared.ToolWindows
   /// Disponibilizar a janela da página inicial
   /// </summary>
   [Guid(StartPageGuidString)]
-  public class StartPageToolWindowPane : ToolWindowPane
+  public class StartPageToolWindowPane : mvs.ToolWindowPane
   {
     /// <summary>
     /// StartPageGuidString
@@ -28,15 +28,15 @@ namespace WSPack.VisualStudio.Shared.ToolWindows
     public StartPageToolWindowPane(object state)
           : base()
     {
-      ThreadHelper.ThrowIfNotOnUIThread($"Construtor: {nameof(StartPageToolWindowPane)}");
+      mvs.ThreadHelper.ThrowIfNotOnUIThread($"Construtor: {nameof(StartPageToolWindowPane)}");
       Caption = $"{Constantes.WSPackStartPageTitle} [{ResourcesLib.StrIniciando}]";
       var startPageControl = new WSPackStartPage();
       base.Content = startPageControl;
 
-      _ = System.Threading.Tasks.Task.Run(() =>
+      _ = Task.Run(() =>
       {
 #pragma warning disable VSTHRD002 // Avoid problematic synchronous waits
-        startPageControl.LoadAsync(WSPackConsts.StartPageConfigPath).GetAwaiter().GetResult();
+        startPageControl.LoadAsync().GetAwaiter().GetResult();
 #pragma warning restore VSTHRD002 // Avoid problematic synchronous waits
       })
         .ContinueWith(x =>

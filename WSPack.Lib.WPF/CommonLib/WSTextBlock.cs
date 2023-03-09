@@ -15,13 +15,13 @@ namespace WSPack.Lib.WPF.CommonLib
     public WSTextBlock()
       : base()
     {
-      if (VisualSutioFlexStylerController.Instance?.Controller == null)
+      if (WSPackFlexSupport.Instance?.VSStyler == null)
         return;
 
       SetResourceReference(Control.ForegroundProperty,
-        VisualSutioFlexStylerController.Instance.Controller.GetGroupHeaderForegroundKey());
+        WSPackFlexSupport.Instance.VSStyler.GetGroupHeaderForegroundKey());
       SetResourceReference(StyleProperty,
-        VisualSutioFlexStylerController.Instance.Controller.GetGroupHeaderStyleKey());
+        WSPackFlexSupport.Instance.VSStyler.GetGroupHeaderStyleKey());
     }
   }
 

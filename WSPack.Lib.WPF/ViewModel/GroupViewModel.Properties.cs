@@ -1,5 +1,7 @@
-﻿using System.Xml.Serialization;
+﻿using System.Linq;
+using System.Xml.Serialization;
 
+using WSPack.Lib.Extensions;
 namespace WSPack.Lib.WPF.ViewModel
 {
   partial class GroupViewModel
@@ -29,11 +31,11 @@ namespace WSPack.Lib.WPF.ViewModel
       {
         if (!string.IsNullOrWhiteSpace(value))
         {
-          //if (Parent?.GroupList == null || !Parent.GroupList.Any(x => x.GroupCaption.EqualsInsensitive(value)))
-          //{
-          //  _groupModel.Caption = value;
-          //  RaisePropertyChanged(nameof(GroupCaption));
-          //}
+          if (Parent?.GroupList == null || !Parent.GroupList.Any(x => x.GroupCaption.EqualsInsensitive(value)))
+          {
+            _groupModel.Caption = value;
+            RaisePropertyChanged(nameof(GroupCaption));
+          }
         }
       }
     }

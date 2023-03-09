@@ -57,7 +57,7 @@ namespace WSPack
       Style = VsDockStyle.Tabbed,
       Window = "DocumentWell",
       Orientation = ToolWindowOrientation.none)]
-  public sealed class WSPackPackage : AsyncPackage, IVsPersistSolutionOpts
+  public sealed class WSPackPackage : AsyncPackage, IVsPersistSolutionOpts, IWSPackSupport
   {
     private const string UiNotSolutionBuilding = "24551deb-f034-43e9-a279-0e541241687e";
     static readonly Type _typeOfStartPageToolWindowPane = typeof(StartPageToolWindowPane);
@@ -250,7 +250,7 @@ namespace WSPack
       await ClearAllBookmarksCommand.InitializeAsync(this, commandService);
 
       await DocumentationCommand.InitializeAsync(this, commandService);
-      VisualSutioFlexStylerController.Instance.Controller = new VisualSutioStylerController();
+      WSPackFlexSupport.Initialize(new VisualSutioStylerController(), this);
       await StartPageCommand.InitializeAsync(this, commandService);
 
       _ = new SourceControlSolutionController();
@@ -502,6 +502,17 @@ namespace WSPack
         return "ToolWindowDesconhecida";
     }
     #endregion
+
+    /// <summary>
+    /// Caminho do arquivo de configuração da StartPage
+    /// </summary>
+    string IWSPackSupport.StartPageConfigPath => WSPackConsts.StartPageConfigPath;
+
+    /// <summary>
+    /// Acontece em caso de erro
+    /// </summary>
+    /// <param name="errorMessage">Error message</param>
+    void IWSPackSupport.LogError(string errorMessage) => Utils.LogDebugError(errorMessage);
   }
 
   /// <summary>
