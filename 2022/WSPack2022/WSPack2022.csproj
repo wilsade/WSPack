@@ -327,10 +327,14 @@
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\SourceControlExplorerNavigateCommands\SCENavigateBackCommand.cs">
       <Link>Commands\SCENavigateBackCommand.cs</Link>
-	  <DependentUpon>SCENavigateBaseCommand.cs</DependentUpon>
+      <DependentUpon>SCENavigateBaseCommand.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\SourceControlExplorerNavigateCommands\SCENavigateBaseCommand.cs">
       <Link>Commands\SCENavigateBaseCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\SourceControlExplorerNavigateCommands\SCENavigateClearCommand.cs">
+      <Link>Commands\SCENavigateClearCommand.cs</Link>
+	  <DependentUpon>SCENavigateBaseCommand.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\SourceControlExplorerNavigateCommands\SCENavigationController.cs">
       <Link>Commands\SCENavigationController.cs</Link>

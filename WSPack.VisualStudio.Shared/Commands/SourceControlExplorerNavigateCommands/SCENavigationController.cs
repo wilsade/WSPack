@@ -13,6 +13,9 @@ using WSPack.VisualStudio.Shared.Extensions;
 
 namespace WSPack.VisualStudio.Shared.Commands
 {
+  /// <summary>
+  /// Controlador de navegação do SCE
+  /// </summary>
   class SCENavigationController
   {
     static readonly object _locker = new object();
