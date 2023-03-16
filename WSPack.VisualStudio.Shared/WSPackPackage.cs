@@ -256,7 +256,7 @@ namespace WSPack
       await OpenSolutionProjectStartPageCommand.InitializeAsync(this, commandService);
 
       await SCENavigateBackCommand.InitializeAsync(this, commandService);
-
+      await SCENavigateForwardCommand.InitializeAsync(this, commandService);
 
       await SCENavigateClearCommand.InitializeAsync(this, commandService);
 
