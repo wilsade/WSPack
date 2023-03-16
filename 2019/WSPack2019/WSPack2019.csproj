@@ -119,6 +119,10 @@
       <Link>Commands\SCENavigateForwardCommand.cs</Link>
       <DependentUpon>SCENavigateBaseCommand.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\SourceControlExplorerNavigateCommands\SCENavigateSolutionProjectCommand.cs">
+      <Link>Commands\SCENavigateSolutionProjectCommand.cs</Link>
+      <DependentUpon>SCENavigateBaseCommand.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\SourceControlExplorerNavigateCommands\SCENavigateUpCommand.cs">
       <Link>Commands\SCENavigateUpCommand.cs</Link>
       <DependentUpon>SCENavigateBaseCommand.cs</DependentUpon>

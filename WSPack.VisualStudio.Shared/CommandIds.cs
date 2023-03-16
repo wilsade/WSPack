@@ -89,7 +89,7 @@ namespace WSPack.VisualStudio.Shared.Commands
     internal const int SCENavigateForward = 0x0172;
     internal const int SCENavigateUp = 0x0173;
     internal const int SCENavigateClear = 0x0174;
-
+    internal const int SCENavigateSolutionProject = 0x0175;
     internal const int GotoFavoritoAtualTFS = 0x0176;
     internal const int VariaviesAmbiente = 0x0177;
     internal const int ActivityLog = 0x0178;
@@ -98,7 +98,6 @@ namespace WSPack.VisualStudio.Shared.Commands
     internal const int FlexViewHistory = 0x0181;
     internal const int FlexCompare = 0x0182;
     internal const int FlexCommit = 0x0183;
-
     internal const int FlexGitRepository = 0x0184;
     internal const int FlexSourceControlExplorerToolbar = 0x0185;
     internal const int FlexGitChanges = 0x0186;
