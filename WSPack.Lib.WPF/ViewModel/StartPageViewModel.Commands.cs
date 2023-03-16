@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 using WSPack.Lib.Extensions;
@@ -25,12 +26,14 @@ namespace WSPack.Lib.WPF.ViewModel
       {
         void edit()
         {
-          var window = new StartPageEditWindow()
-          {
-            DataContext = this
-          };
-          window.ShowDialog();
-          Save();
+#warning StartPage EdiCommand em desenvolvimento
+          MessageBox.Show(ResourcesLib.StrEmDesenvolvimento, "Aviso", MessageBoxButton.OK, MessageBoxImage.Warning);
+          //var window = new StartPageEditWindow()
+          //{
+          //  DataContext = this
+          //};
+          //window.ShowDialog();
+          //Save();
         }
         var comando = new RelayCommand(edit);
         return comando;
