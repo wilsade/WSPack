@@ -234,6 +234,16 @@ namespace WSPack.VisualStudio.Shared.Options
     [Description("Exibir um tela para escolha da branch de destino para efetuar operação de merge logo após o Check In")]
     [DefaultValue(false)]
     public bool AbrirTelaMerge { get; set; }
+
+    /// <summary>
+    /// Exibir / Esconder a página inicial ao Fechar / Abrir uma Solution
+    /// </summary>
+    [Category(OptionsPageConsts.TFS)]
+    [DisplayName("Usar menu na Barra de ferramentas do Source Control Explorer")]
+    [Description("Utilizar um controlador de menus para agrupar vários botões da " +
+      "Barra de ferramentas do Source Control Explorer.")]
+    [DefaultValue(false)]
+    public bool UseMenuControllerToolbarSCE { get; set; }
     #endregion
   }
 }

@@ -85,6 +85,8 @@ namespace WSPack.VisualStudio.Shared.Commands
     internal const int MergeInViewHistory = 0x0168;
     internal const int RestartVisualStudio = 0x0169;
     internal const int RestartVisualStudioAsADM = 0x0170;
+    internal const int SCENavigateBack = 0x0171;
+
     internal const int GotoFavoritoAtualTFS = 0x0176;
     internal const int VariaviesAmbiente = 0x0177;
     internal const int ActivityLog = 0x0178;
