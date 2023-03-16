@@ -280,6 +280,9 @@
       <Link>Commands\OpenOutputPathSolutionExplorerCommand.cs</Link>
       <DependentUpon>OpenOutputPathBaseCommand.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\OpenSolutionProjectStartPageCommand.cs">
+      <Link>Commands\OpenSolutionProjectStartPageCommand.cs</Link>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\ParametersCommand.cs">
       <Link>Commands\ParametersCommand.cs</Link>
     </Compile>

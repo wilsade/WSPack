@@ -101,6 +101,9 @@
       <Link>Commands\LocateInTFSSolutionExplorerCommand.cs</Link>
       <DependentUpon>LocateInTFSBaseCommand.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\OpenSolutionProjectStartPageCommand.cs">
+      <Link>Commands\OpenSolutionProjectStartPageCommand.cs</Link>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\StartPageCommand.cs">
       <Link>Commands\StartPageCommand.cs</Link>
     </Compile>

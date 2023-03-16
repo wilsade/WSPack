@@ -81,7 +81,7 @@ namespace WSPack.VisualStudio.Shared.Commands
     internal const int SourceControlExplorerLocateItem = 0x0164;
     internal const int ProjectCommandLineArgs = 0x0165;
     internal const int ProjectCommandLineArgsStartupProject = 0x0166;
-
+    internal const int OpenSolutionProjectStartPage = 0x0167;
     internal const int MergeInViewHistory = 0x0168;
     internal const int RestartVisualStudio = 0x0169;
     internal const int RestartVisualStudioAsADM = 0x0170;

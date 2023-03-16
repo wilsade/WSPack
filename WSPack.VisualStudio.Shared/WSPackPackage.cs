@@ -253,6 +253,7 @@ namespace WSPack
       await DocumentationCommand.InitializeAsync(this, commandService);
       WSPackFlexSupport.Initialize(new VisualSutioStylerController(), this);
       await StartPageCommand.InitializeAsync(this, commandService);
+      await OpenSolutionProjectStartPageCommand.InitializeAsync(this, commandService);
 
       _ = new SourceControlSolutionController();
 
