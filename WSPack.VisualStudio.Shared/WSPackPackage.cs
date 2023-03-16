@@ -257,7 +257,7 @@ namespace WSPack
 
       await SCENavigateBackCommand.InitializeAsync(this, commandService);
       await SCENavigateForwardCommand.InitializeAsync(this, commandService);
-
+      await SCENavigateUpCommand.InitializeAsync(this, commandService);
       await SCENavigateClearCommand.InitializeAsync(this, commandService);
 
       _ = new SourceControlSolutionController();

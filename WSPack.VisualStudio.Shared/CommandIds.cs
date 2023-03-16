@@ -87,6 +87,7 @@ namespace WSPack.VisualStudio.Shared.Commands
     internal const int RestartVisualStudioAsADM = 0x0170;
     internal const int SCENavigateBack = 0x0171;
     internal const int SCENavigateForward = 0x0172;
+    internal const int SCENavigateUp = 0x0173;
     internal const int SCENavigateClear = 0x0174;
 
     internal const int GotoFavoritoAtualTFS = 0x0176;

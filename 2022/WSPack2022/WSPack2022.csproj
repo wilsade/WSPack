@@ -338,6 +338,10 @@
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\SourceControlExplorerNavigateCommands\SCENavigateForwardCommand.cs">
       <Link>Commands\SCENavigateForwardCommand.cs</Link>
+      <DependentUpon>SCENavigateBaseCommand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\SourceControlExplorerNavigateCommands\SCENavigateUpCommand.cs">
+      <Link>Commands\SCENavigateUpCommand.cs</Link>
 	  <DependentUpon>SCENavigateBaseCommand.cs</DependentUpon>
     </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\SourceControlExplorerNavigateCommands\SCENavigationController.cs">
