@@ -620,6 +620,15 @@ namespace WSPack.Lib.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Em desenvolvimento....
+        /// </summary>
+        public static string StrEmDesenvolvimento {
+            get {
+                return ResourceManager.GetString("StrEmDesenvolvimento", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Encontrar referências.
         /// </summary>
         public static string StrEncontrarReferencias {

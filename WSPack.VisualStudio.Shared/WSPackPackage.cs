@@ -248,6 +248,7 @@ namespace WSPack
       await ToggleBookmarkBaseCommand.InitializeAsync(this, commandService);
       await GotoBookmarkCommand.InitializeAsync(this, commandService);
       await ClearAllBookmarksCommand.InitializeAsync(this, commandService);
+      await BookmarkWindowCommand.InitializeAsync(this, commandService);
 
       await DocumentationCommand.InitializeAsync(this, commandService);
       WSPackFlexSupport.Initialize(new VisualSutioStylerController(), this);

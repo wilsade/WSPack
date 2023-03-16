@@ -311,6 +311,9 @@ Esta operação não poderá ser desfeita!!!</value>
   <data name="strDocumentoPossuiMarcadores" xml:space="preserve">
     <value>Documento possui marcador(es)</value>
   </data>
+  <data name="StrEmDesenvolvimento" xml:space="preserve">
+    <value>Em desenvolvimento...</value>
+  </data>
   <data name="StrEncontrarReferencias" xml:space="preserve">
     <value>Encontrar referências</value>
   </data>
