@@ -26,7 +26,7 @@ namespace WSPack.VisualStudio.Shared.Commands
     /// </summary>
     /// <param name="package">Owner package, not null.</param>
     /// <param name="commandService">Command service to add command to, not null.</param>
-    protected ForceUTF8OnSaveCommand(AsyncPackage package, OleMenuCommandService commandService)
+    public ForceUTF8OnSaveCommand(AsyncPackage package, OleMenuCommandService commandService)
       : base(package, commandService)
     {
       ThreadHelper.ThrowIfNotOnUIThread();

@@ -45,7 +45,7 @@ namespace WSPack.VisualStudio.Shared.Commands
     /// </summary>
     /// <param name="package">Owner package, not null.</param>
     /// <param name="commandService">Command service to add command to, not null.</param>
-    protected GenerateResourceCommand(AsyncPackage package, OleMenuCommandService commandService)
+    public GenerateResourceCommand(AsyncPackage package, OleMenuCommandService commandService)
       : base(package, commandService)
     {
       if (!CreateKeyBindings("Edit.WSPack.GerarResource", "Text Editor::Ctrl+R, S", false))

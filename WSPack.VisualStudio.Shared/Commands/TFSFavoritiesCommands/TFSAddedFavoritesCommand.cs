@@ -43,7 +43,7 @@ namespace WSPack.VisualStudio.Shared.Commands
     /// </summary>
     /// <param name="package">Owner package, not null.</param>
     /// <param name="commandService">Command service to add command to, not null.</param>
-    protected TFSAddedFavoritesCommand(AsyncPackage package, OleMenuCommandService commandService)
+    public TFSAddedFavoritesCommand(AsyncPackage package, OleMenuCommandService commandService)
       : base(package, commandService)
     {
       _lstMenus = new List<OleMenuCommand>();
