@@ -96,7 +96,6 @@ namespace WSPack.VisualStudio.Shared.Commands
     protected override void DoExecute(object sender, EventArgs e)
     {
       ThreadHelper.ThrowIfNotOnUIThread();
-      VersionControlExplorerItem item = null;
       if (string.IsNullOrEmpty(_menu.ParametersDescription))
         CheckMenu();
 

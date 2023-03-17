@@ -66,13 +66,14 @@ namespace WSPack.VisualStudio.Shared.Commands
 
     (Property TrackFileSelectionInExplorer, bool OldMarcou) GetTrackFileSelectionInExplorer()
     {
+      ThreadHelper.ThrowIfNotOnUIThread();
       bool oldMarcou = false;
       Property propTrackFileSelectionInExplorer = null;
       try
       {
         propTrackFileSelectionInExplorer = WSPackPackage.Dte.Properties["Environment", "ProjectsAndSolution"].Item("TrackFileSelectionInExplorer");
-        if (propTrackFileSelectionInExplorer.Value is bool)
-          oldMarcou = (bool)propTrackFileSelectionInExplorer.Value;
+        if (propTrackFileSelectionInExplorer.Value is bool boolTrack)
+          oldMarcou = boolTrack;
       }
       catch (Exception propEx)
       {

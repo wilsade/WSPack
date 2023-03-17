@@ -55,7 +55,7 @@ namespace WSPack.VisualStudio.Shared.Commands
     /// </summary>
     /// <param name="sender">Objeto que chamou</param>
     /// <param name="e">Argumentos do evento</param>
-    public void BeforeExecute(object sender, EventArgs e)
+    protected override void BeforeExecute(object sender, EventArgs e)
     {
       _isCommandRead = true;
       var menu = sender as OleMenuCommand;

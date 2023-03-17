@@ -23,7 +23,6 @@ namespace WSPack.VisualStudio.Shared.DteProject
     IProjectServices _projectServices;
     ILaunchSettingsProvider _launchSettingsProvider;
     string _defineConstants;
-    string _targetFullPathName;
 
     class WritableLaunchProfile : ILaunchProfile
     {

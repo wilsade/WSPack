@@ -99,7 +99,7 @@ namespace WSPack.VisualStudio.Shared.Commands
     /// <param name="package">Owner package, not null.</param>
     public static void ShowStartPage(AsyncPackage package)
     {
-      package.JoinableTaskFactory.RunAsync(async () =>
+      _ = package.JoinableTaskFactory.RunAsync(async () =>
       {
         ToolWindowPane window = await package.ShowToolWindowAsync(
           typeof(StartPageToolWindowPane),
