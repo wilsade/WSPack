@@ -71,8 +71,15 @@ namespace WSPack.VisualStudio.Shared.Commands
       WSPackPackage.Instance.ScciProviderInterface.GetSourceControlProviderID(out Guid guid);
       bool isgit = guid.ToString().EqualsInsensitive(GUID_GIT);
 
-      var msg = $"Current Source Control Provider ID: {guid}";
-      Utils.LogDebugMessage($"{msg}. IsGit? {isgit}");
+      try
+      {
+        var msg = $"Current Source Control Provider ID: {guid}";
+        Utils.LogDebugMessage($"{msg}. IsGit? {isgit}");
+      }
+      catch (Exception ex)
+      {
+        Trace.WriteLine(ex.Message);
+      }
 
       return isgit;
     }

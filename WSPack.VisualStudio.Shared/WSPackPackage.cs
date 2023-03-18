@@ -222,11 +222,16 @@ namespace WSPack
       await TemplateCheckInCommand.InitializeAsync(this, commandService);
       await SearchChangesetsCommand.InitializeAsync(this, commandService);
       await SearchChangesetsSourceControlExplorerCommand.InitializeAsync(this, commandService);
+
+      await ChangeSourceControlCommand.InitializeAsync(this, commandService);
+
       await MergeHelperCommand.InitializeAsync(this, commandService);
       await MergeInViewHistoryCommand.InitializeAsync(this, commandService);
       await RestartCommand.InitializeAsync(this, commandService);
       await DisconnectAndCloseCommand.InitializeAsync(this, commandService);
+
       await WorkOfflineCommand.InitializeAsync(this, commandService);
+
       await CollapseAllIncludedPendingChangesCommand.InitializeAsync(this, commandService);
       await CollapseAllExcludedPendingChangesCommand.InitializeAsync(this, commandService);
       await DefineTabOrderCommand.InitializeAsync(this, commandService);
@@ -234,7 +239,7 @@ namespace WSPack
       await FormatOnSaveCommand.InitializeAsync(this, commandService);
       await ForceUTF8OnSaveCommand.InitializeAsync(this, commandService);
       await SolutionExplorerLocateItemCommand.InitializeAsync(this, commandService);
-      await ChangeSourceControlCommand.InitializeAsync(this, commandService);
+
       await GitPullToolbarSolutionExplorerCommand.InitializeAsync(this, commandService);
       await GitChangesCollapseAllCommand.InitializeAsync(this, commandService);
       await TFSFavoritesManagerCommand.InitializeAsync(this, commandService);
