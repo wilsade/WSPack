@@ -29,6 +29,12 @@ namespace WSPack.Lib.WPF
         VSStyler = stylerController,
         PackSupport = packSupport
       };
+
+      XamlSupport.BackgroundEx = stylerController.BackgroundEx;
+      XamlSupport.ForegroundEx = stylerController.ForegroundEx;
+      XamlSupport.ToolWindowBackgroundBrushKeyEx = stylerController.ToolWindowBackgroundBrushKeyEx;
+      XamlSupport.ToolWindowTextBrushKeyEx = stylerController.ToolWindowTextBrushKeyEx;
+      XamlSupport.StartPageTextControlLinkSelectedKeyEx = stylerController.StartPageTextControlLinkSelectedKeyEx;
     }
 
     /// <summary>
@@ -46,5 +52,14 @@ namespace WSPack.Lib.WPF
     /// Suporte a funcionalidades dependentes de classes do WSPack
     /// </summary>
     public IWSPackSupport PackSupport { get; set; }
+  }
+
+  public class XamlSupport
+  {
+    public static object BackgroundEx { get; set; }
+    public static object ForegroundEx { get; set; }
+    public static object ToolWindowBackgroundBrushKeyEx { get; set; }
+    public static object ToolWindowTextBrushKeyEx { get; set; }
+    public static object StartPageTextControlLinkSelectedKeyEx { get; set; }
   }
 }

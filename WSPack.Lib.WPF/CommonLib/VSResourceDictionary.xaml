@@ -3,31 +3,31 @@
                     xmlns:local="clr-namespace:WSPack.Lib.WPF">
 
     <Style x:Key="uiAll" TargetType="Control">
-        <Setter Property="Background" Value="{Binding WSPackFlexSupport.Instance.VSStyler.BackgroundEx }"/>
-        <Setter Property="Foreground" Value="{Binding WSPackFlexSupport.Instance.VSStyler.ForegroundEx }"/>
+        <Setter Property="Background" Value="{DynamicResource {x:Static local:XamlSupport.BackgroundEx}}"/>
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static local:XamlSupport.ForegroundEx}}"/>
     </Style>
 
     <Style x:Key="gridVSTheme" TargetType="Grid">
-        <Setter Property="Background" Value="{Binding WSPackFlexSupport.Instance.VSStyler.ToolWindowBackgroundBrushKeyEx}" />
+        <Setter Property="Background" Value="{DynamicResource {x:Static local:XamlSupport.ToolWindowBackgroundBrushKeyEx}}" />
     </Style>
 
     <Style x:Key="dataGridVSTheme" TargetType="DataGrid">
-        <Setter Property="Foreground" Value="{Binding WSPackFlexSupport.Instance.VSStyler.ToolWindowTextBrushKeyEx}" />
-        <Setter Property="Background" Value="{Binding WSPackFlexSupport.Instance.VSStyler.ToolWindowBackgroundBrushKeyEx}" />
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static local:XamlSupport.ToolWindowTextBrushKeyEx}}" />
+        <Setter Property="Background" Value="{DynamicResource {x:Static local:XamlSupport.ToolWindowBackgroundBrushKeyEx}}" />
     </Style>
 
     <Style x:Key="textBlockVSTheme" TargetType="TextBlock">
-        <Setter Property="Background" Value="{Binding WSPackFlexSupport.Instance.VSStyler.BackgroundEx }"/>
-        <Setter Property="Foreground" Value="{Binding WSPackFlexSupport.Instance.VSStyler.ForegroundEx }"/>
+        <Setter Property="Background" Value="{DynamicResource {x:Static local:XamlSupport.BackgroundEx }}"/>
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static local:XamlSupport.ForegroundEx }}"/>
     </Style>
 
     <Style x:Key="lvItemVSTheme" TargetType="ListViewItem">
         <Style.Triggers>
             <Trigger Property="IsSelected" Value="True">
-                <Setter Property="Background" Value="{Binding WSPackFlexSupport.Instance.VSStyler.ToolWindowBackgroundBrushKeyEx}" />
+                <Setter Property="Background" Value="{DynamicResource {x:Static local:XamlSupport.ToolWindowBackgroundBrushKeyEx}}" />
             </Trigger>
             <Trigger Property="IsHitTestVisible" Value="True">
-                <Setter Property="Background" Value="{Binding WSPackFlexSupport.Instance.VSStyler.ToolWindowBackgroundBrushKeyEx}" />
+                <Setter Property="Background" Value="{DynamicResource {x:Static local:XamlSupport.ToolWindowBackgroundBrushKeyEx}}" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -44,7 +44,7 @@
     </Style>
 
     <Style x:Key="panelVSTheme" TargetType="Panel">
-        <Setter Property="Background" Value="{Binding WSPackFlexSupport.Instance.VSStyler.ToolWindowBackgroundBrushKeyEx}" />
+        <Setter Property="Background" Value="{DynamicResource {x:Static local:XamlSupport.ToolWindowBackgroundBrushKeyEx}}" />
     </Style>
 
 </ResourceDictionary>

@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:lib="clr-namespace:WSPack.Lib.WPF.SupportLib"
-                    xmlns:local="clr-namespace:WSPack.Lib.WPF.CommonLib">
+                    xmlns:local="clr-namespace:WSPack.Lib.WPF">
 
     <lib:BoolToVisibilityConverter x:Key="xBoolToVisibilityConverter"/>
     <lib:BoolToScrollBarVisibilityConverter x:Key="xBoolToScrollBarVisibilityConverter" />
@@ -12,7 +12,7 @@
         <ResourceDictionary>
             <Style BasedOn="{StaticResource uiAll}" TargetType="TextBox">
                 <Setter Property="VerticalContentAlignment" Value="Center"/>
-                <Setter Property="CaretBrush" Value="{Binding WSPackFlexSupport.Instance.VSStyler.StartPageTextControlLinkSelectedKeyEx}" />
+                <Setter Property="CaretBrush" Value="{DynamicResource {x:Static local:XamlSupport.StartPageTextControlLinkSelectedKeyEx}}" />
             </Style>
             <Style BasedOn="{StaticResource uiAll}" TargetType="ListBox" />
             <Style BasedOn="{StaticResource uiAll}" TargetType="Button" />
@@ -22,7 +22,7 @@
             <Style BasedOn="{StaticResource uiAll}" TargetType="GroupBox">
                 <Setter Property="BorderThickness" Value="0.4" />
                 <Setter Property="Margin" Value="0,0,6,0" />
-                <Setter Property="BorderBrush" Value="{Binding WSPackFlexSupport.Instance.VSStyler.StartPageTextControlLinkSelectedKey}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource {x:Static local:XamlSupport.StartPageTextControlLinkSelectedKeyEx}}" />
             </Style>
             <Style BasedOn="{StaticResource panelVSTheme}" TargetType="WrapPanel" />
             <Style BasedOn="{StaticResource dataGridVSTheme}" TargetType="DataGrid" />

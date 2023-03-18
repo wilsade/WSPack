@@ -12,7 +12,18 @@ namespace WSPack.Lib.WPF.ViewModel
     /// <summary>
     /// Indica se a StarPage está carregando
     /// </summary>
-    public string InfoText { get; set; }
+    public string InfoText
+    {
+      get => _infoText;
+      set
+      {
+        if (value != null)
+        {
+          _infoText = value;
+          RaisePropertyChanged(nameof(InfoText));
+        }
+      }
+    }
 
     /// <summary>
     /// Indica se a StartPage possui algum grupo

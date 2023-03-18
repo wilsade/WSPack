@@ -20,6 +20,7 @@ namespace WSPack.Lib.WPF.ViewModel
     readonly StartPageModel _starPageModel;
     GroupViewModel _selectedGroup;
     ObservableCollection<GroupViewModel> _lstGroups;
+    string _infoText;
 
     #region Construtores
     /// <summary>
