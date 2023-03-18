@@ -16,7 +16,7 @@ namespace WSPack.Lib.WPF.CommonLib
       if (WSPackFlexSupport.Instance?.VSStyler == null)
         return;
       SetResourceReference(BackgroundProperty,
-        WSPackFlexSupport.Instance.VSStyler.GetToolWindowBackgroundBrushKey());
+        WSPackFlexSupport.Instance.VSStyler.ToolWindowBackgroundBrushKeyEx);
     }
   }
 }

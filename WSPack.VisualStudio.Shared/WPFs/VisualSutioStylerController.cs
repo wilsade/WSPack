@@ -93,9 +93,10 @@ namespace WSPack.VisualStudio.Shared.WPFs
 
     object IVisualSutioStylerController.GetGroupHeaderForegroundKey() => GroupHeaderForegroundKey;
     object IVisualSutioStylerController.GetGroupHeaderStyleKey() => GroupHeaderStyleKey;
-    object IVisualSutioStylerController.GetToolWindowBackgroundBrushKey() => ToolWindowBackgroundBrushKey;
-    object IVisualSutioStylerController.GetBackground() => Background;
-    object IVisualSutioStylerController.GetForeground() => Foreground;
-    object IVisualSutioStylerController.GetStartPageTextControlLinkSelectedKey() => StartPageTextControlLinkSelectedKey;
+    object IVisualSutioStylerController.ToolWindowBackgroundBrushKeyEx => ToolWindowBackgroundBrushKey;
+    object IVisualSutioStylerController.BackgroundEx => Background;
+    object IVisualSutioStylerController.ForegroundEx => Foreground;
+    object IVisualSutioStylerController.ToolWindowTextBrushKeyEx => ToolWindowTextBrushKey;
+    object IVisualSutioStylerController.StartPageTextControlLinkSelectedKeyEx => StartPageTextControlLinkSelectedKey;
   }
 }

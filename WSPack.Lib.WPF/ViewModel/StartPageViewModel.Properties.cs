@@ -3,11 +3,17 @@ using System.Linq;
 using System.Xml.Serialization;
 
 using WSPack.Lib.Extensions;
+using WSPack.Lib.Properties;
 
 namespace WSPack.Lib.WPF.ViewModel
 {
   partial class StartPageViewModel
   {
+    /// <summary>
+    /// Indica se a StarPage está carregando
+    /// </summary>
+    public string InfoText { get; set; }
+
     /// <summary>
     /// Indica se a StartPage possui algum grupo
     /// </summary>

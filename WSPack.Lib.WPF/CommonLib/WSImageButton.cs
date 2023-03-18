@@ -19,9 +19,9 @@ namespace WSPack.Lib.WPF.CommonLib
       if (WSPackFlexSupport.Instance?.VSStyler == null)
         return;
       SetResourceReference(ForegroundProperty,
-        WSPackFlexSupport.Instance.VSStyler.GetForeground());
+        WSPackFlexSupport.Instance.VSStyler.ForegroundEx);
       SetResourceReference(BackgroundProperty,
-        WSPackFlexSupport.Instance.VSStyler.GetBackground());
+        WSPackFlexSupport.Instance.VSStyler.BackgroundEx);
     }
 
     /// <summary>

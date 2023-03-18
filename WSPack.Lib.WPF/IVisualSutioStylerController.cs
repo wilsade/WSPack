@@ -26,24 +26,29 @@ namespace WSPack.Lib.WPF
     /// <summary>
     /// Tool window background brush key
     /// </summary>
-    object GetToolWindowBackgroundBrushKey();
-
-    /// <summary>
-    /// Recuperar o foreground
-    /// </summary>
-    /// <returns>Foreground</returns>
-    object GetForeground();
+    object ToolWindowBackgroundBrushKeyEx { get; }
 
     /// <summary>
     /// Recuperar o background
     /// </summary>
     /// <returns>Background</returns>
-    object GetBackground();
+    object BackgroundEx { get; }
+
+    /// <summary>
+    /// Recuperar o foreground
+    /// </summary>
+    /// <returns>Foreground</returns>
+    object ForegroundEx { get; }
+
+    /// <summary>
+    /// Tool window text brush key
+    /// </summary>
+    object ToolWindowTextBrushKeyEx { get; }
 
     /// <summary>
     /// Recuperar o start page text control link selected key
     /// </summary>
     /// <returns>Start page text control link selected key</returns>
-    object GetStartPageTextControlLinkSelectedKey();
+    object StartPageTextControlLinkSelectedKeyEx { get; }
   }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Xml.Serialization;
 
+using WSPack.Lib.Properties;
 using WSPack.Lib.WPF.Model;
 
 namespace WSPack.Lib.WPF.ViewModel
@@ -28,6 +29,7 @@ namespace WSPack.Lib.WPF.ViewModel
     {
       _starPageModel = new StartPageModel();
       Instance = this;
+      InfoText = ResourcesLib.StrIniciando;
       _lstGroups = new ObservableCollection<GroupViewModel>();
     }
 

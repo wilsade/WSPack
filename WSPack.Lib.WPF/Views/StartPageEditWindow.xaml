@@ -15,7 +15,16 @@
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
-    <commonLib:WSGrid>
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\CommonLib\VSResourceDictionary.xaml" />
+                <ResourceDictionary Source="..\CommonLib\DefinedControlsStyleDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -26,7 +35,8 @@
         <ListBox Name="listaGrupos" Grid.Row="1"
             BorderThickness="0"
             ItemsSource="{Binding GroupList}"
-            SelectedItem="{Binding SelectedGroup}">
+            SelectedItem="{Binding SelectedGroup}"
+            Visibility="Collapsed">
 
             <!-- Painel para os grupos -->
             <ListBox.ItemsPanel>
@@ -44,5 +54,39 @@
 
         </ListBox>
 
-    </commonLib:WSGrid>
+        <ListView Grid.Row="1"
+            ItemsSource="{Binding GroupList}"
+            SelectedItem="{Binding SelectedGroup}"
+            SelectionMode="Single"
+            Style="{StaticResource uiAll}">
+
+            <ListView.ItemContainerStyle>
+                <Style
+                    BasedOn="{StaticResource lvItemVSTheme}"
+                    TargetType="ListViewItem" />
+            </ListView.ItemContainerStyle>
+
+            <ListView.View>
+                <commonLib:AutoSizedGridView ColumnHeaderContainerStyle="{StaticResource gvcVSTheme}">
+
+                    <GridViewColumn Header="Grupo com template">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontFamily="Consolas"
+                                    Text="{Binding GroupCaption}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn
+                        DisplayMemberBinding="{Binding GroupCaption}"
+                        Header="Nome do grupo" />
+                </commonLib:AutoSizedGridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
 </Window>

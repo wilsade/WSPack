@@ -50,6 +50,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommonLib\AutoSizedGridView.cs" />
     <Compile Include="CommonLib\WSGrid.cs" />
     <Compile Include="CommonLib\WSImageButton.cs" />
     <Compile Include="CommonLib\WSTextBlock.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="Model\StartPageModel.cs" />
     <Compile Include="Model\TFSProjectModel.cs" />
     <Compile Include="SupportLib\BoolToBaseVisibilityConverter.cs" />
+    <Compile Include="SupportLib\BoolToScrollBarVisibilityConverter.cs" />
     <Compile Include="SupportLib\BoolToVisibilityConverter.cs" />
     <Compile Include="SupportLib\ObservableObject.cs" />
     <Compile Include="SupportLib\PropertySupport.cs" />
@@ -89,7 +91,15 @@
       <DependentUpon>WSPackStartPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="WSPackFlexSupport.cs" />
+    <Page Include="CommonLib\DefinedControlsStyleDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CommonLib\StartPageResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CommonLib\VSResourceDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

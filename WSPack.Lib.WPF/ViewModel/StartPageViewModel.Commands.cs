@@ -26,14 +26,12 @@ namespace WSPack.Lib.WPF.ViewModel
       {
         void edit()
         {
-#warning StartPage EdiCommand em desenvolvimento
-          MessageBox.Show(ResourcesLib.StrEmDesenvolvimento, "Aviso", MessageBoxButton.OK, MessageBoxImage.Warning);
-          //var window = new StartPageEditWindow()
-          //{
-          //  DataContext = this
-          //};
-          //window.ShowDialog();
-          //Save();
+          var window = new StartPageEditWindow()
+          {
+            DataContext = this
+          };
+          window.ShowDialog();
+          Save();
         }
         var comando = new RelayCommand(edit);
         return comando;
