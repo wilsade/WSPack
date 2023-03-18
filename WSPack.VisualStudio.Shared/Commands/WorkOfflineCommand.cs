@@ -46,7 +46,16 @@ namespace WSPack.VisualStudio.Shared.Commands
 
     private void _menu_BeforeQueryStatus(object sender, EventArgs e)
     {
+      // Se o menu do SCE não está habilitado, não é TFS
+      if (FlexSourceControlExplorerCommand.Instance != null && !FlexSourceControlExplorerCommand.Instance.IsMenuEnabled)
+      {
+        _menu.Enabled = false;
+        return;
+      }
+
       var vcService = (IVersionControlService)Package.GetGlobalService(typeof(IVersionControlService));
+
+      // Esta chamada seta o Controle de fontes para TFS
       var vcProvider = (IVersionControlProvider)Package.GetGlobalService(typeof(IVersionControlProvider));
 
       if (vcProvider == null || vcService == null)

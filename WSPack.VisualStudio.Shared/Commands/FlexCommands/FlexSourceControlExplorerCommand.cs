@@ -35,6 +35,11 @@ namespace WSPack.VisualStudio.Shared.Commands
     public static FlexSourceControlExplorerCommand Instance { get; private set; }
 
     /// <summary>
+    /// Indica se o menu está habilitado
+    /// </summary>
+    public bool IsMenuEnabled => _menu.Enabled;
+
+    /// <summary>
     /// Initializes the singleton instance of the command.
     /// </summary>
     /// <param name="package">Owner package, not null.</param>
