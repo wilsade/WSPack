@@ -46,6 +46,30 @@ namespace WSPack.Lib.WPF.ViewModel
     #endregion
 
     /// <summary>
+    /// Alterar um grupo de lugar, movendo-o para cima ou para baixo
+    /// </summary>
+    /// <param name="grupo">Grupo</param>
+    /// <param name="movingDown">Informe "true" para mover o grupo para baixo</param>
+    void ReorderGroup(GroupViewModel grupo, bool movingDown)
+    {
+      if (movingDown)
+      {
+        _lstGroups[grupo.GroupId].GroupId--;
+        grupo.GroupId++;
+      }
+
+      else
+      {
+        _lstGroups[grupo.GroupId - 2].GroupId++;
+        grupo.GroupId--;
+      }
+
+      RaisePropertyChanged(nameof(GroupList));
+      grupo.IsFocused = true;
+      SelectedGroup = grupo;
+    }
+
+    /// <summary>
     /// Recuperar a instãncia de WSStartPageViewModel
     /// </summary>
     internal static StartPageViewModel Instance { get; private set; }

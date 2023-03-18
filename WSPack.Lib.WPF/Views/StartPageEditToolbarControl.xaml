@@ -17,11 +17,17 @@
         <commonLib:WSImageButton x:Name="btnMoveGroupUp"
             Margin="3,0,0,0"
             Background="Transparent"
+            Command="{Binding MoveGroupUpCommand}"
+            CommandParameter="{Binding SelectedGroup}"
+            IsTabStop="False"
             MyImage="Arrow_Up_vs.png"
             ToolTip="Alterar a ordem do grupo movendo-o para cima" />
         <commonLib:WSImageButton x:Name="btnMoveGroupDown"
             Margin="3,0,0,0"
             Background="Transparent"
+            Command="{Binding MoveGroupDownCommand}"
+            CommandParameter="{Binding SelectedGroup}"
+            IsTabStop="False"
             MyImage="Arrow-Down_vs.png"
             ToolTip="Alterar a ordem do grupo movendo-o para baixo" />
         <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />

@@ -30,6 +30,8 @@ namespace WSPack.Lib.WPF.ViewModel
           {
             DataContext = this
           };
+          if (SelectedGroup == null)
+            SelectedGroup = GroupList?.FirstOrDefault();
           window.ShowDialog();
           Save();
         }
@@ -76,6 +78,40 @@ namespace WSPack.Lib.WPF.ViewModel
         }
 
         var comando = new RelayCommand<object>(addGroup);
+        return comando;
+      }
+    }
+
+    /// <summary>
+    /// Comando para mover um grupo para cima
+    /// </summary>
+    public ICommand MoveGroupUpCommand
+    {
+      get
+      {
+        bool canMove(GroupViewModel grupo)
+        {
+          return grupo != null && grupo.GroupId > 1;
+        }
+
+        var comando = new RelayCommand<GroupViewModel>(x => ReorderGroup(x, false), x => canMove(x));
+        return comando;
+      }
+    }
+
+    /// <summary>
+    /// Comando para mover um grupo para baixo
+    /// </summary>
+    public ICommand MoveGroupDownCommand
+    {
+      get
+      {
+        bool canMove(GroupViewModel grupo)
+        {
+          return grupo != null && grupo.GroupId < _lstGroups.Count;
+        }
+
+        var comando = new RelayCommand<GroupViewModel>(x => ReorderGroup(x, true), x => canMove(x));
         return comando;
       }
     }

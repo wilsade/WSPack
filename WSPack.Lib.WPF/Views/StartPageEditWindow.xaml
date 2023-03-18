@@ -5,6 +5,7 @@
     xmlns:commonLib="clr-namespace:WSPack.Lib.WPF.CommonLib"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:WSPack.Lib.WPF.Views"
+    xmlns:lib="clr-namespace:WSPack.Lib.WPF.SupportLib"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodel="clr-namespace:WSPack.Lib.WPF.ViewModel"
     Title="Edição da página inicial"
@@ -32,40 +33,60 @@
         <local:StartPageEditToolbarControl Grid.Row="0" Grid.Column="0"
             Margin="3,3,0,0" />
 
-        <ListView Grid.Row="1"
-            ItemsSource="{Binding GroupList}"
-            SelectedItem="{Binding SelectedGroup}"
-            SelectionMode="Single"
-            Style="{StaticResource uiAll}">
+        <DockPanel Grid.Row="1"
+            LastChildFill="True">
 
-            <ListView.ItemContainerStyle>
-                <Style
-                  BasedOn="{StaticResource lvItemVSTheme}"
-                  TargetType="ListViewItem">
-                </Style>
-            </ListView.ItemContainerStyle>
+            <!-- Listagem de grupos -->
+            <ListView
+                ItemsSource="{Binding GroupList}"
+                SelectedItem="{Binding SelectedGroup}"
+                SelectionMode="Single"
+                Style="{StaticResource uiAll}">
 
-            <ListView.View>
-                <commonLib:AutoSizedGridView ColumnHeaderContainerStyle="{StaticResource gvcVSTheme}">
+                <ListView.ItemContainerStyle>
+                    <Style
+                        BasedOn="{StaticResource lvItemVSTheme}"
+                        TargetType="ListViewItem">
+                    </Style>
+                </ListView.ItemContainerStyle>
 
-                    <GridViewColumn Header="Grupo com template">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    FontFamily="Consolas"
-                                    Text="{Binding GroupCaption}" />
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
+                <ListView.View>
+                    <commonLib:AutoSizedGridView ColumnHeaderContainerStyle="{StaticResource gvcVSTheme}">
 
-                    <GridViewColumn
-                        DisplayMemberBinding="{Binding GroupCaption}"
-                        Header="Nome do grupo" />
-                </commonLib:AutoSizedGridView>
-            </ListView.View>
-        </ListView>
+                        <GridViewColumn Header="Nome do grupo">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontFamily="Consolas"
+                                        Text="{Binding GroupCaption}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                    </commonLib:AutoSizedGridView>
+                </ListView.View>
+            </ListView>
+
+            <GroupBox
+                Width="Auto"
+                Margin="6"
+                BorderThickness="0.5"
+                Header="Detalhes do grupo"
+                Style="{StaticResource uiAll}">
+                <StackPanel Style="{StaticResource panelVSTheme}">
+                    <Label
+                        Content="Nome do grupo"
+                        Style="{StaticResource uiAll}" />
+                    <TextBox                        
+                        lib:FocusExtension.IsFocused="{Binding SelectedGroup.IsFocused, Mode=TwoWay}"
+                        Text="{Binding SelectedGroup.GroupCaption}" />
+                </StackPanel>
+
+            </GroupBox>
+
+        </DockPanel>
 
     </Grid>
 </Window>

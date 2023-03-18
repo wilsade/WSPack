@@ -12,6 +12,7 @@ namespace WSPack.Lib.WPF.ViewModel
     /// <summary>
     /// Indica se a StarPage está carregando
     /// </summary>
+    [XmlIgnore]
     public string InfoText
     {
       get => _infoText;
