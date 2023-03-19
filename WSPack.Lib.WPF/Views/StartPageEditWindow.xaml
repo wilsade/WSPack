@@ -25,8 +25,6 @@
         </ResourceDictionary>
     </Window.Resources>
 
-
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -39,45 +37,7 @@
             LastChildFill="True">
 
             <!-- Listagem de grupos -->
-            <ListView
-                ItemsSource="{Binding GroupList}"
-                SelectedItem="{Binding SelectedGroup}"
-                SelectionMode="Single"
-                Style="{StaticResource uiAll}">
-
-                <ListView.ItemContainerStyle>
-                    <Style
-                        BasedOn="{StaticResource lvItemVSTheme}"
-                        TargetType="ListViewItem">
-                    </Style>
-                </ListView.ItemContainerStyle>
-
-                <ListView.View>
-                    <commonLib:AutoSizedGridView ColumnHeaderContainerStyle="{StaticResource gvcVSTheme}">
-
-                        <GridViewColumn Header="Nome do grupo">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-
-                                    <StackPanel Orientation="Horizontal">
-                                        <CheckBox
-                                            Margin="0,0,3,0"
-                                            IsChecked="{Binding IsSelected}"
-                                            IsHitTestVisible="False" />
-                                        <TextBlock
-                                            HorizontalAlignment="Center"
-                                            VerticalAlignment="Center"
-                                            FontFamily="Consolas"
-                                            Text="{Binding GroupCaption, UpdateSourceTrigger=PropertyChanged}" />
-                                    </StackPanel>
-
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-
-                    </commonLib:AutoSizedGridView>
-                </ListView.View>
-            </ListView>
+            <local:ListGroupsControl />
 
             <ScrollViewer Grid.Row="1"
                 HorizontalScrollBarVisibility="Auto"
