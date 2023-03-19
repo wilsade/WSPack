@@ -9,7 +9,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodel="clr-namespace:WSPack.Lib.WPF.ViewModel"
     d:DataContext="{d:DesignInstance Type=viewmodel:StartPageViewModel}"
-    d:DesignHeight="450" 
+    d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
 
@@ -22,42 +22,36 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <ListView 
-        ItemsSource="{Binding GroupList}"
-        SelectedItem="{Binding SelectedGroup}"
-        SelectionMode="Single"
-        Style="{StaticResource uiAll}">
+    <GroupBox
+        BorderThickness="0.2"
+        Header="Grupos">
+        <ListBox
+            Width="200"
+            ItemContainerStyle="{StaticResource selectedItemInListBox}"
+            ItemsSource="{Binding GroupList}"
+            SelectedItem="{Binding SelectedGroup}"
+            SelectionMode="Single"
+            Style="{StaticResource uiAll}">
 
-        <ListView.ItemContainerStyle>
-            <Style
-                BasedOn="{StaticResource lvItemVSTheme}"
-                TargetType="ListViewItem">
-            </Style>
-        </ListView.ItemContainerStyle>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
 
-        <ListView.View>
-            <commonLib:AutoSizedGridView ColumnHeaderContainerStyle="{StaticResource gvcVSTheme}">
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton
+                            Margin="0,0,3,0"
+                            IsChecked="{Binding IsSelected}"
+                            IsHitTestVisible="False" />
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontFamily="Consolas"
+                            Text="{Binding GroupCaption, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
 
-                <GridViewColumn Header="Nome do grupo" >
-                    <GridViewColumn.CellTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal" >
-                                <RadioButton
-                                    Margin="0,0,3,0"
-                                    IsChecked="{Binding IsSelected}"
-                                    IsHitTestVisible="False" />
-                                <TextBlock 
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    FontFamily="Consolas"
-                                    Text="{Binding GroupCaption, UpdateSourceTrigger=PropertyChanged}" />
-                            </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </GroupBox>
 
-                        </DataTemplate>
-                    </GridViewColumn.CellTemplate>
-                </GridViewColumn>
 
-            </commonLib:AutoSizedGridView>
-        </ListView.View>
-    </ListView>
 </UserControl>

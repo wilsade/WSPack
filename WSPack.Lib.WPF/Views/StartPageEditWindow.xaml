@@ -80,13 +80,8 @@
                 </GroupBox>
             </ScrollViewer>
 
-
         </DockPanel>
 
-
-
-
     </Grid>
-
 
 </Window>
