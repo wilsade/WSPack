@@ -70,6 +70,9 @@
     <Compile Include="SupportLib\PropertySupport.cs" />
     <Compile Include="SupportLib\RelayCommand.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\GroupViewModel.Commands.cs">
+      <DependentUpon>GroupViewModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\GroupViewModel.cs" />
     <Compile Include="ViewModel\GroupViewModel.Properties.cs">
       <DependentUpon>GroupViewModel.cs</DependentUpon>
@@ -153,7 +156,11 @@
       <Name>WSPack.Lib</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <PackageReference Include="Ookii.Dialogs.Wpf">
+      <Version>5.0.1</Version>
+    </PackageReference>
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\startPage.png" />
   </ItemGroup>

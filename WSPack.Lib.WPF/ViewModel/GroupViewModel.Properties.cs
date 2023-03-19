@@ -98,6 +98,17 @@ namespace WSPack.Lib.WPF.ViewModel
       }
     }
 
+    [XmlIgnore]
+    public bool IsSelected
+    {
+      get => _isSelected;
+      set
+      {
+        _isSelected = value;
+        RaisePropertyChanged(nameof(IsSelected));
+      }
+    }
+
     /// <summary>
     /// Indica se projetos recém abertos irão aparecer no início da lista
     /// </summary>

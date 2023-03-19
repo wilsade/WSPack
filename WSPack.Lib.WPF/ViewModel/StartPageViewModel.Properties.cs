@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
+using System.Text;
 using System.Xml.Serialization;
 
 using WSPack.Lib.Extensions;
@@ -60,8 +61,11 @@ namespace WSPack.Lib.WPF.ViewModel
       {
         if (value != null)
         {
+          if (SelectedGroup != null)
+            SelectedGroup.IsSelected = false;
           _selectedGroup = value;
           RaisePropertyChanged(nameof(SelectedGroup));
+          SelectedGroup.IsSelected = true;
         }
       }
     }

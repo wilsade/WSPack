@@ -4,8 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:commonLib="clr-namespace:WSPack.Lib.WPF.CommonLib"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:WSPack.Lib.WPF.Views"
     xmlns:lib="clr-namespace:WSPack.Lib.WPF.SupportLib"
+    xmlns:local="clr-namespace:WSPack.Lib.WPF.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodel="clr-namespace:WSPack.Lib.WPF.ViewModel"
     Title="Edição da página inicial"
@@ -25,68 +25,101 @@
         </ResourceDictionary>
     </Window.Resources>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <local:StartPageEditToolbarControl Grid.Row="0" Grid.Column="0"
-            Margin="3,3,0,0" />
+    <ScrollViewer
+        HorizontalScrollBarVisibility="Auto"
+        VerticalScrollBarVisibility="Auto">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <local:StartPageEditToolbarControl Grid.Row="0" Grid.Column="0"
+                Margin="3,3,0,0" />
 
-        <DockPanel Grid.Row="1"
-            LastChildFill="True">
+            <DockPanel Grid.Row="1"
+                LastChildFill="True">
 
-            <!-- Listagem de grupos -->
-            <ListView
-                ItemsSource="{Binding GroupList}"
-                SelectedItem="{Binding SelectedGroup}"
-                SelectionMode="Single"
-                Style="{StaticResource uiAll}">
+                <!-- Listagem de grupos -->
+                <ListView
+                    ItemsSource="{Binding GroupList}"
+                    SelectedItem="{Binding SelectedGroup}"
+                    SelectionMode="Single"
+                    Style="{StaticResource uiAll}">
 
-                <ListView.ItemContainerStyle>
-                    <Style
-                        BasedOn="{StaticResource lvItemVSTheme}"
-                        TargetType="ListViewItem">
-                    </Style>
-                </ListView.ItemContainerStyle>
+                    <ListView.ItemContainerStyle>
+                        <Style
+                            BasedOn="{StaticResource lvItemVSTheme}"
+                            TargetType="ListViewItem">
+                        </Style>
+                    </ListView.ItemContainerStyle>
 
-                <ListView.View>
-                    <commonLib:AutoSizedGridView ColumnHeaderContainerStyle="{StaticResource gvcVSTheme}">
+                    <ListView.View>
+                        <commonLib:AutoSizedGridView ColumnHeaderContainerStyle="{StaticResource gvcVSTheme}">
 
-                        <GridViewColumn Header="Nome do grupo">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock
-                                        HorizontalAlignment="Center"
-                                        VerticalAlignment="Center"
-                                        FontFamily="Consolas"
-                                        Text="{Binding GroupCaption}" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
+                            <GridViewColumn Header="Nome do grupo">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <CheckBox
+                                                Margin="0,0,3,0"
+                                                IsChecked="{Binding IsSelected}"
+                                                IsHitTestVisible="False" />
+                                            <TextBlock
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                FontFamily="Consolas"
+                                                Text="{Binding GroupCaption, UpdateSourceTrigger=PropertyChanged}" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
 
-                    </commonLib:AutoSizedGridView>
-                </ListView.View>
-            </ListView>
+                        </commonLib:AutoSizedGridView>
+                    </ListView.View>
+                </ListView>
 
-            <GroupBox
-                Width="Auto"
-                Margin="6"
-                BorderThickness="0.5"
-                Header="Detalhes do grupo"
-                Style="{StaticResource uiAll}">
-                <StackPanel Style="{StaticResource panelVSTheme}">
-                    <Label
-                        Content="Nome do grupo"
-                        Style="{StaticResource uiAll}" />
-                    <TextBox                        
-                        lib:FocusExtension.IsFocused="{Binding SelectedGroup.IsFocused, Mode=TwoWay}"
-                        Text="{Binding SelectedGroup.GroupCaption}" />
-                </StackPanel>
+                <!-- Detalhes do grupo -->
+                <GroupBox
+                    Width="Auto"
+                    Margin="6"
+                    BorderThickness="0.5"
+                    Header="Detalhes do grupo"
+                    Style="{StaticResource uiAll}">
+                    <StackPanel Style="{StaticResource panelVSTheme}">
+                        <Label
+                            Content="Nome do grupo"
+                            Style="{StaticResource uiAll}" />
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox
+                                MinWidth="200"
+                                lib:FocusExtension.IsFocused="{Binding SelectedGroup.IsFocused, Mode=TwoWay}"
+                                Text="{Binding SelectedGroup.GroupCaption}" />
+                            <CheckBox
+                                Margin="3,0,0,0"
+                                Content="Itens recém abertos no início"
+                                IsChecked="{Binding SelectedGroup.OpenedProjectsFirst}"
+                                Style="{StaticResource uiAll}" />
+                        </StackPanel>
+                        <Label Content="Diretório padrão:" />
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox
+                                MinWidth="200"
+                                Text="{Binding SelectedGroup.GroupDefaultPath, UpdateSourceTrigger=PropertyChanged}"
+                                ToolTip="Diretório que será pré-selecionado ao abrir um item" />
+                            <Button
+                                Margin="3,0,0,0"
+                                Command="{Binding SelectedGroup.SelectDefaultPath}"
+                                Content=". . ."
+                                ToolTip="Abre uma tela para escolha do diretório" />
 
-            </GroupBox>
+                        </StackPanel>
+                    </StackPanel>
 
-        </DockPanel>
+                </GroupBox>
 
-    </Grid>
+            </DockPanel>
+
+        </Grid>
+    </ScrollViewer>
+
 </Window>
