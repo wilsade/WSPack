@@ -25,59 +25,63 @@
         </ResourceDictionary>
     </Window.Resources>
 
-    <ScrollViewer
-        HorizontalScrollBarVisibility="Auto"
-        VerticalScrollBarVisibility="Auto">
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <local:StartPageEditToolbarControl Grid.Row="0" Grid.Column="0"
-                Margin="3,3,0,0" />
 
-            <DockPanel Grid.Row="1"
-                LastChildFill="True">
 
-                <!-- Listagem de grupos -->
-                <ListView
-                    ItemsSource="{Binding GroupList}"
-                    SelectedItem="{Binding SelectedGroup}"
-                    SelectionMode="Single"
-                    Style="{StaticResource uiAll}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <local:StartPageEditToolbarControl Grid.Row="0" Grid.Column="0"
+            Margin="3,3,0,0" />
 
-                    <ListView.ItemContainerStyle>
-                        <Style
-                            BasedOn="{StaticResource lvItemVSTheme}"
-                            TargetType="ListViewItem">
-                        </Style>
-                    </ListView.ItemContainerStyle>
+        <DockPanel Grid.Row="1"
+            LastChildFill="True">
 
-                    <ListView.View>
-                        <commonLib:AutoSizedGridView ColumnHeaderContainerStyle="{StaticResource gvcVSTheme}">
+            <!-- Listagem de grupos -->
+            <ListView
+                ItemsSource="{Binding GroupList}"
+                SelectedItem="{Binding SelectedGroup}"
+                SelectionMode="Single"
+                Style="{StaticResource uiAll}">
 
-                            <GridViewColumn Header="Nome do grupo">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal">
-                                            <CheckBox
-                                                Margin="0,0,3,0"
-                                                IsChecked="{Binding IsSelected}"
-                                                IsHitTestVisible="False" />
-                                            <TextBlock
-                                                HorizontalAlignment="Center"
-                                                VerticalAlignment="Center"
-                                                FontFamily="Consolas"
-                                                Text="{Binding GroupCaption, UpdateSourceTrigger=PropertyChanged}" />
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
+                <ListView.ItemContainerStyle>
+                    <Style
+                        BasedOn="{StaticResource lvItemVSTheme}"
+                        TargetType="ListViewItem">
+                    </Style>
+                </ListView.ItemContainerStyle>
 
-                        </commonLib:AutoSizedGridView>
-                    </ListView.View>
-                </ListView>
+                <ListView.View>
+                    <commonLib:AutoSizedGridView ColumnHeaderContainerStyle="{StaticResource gvcVSTheme}">
 
+                        <GridViewColumn Header="Nome do grupo">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+
+                                    <StackPanel Orientation="Horizontal">
+                                        <CheckBox
+                                            Margin="0,0,3,0"
+                                            IsChecked="{Binding IsSelected}"
+                                            IsHitTestVisible="False" />
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            FontFamily="Consolas"
+                                            Text="{Binding GroupCaption, UpdateSourceTrigger=PropertyChanged}" />
+                                    </StackPanel>
+
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                    </commonLib:AutoSizedGridView>
+                </ListView.View>
+            </ListView>
+
+            <ScrollViewer Grid.Row="1"
+                HorizontalScrollBarVisibility="Auto"
+                VerticalScrollBarVisibility="Auto">
                 <!-- Detalhes do grupo -->
                 <GroupBox
                     Width="Auto"
@@ -111,15 +115,18 @@
                                 Command="{Binding SelectedGroup.SelectDefaultPath}"
                                 Content=". . ."
                                 ToolTip="Abre uma tela para escolha do diretório" />
-
                         </StackPanel>
                     </StackPanel>
-
                 </GroupBox>
+            </ScrollViewer>
 
-            </DockPanel>
 
-        </Grid>
-    </ScrollViewer>
+        </DockPanel>
+
+
+
+
+    </Grid>
+
 
 </Window>
