@@ -47,7 +47,7 @@
                     Width="Auto"
                     Margin="6"
                     BorderThickness="0.5"
-                    Header="Detalhes do grupo"
+                    Header="Detalhes do grupo:"
                     Style="{StaticResource uiAll}">
                     <StackPanel Style="{StaticResource panelVSTheme}">
                         <Label

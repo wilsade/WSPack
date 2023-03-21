@@ -57,6 +57,8 @@
                                         Tag="{Binding}">
                                         <GroupBox.Header>
                                             <commonLib:WSUnderlineTextBlock
+                                                ContextMenu="{ StaticResource menuGrupos}"
+                                                Tag="{Binding}"
                                                 Margin="3,3,0,9"
                                                 Cursor="Hand"
                                                 FontSize="20"

@@ -24,18 +24,20 @@ namespace WSPack.Lib.WPF.ViewModel
     {
       get
       {
-        void edit()
+        void edit(object param)
         {
           var window = new StartPageEditWindow()
           {
             DataContext = this
           };
+          if (param is GroupViewModel group)
+            SelectedGroup = group;
           if (SelectedGroup == null)
             SelectedGroup = GroupList?.FirstOrDefault();
           window.ShowDialog();
           Save();
         }
-        var comando = new RelayCommand(edit);
+        var comando = new RelayCommand<object>(edit);
         return comando;
       }
     }
