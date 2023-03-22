@@ -54,6 +54,7 @@
                     Content=". . ."
                     ToolTip="Abre uma tela para escolha do diretório" />
             </StackPanel>
+            <local:ProjectsControl x:Name="projetosDoGrupo"/>
         </StackPanel>
     </GroupBox>
 </UserControl>

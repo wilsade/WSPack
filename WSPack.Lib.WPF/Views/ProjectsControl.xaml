@@ -1,0 +1,32 @@
+﻿<UserControl
+    x:Class="WSPack.Lib.WPF.Views.ProjectsControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WSPack.Lib.WPF.Views"
+    xmlns:lib="clr-namespace:WSPack.Lib.WPF.SupportLib"
+    xmlns:viewmodel="clr-namespace:WSPack.Lib.WPF.ViewModel"
+    d:DataContext="{d:DesignInstance Type=viewmodel:GroupViewModel}"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\CommonLib\VSResourceDictionary.xaml" />
+                <ResourceDictionary Source="..\CommonLib\DefinedControlsStyleDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <!-- Projetos -->
+    <GroupBox Name="gbxProjetos"
+        Width="Auto"
+        Margin="6"
+        BorderThickness="0.5"
+        Header="Projetos:"
+        Style="{StaticResource uiAll}">
+    </GroupBox>
+</UserControl>
