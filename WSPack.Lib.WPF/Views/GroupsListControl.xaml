@@ -1,5 +1,5 @@
 ﻿<UserControl
-    x:Class="WSPack.Lib.WPF.Views.ListGroupsControl"
+    x:Class="WSPack.Lib.WPF.Views.GroupsListControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:commonLib="clr-namespace:WSPack.Lib.WPF.CommonLib"

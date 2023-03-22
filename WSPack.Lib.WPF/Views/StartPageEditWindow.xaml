@@ -37,47 +37,14 @@
             LastChildFill="True">
 
             <!-- Listagem de grupos -->
-            <local:ListGroupsControl />
+            <local:GroupsListControl />
 
             <ScrollViewer Grid.Row="1"
                 HorizontalScrollBarVisibility="Auto"
                 VerticalScrollBarVisibility="Auto">
+
                 <!-- Detalhes do grupo -->
-                <GroupBox
-                    Width="Auto"
-                    Margin="6"
-                    BorderThickness="0.5"
-                    Header="Detalhes do grupo:"
-                    Style="{StaticResource uiAll}">
-                    <StackPanel Style="{StaticResource panelVSTheme}">
-                        <Label
-                            Content="Nome do grupo"
-                            Style="{StaticResource uiAll}" />
-                        <StackPanel Orientation="Horizontal">
-                            <TextBox
-                                MinWidth="200"
-                                lib:FocusExtension.IsFocused="{Binding SelectedGroup.IsFocused, Mode=TwoWay}"
-                                Text="{Binding SelectedGroup.GroupCaption}" />
-                            <CheckBox
-                                Margin="3,0,0,0"
-                                Content="Itens recém abertos no início"
-                                IsChecked="{Binding SelectedGroup.OpenedProjectsFirst}"
-                                Style="{StaticResource uiAll}" />
-                        </StackPanel>
-                        <Label Content="Diretório padrão:" />
-                        <StackPanel Orientation="Horizontal">
-                            <TextBox
-                                MinWidth="200"
-                                Text="{Binding SelectedGroup.GroupDefaultPath, UpdateSourceTrigger=PropertyChanged}"
-                                ToolTip="Diretório que será pré-selecionado ao abrir um item" />
-                            <Button
-                                Margin="3,0,0,0"
-                                Command="{Binding SelectedGroup.SelectDefaultPath}"
-                                Content=". . ."
-                                ToolTip="Abre uma tela para escolha do diretório" />
-                        </StackPanel>
-                    </StackPanel>
-                </GroupBox>
+                <local:GroupsDetailsControl/>
             </ScrollViewer>
 
         </DockPanel>

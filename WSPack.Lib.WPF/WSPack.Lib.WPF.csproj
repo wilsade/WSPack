@@ -85,8 +85,11 @@
       <DependentUpon>StartPageViewModel.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\WPFExtensions.cs" />
-    <Compile Include="Views\ListGroupsControl.xaml.cs">
-      <DependentUpon>ListGroupsControl.xaml</DependentUpon>
+    <Compile Include="Views\GroupsDetailsControl.xaml.cs">
+      <DependentUpon>GroupsDetailsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GroupsListControl.xaml.cs">
+      <DependentUpon>GroupsListControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\StartPageEditToolbarControl.xaml.cs">
       <DependentUpon>StartPageEditToolbarControl.xaml</DependentUpon>
@@ -117,7 +120,11 @@
     <Compile Include="CustomControl1.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\ListGroupsControl.xaml">
+    <Page Include="Views\GroupsDetailsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GroupsListControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

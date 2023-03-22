@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace WSPack.Lib.WPF.Views
 {
   /// <summary>
-  /// Interaction logic for ListGroupsControl.xaml
+  /// Interaction logic for >.xaml
   /// </summary>
-  public partial class ListGroupsControl : UserControl
+  public partial class GroupsListControl : UserControl
   {
-    public ListGroupsControl()
+    public GroupsListControl()
     {
       InitializeComponent();
     }
