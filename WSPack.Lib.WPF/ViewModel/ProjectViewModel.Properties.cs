@@ -1,6 +1,8 @@
 ﻿using System.Linq;
 using System.Xml.Serialization;
 
+using WSPack.Lib.Extensions;
+
 namespace WSPack.Lib.WPF.ViewModel
 {
   partial class ProjectViewModel

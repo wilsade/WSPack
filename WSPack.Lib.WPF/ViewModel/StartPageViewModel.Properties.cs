@@ -5,6 +5,7 @@ using System.Xml.Serialization;
 
 using WSPack.Lib.Extensions;
 using WSPack.Lib.Properties;
+using WSPack.Lib.WPF.Model;
 
 namespace WSPack.Lib.WPF.ViewModel
 {
@@ -28,9 +29,18 @@ namespace WSPack.Lib.WPF.ViewModel
     }
 
     /// <summary>
-    /// Indica se a StartPage possui algum grupo
+    /// Indica se o painel esquerdo está expandido
     /// </summary>
-    public bool HasGroups => _lstGroups != null && _lstGroups.Any();
+    public bool IsLeftPanelExpanded
+    {
+      get { return _starPageModel.IsLeftPanelExpanded; }
+      set
+      {
+        _starPageModel.IsLeftPanelExpanded = value;
+        RaisePropertyChanged(nameof(IsLeftPanelExpanded));
+        Save();
+      }
+    }
 
     /// <summary>
     /// Lista de grupos
@@ -66,6 +76,98 @@ namespace WSPack.Lib.WPF.ViewModel
           _selectedGroup = value;
           RaisePropertyChanged(nameof(SelectedGroup));
           SelectedGroup.IsSelected = true;
+        }
+      }
+    }
+
+    /// <summary>
+    /// Indica se a StartPage possui algum grupo
+    /// </summary>
+    public bool HasGroups => _lstGroups != null && _lstGroups.Any();
+    /*
+    /// <summary>
+    /// Lista de Comandos personalizados
+    /// </summary>
+    [XmlArrayItem("CustomCommand")]
+    public ObservableCollection<CustomCommandViewModel> CustomCommandsList
+    {
+      get
+      {
+        _lstCustomCommands.Sort(x => x.CustomCommandId);
+        return _lstCustomCommands;
+      }
+      set
+      {
+        _lstCustomCommands = value;
+        RaisePropertyChanged(nameof(CustomCommandsList));
+      }
+    }
+
+    /// <summary>
+    /// Representa o grupo selecionado
+    /// </summary>
+    [XmlIgnore]
+    public CustomCommandViewModel SelectedCustomCommand
+    {
+      get { return _selectedCustomCommand; }
+      set
+      {
+        if (value != null)
+        {
+          _selectedCustomCommand = value;
+          RaisePropertyChanged(nameof(SelectedCustomCommand));
+        }
+      }
+    }*/
+
+    /// <summary>
+    /// Altura máxima do painel de projetos
+    /// </summary>
+    public double ProjectContainerMaxHeight
+    {
+      get { return _starPageModel.ProjectContainerMaxHeight; }
+      set
+      {
+        if (value != _starPageModel.ProjectContainerMaxHeight)
+        {
+          if (value == 0)
+            value = double.NaN;
+          _starPageModel.ProjectContainerMaxHeight = value;
+          RaisePropertyChanged(nameof(ProjectContainerMaxHeight));
+        }
+      }
+    }
+
+    /// <summary>
+    /// Comprimento do painel de projetos
+    /// </summary>
+    public double ProjectContainerWidth
+    {
+      get { return _starPageModel.ProjectContainerWidth; }
+      set
+      {
+        if (value != _starPageModel.ProjectContainerWidth)
+        {
+          if (value < StartPageModel.ComprimentoMinimoProjectContainer)
+            value = StartPageModel.ComprimentoMinimoProjectContainer;
+          _starPageModel.ProjectContainerWidth = value;
+          RaisePropertyChanged(nameof(ProjectContainerWidth));
+        }
+      }
+    }
+
+    /// <summary>
+    /// Indica se a barra de rolagem horizontal será exibida
+    /// </summary>
+    public bool ProjectHorizontalScrollVisible
+    {
+      get => _starPageModel.ProjectHorizontalScrollVisible;
+      set
+      {
+        if (value != _starPageModel.ProjectHorizontalScrollVisible)
+        {
+          _starPageModel.ProjectHorizontalScrollVisible = value;
+          RaisePropertyChanged(nameof(ProjectHorizontalScrollVisible));
         }
       }
     }

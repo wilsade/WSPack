@@ -36,6 +36,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -78,8 +79,8 @@
       <DependentUpon>GroupViewModel.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\ProjectViewModel.Commands.cs">
-	  <DependentUpon>ProjectViewModel.cs</DependentUpon>
-	</Compile>
+      <DependentUpon>ProjectViewModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\ProjectViewModel.cs" />
     <Compile Include="ViewModel\ProjectViewModel.Properties.cs">
       <DependentUpon>ProjectViewModel.cs</DependentUpon>

@@ -22,9 +22,20 @@ namespace WSPack.Lib.WPF.ViewModel
   public partial class StartPageViewModel : BaseViewModel
   {
     readonly StartPageModel _starPageModel;
-    GroupViewModel _selectedGroup;
     ObservableCollection<GroupViewModel> _lstGroups;
+    //ObservableCollection<CustomCommandViewModel> _lstCustomCommands;
+    GroupViewModel _selectedGroup;
+    //CustomCommandViewModel _selectedCustomCommand;
+    readonly Dictionary<string, List<TFSProjectModel>> _dicTFSProjects;
     string _infoText;
+
+#warning Rever os custom commands
+    readonly List<CustomCommandModel> _lstComandosDefaults = new List<CustomCommandModel>
+    {
+      new CustomCommandModel(0, "New project", "File.NewProject", ""),
+      new CustomCommandModel(0, "Open project", "File.OpenProject", ""),
+      new CustomCommandModel(0, "Open from Source Control", "File.OpenfromSourceControl", "")
+    };
 
     #region Construtores
     /// <summary>
@@ -36,6 +47,75 @@ namespace WSPack.Lib.WPF.ViewModel
       Instance = this;
       InfoText = ResourcesLib.StrIniciando;
       _lstGroups = new ObservableCollection<GroupViewModel>();
+      //_lstCustomCommands = new ObservableCollection<CustomCommandViewModel>();
+      _dicTFSProjects = new Dictionary<string, List<TFSProjectModel>>(StringComparer.OrdinalIgnoreCase);
+
+      if (_lstGroups.Count == -1)
+      {
+        _lstGroups.Add(new GroupViewModel(new GroupModel(1, "Estudos"))
+        {
+          ProjectList = new ObservableCollection<ProjectViewModel>()
+        {
+          new ProjectViewModel(new ProjectModel(1, "mvvm", @"C:\_Wilsade\Projetos\CSharp\Estudos\WPFStuding\MVVM\MvvmExample\MvvmExample.sln")),
+          new ProjectViewModel(new ProjectModel(2, "WinFormApp1", @"C:\Users\William\Documents\Visual Studio 2015\Projects\WindowsFormsApplication1\WindowsFormsApplication1.sln"))
+        },
+        });
+
+        _lstGroups.Add(new GroupViewModel(new GroupModel(3, "Particular"))
+        {
+          ProjectList = new ObservableCollection<ProjectViewModel>()
+        {
+          new ProjectViewModel(new ProjectModel(1, "ConsoleApp1", @"C:\Users\William\Documents\Visual Studio 2017\Projects\ConsoleApp1\ConsoleApp1.sln"))
+        }
+        });
+
+        _lstGroups.Add(new GroupViewModel(new GroupModel(2, "Ferramentas"))
+        {
+          ProjectList = new ObservableCollection<ProjectViewModel>()
+        {
+          new ProjectViewModel(new ProjectModel(1, "WindowsProjTestarPowerShell", @"C:\Users\William\Documents\Visual Studio 2015\Projects\WindowsAppTestarPowerShell\WindowsAppTestarPowerShell\WindowsAppTestarPowerShell.csproj"))
+        }
+        });
+
+        _lstGroups.Add(new GroupViewModel(new GroupModel(4, "Outros"))
+        {
+          ProjectList = new ObservableCollection<ProjectViewModel>()
+        {
+          new ProjectViewModel(new ProjectModel(1, "Outro projeto1", "não sei o caminho1")),
+          new ProjectViewModel(new ProjectModel(2, "Outro projeto2", "não sei o caminho2")),
+          new ProjectViewModel(new ProjectModel(3, "Outro projeto3", "não sei o caminho3")),
+          new ProjectViewModel(new ProjectModel(4, "Outro projeto4", "não sei o caminho4")),
+          new ProjectViewModel(new ProjectModel(5, "Outro projeto5", "não sei o caminho5")),
+          new ProjectViewModel(new ProjectModel(6, "Outro projeto6", "não sei o caminho6"))
+        }
+        });
+
+        _lstGroups.Add(new GroupViewModel(new GroupModel(5, "Outros5")));
+        _lstGroups.Add(new GroupViewModel(new GroupModel(6, "Outros6")));
+        _lstGroups.Add(new GroupViewModel(new GroupModel(7, "Outros7")));
+        _lstGroups.Add(new GroupViewModel(new GroupModel(8, "Outros8")));
+        _lstGroups.Add(new GroupViewModel(new GroupModel(9, "Outros9")));
+        _lstGroups.Add(new GroupViewModel(new GroupModel(10, "Outros10")));
+
+        foreach (var item in _lstGroups)
+        {
+          item.SelectedProject = item.ProjectList.FirstOrDefault();
+          item.PropertyChanged += (x, y) =>
+          {
+            if (y.PropertyName == "GroupId")
+            {
+              RaisePropertyChanged(nameof(GroupList));
+            }
+          };
+        }
+      }
+
+      //if (_lstCustomCommands.Count == -1)
+      //{
+      //  _lstCustomCommands.Add(new CustomCommandViewModel(new CustomCommandModel(1, "SSC", "View.TfsSourceControlExplorer")));
+      //  _lstCustomCommands.Add(new CustomCommandViewModel(new CustomCommandModel(2, "WS Parâmetros", "WSPack.Parametros")));
+      //  RaisePropertyChanged(nameof(CustomCommandsList));
+      //}
     }
 
     /// <summary>
@@ -48,6 +128,31 @@ namespace WSPack.Lib.WPF.ViewModel
       _starPageModel = startPageItem;
     }
     #endregion
+
+    /*
+    /// <summary>
+    /// Alterar um CustomCommand de lugar, movendo-o para cima ou para baixo
+    /// </summary>
+    /// <param name="customCommand">CustomCommand</param>
+    /// <param name="movingDown">Informe "true" para mover o comando para baixo</param>
+    void ReorderCustomCommand(CustomCommandViewModel customCommand, bool movingDown)
+    {
+      if (movingDown)
+      {
+        _lstCustomCommands[customCommand.CustomCommandId].CustomCommandId--;
+        customCommand.CustomCommandId++;
+      }
+
+      else
+      {
+        _lstCustomCommands[customCommand.CustomCommandId - 2].CustomCommandId++;
+        customCommand.CustomCommandId--;
+      }
+
+      RaisePropertyChanged(nameof(CustomCommandsList));
+      customCommand.IsFocused = true;
+      SelectedCustomCommand = customCommand;
+    }*/
 
     /// <summary>
     /// Alterar um grupo de lugar, movendo-o para cima ou para baixo
@@ -72,6 +177,65 @@ namespace WSPack.Lib.WPF.ViewModel
       grupo.IsFocused = true;
       SelectedGroup = grupo;
     }
+
+    void RemoveGroupAndReorder(GroupViewModel groupToDelete)
+    {
+      int id = groupToDelete.GroupId;
+      _lstGroups.Remove(groupToDelete);
+      for (int i = id - 1; i < _lstGroups.Count; i++)
+      {
+        _lstGroups[i].GroupId = i + 1;
+      }
+      RaisePropertyChanged(nameof(GroupList));
+      RaisePropertyChanged(nameof(HasGroups));
+
+      if (_lstGroups.Any())
+      {
+        int indiceDesejado = id - 1;
+        if (_lstGroups.Count == indiceDesejado)
+          indiceDesejado--;
+
+        SelectedGroup = _lstGroups[indiceDesejado];
+      }
+    }
+    /*
+    void RemoveCustomCommandAndReorder(CustomCommandViewModel customCommandToDelete)
+    {
+      int id = customCommandToDelete.CustomCommandId;
+      _lstCustomCommands.Remove(customCommandToDelete);
+      for (int i = id - 1; i < _lstCustomCommands.Count; i++)
+      {
+        _lstCustomCommands[i].CustomCommandId = i + 1;
+      }
+      RaisePropertyChanged(nameof(CustomCommandsList));
+
+      if (_lstCustomCommands.Any())
+      {
+        int indiceDesejado = id - 1;
+        if (_lstCustomCommands.Count == indiceDesejado)
+          indiceDesejado--;
+
+        SelectedCustomCommand = _lstCustomCommands[indiceDesejado];
+        SelectedCustomCommand.IsFocused = true;
+      }
+    }*/
+
+    private async Task RefreshDataContextAsync(string fileName)
+    {
+      var importado = await CreateOrLoadFromFileAsync();
+      Instance = importado;
+      WSPackStartPage.userControlDaStartPage._startPageViewModel = importado;
+      WSPackStartPage.userControlDaStartPage.DataContext = importado;
+      Save(fileName);
+    }
+
+    /*
+    void AddCustomCommandInList(string caption, string def, string args)
+    {
+      int id = _lstCustomCommands.Count + 1;
+      _lstCustomCommands.Add(new CustomCommandViewModel(new CustomCommandModel(id, caption, def, args)) { Parent = this });
+      RaisePropertyChanged(nameof(CustomCommandsList));
+    }*/
 
     /// <summary>
     /// Recuperar a instãncia de WSStartPageViewModel
@@ -155,6 +319,15 @@ namespace WSPack.Lib.WPF.ViewModel
     /// </summary>
     public void Save()
     {
+      Save(WSPackFlexSupport.Instance.PackSupport.StartPageConfigPath);
+    }
+
+    /// <summary>
+    /// Salva o modelo no arquivo de configuração
+    /// </summary>
+    /// <param name="fileName">Nome do arquivo</param>
+    public void Save(string fileName)
+    {
       if (System.ComponentModel.DesignerProperties.GetIsInDesignMode(new DependencyObject()))
         return;
 
@@ -163,7 +336,7 @@ namespace WSPack.Lib.WPF.ViewModel
 
       try
       {
-        using (var writer = new StreamWriter(WSPackFlexSupport.Instance.PackSupport.StartPageConfigPath, false, Encoding.UTF8))
+        using (var writer = new StreamWriter(fileName, false, Encoding.UTF8))
         {
           XmlSerializer serializer = new XmlSerializer(typeof(StartPageViewModel));
           serializer.Serialize(writer, Instance);
@@ -219,5 +392,21 @@ namespace WSPack.Lib.WPF.ViewModel
       return achei.IsInTFS;
     }
 
+    /// <summary>
+    /// Indica se a página está em modo de edição
+    /// </summary>
+    public bool ShowProjectsDirectory
+    {
+      get { return _starPageModel.ShowProjectsDirectory; }
+      set
+      {
+        if (_starPageModel.ShowProjectsDirectory != value)
+        {
+          _starPageModel.ShowProjectsDirectory = value;
+          RaisePropertyChanged(nameof(ShowProjectsDirectory));
+          Save();
+        }
+      }
+    }
   }
 }

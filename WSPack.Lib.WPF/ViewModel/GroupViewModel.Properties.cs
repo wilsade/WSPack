@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.ObjectModel;
+using System.Linq;
 using System.Xml.Serialization;
 
 using WSPack.Lib.Extensions;
@@ -40,8 +41,7 @@ namespace WSPack.Lib.WPF.ViewModel
       }
     }
 
-    /*
-        /// <summary>
+    /// <summary>
     /// Lista de projetos do grupo
     /// </summary>
     [XmlArrayItem("Project")]
@@ -76,7 +76,6 @@ namespace WSPack.Lib.WPF.ViewModel
         }
       }
     }
-     */
 
     /// <summary>
     /// StartPage que contém o grupo
