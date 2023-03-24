@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -8,6 +10,8 @@ using System.Xml.Serialization;
 
 using WSPack.Lib.Properties;
 using WSPack.Lib.WPF.Model;
+using WSPack.Lib.Extensions;
+using WSPack.Lib.WPF.Views;
 
 namespace WSPack.Lib.WPF.ViewModel
 {
@@ -169,6 +173,50 @@ namespace WSPack.Lib.WPF.ViewModel
       {
         WSPackFlexSupport.Instance.PackSupport.LogError($"Não foi possível salvar as configurações do arquivo da StartPage: {ex.Message}");
       }
+    }
+
+    /// <summary>
+    /// Insica se um projeto está no TFS
+    /// </summary>
+    /// <param name="projectFullPath">Caminho local completo do projeto no Windows</param>
+    /// <returns>true se está</returns>
+    public bool IsProjectInTFS(string projectFullPath)
+    {
+      if (projectFullPath.IsNullOrWhiteSpaceEx())
+        return false;
+
+      if (WSPackFlexSupport.Instance.PackSupport.IsGit(projectFullPath))
+        return false;
+
+      string projectNameFromTFS = WSPackFlexSupport.Instance.PackSupport.GetTFSActiveProjectName();
+
+      string teamProjectName = WSPackFlexSupport.Instance.PackSupport.GetTFSActiveProjectName();
+      if (string.IsNullOrWhiteSpace(teamProjectName))
+        return false;
+
+      List<TFSProjectModel> lstProjetos;
+      if (!_dicTFSProjects.ContainsKey(teamProjectName))
+      {
+        lstProjetos = new List<TFSProjectModel>();
+        _dicTFSProjects.Add(teamProjectName, lstProjetos);
+      }
+      else
+        lstProjetos = _dicTFSProjects[teamProjectName];
+
+      var achei = lstProjetos.FirstOrDefault(x => x.ProjectFullLocalPath.EqualsInsensitive(projectFullPath));
+      if (achei == null)
+      {
+        achei = new TFSProjectModel
+        {
+          ProjectFullLocalPath = projectFullPath,
+          TeamProjectUrl = teamProjectName
+        };
+
+        (bool OK, string WsName, string ServerItem) = WSPackFlexSupport.Instance.PackSupport.GetWorkspaceForLocalItem(projectFullPath);
+        achei.IsInTFS = OK;
+        lstProjetos.Add(achei);
+      }
+      return achei.IsInTFS;
     }
 
   }

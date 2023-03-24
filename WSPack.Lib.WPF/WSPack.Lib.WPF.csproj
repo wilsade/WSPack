@@ -77,6 +77,13 @@
     <Compile Include="ViewModel\GroupViewModel.Properties.cs">
       <DependentUpon>GroupViewModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\ProjectViewModel.Commands.cs">
+	  <DependentUpon>ProjectViewModel.cs</DependentUpon>
+	</Compile>
+    <Compile Include="ViewModel\ProjectViewModel.cs" />
+    <Compile Include="ViewModel\ProjectViewModel.Properties.cs">
+      <DependentUpon>ProjectViewModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\StartPageViewModel.Commands.cs">
       <DependentUpon>StartPageViewModel.cs</DependentUpon>
     </Compile>

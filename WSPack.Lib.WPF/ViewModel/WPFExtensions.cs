@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Markup;
 
 namespace WSPack.Lib.WPF.ViewModel
 {
@@ -52,6 +53,19 @@ namespace WSPack.Lib.WPF.ViewModel
       if (value)
         return Visibility.Visible;
       return Visibility.Collapsed;
+    }
+
+    /// <summary>
+    /// Mostrar mensagem de aviso
+    /// </summary>
+    /// <param name="msg">Mensagem a ser exibida</param>
+    /// <param name="title">Título do diálogo</param>
+    /// <returns>true se a resposta foi 'Yes'</returns>
+    public static bool ShowWarningYesNo(string msg, string title = "Aviso")
+    {
+      return MessageBox.Show(msg, title,
+        MessageBoxButton.YesNo,
+        MessageBoxImage.Exclamation) == MessageBoxResult.Yes;
     }
   }
 }

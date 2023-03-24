@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -14,6 +15,7 @@ using WSPack.Lib;
 using WSPack.Lib.Extensions;
 using WSPack.Lib.Items;
 using WSPack.Lib.Properties;
+using WSPack.VisualStudio.Shared.Commands;
 
 namespace WSPack.VisualStudio.Shared.Extensions
 {
@@ -22,7 +24,6 @@ namespace WSPack.VisualStudio.Shared.Extensions
   /// </summary>
   public static class SourceControlExplorerExtensions
   {
-
     /// <summary>
     /// Tentar recuperar o ServerItem com base em um LocalItem
     /// </summary>
@@ -352,6 +353,82 @@ namespace WSPack.VisualStudio.Shared.Extensions
       }
 
       return null;
+    }
+
+    public static bool LocateOrGet(string localItemFullPath, OperationTFSTypes tipoOperacao)
+    {
+      bool operationOK = false;
+
+      // TFS Explorer OK?
+      var vcExt = WSPackPackage.Dte.GetVersionControlExt();
+      bool ok = vcExt != null && vcExt.Explorer != null;
+      if (ok)
+        ok = WSPackPackage.Dte.GetTeamFoundationServerExt().IsSourceControlExplorerActive();
+
+      if (ok)
+      {
+        var versionControlServer = Utils.GetTeamFoundationServerExt().GetVersionControlServer();
+
+        // TFS OK? Item existe?
+        if (versionControlServer != null && versionControlServer.GetWorkspaceForLocalItem(localItemFullPath, out var ws, out var serverItem))
+        {
+          // O projeto é um item do TFS?
+          if (!string.IsNullOrEmpty(serverItem))
+          {
+            // Localizar
+            if (tipoOperacao == OperationTFSTypes.Locate)
+            {
+              var server = Utils.GetVersionControlServerExt();
+              if (server?.Explorer != null)
+              {
+                LocateInTFSBaseCommand.NavigateToServerItem(server, serverItem);
+              }
+              else
+                Utils.LogOutputMessageForceShow(ResourcesLib.StrSourceControlExplorerNaoConfigurado);
+            }
+
+            // GET
+            else
+            {
+              Utils.LogOutputMessage("\r\nEfetuando GET" + $": {localItemFullPath}");
+              GetOptions opcoes = GetOptions.None;
+              if (tipoOperacao == OperationTFSTypes.GetSpecificVersion)
+                opcoes = GetOptions.GetAll | GetOptions.Overwrite;
+
+              GetStatus status = ws.Get(new[] { localItemFullPath }, VersionSpec.Latest, RecursionType.Full, opcoes);
+              Utils.LogOutputMessage(string.Format(ResourcesLib.StrTotalItensRecuperados, status.NumFiles));
+              operationOK = true;
+            }
+          }
+        }
+        else
+        {
+          Utils.ShowWindowConnectToTFS();
+          Utils.LogOutputMessageForceShow(Environment.NewLine + ResourcesLib.StrItemNaoEncontradoTFS + $": {localItemFullPath}");
+        }
+      }
+      else
+      {
+        if (tipoOperacao != OperationTFSTypes.Locate)
+        {
+          Utils.LogDebugMessage("SSE não configurado. Vamos tentar fazer o GET via tf.exe");
+          Utils.LogOutputMessage("\r\nEfetuando GET" + $": {localItemFullPath}");
+
+          var info = RegistroVisualStudioObj.Instance.TFProcessStartInfo();
+          info.Arguments = $"get \"{localItemFullPath}\" /recursive /overwrite";
+          if (tipoOperacao == OperationTFSTypes.GetSpecificVersion)
+            info.Arguments += " /all /force";
+
+          int result = UtilsLib.ExecuteCommand(info.FileName, info.Arguments, out string output,
+            out string outerros);
+          Utils.LogOutputMessage(output);
+          Trace.WriteLine(outerros);
+          operationOK = (result == 1) || (result == 0);
+        }
+        else
+          Utils.ShowWindowConnectToTFS();
+      }
+      return operationOK;
     }
   }
 }

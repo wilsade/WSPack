@@ -5,9 +5,12 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 
+using EnvDTE;
+
 using EnvDTE80;
 
 using Microsoft;
+using Microsoft.TeamFoundation.VersionControl.Client;
 using Microsoft.VisualStudio.OLE.Interop;
 using Microsoft.VisualStudio.Settings;
 using Microsoft.VisualStudio.Shell;
@@ -19,6 +22,7 @@ using WSPack.Lib.Extensions;
 using WSPack.Lib.WPF;
 using WSPack.VisualStudio.Shared;
 using WSPack.VisualStudio.Shared.Commands;
+using WSPack.VisualStudio.Shared.Extensions;
 using WSPack.VisualStudio.Shared.MEFObjects.Bookmarks;
 using WSPack.VisualStudio.Shared.Options;
 using WSPack.VisualStudio.Shared.ToolWindows;
@@ -515,6 +519,39 @@ namespace WSPack
     }
     #endregion
 
+    #region VS MRUProject
+    private IVsUIDataSource _projectMruList;
+    private static readonly Guid _mruListDataSourceFactoryGuid = new Guid("9099ad98-3136-4aca-a9ac-7eeeaee51dca");
+
+    async Task<IVsDataSourceFactory> GetDataSourceFactoryAsync()
+    {
+      await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+      Task<object> objCall = GetServiceAsync(typeof(SVsDataSourceFactory));
+      IVsDataSourceFactory dataSourceFactory = (IVsDataSourceFactory)await objCall;
+      return dataSourceFactory;
+    }
+
+    IVsUIDataSource ProjectMRUList
+    {
+      get
+      {
+        ThreadHelper.ThrowIfNotOnUIThread();
+        if (_projectMruList == null)
+        {
+          IVsDataSourceFactory factory = null;
+          ThreadHelper.JoinableTaskFactory.Run(async () =>
+          {
+            factory = await GetDataSourceFactoryAsync();
+          });
+
+          var guid = _mruListDataSourceFactoryGuid;
+          factory.GetDataSource(ref guid, 1U, out _projectMruList);
+        }
+        return _projectMruList;
+      }
+    }
+    #endregion
+
     /// <summary>
     /// Caminho do arquivo de configuração da StartPage
     /// </summary>
@@ -525,6 +562,93 @@ namespace WSPack
     /// </summary>
     /// <param name="errorMessage">Error message</param>
     void IWSPackSupport.LogError(string errorMessage) => Utils.LogDebugError(errorMessage);
+
+    /// <summary>
+    /// Localizar o projeto no TFS ou efetuar GET
+    /// </summary>
+    /// <param name="localItem">Projeto</param>
+    /// <param name="tipoOperacao">Tipo operacao</param>
+    /// <returns>true se a operação foi executada com sucesso</returns>
+    bool IWSPackSupport.Locate_OR_Get(string localItem, OperationTFSTypes tipoOperacao)
+    {
+      return SourceControlExplorerExtensions.LocateOrGet(localItem, tipoOperacao);
+    }
+
+    /// <summary>
+    /// Abrir um arquivo de solution (sln)
+    /// </summary>
+    /// <param name="solutionFullPath">Caminho completo da solution</param>
+    /// <returns>true se a solution foi aberta com sucesso</returns>
+    bool IWSPackSupport.OpenSolutionFile(string solutionFullPath)
+    {
+      ThreadHelper.ThrowIfNotOnUIThread();
+      int resposta = SolutionSevice.OpenSolutionFile((uint)__VSSLNOPENOPTIONS.SLNOPENOPT_Silent, solutionFullPath);
+      return resposta == 0;
+    }
+
+    /// <summary>
+    /// Abrir um arquivo de projeto (csproj)
+    /// </summary>
+    /// <param name="projectFullPath">Caminho completo do projeto</param>
+    /// <returns>true se o projeto foi aberto com sucesso</returns>
+    bool IWSPackSupport.OpenProjectFile(string projectFullPath)
+    {
+      ThreadHelper.ThrowIfNotOnUIThread();
+      Dte.ExecuteCommand("File.OpenProject", $"\"{projectFullPath}\"");
+      if (System.IO.File.Exists(projectFullPath))
+      {
+        _ = ProjectMRUList.Invoke(Microsoft.VisualStudio.PlatformUI.MruListDataSourceSchema.AddCommandName,
+          projectFullPath, out object vaOut);
+        if (vaOut != null)
+          Trace.Write(vaOut);
+        return true;
+      }
+      return false;
+    }
+
+    /// <summary>
+    /// Localizar um item no windows
+    /// </summary>
+    /// <param name="itemPath">Caminho completo do item</param>
+    void IWSPackSupport.LocateInWindows(string itemPath)
+    {
+      _ = LocateInWindowsBaseCommand.Locate(itemPath, out string msg);
+      Utils.LogDebugMessage(msg);
+    }
+
+    bool IWSPackSupport.IsGit(string projectFullPath)
+    {
+      if (Utils.IsSolutionGitControlled(projectFullPath))
+        return true;
+
+      if (ChangeSourceControlCommand.Instance.IsGit())
+        return true;
+      return false;
+    }
+
+    /// <summary>
+    /// Recuperar o nome do projeto ativo no controle do TFS da IDE
+    /// </summary>
+    /// <returns>Nome do projeto</returns>
+    string IWSPackSupport.GetTFSActiveProjectName()
+    {
+      var team = Utils.GetTeamFoundationServerExt();
+      return team?.ActiveProjectContext?.ProjectName;
+    }
+
+    /// <summary>
+    /// Recuperar o nome do workspace/serverItem para um localItem
+    /// </summary>
+    /// <param name="projectFullPath">Caminho completo do projeto</param>
+    /// <returns>workspace/serverItem</returns>
+    (bool OK, string WsName, string ServerItem) IWSPackSupport.GetWorkspaceForLocalItem(string projectFullPath)
+    {
+      VersionControlServer vcServer = Utils.GetTeamFoundationServerExt()?.GetVersionControlServer();
+      if (vcServer == null)
+        return (false, null, null);
+      bool sucesso = vcServer.GetWorkspaceForLocalItem(projectFullPath, out Workspace ws, out string serverItem);
+      return (sucesso, ws.Name, serverItem);
+    }
   }
 
   /// <summary>
