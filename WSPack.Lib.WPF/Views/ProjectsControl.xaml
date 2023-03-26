@@ -51,6 +51,17 @@
                                 lib:FocusExtension.IsFocused="{Binding IsFocused, Mode=TwoWay}"
                                 Text="{Binding ProjectCaption, UpdateSourceTrigger=PropertyChanged}"
                                 ToolTip="{Binding ProjectCaption}" />
+                            <TextBox Name="edtProjectFullPath"
+                                Width="400"
+                                Margin="3,0,0,0"
+                                Text="{Binding ProjectFullPath, UpdateSourceTrigger=PropertyChanged}"
+                                ToolTip="{Binding ProjectFullPath}" />
+                            <Button Name="btnChooseProjectPath"
+                                Width="20"
+                                Margin="3,0,0,0"
+                                Command="{Binding ChooseProjectCommand}"
+                                Content="..."
+                                ToolTip="Abrir tela para escolha do projeto" />
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

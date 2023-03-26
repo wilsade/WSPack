@@ -288,10 +288,10 @@ namespace WSPack.Lib.WPF.ViewModel
                 }
               };
 
-              //foreach (var esteProjeto in esteGrupo.ProjectList)
-              //{
-              //  esteProjeto.Parent = esteGrupo;
-              //}
+              foreach (var esteProjeto in esteGrupo.ProjectList)
+              {
+                esteProjeto.Parent = esteGrupo;
+              }
             }
 
           }
