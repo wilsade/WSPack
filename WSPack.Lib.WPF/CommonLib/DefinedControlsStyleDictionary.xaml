@@ -5,6 +5,7 @@
 
     <lib:BoolToVisibilityConverter x:Key="xBoolToVisibilityConverter"/>
     <lib:BoolToScrollBarVisibilityConverter x:Key="xBoolToScrollBarVisibilityConverter" />
+    <lib:PathToSystemIconConverter x:Key="xPathToSystemIconConverter" />
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="VSResourceDictionary.xaml"/>

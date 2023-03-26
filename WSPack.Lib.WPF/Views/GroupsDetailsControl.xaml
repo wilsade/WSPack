@@ -53,7 +53,7 @@
                     Command="{Binding SelectedGroup.SelectDefaultPath}"
                     Content=". . ."
                     ToolTip="Abre uma tela para escolha do diretório" />
-            </StackPanel>
+            </StackPanel>            
             <local:ProjectsControl x:Name="projetosDoGrupo"/>
         </StackPanel>
     </GroupBox>

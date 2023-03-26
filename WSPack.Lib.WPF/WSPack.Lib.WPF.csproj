@@ -68,6 +68,7 @@
     <Compile Include="SupportLib\BoolToVisibilityConverter.cs" />
     <Compile Include="SupportLib\FocusExtension.cs" />
     <Compile Include="SupportLib\ObservableObject.cs" />
+    <Compile Include="SupportLib\PathToSystemIconConverter.cs" />
     <Compile Include="SupportLib\PropertySupport.cs" />
     <Compile Include="SupportLib\RelayCommand.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />

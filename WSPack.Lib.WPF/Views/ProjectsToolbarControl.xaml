@@ -7,7 +7,7 @@
     xmlns:local="clr-namespace:WSPack.Lib.WPF.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodel="clr-namespace:WSPack.Lib.WPF.ViewModel"
-    d:DataContext="{d:DesignInstance Type=viewmodel:GroupViewModel}"
+    d:DataContext="{d:DesignInstance Type=viewmodel:StartPageViewModel}"
     d:DesignHeight="25"
     d:DesignWidth="800"
     mc:Ignorable="d">
@@ -16,12 +16,16 @@
         <commonLib:WSImageButton x:Name="btnMoveProjectUp"
             Margin="3,0,0,0"
             Background="Transparent"
+            Command="{Binding SelectedGroup.MoveProjectUpCommand}"
+            CommandParameter="{Binding SelectedGroup.SelectedProject}"
             IsTabStop="False"
             MyImage="Arrow_Up_vs.png"
             ToolTip="Alterar a ordem do projeto movendo-o para cima" />
         <commonLib:WSImageButton x:Name="btnMoveProjectDown"
             Margin="3,0,3,0"
             Background="Transparent"
+            Command="{Binding SelectedGroup.MoveProjectDownCommand}"
+            CommandParameter="{Binding SelectedGroup.SelectedProject}"
             IsTabStop="False"
             MyImage="Arrow-Down_vs.png"
             ToolTip="Alterar a ordem do projeto movendo-o para baixo" />
@@ -29,6 +33,7 @@
         <commonLib:WSImageButton x:Name="btnAddProject"
             Margin="3,0,3,0"
             Background="Transparent"
+            Command="{Binding SelectedGroup.AddProjectCommand}"
             IsTabStop="False"
             MyImage="NewFile_16x.png"
             ToolTip="Adicionar projeto" />
@@ -36,6 +41,8 @@
         <commonLib:WSImageButton x:Name="btnRemoveProject"
             Margin="3,0,0,0"
             Background="Transparent"
+            Command="{Binding SelectedGroup.RemoveProjectCommand}"
+            CommandParameter="{Binding SelectedGroup.SelectedProject}"
             IsTabStop="False"
             MyImage="icon-delete.png"
             ToolTip="Remover projeto" />
