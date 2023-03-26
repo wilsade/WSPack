@@ -102,6 +102,9 @@
     <Compile Include="Views\ProjectsControl.xaml.cs">
       <DependentUpon>ProjectsControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ProjectsToolbarControl.xaml.cs">
+      <DependentUpon>ProjectsToolbarControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\StartPageEditToolbarControl.xaml.cs">
       <DependentUpon>StartPageEditToolbarControl.xaml</DependentUpon>
     </Compile>
@@ -140,6 +143,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ProjectsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProjectsToolbarControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

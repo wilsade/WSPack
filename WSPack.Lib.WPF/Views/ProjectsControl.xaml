@@ -28,5 +28,10 @@
         BorderThickness="0.5"
         Header="Projetos:"
         Style="{StaticResource uiAll}">
+
+        <StackPanel Orientation="Vertical">
+            <local:ProjectsToolbarControl/>
+        </StackPanel>
+        
     </GroupBox>
 </UserControl>
