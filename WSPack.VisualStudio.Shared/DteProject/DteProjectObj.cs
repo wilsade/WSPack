@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 using EnvDTE;
 
@@ -110,7 +111,14 @@ namespace WSPack.VisualStudio.Shared.DteProject
       {
         ThreadHelper.ThrowIfNotOnUIThread();
         if (_fullName == null)
-          _fullName = _project.FullName;
+          try
+          {
+            _fullName = _project.FullName;
+          }
+          catch (Exception ex)
+          {
+            Trace.WriteLine(ex.Message);
+          }
         return _fullName;
       }
     }
