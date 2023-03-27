@@ -101,6 +101,9 @@
     <Compile Include="Views\GroupsListControl.xaml.cs">
       <DependentUpon>GroupsListControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ProjectListControl.xaml.cs">
+      <DependentUpon>ProjectListControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ProjectsControl.xaml.cs">
       <DependentUpon>ProjectsControl.xaml</DependentUpon>
     </Compile>
@@ -141,6 +144,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\GroupsListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProjectListControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:commonLib="clr-namespace:WSPack.Lib.WPF.CommonLib"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WSPack.Lib.WPF.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodel="clr-namespace:WSPack.Lib.WPF.ViewModel"
     d:DataContext="{d:DesignInstance Type=viewmodel:StartPageViewModel}"
@@ -74,42 +75,8 @@
                                         </GroupBox.Header>
 
                                         <!-- Lista de Projetos para cada grupo -->
-                                        <ItemsControl Name="icProjetos"
-                                            Margin="5,0,0,0"
-                                            IsTabStop="False"
-                                            ItemsSource="{Binding ProjectList}">
+                                        <local:ProjectListControl />
 
-                                            <ItemsControl.ItemsPanel>
-                                                <ItemsPanelTemplate>
-                                                    <StackPanel Orientation="Vertical" />
-                                                </ItemsPanelTemplate>
-                                            </ItemsControl.ItemsPanel>
-
-                                            <ItemsControl.ItemTemplate>
-                                                <DataTemplate>
-                                                    <StackPanel Orientation="Vertical">
-
-                                                        <StackPanel Orientation="Horizontal">
-                                                            
-                                                            <commonLib:WSImageButton2 x:Name="btnProjeto"
-                                                                Background="Transparent"
-                                                                Command="{Binding OpenProjectCommand}"
-                                                                CommandParameter="{Binding}"
-                                                                Content="{Binding ProjectCaption}"
-                                                                
-                                                                Image="{Binding ProjectFullPath, Converter={StaticResource xPathToSystemIconConverter}}"
-                                                                Style="{DynamicResource botaoDeLink}"
-                                                                Tag="{Binding}"
-                                                                ToolTip="{Binding ProjectFullPath}" />
-
-                                                        </StackPanel>
-
-
-                                                    </StackPanel>
-                                                </DataTemplate>
-                                            </ItemsControl.ItemTemplate>
-
-                                        </ItemsControl>
 
                                     </GroupBox>
                                 </ScrollViewer>
