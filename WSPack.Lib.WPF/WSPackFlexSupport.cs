@@ -37,6 +37,7 @@ namespace WSPack.Lib.WPF
       XamlSupport.StartPageTextControlLinkSelectedKeyEx = stylerController.StartPageTextControlLinkSelectedKeyEx;
       XamlSupport.LinkStyleKeyEx = stylerController.LinkStyleKeyEx;
       XamlSupport.LinkHoverStyleKeyEx = stylerController.LinkHoverStyleKeyEx;
+      XamlSupport.DirectoryLinkStyleKeyEx = stylerController.DirectoryLinkStyleKeyEx;
     }
 
     /// <summary>
@@ -65,5 +66,6 @@ namespace WSPack.Lib.WPF
     public static object StartPageTextControlLinkSelectedKeyEx { get; set; }
     public static object LinkStyleKeyEx { get; set; }
     public static object LinkHoverStyleKeyEx { get; set; }
+    public static object DirectoryLinkStyleKeyEx { get; set; }
   }
 }

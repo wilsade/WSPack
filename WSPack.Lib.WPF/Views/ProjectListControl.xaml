@@ -48,6 +48,14 @@
                         Tag="{Binding}"
                         ToolTip="{Binding ProjectFullPath}" />
 
+                    <commonLib:WSImageButton2 x:Name="btnDiretorio"
+                        Command="{Binding OpenDirectoryCommand}"
+                        CommandParameter="{Binding}"
+                        Content="{Binding ProjectDirectory}"
+                        Style="{StaticResource DirectoryLinkStyle}"
+                        ToolTip="{Binding ProjectDirectory}"
+                        Visibility="{Binding Parent.Parent.ShowProjectsDirectory, Converter={StaticResource xBoolToVisibilityConverter}}" />
+
                 </StackPanel>
             </DataTemplate>
         </ItemsControl.ItemTemplate>

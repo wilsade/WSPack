@@ -60,5 +60,10 @@ namespace WSPack.Lib.WPF
     /// Link hover style key ex
     /// </summary>
     object LinkHoverStyleKeyEx { get; }
+
+    /// <summary>
+    /// Directory link style key ex
+    /// </summary>
+    object DirectoryLinkStyleKeyEx { get; }
   }
 }

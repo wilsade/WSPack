@@ -100,5 +100,6 @@ namespace WSPack.VisualStudio.Shared.WPFs
     object IVisualSutioStylerController.StartPageTextControlLinkSelectedKeyEx => StartPageTextControlLinkSelectedKey;
     object IVisualSutioStylerController.LinkStyleKeyEx => LinkStyleKey;
     object IVisualSutioStylerController.LinkHoverStyleKeyEx => LinkHoverStyleKey;
+    object IVisualSutioStylerController.DirectoryLinkStyleKeyEx => DirectoryLinkStyleKey;
   }
 }
