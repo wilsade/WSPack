@@ -77,7 +77,6 @@
                                         <!-- Lista de Projetos para cada grupo -->
                                         <local:ProjectListControl />
 
-
                                     </GroupBox>
                                 </ScrollViewer>
                             </DataTemplate>

@@ -38,20 +38,15 @@
             <DataTemplate>
                 <StackPanel Orientation="Vertical">
 
-                    <StackPanel Orientation="Horizontal">
-
-                        <commonLib:WSImageButton2 x:Name="btnProjeto"
-                            Background="Transparent"
-                            Command="{Binding OpenProjectCommand}"
-                            CommandParameter="{Binding}"
-                            Content="{Binding ProjectCaption}"
-                            Image="{Binding ProjectFullPath, Converter={StaticResource xPathToSystemIconConverter}}"
-                            Style="{DynamicResource botaoDeLink}"
-                            Tag="{Binding}"
-                            ToolTip="{Binding ProjectFullPath}" />
-
-                    </StackPanel>
-
+                    <commonLib:WSImageButton2 x:Name="btnProjeto"
+                        Background="Transparent"
+                        Command="{Binding OpenProjectCommand}"
+                        CommandParameter="{Binding}"
+                        Content="{Binding ProjectCaption}"
+                        Image="{Binding ProjectFullPath, Converter={StaticResource xPathToSystemIconConverter}}"
+                        Style="{DynamicResource botaoDeLink}"
+                        Tag="{Binding}"
+                        ToolTip="{Binding ProjectFullPath}" />
 
                 </StackPanel>
             </DataTemplate>
