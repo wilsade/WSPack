@@ -98,5 +98,7 @@ namespace WSPack.VisualStudio.Shared.WPFs
     object IVisualSutioStylerController.ForegroundEx => Foreground;
     object IVisualSutioStylerController.ToolWindowTextBrushKeyEx => ToolWindowTextBrushKey;
     object IVisualSutioStylerController.StartPageTextControlLinkSelectedKeyEx => StartPageTextControlLinkSelectedKey;
+    object IVisualSutioStylerController.LinkStyleKeyEx => LinkStyleKey;
+    object IVisualSutioStylerController.LinkHoverStyleKeyEx => LinkHoverStyleKey;
   }
 }

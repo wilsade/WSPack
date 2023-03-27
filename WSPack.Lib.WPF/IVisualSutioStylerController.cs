@@ -50,5 +50,15 @@ namespace WSPack.Lib.WPF
     /// </summary>
     /// <returns>Start page text control link selected key</returns>
     object StartPageTextControlLinkSelectedKeyEx { get; }
+
+    /// <summary>
+    /// Link style key ex
+    /// </summary>
+    object LinkStyleKeyEx { get; }
+
+    /// <summary>
+    /// Link hover style key ex
+    /// </summary>
+    object LinkHoverStyleKeyEx { get; }
   }
 }

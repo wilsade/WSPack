@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace WSPack.Lib.WPF.CommonLib
@@ -47,6 +49,33 @@ namespace WSPack.Lib.WPF.CommonLib
           };
         }
       }
+    }
+  }
+
+  /// <summary>
+  /// Definir imagem para o botão
+  /// </summary>
+  /// <seealso cref="Button" />
+  public class WSImageButton2 : Button
+  {
+    static WSImageButton2()
+    {
+      DefaultStyleKeyProperty.OverrideMetadata(typeof(WSImageButton2), new FrameworkPropertyMetadata(typeof(WSImageButton2)));
+    }
+
+    /// <summary>
+    /// Image property
+    /// </summary>
+    public static readonly DependencyProperty ImageProperty = DependencyProperty.Register(
+        "Image", typeof(ImageSource), typeof(WSImageButton2), new PropertyMetadata(default(ImageSource)));
+
+    /// <summary>
+    /// Image
+    /// </summary>
+    public ImageSource Image
+    {
+      get { return (ImageSource)GetValue(ImageProperty); }
+      set { SetValue(ImageProperty, value); }
     }
   }
 }

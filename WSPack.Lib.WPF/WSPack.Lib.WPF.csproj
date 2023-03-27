@@ -70,6 +70,7 @@
     <Compile Include="SupportLib\ObservableObject.cs" />
     <Compile Include="SupportLib\PathToSystemIconConverter.cs" />
     <Compile Include="SupportLib\PropertySupport.cs" />
+    <Compile Include="SupportLib\RelativeFontSizeHelper.cs" />
     <Compile Include="SupportLib\RelayCommand.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\GroupViewModel.Commands.cs">

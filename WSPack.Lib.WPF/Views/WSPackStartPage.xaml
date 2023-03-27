@@ -34,6 +34,7 @@
                         Text="{Binding InfoText}"
                         Visibility="{Binding HasGroups, ConverterParameter=Inverted, Converter={StaticResource xBoolToVisibilityConverter}}" />
 
+                    <!-- Controle de grupos -->
                     <ItemsControl x:Name="icGrupos"
                         IsTabStop="False"
                         ItemsSource="{Binding GroupList}"
@@ -57,11 +58,11 @@
                                         Tag="{Binding}">
                                         <GroupBox.Header>
                                             <commonLib:WSUnderlineTextBlock
-                                                ContextMenu="{ StaticResource menuGrupos}"
-                                                Tag="{Binding}"
                                                 Margin="3,3,0,9"
+                                                ContextMenu="{StaticResource menuGrupos}"
                                                 Cursor="Hand"
                                                 FontSize="20"
+                                                Tag="{Binding}"
                                                 Text="{Binding GroupCaption}"
                                                 ToolTip="Clique para abrir um projeto e já adicioná-lo ao grupo">
                                                 <TextBlock.InputBindings>
@@ -71,12 +72,51 @@
                                                 </TextBlock.InputBindings>
                                             </commonLib:WSUnderlineTextBlock>
                                         </GroupBox.Header>
+
+                                        <!-- Lista de Projetos para cada grupo -->
+                                        <ItemsControl Name="icProjetos"
+                                            Margin="5,0,0,0"
+                                            IsTabStop="False"
+                                            ItemsSource="{Binding ProjectList}">
+
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <StackPanel Orientation="Vertical" />
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Vertical">
+
+                                                        <StackPanel Orientation="Horizontal">
+                                                            
+                                                            <commonLib:WSImageButton2 x:Name="btnProjeto"
+                                                                Background="Transparent"
+                                                                Command="{Binding OpenProjectCommand}"
+                                                                CommandParameter="{Binding}"
+                                                                Content="{Binding ProjectCaption}"
+                                                                
+                                                                Image="{Binding ProjectFullPath, Converter={StaticResource xPathToSystemIconConverter}}"
+                                                                Style="{DynamicResource botaoDeLink}"
+                                                                Tag="{Binding}"
+                                                                ToolTip="{Binding ProjectFullPath}" />
+
+                                                        </StackPanel>
+
+
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+
+                                        </ItemsControl>
+
                                     </GroupBox>
                                 </ScrollViewer>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
-                    
+
                 </Grid>
 
             </ScrollViewer>

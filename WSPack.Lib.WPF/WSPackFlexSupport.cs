@@ -35,6 +35,8 @@ namespace WSPack.Lib.WPF
       XamlSupport.ToolWindowBackgroundBrushKeyEx = stylerController.ToolWindowBackgroundBrushKeyEx;
       XamlSupport.ToolWindowTextBrushKeyEx = stylerController.ToolWindowTextBrushKeyEx;
       XamlSupport.StartPageTextControlLinkSelectedKeyEx = stylerController.StartPageTextControlLinkSelectedKeyEx;
+      XamlSupport.LinkStyleKeyEx = stylerController.LinkStyleKeyEx;
+      XamlSupport.LinkHoverStyleKeyEx = stylerController.LinkHoverStyleKeyEx;
     }
 
     /// <summary>
@@ -61,5 +63,7 @@ namespace WSPack.Lib.WPF
     public static object ToolWindowBackgroundBrushKeyEx { get; set; }
     public static object ToolWindowTextBrushKeyEx { get; set; }
     public static object StartPageTextControlLinkSelectedKeyEx { get; set; }
+    public static object LinkStyleKeyEx { get; set; }
+    public static object LinkHoverStyleKeyEx { get; set; }
   }
 }
