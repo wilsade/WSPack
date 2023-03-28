@@ -45,8 +45,7 @@ namespace WSPack.Lib.WPF.Views
     public void Configure()
     {
       DataContext = _startPageViewModel;
-      _startPageViewModel.InfoText = "Clique com o botão direito para criar Grupos e Projetos" +
-        "\n(em desenvolvimento)";
+      _startPageViewModel.InfoText = "Clique com o botão direito para criar Grupos e Projetos";
       userControlDaStartPage = this;
     }
   }

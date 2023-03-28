@@ -58,7 +58,10 @@ namespace WSPack.Lib.WPF.ViewModel
         {
           var tupla = GroupViewModel.ChooseProjectDialog(Parent.PegarDiretorioPadrao());
           if (tupla.Ok)
+          {
             ProjectFullPath = tupla.FileName;
+            ProjectCaption = System.IO.Path.GetFileNameWithoutExtension(tupla.FileName);
+          }
         }
 
         var comando = new RelayCommand(chooseProject);

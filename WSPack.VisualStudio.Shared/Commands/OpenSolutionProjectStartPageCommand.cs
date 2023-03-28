@@ -1,22 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.Design;
-using System.Diagnostics;
-using System.Globalization;
-using System.IO;
-using System.Linq;
 using System.Threading;
-using System.Threading.Tasks;
 
-using Microsoft.TeamFoundation.VersionControl.Client;
 using Microsoft.VisualStudio.Shell;
 
-using WSPack.Lib;
-using WSPack.Lib.Extensions;
-using WSPack.Lib.Forms;
 using WSPack.Lib.Properties;
 using WSPack.Lib.WPF.ViewModel;
-using WSPack.VisualStudio.Shared.Extensions;
 
 using Task = System.Threading.Tasks.Task;
 
@@ -62,21 +50,19 @@ namespace WSPack.VisualStudio.Shared.Commands
     protected override void DoExecute(object sender, EventArgs e)
     {
       ThreadHelper.ThrowIfNotOnUIThread();
-      _package.MessageBoxShellWarningOk(ResourcesLib.StrEmDesenvolvimento);
-#warning OpenSolutionProjectStartPage em desenvolvimento
-      //int i = 1;
-      //while (StartPageViewModel.Instance == null)
-      //{
-      //  StartPageCommand.ShowStartPage(_package);
-      //  System.Threading.Thread.Sleep(500);
-      //  Utils.LogDebugMessage($"Esperando StartPage: {i++}");
-      //  if (i > 3)
-      //    break;
-      //}
-      //if (StartPageViewModel.Instance != null)
-      //  StartPageViewModel.Instance.OpenProjectSolutionCommand.Execute(null);
-      //else
-      //  Utils.LogOutputMessage(ResourcesLib.StrNaoFoiPossivelRealizarEstaOperacao);
+      int i = 1;
+      while (StartPageViewModel.Instance == null)
+      {
+        StartPageCommand.ShowStartPage(_package);
+        Thread.Sleep(500);
+        Utils.LogDebugMessage($"Esperando StartPage: {i++}");
+        if (i > 3)
+          break;
+      }
+      if (StartPageViewModel.Instance != null)
+        StartPageViewModel.Instance.OpenProjectSolutionCommand.Execute(null);
+      else
+        Utils.LogOutputMessage(ResourcesLib.StrNaoFoiPossivelRealizarEstaOperacao);
     }
   }
 }

@@ -240,7 +240,7 @@ namespace WSPack.Lib.WPF.ViewModel
     /// <summary>
     /// Recuperar a instãncia de WSStartPageViewModel
     /// </summary>
-    internal static StartPageViewModel Instance { get; private set; }
+    public static StartPageViewModel Instance { get; private set; }
 
     /// <summary>
     /// Cria o modelo de visão da StartPage, seja via arquivo de configuração ou modelo em branco
