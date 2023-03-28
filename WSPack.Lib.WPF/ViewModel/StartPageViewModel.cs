@@ -226,7 +226,7 @@ namespace WSPack.Lib.WPF.ViewModel
       Instance = importado;
       WSPackStartPage.userControlDaStartPage._startPageViewModel = importado;
       WSPackStartPage.userControlDaStartPage.DataContext = importado;
-      Save(fileName);
+      Save(WSPackFlexSupport.Instance.PackSupport.StartPageConfigPath);
     }
 
     /*
