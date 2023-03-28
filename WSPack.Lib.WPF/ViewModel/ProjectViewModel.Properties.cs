@@ -94,5 +94,16 @@ namespace WSPack.Lib.WPF.ViewModel
         RaisePropertyChanged(nameof(IsFocused));
       }
     }
+
+    [XmlIgnore]
+    public bool IsSelected
+    {
+      get => _isSelected;
+      set
+      {
+        _isSelected = value;
+        RaisePropertyChanged(nameof(IsSelected));
+      }
+    }
   }
 }

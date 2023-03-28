@@ -7,6 +7,7 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
     <system:String x:Key="toolTipEditar">Alterar a página para edição</system:String>
+    <system:String x:Key="toolTipOrdenarPorNome">Ordenar projetos por nome</system:String>
     <supportLib:BoolToVisibilityConverter x:Key="xBoolToVisibilityConverter" />
 
     <!-- Menu de contexto para a StartPage -->
@@ -36,6 +37,11 @@
         <MenuItem Name="menuItemImportar"
             Command="{Binding ImportCommand}"
             Header="Importar configuração" />
+        <Separator />
+        <MenuItem Name="menuItemAbrirSolutionProjeto"
+            Command="{Binding OpenProjectSolutionCommand}"
+            Header="Abrir Solution / Projeto"
+            ToolTip="Exibe um tela para abrir uma Solution / Projeto previamente cadastrado" />
     </ContextMenu>
 
     <!-- Menu de contexto para os grupos -->
@@ -46,6 +52,11 @@
             CommandParameter="{Binding}"
             Header="Editar"
             ToolTip="{StaticResource toolTipEditar}" />
+        <MenuItem
+            Command="{Binding Tag.OrdenarPorNomeCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}}"
+            CommandParameter="{Binding}"
+            Header="Ordenar por nome"
+            ToolTip="{StaticResource toolTipOrdenarPorNome}" />
     </ContextMenu>
 
     <ResourceDictionary.MergedDictionaries>

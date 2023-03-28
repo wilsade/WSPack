@@ -32,7 +32,7 @@
                 Content="Nome do grupo"
                 Style="{StaticResource uiAll}" />
             <StackPanel Orientation="Horizontal">
-                <TextBox
+                <TextBox Margin="3,0,0,0"
                     MinWidth="200"
                     lib:FocusExtension.IsFocused="{Binding SelectedGroup.IsFocused, Mode=TwoWay}"
                     Text="{Binding SelectedGroup.GroupCaption}" />
@@ -44,7 +44,7 @@
             </StackPanel>
             <Label Content="Diretório padrão:" />
             <StackPanel Orientation="Horizontal">
-                <TextBox
+                <TextBox Margin="3,0,0,0"
                     MinWidth="200"
                     Text="{Binding SelectedGroup.GroupDefaultPath, UpdateSourceTrigger=PropertyChanged}"
                     ToolTip="Diretório que será pré-selecionado ao abrir um item" />

@@ -16,7 +16,7 @@ namespace WSPack.Lib.WPF.ViewModel
   public partial class ProjectViewModel : BaseViewModel
   {
     readonly ProjectModel _projectModel;
-    bool _isFocused;
+    bool _isFocused, _isSelected;
 
     #region Construtores
     /// <summary>

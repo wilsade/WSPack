@@ -160,7 +160,7 @@ namespace WSPack.Lib.WPF.ViewModel
 
         bool PodeExecutar()
         {
-          return HasProjects;
+          return HasProjects && _lstProjetos.Count > 1;
         }
 
         var comando = new RelayCommand(Execute, PodeExecutar);

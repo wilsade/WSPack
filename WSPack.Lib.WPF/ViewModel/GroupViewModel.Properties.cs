@@ -71,8 +71,12 @@ namespace WSPack.Lib.WPF.ViewModel
       {
         if (value != null)
         {
+          if (SelectedProject != null)
+            SelectedProject.IsSelected = false;
+
           _selectedProject = value;
           RaisePropertyChanged(nameof(SelectedProject));
+          SelectedProject.IsSelected = true;
         }
       }
     }

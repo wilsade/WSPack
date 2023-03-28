@@ -39,6 +39,8 @@
         <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
         <commonLib:WSImageButton x:Name="btnRemoveGroup"
             Background="Transparent"
+            Command="{Binding RemoveGroupCommand}"
+            CommandParameter="{Binding SelectedGroup}"
             MyImage="icon-delete.png"
             ToolTip="Excluir grupo" />
     </StackPanel>

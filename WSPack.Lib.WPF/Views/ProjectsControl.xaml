@@ -31,9 +31,10 @@
 
         <StackPanel Orientation="Vertical">
             <!-- Botões para os projetos -->
-            <local:ProjectsToolbarControl x:Name="toolbarProjetos" />
+            <local:ProjectsToolbarControl Margin="0,3,0,6" x:Name="toolbarProjetos" />
 
             <ListBox Name="lbxEdicaoProjetos"
+                     
                 VerticalAlignment="Center"
                 ItemContainerStyle="{StaticResource selectedItemInListBox}"
                 ItemsSource="{Binding SelectedGroup.ProjectList}"
@@ -42,6 +43,7 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
+                            <RadioButton VerticalAlignment="Center" IsChecked="{Binding IsSelected}"/>
                             <Image
                                 Margin="2,0,0,0"
                                 Source="{Binding ProjectFullPath, Converter={StaticResource xPathToSystemIconConverter}}" />
