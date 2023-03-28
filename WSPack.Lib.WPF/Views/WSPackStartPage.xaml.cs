@@ -35,7 +35,8 @@ namespace WSPack.Lib.WPF.Views
     /// <returns>Task</returns>
     public async Task LoadAsync()
     {
-      _startPageViewModel = await StartPageViewModel.CreateOrLoadFromFileAsync();
+      _startPageViewModel = await StartPageViewModel.CreateOrLoadFromFileAsync(
+        WSPackFlexSupport.Instance.PackSupport.StartPageConfigPath);
     }
 
     /// <summary>

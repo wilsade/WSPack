@@ -222,7 +222,7 @@ namespace WSPack.Lib.WPF.ViewModel
 
     private async Task RefreshDataContextAsync(string fileName)
     {
-      var importado = await CreateOrLoadFromFileAsync();
+      var importado = await CreateOrLoadFromFileAsync(fileName);
       Instance = importado;
       WSPackStartPage.userControlDaStartPage._startPageViewModel = importado;
       WSPackStartPage.userControlDaStartPage.DataContext = importado;
@@ -248,16 +248,16 @@ namespace WSPack.Lib.WPF.ViewModel
     /// <param name="fileName">Nome do arquivo de configuração da StartPage</param>
     /// <param name="onError">Acontece em caso de erro</param>
     /// <returns>Instância de <see cref="StartPageViewModel" /></returns>
-    public static async Task<StartPageViewModel> CreateOrLoadFromFileAsync()
+    public static async Task<StartPageViewModel> CreateOrLoadFromFileAsync(string fileName)
     {
       Task<StartPageViewModel> task = Task.Run(() =>
       {
         StartPageViewModel instance = null;
 
         // Arquivo existe. Vamos ler a configuração existente.
-        if (File.Exists(WSPackFlexSupport.Instance.PackSupport.StartPageConfigPath))
+        if (File.Exists(fileName))
         {
-          using (var reader = new StreamReader(WSPackFlexSupport.Instance.PackSupport.StartPageConfigPath))
+          using (var reader = new StreamReader(fileName))
           {
             var serializer = new XmlSerializer(typeof(StartPageViewModel));
             //_deserializing = true;
@@ -301,7 +301,7 @@ namespace WSPack.Lib.WPF.ViewModel
         else
         {
           instance = new StartPageViewModel();
-          using (var writer = new StreamWriter(WSPackFlexSupport.Instance.PackSupport.StartPageConfigPath, false, Encoding.UTF8))
+          using (var writer = new StreamWriter(fileName, false, Encoding.UTF8))
           {
             XmlSerializer serializer = new XmlSerializer(typeof(StartPageViewModel));
             serializer.Serialize(writer, instance);

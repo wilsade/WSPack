@@ -224,9 +224,9 @@ namespace WSPack.Lib.WPF.ViewModel
     {
       get
       {
-        void export()
+        void Import()
         {
-          OpenFileDialog dlg = new OpenFileDialog()
+          var dlg = new OpenFileDialog()
           {
             DefaultExt = "*.cfg",
             Filter = "StartPage|*.cfg",
@@ -239,7 +239,7 @@ namespace WSPack.Lib.WPF.ViewModel
           }
         }
 
-        var comando = new RelayCommand(export);
+        var comando = new RelayCommand(Import);
         return comando;
       }
     }

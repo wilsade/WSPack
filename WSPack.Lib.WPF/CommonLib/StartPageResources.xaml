@@ -15,12 +15,27 @@
             Command="{Binding EditCommand}"
             Header="Editar"
             ToolTip="{StaticResource toolTipEditar}" />
-
         <MenuItem Name="menuItemShowProjectsDirectory"
             Command="{Binding ShowProjectsDirectoryCommand}"
             Header="Exibir diretórios dos projetos"
             IsChecked="{Binding ShowProjectsDirectory}"
             ToolTip="Marque para que sejam exibidos os diretórios de cada projeto" />
+        <MenuItem Name="menuItemProjectHorizontalScrollVisible"
+            Command="{Binding ProjectHorizontalScrollCommand}"
+            Header="Exibir Scroll horizontal para os projetos"
+            IsChecked="{Binding ProjectHorizontalScrollVisible}"
+            ToolTip="Marque para que sejam exibidas barras de rolagem horizontais para os projetos" />
+        <Separator />
+        <MenuItem Name="menuItemUpdate"
+            Command="{Binding UpdateModelCommand}"
+            Header="Atualizar"
+            ToolTip="Recarregar a StartPage" />
+        <MenuItem Name="menuItemExportar"
+            Command="{Binding ExportCommand}"
+            Header="Exportar configuração" />
+        <MenuItem Name="menuItemImportar"
+            Command="{Binding ImportCommand}"
+            Header="Importar configuração" />
     </ContextMenu>
 
     <!-- Menu de contexto para os grupos -->

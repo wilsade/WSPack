@@ -49,7 +49,11 @@
 
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                <ScrollViewer
+                                    Width="{Binding Parent.ProjectContainerWidth}"
+                                    MaxHeight="{Binding Parent.ProjectContainerMaxHeight}"
+                                    HorizontalScrollBarVisibility="{Binding Parent.ProjectHorizontalScrollVisible, Converter={StaticResource xBoolToScrollBarVisibilityConverter}}"
+                                    VerticalScrollBarVisibility="Auto">
                                     <GroupBox x:Name="gbxGrupoComProjetos"
                                         Height="Auto"
                                         Margin="3,3,0,0"

@@ -39,7 +39,7 @@ namespace WSPack.Lib.WPF.ViewModel
         void onOpenDirectory(ProjectViewModel projeto)
         {
           if (projeto != null)
-            WSPackFlexSupport.Instance.PackSupport.LocateInWindows(projeto.ProjectFullPath);
+            WSPackFlexSupport.Instance.PackSupport.LocateInWindows(projeto.ProjectDirectory);
         }
 
         var comando = new RelayCommand<ProjectViewModel>(onOpenDirectory);
