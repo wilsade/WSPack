@@ -132,6 +132,8 @@ namespace WSPack.Lib.WPF.ViewModel
         {
           if (value == 0)
             value = double.NaN;
+          else if (value < AlturaMinimaGrupoProjetos)
+            value = AlturaMinimaGrupoProjetos;
           _starPageModel.ProjectContainerMaxHeight = value;
           RaisePropertyChanged(nameof(ProjectContainerMaxHeight));
         }

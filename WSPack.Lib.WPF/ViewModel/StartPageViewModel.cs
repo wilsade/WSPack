@@ -28,6 +28,7 @@ namespace WSPack.Lib.WPF.ViewModel
     //CustomCommandViewModel _selectedCustomCommand;
     readonly Dictionary<string, List<TFSProjectModel>> _dicTFSProjects;
     string _infoText;
+    const int AlturaMinimaGrupoProjetos = 150;
 
 #warning Rever os custom commands
     readonly List<CustomCommandModel> _lstComandosDefaults = new List<CustomCommandModel>
