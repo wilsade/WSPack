@@ -24,12 +24,31 @@
 
     <Grid ContextMenu="{StaticResource menuStartPage}">
 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <commonLib:WSExpander Grid.Column="0"
+            MaxWidth="250"
+            ExpandDirection="Right"
+            IsExpanded="{Binding IsLeftPanelExpanded}"
+            IsTabStop="False">
+            <Expander.Content>
+                <commonLib:WSStackPanel Orientation="Vertical">
+                    <commonLib:WSTextBlock Text="Olha eu aqui" />
+                </commonLib:WSStackPanel>
+
+            </Expander.Content>
+
+        </commonLib:WSExpander>
+
         <!-- Coluna de projetos -->
-        <Grid>
+        <Grid Grid.Column="1">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <Grid>
                     <!-- Label que aparece quando não existem projetos -->
-                    <commonLib:WSTextBlock x:Name="lbInformacaoEdicaoStartPage"
+                    <commonLib:WSTextBlock x:Name="lbInformacaoEdicaoStartPage" Grid.Row="0" Grid.Column="1"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Text="{Binding InfoText}"

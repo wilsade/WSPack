@@ -101,5 +101,6 @@ namespace WSPack.VisualStudio.Shared.WPFs
     object IVisualSutioStylerController.LinkStyleKeyEx => LinkStyleKey;
     object IVisualSutioStylerController.LinkHoverStyleKeyEx => LinkHoverStyleKey;
     object IVisualSutioStylerController.DirectoryLinkStyleKeyEx => DirectoryLinkStyleKey;
+    object IVisualSutioStylerController.ScrollBarBackgroundBrushKeyEx => ScrollBarBackgroundBrushKey;
   }
 }

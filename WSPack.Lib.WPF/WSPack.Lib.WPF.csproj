@@ -52,8 +52,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommonLib\AutoSizedGridView.cs" />
+    <Compile Include="CommonLib\WSExpander.cs" />
     <Compile Include="CommonLib\WSGrid.cs" />
     <Compile Include="CommonLib\WSImageButton.cs" />
+    <Compile Include="CommonLib\WSStackPanel.cs" />
     <Compile Include="CommonLib\WSTextBlock.cs" />
     <Compile Include="IVisualSutioStylerController.cs" />
     <Compile Include="IWSPackSupport.cs" />

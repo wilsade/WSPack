@@ -65,5 +65,10 @@ namespace WSPack.Lib.WPF
     /// Directory link style key ex
     /// </summary>
     object DirectoryLinkStyleKeyEx { get; }
+
+    /// <summary>
+    /// Scroll bar background brush key
+    /// </summary>
+    object ScrollBarBackgroundBrushKeyEx { get; }
   }
 }
