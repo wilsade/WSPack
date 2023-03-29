@@ -53,12 +53,25 @@
             CommandParameter="{Binding SelectedGroup}"
             MyImage="icon-delete.png"
             ToolTip="Excluir grupo" />
-        <Separator Margin="3,0,0,0" Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
-        <TextBlock Margin="3,0,0,0"
+        <Separator
+            Margin="3,0,0,0"
+            Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+        <TextBlock
+            Margin="3,0,0,0"
             VerticalAlignment="Center"
             Style="{StaticResource textBlockVSTheme}"
             Text="Altura máxima"
             ToolTip="Altura máxima para o controle de grupos. Informe 0 (zero) para altura automática" />
-        <commonLib:WSNumberTextBox Margin="3,0,0,0" Text="{Binding ProjectContainerMaxHeight, UpdateSourceTrigger=LostFocus}" />
+        <commonLib:WSNumberTextBox
+            Margin="3,0,0,0"
+            Text="{Binding ProjectContainerMaxHeight, UpdateSourceTrigger=LostFocus}" />
+        <Separator
+            Margin="3,0,0,0"
+            Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+        <commonLib:WSCheckBox
+            Margin="3,0,0,0"
+            VerticalAlignment="Center"
+            Content="Exibir diretórios de projetos"
+            IsChecked="{Binding ShowProjectsDirectory}" />
     </StackPanel>
 </UserControl>
