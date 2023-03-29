@@ -46,5 +46,14 @@
             IsTabStop="False"
             MyImage="icon-delete.png"
             ToolTip="Remover projeto" />
+        <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+        <TextBlock
+            Margin="3,0,0,0"
+            VerticalAlignment="Center"
+            Text="Comprimento"
+            ToolTip="Comprimento do controle de exibição de projetos" />
+        <commonLib:WSNumberTextBox
+            Margin="3,0,0,0"
+            Text="{Binding ProjectContainerWidth, UpdateSourceTrigger=LostFocus}" />
     </StackPanel>
 </UserControl>

@@ -54,11 +54,11 @@
             MyImage="icon-delete.png"
             ToolTip="Excluir grupo" />
         <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
-        <TextBlock
+        <TextBlock Margin="3,0,0,0"
             VerticalAlignment="Center"
             Style="{StaticResource textBlockVSTheme}"
             Text="Altura máxima"
             ToolTip="Altura máxima para o controle de grupos. Informe 0 (zero) para altura automática" />
-        <commonLib:WSNumberTextBox Text="{Binding ProjectContainerMaxHeight, UpdateSourceTrigger=LostFocus}" />
+        <commonLib:WSNumberTextBox Margin="3,0,0,0" Text="{Binding ProjectContainerMaxHeight, UpdateSourceTrigger=LostFocus}" />
     </StackPanel>
 </UserControl>
