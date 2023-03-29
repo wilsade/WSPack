@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommonLib\AutoSizedGridView.cs" />
+    <Compile Include="CommonLib\WSCheckBox.cs" />
     <Compile Include="CommonLib\WSExpander.cs" />
     <Compile Include="CommonLib\WSGrid.cs" />
     <Compile Include="CommonLib\WSImageButton.cs" />
@@ -62,8 +63,8 @@
     <Compile Include="CommonLib\WSTextBlock.cs" />
     <Compile Include="CommonLib\WSTextBox.cs" />
     <Compile Include="CommonLib\WSUnderlineTextBlock.cs">
-	  <DependentUpon>WSTextBlock.cs</DependentUpon>
-	</Compile>
+      <DependentUpon>WSTextBlock.cs</DependentUpon>
+    </Compile>
     <Compile Include="IVisualSutioStylerController.cs" />
     <Compile Include="IWSPackSupport.cs" />
     <Compile Include="Model\BaseModel.cs" />

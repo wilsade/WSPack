@@ -55,5 +55,12 @@
         <commonLib:WSNumberTextBox
             Margin="3,0,0,0"
             Text="{Binding ProjectContainerWidth, UpdateSourceTrigger=LostFocus}" />
+        <Separator Margin="3,0,0,0" Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+        <commonLib:WSCheckBox
+            Margin="3,0,0,0"
+            VerticalAlignment="Center"
+            Content="Scroll visível"
+            IsChecked="{Binding ProjectHorizontalScrollVisible}"
+            ToolTip="Indica se será exibido Scroll horizontal no controle de projetos" />
     </StackPanel>
 </UserControl>
