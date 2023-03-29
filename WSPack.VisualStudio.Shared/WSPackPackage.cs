@@ -647,7 +647,7 @@ namespace WSPack
       if (vcServer == null)
         return (false, null, null);
       bool sucesso = vcServer.GetWorkspaceForLocalItem(projectFullPath, out Workspace ws, out string serverItem);
-      return (sucesso, ws.Name, serverItem);
+      return (sucesso, ws?.Name, serverItem);
     }
   }
 

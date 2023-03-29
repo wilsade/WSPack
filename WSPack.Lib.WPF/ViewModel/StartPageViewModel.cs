@@ -361,8 +361,6 @@ namespace WSPack.Lib.WPF.ViewModel
       if (WSPackFlexSupport.Instance.PackSupport.IsGit(projectFullPath))
         return false;
 
-      string projectNameFromTFS = WSPackFlexSupport.Instance.PackSupport.GetTFSActiveProjectName();
-
       string teamProjectName = WSPackFlexSupport.Instance.PackSupport.GetTFSActiveProjectName();
       if (string.IsNullOrWhiteSpace(teamProjectName))
         return false;

@@ -43,6 +43,7 @@
                         Command="{Binding OpenProjectCommand}"
                         CommandParameter="{Binding}"
                         Content="{Binding ProjectCaption}"
+                        ContextMenu="{StaticResource menuProjetos}"
                         Image="{Binding ProjectFullPath, Converter={StaticResource xPathToSystemIconConverter}}"
                         Style="{DynamicResource botaoDeLink}"
                         Tag="{Binding}"

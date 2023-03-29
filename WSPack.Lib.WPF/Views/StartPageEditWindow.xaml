@@ -12,7 +12,7 @@
     Width="1000"
     Height="450"
     d:DataContext="{d:DesignInstance Type=viewmodel:StartPageViewModel}"
-    Icon="..\Resources\startpage.png"
+    Icon="pack://application:,,,/WSPack.Lib;Component/Resources/EditWindow_16x.png"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 

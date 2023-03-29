@@ -6,7 +6,7 @@
     xmlns:supportLib="clr-namespace:WSPack.Lib.WPF.SupportLib"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
-    <system:String x:Key="toolTipEditar">Alterar a página para edição</system:String>
+    <system:String x:Key="toolTipEditar">Abre a janela de edição da Página inicial</system:String>
     <system:String x:Key="toolTipOrdenarPorNome">Ordenar projetos por nome</system:String>
     <supportLib:BoolToVisibilityConverter x:Key="xBoolToVisibilityConverter" />
 
@@ -15,7 +15,11 @@
         <MenuItem Name="menuItemEditar"
             Command="{Binding EditCommand}"
             Header="Editar"
-            ToolTip="{StaticResource toolTipEditar}" />
+            ToolTip="{StaticResource toolTipEditar}">
+            <MenuItem.Icon>
+                <Image Source="pack://application:,,,/WSPack.Lib;Component/Resources/EditWindow_16x.png" />
+            </MenuItem.Icon>
+        </MenuItem>
         <MenuItem Name="menuItemShowProjectsDirectory"
             Command="{Binding ShowProjectsDirectoryCommand}"
             Header="Exibir diretórios dos projetos"
@@ -51,12 +55,60 @@
             Command="{Binding Tag.Parent.EditCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}}"
             CommandParameter="{Binding}"
             Header="Editar"
-            ToolTip="{StaticResource toolTipEditar}" />
+            ToolTip="{StaticResource toolTipEditar}">
+            <MenuItem.Icon>
+                <Image Source="pack://application:,,,/WSPack.Lib;Component/Resources/EditWindow_16x.png" />
+            </MenuItem.Icon>
+        </MenuItem>
         <MenuItem
             Command="{Binding Tag.OrdenarPorNomeCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}}"
             CommandParameter="{Binding}"
             Header="Ordenar por nome"
             ToolTip="{StaticResource toolTipOrdenarPorNome}" />
+    </ContextMenu>
+
+    <!-- Menu de contexto para os projetos -->
+    <ContextMenu x:Key="menuProjetos"
+        Tag="{Binding PlacementTarget.Tag, RelativeSource={RelativeSource Self}}">
+        <MenuItem
+            Command="{Binding Tag.Parent.Parent.EditCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}}"
+            CommandParameter="{Binding}"
+            Header="Editar"
+            ToolTip="{StaticResource toolTipEditar}">
+            <MenuItem.Icon>
+                <Image Source="pack://application:,,,/WSPack.Lib;Component/Resources/EditWindow_16x.png" />
+            </MenuItem.Icon>
+        </MenuItem>
+        <MenuItem
+            Command="{Binding Tag.OpenProjectCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}}"
+            CommandParameter="{Binding}"
+            Header="Abrir projeto" />
+        <Separator />
+        <MenuItem
+            Command="{Binding Tag.GetLastestVersionAndOpenCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}}"
+            CommandParameter="{Binding}"
+            Header="Get Lastest Version e abrir o projeto"
+            IsEnabled="{Binding Tag.IsProjectInTFS, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}}"
+            ToolTip="Antes de abrir o projeto, efetua um Get Lastest Version recursivo na pasta do projeto" />
+        <MenuItem
+            Command="{Binding Tag.GetSpecificVersionAndOpenCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}}"
+            CommandParameter="{Binding}"
+            Header="Get Specific Version e abrir o projeto"
+            IsEnabled="{Binding Tag.IsProjectInTFS, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}}"
+            ToolTip="Antes de abrir o projeto, efetua um Get Specific Version recursivo na pasta do projeto" />
+        <Separator />
+        <MenuItem
+            Command="{Binding Tag.OpenDirectoryCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}}"
+            CommandParameter="{Binding}"
+            Header="Localizar no Windows"
+            ToolTip="Localizar o projeto no Windows Explorer" />
+        <MenuItem
+            Command="{Binding Tag.LocateInTFSCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}}"
+            CommandParameter="{Binding}"
+            Header="Localizar no TFS"
+            IsEnabled="{Binding Tag.IsProjectInTFS, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}}"
+            ToolTip="Tenta localizar o projeto no TFS" />
+
     </ContextMenu>
 
     <ResourceDictionary.MergedDictionaries>
