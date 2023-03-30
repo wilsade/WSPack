@@ -60,14 +60,14 @@ namespace WSPack.Lib.WPF
 
   public class XamlSupport
   {
-    public static object BackgroundEx { get; set; }
-    public static object ForegroundEx { get; set; }
-    public static object ToolWindowBackgroundBrushKeyEx { get; set; }
-    public static object ToolWindowTextBrushKeyEx { get; set; }
-    public static object StartPageTextControlLinkSelectedKeyEx { get; set; }
-    public static object LinkStyleKeyEx { get; set; }
-    public static object LinkHoverStyleKeyEx { get; set; }
-    public static object DirectoryLinkStyleKeyEx { get; set; }
-    public static object ScrollBarBackgroundBrushKey { get; set; }
+    public static object BackgroundEx { get; set; } = new object();
+    public static object ForegroundEx { get; set; } = new object();
+    public static object ToolWindowBackgroundBrushKeyEx { get; set; } = new object();
+    public static object ToolWindowTextBrushKeyEx { get; set; } = new object();
+    public static object StartPageTextControlLinkSelectedKeyEx { get; set; } = new object();
+    public static object LinkStyleKeyEx { get; set; } = new object();
+    public static object LinkHoverStyleKeyEx { get; set; } = new object();
+    public static object DirectoryLinkStyleKeyEx { get; set; } = new object();
+    public static object ScrollBarBackgroundBrushKey { get; set; } = new object();
   }
 }
