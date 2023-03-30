@@ -10,12 +10,16 @@
     xmlns:viewmodel="clr-namespace:WSPack.Lib.WPF.ViewModel"
     Title="Edição da página inicial"
     Width="950"
-    Height="450"
+    Height="{Binding ActualHeight, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
     d:DataContext="{d:DesignInstance Type=viewmodel:StartPageViewModel}"
+    d:DesignHeight="250"
+    d:DesignWidth="750"
     Icon="pack://application:,,,/WSPack.Lib;Component/Resources/EditWindow_16x.png"
+    KeyDown="Window_KeyDown"
+    KeyUp="Window_KeyUp"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
-
+    
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -30,6 +34,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+
         <local:StartPageEditToolbarControl Grid.Row="0" Grid.Column="0"
             Margin="3,3,0,0" />
 
@@ -44,7 +49,7 @@
                 VerticalScrollBarVisibility="Auto">
 
                 <!-- Detalhes do grupo -->
-                <local:GroupsDetailsControl/>
+                <local:GroupsDetailsControl />
             </ScrollViewer>
 
         </DockPanel>

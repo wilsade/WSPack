@@ -28,16 +28,45 @@ namespace WSPack.Lib.WPF.ViewModel
       }
     }
 
-    /// <summary>
-    /// Indica se o painel esquerdo está expandido
-    /// </summary>
-    public bool IsLeftPanelExpanded
+    [XmlIgnore]
+    public double HeightBeforeCollapse
     {
-      get { return _starPageModel.IsLeftPanelExpanded; }
+      get => _heightBeforeCollapse;
       set
       {
-        _starPageModel.IsLeftPanelExpanded = value;
-        RaisePropertyChanged(nameof(IsLeftPanelExpanded));
+        _heightBeforeCollapse = value;
+      }
+    }
+
+    [XmlIgnore]
+    public double ActualHeight
+    {
+      get => _actualHeight ?? 450;
+      set
+      {
+        _actualHeight = value;
+        RaisePropertyChanged($"{nameof(ActualHeight)}");
+      }
+    }
+
+    /// <summary>
+    /// Indica se a janela está expandida
+    /// </summary>
+    [XmlIgnore]
+    public bool IsExpanded
+    {
+      get { return _starPageModel.IsExpanded; }
+      set
+      {
+        _starPageModel.IsExpanded = value;
+        if (!value)
+        {
+          _heightBeforeCollapse = ActualHeight;
+          ActualHeight = 70;
+        }
+        else
+          ActualHeight = _heightBeforeCollapse;
+        RaisePropertyChanged(nameof(IsExpanded));
         Save();
       }
     }

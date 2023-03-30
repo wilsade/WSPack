@@ -23,9 +23,9 @@
     public bool ShowProjectsDirectory { get; set; }
 
     /// <summary>
-    /// Indica se o painel esquerdo está expandido
+    /// Indica se a janela está recolhida
     /// </summary>
-    public bool IsLeftPanelExpanded { get; set; } = true;
+    public bool IsExpanded { get; set; } = true;
 
     /// <summary>
     /// Altura máxima do painel de projetos

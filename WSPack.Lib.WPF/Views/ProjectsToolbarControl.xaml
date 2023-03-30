@@ -54,8 +54,12 @@
             ToolTip="Comprimento do controle de exibição de projetos" />
         <commonLib:WSNumberTextBox
             Margin="3,0,0,0"
+            VerticalAlignment="Center"
+            VerticalContentAlignment="Center"
             Text="{Binding ProjectContainerWidth, UpdateSourceTrigger=LostFocus}" />
-        <Separator Margin="3,0,0,0" Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+        <Separator
+            Margin="3,0,0,0"
+            Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
         <commonLib:WSCheckBox
             Margin="3,0,0,0"
             VerticalAlignment="Center"

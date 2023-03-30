@@ -34,7 +34,9 @@ namespace WSPack.Lib.WPF.ViewModel
         {
           var window = new StartPageEditWindow()
           {
-            DataContext = this
+            Owner = Application.Current.MainWindow,
+            DataContext = this,
+            WindowStartupLocation = WindowStartupLocation.CenterScreen,
           };
 
           if (param is GroupViewModel group)

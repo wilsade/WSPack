@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+using WSPack.Lib.WPF.ViewModel;
+
 namespace WSPack.Lib.WPF.Views
 {
   /// <summary>
@@ -22,6 +24,18 @@ namespace WSPack.Lib.WPF.Views
     public StartPageEditWindow()
     {
       InitializeComponent();
+    }
+
+    private void Window_KeyDown(object sender, KeyEventArgs e)
+    {
+      if (e.Key == Key.LeftCtrl)
+        (DataContext as StartPageViewModel).IsExpanded = false;
+    }
+
+    private void Window_KeyUp(object sender, KeyEventArgs e)
+    {
+      if (e.Key == Key.LeftCtrl)
+        (DataContext as StartPageViewModel).IsExpanded = true;
     }
   }
 }

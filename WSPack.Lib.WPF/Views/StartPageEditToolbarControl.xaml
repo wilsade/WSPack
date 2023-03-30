@@ -21,9 +21,10 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <StackPanel x:Name="painelBotoesGrupos" Grid.Row="0" Grid.Column="0"
+    <DockPanel x:Name="painelBotoesGrupos" Grid.Row="0" Grid.Column="0"
         Margin="0,0,0,3"
-        Orientation="Horizontal">
+        LastChildFill="False"
+        Style="{StaticResource panelVSTheme}">
         <commonLib:WSImageButton x:Name="btnMoveGroupUp"
             Margin="3,0,0,0"
             Background="Transparent"
@@ -64,7 +65,9 @@
             ToolTip="Altura máxima para o controle de grupos. Informe 0 (zero) para altura automática" />
         <commonLib:WSNumberTextBox
             Margin="3,0,0,0"
-            Text="{Binding ProjectContainerMaxHeight, UpdateSourceTrigger=LostFocus}" />
+            VerticalAlignment="Center" VerticalContentAlignment="Center"
+            Text="{Binding ProjectContainerMaxHeight, UpdateSourceTrigger=LostFocus}"
+             />
         <Separator
             Margin="3,0,0,0"
             Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
@@ -73,5 +76,15 @@
             VerticalAlignment="Center"
             Content="Exibir diretórios de projetos"
             IsChecked="{Binding ShowProjectsDirectory}" />
-    </StackPanel>
+
+        <commonLib:WSExpander
+            DockPanel.Dock="Right"
+            ExpandDirection="Down"
+            FlowDirection="LeftToRight"
+            IsExpanded="{Binding IsExpanded, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            IsTabStop="False"
+            ToolTip="Altera o tamanho da janela para melhor &#x0a;visualização da Página inicial (LeftCtrl)">
+        </commonLib:WSExpander>
+
+    </DockPanel>
 </UserControl>
