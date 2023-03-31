@@ -45,6 +45,7 @@
                         Content="{Binding ProjectCaption}"
                         ContextMenu="{StaticResource menuProjetos}"
                         Image="{Binding ProjectFullPath, Converter={StaticResource xPathToSystemIconConverter}}"
+                        IsTabStop="False"
                         Style="{DynamicResource botaoDeLink}"
                         Tag="{Binding}"
                         ToolTip="{Binding ProjectFullPath}" />
@@ -53,6 +54,7 @@
                         Command="{Binding OpenDirectoryCommand}"
                         CommandParameter="{Binding}"
                         Content="{Binding ProjectDirectory}"
+                        IsTabStop="False"
                         Style="{StaticResource DirectoryLinkStyle}"
                         ToolTip="{Binding ProjectDirectory}"
                         Visibility="{Binding Parent.Parent.ShowProjectsDirectory, Converter={StaticResource xBoolToVisibilityConverter}}" />

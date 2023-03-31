@@ -83,7 +83,7 @@
             FlowDirection="LeftToRight"
             IsExpanded="{Binding IsExpanded, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
             IsTabStop="False"
-            ToolTip="Altera o tamanho da janela para melhor &#x0a;visualização da Página inicial (LeftCtrl)">
+            ToolTip="Altera o tamanho da janela para melhor &#x0a;visualização da Página inicial (RightCtrl)">
         </commonLib:WSExpander>
 
     </DockPanel>

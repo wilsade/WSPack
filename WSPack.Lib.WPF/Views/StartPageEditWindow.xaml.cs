@@ -28,13 +28,13 @@ namespace WSPack.Lib.WPF.Views
 
     private void Window_KeyDown(object sender, KeyEventArgs e)
     {
-      if (e.Key == Key.LeftCtrl)
+      if (e.Key == Key.RightCtrl)
         (DataContext as StartPageViewModel).IsExpanded = false;
     }
 
     private void Window_KeyUp(object sender, KeyEventArgs e)
     {
-      if (e.Key == Key.LeftCtrl)
+      if (e.Key == Key.RightCtrl)
         (DataContext as StartPageViewModel).IsExpanded = true;
     }
   }
