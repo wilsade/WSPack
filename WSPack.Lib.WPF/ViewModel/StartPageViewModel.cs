@@ -27,7 +27,6 @@ namespace WSPack.Lib.WPF.ViewModel
     GroupViewModel _selectedGroup;
     //CustomCommandViewModel _selectedCustomCommand;
     readonly Dictionary<string, List<TFSProjectModel>> _dicTFSProjects;
-    string _infoText;
     const int AlturaMinimaGrupoProjetos = 150;
     double _heightBeforeCollapse;
     double? _actualHeight;
@@ -48,7 +47,6 @@ namespace WSPack.Lib.WPF.ViewModel
     {
       _starPageModel = new StartPageModel();
       Instance = this;
-      InfoText = ResourcesLib.StrIniciando;
       _lstGroups = new ObservableCollection<GroupViewModel>();
       //_lstCustomCommands = new ObservableCollection<CustomCommandViewModel>();
       _dicTFSProjects = new Dictionary<string, List<TFSProjectModel>>(StringComparer.OrdinalIgnoreCase);

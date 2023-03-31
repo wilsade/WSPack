@@ -11,23 +11,6 @@ namespace WSPack.Lib.WPF.ViewModel
 {
   partial class StartPageViewModel
   {
-    /// <summary>
-    /// Indica se a StarPage está carregando
-    /// </summary>
-    [XmlIgnore]
-    public string InfoText
-    {
-      get => _infoText;
-      set
-      {
-        if (value != null)
-        {
-          _infoText = value;
-          RaisePropertyChanged(nameof(InfoText));
-        }
-      }
-    }
-
     [XmlIgnore]
     public double HeightBeforeCollapse
     {

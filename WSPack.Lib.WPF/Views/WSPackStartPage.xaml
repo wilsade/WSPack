@@ -32,7 +32,7 @@
                     <commonLib:WSTextBlock x:Name="lbInformacaoEdicaoStartPage"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Text="{Binding InfoText}"
+                        Text="Clique com o botão direito para criar Grupos e Projetos"
                         Visibility="{Binding HasGroups, ConverterParameter=Inverted, Converter={StaticResource xBoolToVisibilityConverter}}" />
 
                     <!-- Controle de grupos -->
