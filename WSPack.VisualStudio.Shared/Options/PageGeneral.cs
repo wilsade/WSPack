@@ -101,13 +101,17 @@ namespace WSPack.VisualStudio.Shared.Options
         (nameof(FormatOnSaveOptions), FormatOnSaveOptions)
       };
 
-      LoadExpandableProperties("PageGeneral", lst);
-
-      lst = new List<(string PropName, object ExpObject)>
+      _ = Utils.ExecuteInMainThreadAsync(() =>
       {
-        (nameof(ForceUTF8OnSaveOptions), ForceUTF8OnSaveOptions)
-      };
-      LoadExpandableProperties("PageGeneral", lst);
+        LoadExpandableProperties("PageGeneral", lst);
+
+        lst = new List<(string PropName, object ExpObject)>
+        {
+          (nameof(ForceUTF8OnSaveOptions), ForceUTF8OnSaveOptions)
+        };
+        LoadExpandableProperties("PageGeneral", lst);
+      });
+
     }
 
     /// <summary>

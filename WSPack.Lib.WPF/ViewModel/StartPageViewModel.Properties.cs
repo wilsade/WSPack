@@ -24,7 +24,7 @@ namespace WSPack.Lib.WPF.ViewModel
     [XmlIgnore]
     public double ActualHeight
     {
-      get => _actualHeight ?? 450;
+      get => _actualHeight ?? 550;
       set
       {
         _actualHeight = value;
