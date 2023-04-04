@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>OrderByl Lambda com OrderBy (WS Pack)</Title>
+      <Shortcut>OrderByl</Shortcut>
+      <Description>Criar uma pequena expressão Lambda com OrderBy</Description>
+      <Author>William Sade de Paiva</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>Item</ID>
+          <ToolTip>Nome do item</ToolTip>
+          <Default>x</Default>
+        </Literal>
+        <Literal>
+          <ID>selecionar</ID>
+          <ToolTip>Selecionar os itens</ToolTip>
+          <Default></Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp">
+        <![CDATA[OrderBy($Item$ => $selecionar$)$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

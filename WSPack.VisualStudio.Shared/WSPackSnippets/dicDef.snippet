@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>dicdef Dictionary&lt;K, T&gt; (WS Pack)</Title>
+      <Shortcut>dicdef</Shortcut>
+      <Description>Definir um dicionário</Description>
+      <Author>William Sade de Paiva</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System.Collections.Generic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Object>
+          <ID>Key</ID>
+          <Type>System.String</Type>
+          <ToolTip>Chave do dicionário</ToolTip>
+          <Default>string</Default>
+        </Object>
+        <Object>
+          <ID>Value</ID>
+          <Type>System.String</Type>
+          <ToolTip>Valor</ToolTip>
+          <Default>string</Default>
+        </Object>
+        <Literal>
+          <ID>nome</ID>
+          <ToolTip>Nome do objeto</ToolTip>
+          <Default>dic</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp">
+        <![CDATA[Dictionary<$Key$, $Value$> $nome$$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

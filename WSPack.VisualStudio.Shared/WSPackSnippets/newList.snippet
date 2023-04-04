@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>nl new List&lt;T&gt; (WS Pack)</Title>
+      <Shortcut>nl</Shortcut>
+      <Description>Criar uma lista</Description>
+      <Author>William Sade de Paiva</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System.Collections.Generic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Object Editable="true">
+          <ID>TYPE</ID>
+          <ToolTip>Tipo da lista</ToolTip>
+          <Default>string</Default>
+        </Object>
+        <Literal>
+          <ID>NAME</ID>
+          <ToolTip>Nome do objeto</ToolTip>
+          <Default>lst</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp">
+        <![CDATA[var $NAME$ = new List<$TYPE$>();$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

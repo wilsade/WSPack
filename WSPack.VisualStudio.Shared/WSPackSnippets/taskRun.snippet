@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>trun Task.Run (WS Pack)</Title>
+      <Shortcut>trun</Shortcut>
+      <Description>Criar esqueleto de uma Task básica sem parâmetros</Description>
+      <Author>William Sade de Paiva</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Object Editable="false">
+          <ID>SystemThreadingTasksTask</ID>
+          <Function>SimpleTypeName(global::System.Threading.Tasks.Task)</Function>
+        </Object>
+      </Declarations>
+      <Code Language="csharp">
+        <![CDATA[$SystemThreadingTasksTask$.Run(() =>
+        {
+          $end$
+        });]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

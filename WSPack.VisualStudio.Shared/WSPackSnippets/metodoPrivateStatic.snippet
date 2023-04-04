@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippet Format="1.0.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>msprivate método private static (WS Pack)</Title>
+    <Author>William Sade de Paiva</Author>
+    <Shortcut>msprivate</Shortcut>
+    <Description>Criar esqueleto de um método private static</Description>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>nomeMetodo</ID>
+        <Default>MeuMetodo</Default>
+        <ToolTip>Informe o nome do método</ToolTip>
+      </Literal>
+      <Object>
+        <ID>tipoRetorno</ID>
+        <Default>void</Default>
+        <ToolTip>Informe o tipo de retorno</ToolTip>
+      </Object>
+      <Literal>
+        <ID>parametros</ID>
+        <Default></Default>
+        <ToolTip>Informe o(s) parâmetros</ToolTip>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp">
+      <![CDATA[static $tipoRetorno$ $nomeMetodo$($parametros$)
+			{
+			  $end$
+			}]]>
+    </Code>
+  </Snippet>
+</CodeSnippet>

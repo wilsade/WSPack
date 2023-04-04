@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>no new object (WS Pack)</Title>
+      <Shortcut>no</Shortcut>
+      <Description>Criar um objeto</Description>
+      <Author>William Sade de Paiva</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Object>
+          <ID>TYPE</ID>
+          <ToolTip>Tipo do objeto</ToolTip>
+          <Type>System.Object</Type>
+          <Default>object</Default>
+        </Object>
+        <Literal>
+          <ID>NAME</ID>
+          <ToolTip>Nome do objeto</ToolTip>
+          <Default>obj</Default>
+        </Literal>
+        <Literal>
+          <ID>parametros</ID>
+          <Default></Default>
+          <ToolTip>Informe o(s) parâmetros</ToolTip>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp">
+        <![CDATA[var $NAME$ = new $TYPE$($parametros$);$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

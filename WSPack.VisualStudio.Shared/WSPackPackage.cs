@@ -2,6 +2,8 @@
 using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Diagnostics;
+using System.IO;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
@@ -165,7 +167,6 @@ namespace WSPack
       try
       {
         // HACK: Verificar instalação dos snippets
-#warning IMPLEMENTAR: Snippets
         CheckSnippets();
       }
       catch (Exception ex)
@@ -282,7 +283,7 @@ namespace WSPack
     }
 
     private void CheckSnippets()
-    {/*
+    {
       const string collectionName = @"Languages\CodeExpansions\CSharp\";
       const string PATH = "Path";
       const string WSPACKSNIPPETS = "WSPackSnippets";
@@ -293,7 +294,7 @@ namespace WSPack
       {
         // Achou os caminhos dos snippets
         var str = configurationSettingsStore.GetString(collectionName, PATH, "");
-        if (!str.IsNullOuEmpty())
+        if (!str.IsNullOrEmptyEx())
         {
           // Possui "WSSnippets" válidos?
           var valoresPath = str.Split(';');
@@ -313,7 +314,7 @@ namespace WSPack
           // Se não tem, adiciona os snippets atualizados
           if (!tem)
           {
-            string validPath = Path.GetDirectoryName(typeof(WSPack2019Package).Assembly.Location);
+            string validPath = Path.GetDirectoryName(typeof(WSPackPackage).Assembly.Location);
             validPath = Path.Combine(validPath, WSPACKSNIPPETS);
             if (Directory.Exists(validPath))
             {
@@ -323,7 +324,7 @@ namespace WSPack
             }
           }
         }
-      }*/
+      }
     }
 
     /// <summary>
@@ -545,10 +546,12 @@ namespace WSPack
         if (_projectMruList == null)
         {
           IVsDataSourceFactory factory = null;
+#pragma warning disable VSTHRD102 // Implement internal logic asynchronously
           ThreadHelper.JoinableTaskFactory.Run(async () =>
           {
             factory = await GetDataSourceFactoryAsync();
           });
+#pragma warning restore VSTHRD102 // Implement internal logic asynchronously
 
           var guid = _mruListDataSourceFactoryGuid;
           factory.GetDataSource(ref guid, 1U, out _projectMruList);
@@ -601,7 +604,7 @@ namespace WSPack
     {
       ThreadHelper.ThrowIfNotOnUIThread();
       Dte.ExecuteCommand("File.OpenProject", $"\"{projectFullPath}\"");
-      if (System.IO.File.Exists(projectFullPath))
+      if (File.Exists(projectFullPath))
       {
         _ = ProjectMRUList.Invoke(Microsoft.VisualStudio.PlatformUI.MruListDataSourceSchema.AddCommandName,
           projectFullPath, out object vaOut);

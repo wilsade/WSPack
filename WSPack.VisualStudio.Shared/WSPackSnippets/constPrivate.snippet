@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippet Format="1.0.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>cnprivate const (WS Pack)</Title>
+    <Author>William Sade de Paiva</Author>
+    <Shortcut>cnprivate</Shortcut>
+    <Description>Criar esqueleto de uma constante private</Description>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>nomeConstante</ID>
+        <Default>NomeDaConstante</Default>
+        <ToolTip>Informe o nome da constante</ToolTip>
+      </Literal>
+      <Object>
+        <ID>tipo</ID>
+        <Default>string</Default>
+        <ToolTip>Informe o tipo da constante</ToolTip>
+      </Object>
+      <Literal>
+        <ID>Valor</ID>
+        <Default>""</Default>
+        <ToolTip>Informe o valor da constante</ToolTip>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp">
+      <![CDATA[const $tipo$ $nomeConstante$ = $Valor$;$end$]]>
+    </Code>
+  </Snippet>
+</CodeSnippet>

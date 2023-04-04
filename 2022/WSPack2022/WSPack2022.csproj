@@ -751,6 +751,116 @@
     <Compile Include="RegistroVisualStudio2022Obj.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\..\WSPack.VisualStudio.Shared\snippets.pkgdef">
+      <Link>snippets.pkgdef</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\..\WSPack.VisualStudio.Shared\WSPackSnippets\lambdaSelect.snippet">
+      <Link>WSPackSnippets\lambdaSelect.snippet</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\..\WSPack.VisualStudio.Shared\WSPackSnippets\en.snippet">
+      <Link>WSPackSnippets\en.snippet</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\..\WSPack.VisualStudio.Shared\WSPackSnippets\lambdaAny.snippet">
+      <Link>WSPackSnippets\lambdaAny.snippet</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\..\WSPack.VisualStudio.Shared\WSPackSnippets\lambdaFirst.snippet">
+      <Link>WSPackSnippets\lambdaFirst.snippet</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\..\WSPack.VisualStudio.Shared\WSPackSnippets\lambdaFirstOrDefault.snippet">
+      <Link>WSPackSnippets\lambdaFirstOrDefault.snippet</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\..\WSPack.VisualStudio.Shared\WSPackSnippets\lambdaGroupBy.snippet">
+      <Link>WSPackSnippets\lambdaGroupBy.snippet</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\..\WSPack.VisualStudio.Shared\WSPackSnippets\lambdaOrderBy.snippet">
+      <Link>WSPackSnippets\lambdaOrderBy.snippet</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\..\WSPack.VisualStudio.Shared\WSPackSnippets\lambdaSelectMany.snippet">
+      <Link>WSPackSnippets\lambdaSelectMany.snippet</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\..\WSPack.VisualStudio.Shared\WSPackSnippets\lambdaWhere.snippet">
+      <Link>WSPackSnippets\lambdaWhere.snippet</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\..\WSPack.VisualStudio.Shared\WSPackSnippets\metodoPublicStatic.snippet">
+      <Link>WSPackSnippets\metodoPublicStatic.snippet</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\..\WSPack.VisualStudio.Shared\WSPackSnippets\nameofParenteses.snippet">
+      <Link>WSPackSnippets\nameofParenteses.snippet</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\..\WSPack.VisualStudio.Shared\WSPackSnippets\newList.snippet">
+      <Link>WSPackSnippets\newList.snippet</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\..\WSPack.VisualStudio.Shared\WSPackSnippets\newObject.snippet">
+      <Link>WSPackSnippets\newObject.snippet</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\..\WSPack.VisualStudio.Shared\WSPackSnippets\taskRun.snippet">
+      <Link>WSPackSnippets\taskRun.snippet</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\..\WSPack.VisualStudio.Shared\WSPackSnippets\tw.snippet">
+      <Link>WSPackSnippets\tw.snippet</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\..\WSPack.VisualStudio.Shared\WSPackSnippets\typeofParenteses.snippet">
+      <Link>WSPackSnippets\typeofParenteses.snippet</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\..\WSPack.VisualStudio.Shared\WSPackSnippets\dicDef.snippet">
+      <Link>WSPackSnippets\dicDef.snippet</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\WSPack.VisualStudio.Shared\WSPackSnippets\ienumerableDef.snippet">
+      <Link>WSPackSnippets\ienumerableDef.snippet</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\WSPack.VisualStudio.Shared\WSPackSnippets\listDef.snippet">
+      <Link>WSPackSnippets\listDef.snippet</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\WSPack.VisualStudio.Shared\WSPackSnippets\constPrivate.snippet">
+      <Link>WSPackSnippets\constPrivate.snippet</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="..\..\WSPack.VisualStudio.Shared\WSPackSnippets\metodoPrivateStatic.snippet">
+      <Link>WSPackSnippets\metodoPrivateStatic.snippet</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>
     </None>

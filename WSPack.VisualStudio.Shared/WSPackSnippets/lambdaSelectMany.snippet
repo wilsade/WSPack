@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>SelectManyl Lambda com SelectMany (WS Pack)</Title>
+      <Shortcut>SelectManyl</Shortcut>
+      <Description>Criar uma pequena expressão Lambda com SelectMany</Description>
+      <Author>William Sade de Paiva</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>Item</ID>
+          <ToolTip>Nome do item</ToolTip>
+          <Default>x</Default>
+        </Literal>
+        <Literal>
+          <ID>selecionar</ID>
+          <ToolTip>Selecionar os itens</ToolTip>
+          <Default></Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp">
+        <![CDATA[SelectMany($Item$ => $selecionar$)$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

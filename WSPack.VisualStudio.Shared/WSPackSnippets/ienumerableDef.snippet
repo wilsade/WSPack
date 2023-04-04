@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>ienumdef IEnumerable&lt;T&gt; (WS Pack)</Title>
+      <Shortcut>ienumdef</Shortcut>
+      <Description>Definir um enumerado</Description>
+      <Author>William Sade de Paiva</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System.Collections.Generic</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Object Editable="true">
+          <ID>tipo</ID>
+          <ToolTip>Tipo do enumerado</ToolTip>
+          <Default>string</Default>
+        </Object>
+        <Literal>
+          <ID>nome</ID>
+          <ToolTip>Nome do objeto</ToolTip>
+          <Default>nome</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp">
+        <![CDATA[IEnumerable<$tipo$> $nome$$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
