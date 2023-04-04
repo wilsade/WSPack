@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+using WSPack.Lib.WPF.Model;
 
 namespace WSPack.Lib.WPF
 {
@@ -67,5 +70,38 @@ namespace WSPack.Lib.WPF
     /// <param name="projectFullPath">Caminho completo do projeto</param>
     /// <returns>workspace/serverItem</returns>
     (bool OK, string WsName, string ServerItem) GetWorkspaceForLocalItem(string projectFullPath);
+
+    /// <summary>
+    /// Recuperar a Lista de marcadores
+    /// </summary>
+    /// <returns>Lista de marcadores</returns>
+    BindingList<Bookmark> GetBookMarkGetBindingList();
+
+    /// <summary>
+    /// Acontece quando o Bind de marcadores é alterado
+    /// </summary>
+    event EventHandler BookmarkBindingChanged;
+
+    /// <summary>
+    /// Acontece quando os marcadores são alterados
+    /// </summary>
+    event EventHandler BookmarksChanged;
+
+    /// <summary>
+    /// Ir para marcador
+    /// </summary>
+    /// <param name="bookmark">Bookmark</param>
+    void GotoBookmark(Bookmark bookmark);
+
+    /// <summary>
+    /// Remover um marcador
+    /// </summary>
+    /// <param name="bookmark">Bookmark</param>
+    void RemoveBookmark(Bookmark bookmark);
+
+    /// <summary>
+    /// Limpar marcadores
+    /// </summary>
+    void ClearAllBookmarks();
   }
 }

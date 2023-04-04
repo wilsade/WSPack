@@ -263,5 +263,17 @@
   <ItemGroup>
     <Resource Include="Resources\EditWindow_16x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\bookmark-edit.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\bookmark_go.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\bookmark_delete.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\bookmark_limpar.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -17,6 +16,7 @@ using Microsoft.VisualStudio.Shell.Interop;
 
 using WSPack.Lib.Extensions;
 using WSPack.Lib.Properties;
+using WSPack.Lib.WPF.Model;
 using WSPack.VisualStudio.Shared.Extensions;
 
 namespace WSPack.VisualStudio.Shared.MEFObjects.Bookmarks
@@ -494,7 +494,7 @@ namespace WSPack.VisualStudio.Shared.MEFObjects.Bookmarks
       ThreadHelper.ThrowIfNotOnUIThread();
       try
       {
-        
+
         using (var wrapper = new DataStreamFromComStream(pOptionsStream))
         {
           if (pszKey == GetChave)

@@ -68,6 +68,7 @@
     <Compile Include="IVisualSutioStylerController.cs" />
     <Compile Include="IWSPackSupport.cs" />
     <Compile Include="Model\BaseModel.cs" />
+    <Compile Include="Model\Bookmark.cs" />
     <Compile Include="Model\CustomCommandModel.cs" />
     <Compile Include="Model\GroupModel.cs" />
     <Compile Include="Model\ProjectModel.cs" />
@@ -105,6 +106,9 @@
       <DependentUpon>StartPageViewModel.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\WPFExtensions.cs" />
+    <Compile Include="Views\BookmarkWindowControl.xaml.cs">
+      <DependentUpon>BookmarkWindowControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\GroupsDetailsControl.xaml.cs">
       <DependentUpon>GroupsDetailsControl.xaml</DependentUpon>
     </Compile>
@@ -149,6 +153,10 @@
     <Compile Include="CustomControl1.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\BookmarkWindowControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\GroupsDetailsControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

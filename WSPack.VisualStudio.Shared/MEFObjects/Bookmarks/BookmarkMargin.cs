@@ -16,6 +16,7 @@ using Microsoft.VisualStudio.Text.Formatting;
 
 using WSPack.Lib.Extensions;
 using WSPack.Lib.Properties;
+using WSPack.Lib.WPF.Model;
 using WSPack.VisualStudio.Shared.Extensions;
 
 namespace WSPack.VisualStudio.Shared.MEFObjects.Bookmarks

@@ -1,0 +1,193 @@
+﻿<UserControl
+    x:Class="WSPack.Lib.WPF.Views.BookmarkWindowControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:commonLib="clr-namespace:WSPack.Lib.WPF.CommonLib"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WSPack.Lib.WPF.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\CommonLib\StartPageResources.xaml" />
+                <ResourceDictionary Source="..\CommonLib\DefinedControlsStyleDictionary.xaml" />
+                <ResourceDictionary Source="..\CommonLib\VSResourceDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <DockPanel LastChildFill="True">
+
+            <!-- Barra de botões -->
+            <ToolBar
+                Height="26"
+                DockPanel.Dock="Top"
+                Loaded="ToolBar_Loaded"
+                Style="{StaticResource uiAll}"
+                ToolBarTray.IsLocked="True">
+
+                <!-- Renomear -->
+                <Button x:Name="btnRenameBookmark"
+                    Click="btnRenameBookmark_Click"
+                    IsEnabled="False"
+                    ToolTip="Renomear marcador selecionado">
+                    <StackPanel Orientation="Horizontal">
+                        <Image
+                            Source="pack://application:,,,/WSPack.Lib;Component/Resources/bookmark-edit.ico"
+                            Stretch="Uniform" />
+                        <Label
+                            Margin="3,0,0,0"
+                            Padding="0"
+                            Content="Renomear" />
+                    </StackPanel>
+                </Button>
+
+                <!-- Ir para marcador -->
+                <Button x:Name="btnGotoBookmark"
+                    Click="btnGotoBookmark_Click"
+                    IsEnabled="False"
+                    ToolTip="Ir para o marcador selecionado">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="pack://application:,,,/WSPack.Lib;Component/Resources/bookmark_go.ico" />
+                        <Label
+                            Margin="3,0,0,0"
+                            Padding="0"
+                            Content="Ir..." />
+                    </StackPanel>
+                </Button>
+                <Separator />
+
+                <!-- Remover marcador -->
+                <Button x:Name="btnRemoveBookmark"
+                    Click="btnRemoveBookmark_Click"
+                    IsEnabled="False"
+                    ToolTip="Remover o marcador selecionado">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="pack://application:,,,/WSPack.Lib;Component/Resources/bookmark_delete.ico" />
+                        <Label
+                            Margin="3,0,0,0"
+                            Padding="0"
+                            Content="Remover" />
+                    </StackPanel>
+                </Button>
+                <Separator />
+
+                <!-- Limpar marcadores -->
+                <Button x:Name="btnLimparBookmark"
+                    Margin="0,2,0,0"
+                    Click="btnLimparBookmark_Click"
+                    IsEnabled="False"
+                    ToolTip="Limpar todos os marcadores">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="pack://application:,,,/WSPack.Lib;Component/Resources/bookmark_limpar.ico" />
+                        <Label
+                            Margin="3,0,0,0"
+                            Padding="0"
+                            Content="Limpar todos" />
+                    </StackPanel>
+                </Button>
+
+            </ToolBar>
+
+            <!-- ListView de marcadores -->
+            <ListView x:Name="lstMarcadores"
+                ContextMenuOpening="lstMarcadores_ContextMenuOpening"
+                SelectionChanged="lstMarcadores_SelectionChanged"
+                SelectionMode="Single"
+                Style="{StaticResource uiAll}">
+
+                <!-- Menu de contexto -->
+                <ListView.ContextMenu>
+                    <ContextMenu Name="menuMarcadores">
+                        <MenuItem Name="menuItemRenomeaMarcador"
+                            Click="menuItemRenomeaMarcador_Click"
+                            Header="Renomear marcador">
+                            <MenuItem.Icon>
+                                <Image Source="pack://application:,,,/WSPack.Lib;Component/Resources/bookmark-edit.ico" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </ContextMenu>
+                </ListView.ContextMenu>
+
+                <!-- Tratar marcadores desabilitados -->
+                <ListView.ItemContainerStyle>
+                    <Style
+                        BasedOn="{StaticResource lvItemVSTheme}"
+                        TargetType="ListViewItem">
+                        <EventSetter
+                            Event="KeyDown"
+                            Handler="itemKeyDown" />
+                        <EventSetter
+                            Event="MouseDoubleClick"
+                            Handler="itemDoubleClick" />
+                        <Style.Triggers>
+                            <DataTrigger
+                                Binding="{Binding Path=IsEnabled}"
+                                Value="False">
+                                <Setter Property="ListViewItem.Foreground" Value="Red" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListView.ItemContainerStyle>
+
+                <!-- Colunas -->
+                <ListView.View>
+                    <commonLib:AutoSizedGridView x:Name="gridMarcadores"
+                        ColumnHeaderContainerStyle="{StaticResource gvcVSTheme}">
+                        <!-- Nº do marcador -->
+                        <GridViewColumn Header="Nº">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border
+                                        Width="9"
+                                        Background="LightGreen"
+                                        BorderBrush="DarkGreen"
+                                        BorderThickness="1.0"
+                                        CornerRadius="3.0">
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            FontFamily="Consolas"
+                                            Foreground="Red"
+                                            Text="{Binding Number}" />
+                                    </Border>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <!-- Nome -->
+                        <GridViewColumn
+                            Width="Auto"
+                            DisplayMemberBinding="{Binding Name}"
+                            Header="Nome" />
+
+                        <!-- Linha -->
+                        <GridViewColumn
+                            Width="Auto"
+                            DisplayMemberBinding="{Binding Line}"
+                            Header="Linha" />
+
+                        <!-- Coluna -->
+                        <GridViewColumn
+                            Width="Auto"
+                            DisplayMemberBinding="{Binding Column}"
+                            Header="Coluna" />
+
+                        <!-- Nome do arquivo -->
+                        <GridViewColumn
+                            Width="Auto"
+                            DisplayMemberBinding="{Binding FullName}"
+                            Header="Arquivo" />
+                    </commonLib:AutoSizedGridView>
+                </ListView.View>
+
+            </ListView>
+
+        </DockPanel>
+    </Grid>
+</UserControl>

@@ -1,11 +1,10 @@
 ﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
-
-using EnvDTE;
 
 using EnvDTE80;
 
@@ -20,6 +19,7 @@ using Microsoft.VisualStudio.Shell.Settings;
 using WSPack.Lib;
 using WSPack.Lib.Extensions;
 using WSPack.Lib.WPF;
+using WSPack.Lib.WPF.Model;
 using WSPack.VisualStudio.Shared;
 using WSPack.VisualStudio.Shared.Commands;
 using WSPack.VisualStudio.Shared.Extensions;
@@ -61,10 +61,16 @@ namespace WSPack
       Style = VsDockStyle.Tabbed,
       Window = "DocumentWell",
       Orientation = ToolWindowOrientation.none)]
+
+  [ProvideToolWindow(typeof(BookmarkToolWindowPane),
+      Style = VsDockStyle.Tabbed,
+      Window = EnvDTE.Constants.vsWindowKindOutput,
+      Orientation = ToolWindowOrientation.Bottom)]
   public sealed class WSPackPackage : AsyncPackage, IVsPersistSolutionOpts, IWSPackSupport
   {
     private const string UiNotSolutionBuilding = "24551deb-f034-43e9-a279-0e541241687e";
     static readonly Type _typeOfStartPageToolWindowPane = typeof(StartPageToolWindowPane);
+    static readonly Type _typeOfBookmarkToolWindowPane = typeof(BookmarkToolWindowPane);
 
     /// <summary>
     /// Devolve a instãncia da classe: <see cref="WSPackPackage"/>
@@ -455,7 +461,7 @@ namespace WSPack
     /// <returns>The asynchronous factory interface, or null if not supported</returns>
     public override IVsAsyncToolWindowFactory GetAsyncToolWindowFactory(Guid toolWindowType)
     {
-      bool acheiGuid = //toolWindowType.Equals(Guid.Parse(BookmarkToolWindowPane.WindowGuidString)) ||
+      bool acheiGuid = toolWindowType.Equals(Guid.Parse(BookmarkToolWindowPane.WindowGuidString)) ||
        toolWindowType.Equals(Guid.Parse(StartPageToolWindowPane.StartPageGuidString));
       return acheiGuid ? this : null;
     }
@@ -496,7 +502,7 @@ namespace WSPack
     ///             </returns>
     protected override async Task<object> InitializeToolWindowAsync(Type toolWindowType, int id, CancellationToken cancellationToken)
     {
-      /*if (toolWindowType == _typeOfBookmarkToolWindowPane)
+      if (toolWindowType == _typeOfBookmarkToolWindowPane)
       {
         object state = "Não funcionou";
         var t = Task.Run(() =>
@@ -508,7 +514,7 @@ namespace WSPack
 
         return state;
       }
-      else*/
+      else
       if (toolWindowType == _typeOfStartPageToolWindowPane)
       {
         object startPageState = "CarregarProjetos";
@@ -649,6 +655,56 @@ namespace WSPack
       bool sucesso = vcServer.GetWorkspaceForLocalItem(projectFullPath, out Workspace ws, out string serverItem);
       return (sucesso, ws?.Name, serverItem);
     }
+
+    /// <summary>
+    /// Recuperar a Lista de marcadores
+    /// </summary>
+    /// <returns>Lista de marcadores</returns>
+    BindingList<Bookmark> IWSPackSupport.GetBookMarkGetBindingList()
+    {
+      return BookmarkController.Instance.GetBindingList();
+    }
+
+    /// <summary>
+    /// Acontece quando o Bind de marcadores é alterado
+    /// </summary>
+    event EventHandler IWSPackSupport.BookmarkBindingChanged
+    {
+      add { BookmarkController.Instance.BindingChanged += value; }
+      remove { BookmarkController.Instance.BindingChanged -= value; }
+    }
+
+    /// <summary>
+    /// Acontece quando os marcadores são alterados
+    /// </summary>
+    event EventHandler IWSPackSupport.BookmarksChanged
+    {
+      add { BookmarkController.Instance.BookmarksChanged += value; }
+      remove { BookmarkController.Instance.BookmarksChanged -= value; }
+    }
+
+    void IWSPackSupport.GotoBookmark(Bookmark bookmark)
+    {
+      BookmarkController.Instance.GotoBookmark(bookmark);
+    }
+
+    /// <summary>
+    /// Remover um marcador
+    /// </summary>
+    /// <param name="bookmark">Bookmark</param>
+    void IWSPackSupport.RemoveBookmark(Bookmark bookmark)
+    {
+      BookmarkController.Instance.RemoveBookmark(bookmark);
+    }
+
+    /// <summary>
+    /// Limpar marcadores
+    /// </summary>
+    void IWSPackSupport.ClearAllBookmarks()
+    {
+      BookmarkController.Instance.ClearAllBookmarks();
+    }
+
   }
 
   /// <summary>

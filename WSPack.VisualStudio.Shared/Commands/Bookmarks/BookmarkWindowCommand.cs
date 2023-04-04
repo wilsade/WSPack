@@ -1,21 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.Design;
-using System.Diagnostics;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 
-using Microsoft.TeamFoundation.VersionControl.Client;
 using Microsoft.VisualStudio.Shell;
 
-using WSPack.Lib;
-using WSPack.Lib.Extensions;
-using WSPack.Lib.Forms;
-using WSPack.Lib.Properties;
-using WSPack.VisualStudio.Shared.Extensions;
+using WSPack.VisualStudio.Shared.ToolWindows;
 
 using Task = System.Threading.Tasks.Task;
 
@@ -68,16 +55,14 @@ namespace WSPack.VisualStudio.Shared.Commands
     {
       ThreadHelper.ThrowIfNotOnUIThread();
       Utils.LogDebugMessage("BookmarkToolWindowPane");
-      _package.MessageBoxShellWarningOk(ResourcesLib.StrEmDesenvolvimento);
-#warning BookmarkWindow nao implementado
-      //_package.JoinableTaskFactory.RunAsync(async () =>
-      //{
-      //  ToolWindowPane window = await _package.ShowToolWindowAsync(
-      //    typeof(BookmarkToolWindowPane),
-      //    0,
-      //    create: true,
-      //    cancellationToken: PackageNoBase.DisposalToken);
-      //});
+      _ = _package.JoinableTaskFactory.RunAsync(async () =>
+      {
+        ToolWindowPane window = await _package.ShowToolWindowAsync(
+          typeof(BookmarkToolWindowPane),
+          0,
+          create: true,
+          cancellationToken: _package.DisposalToken);
+      });
     }
   }
 }

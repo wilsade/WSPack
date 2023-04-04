@@ -6,9 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 using WSPack.Lib.Extensions;
+
 using WSPack.Lib.Properties;
 
-namespace WSPack.VisualStudio.Shared.MEFObjects.Bookmarks
+namespace WSPack.Lib.WPF.Model
 {
   /// <summary>
   /// Objeto para armazenar os marcadores

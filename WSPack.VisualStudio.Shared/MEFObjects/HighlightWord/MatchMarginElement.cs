@@ -11,6 +11,7 @@ using Microsoft.VisualStudio.Text.Classification;
 using Microsoft.VisualStudio.Text.Editor;
 
 using WSPack.Lib.Extensions;
+using WSPack.Lib.WPF.Model;
 using WSPack.VisualStudio.Shared.MEFObjects.Bookmarks;
 
 namespace WSPack.VisualStudio.Shared.MEFObjects.HighlightWord
