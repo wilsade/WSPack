@@ -301,11 +301,22 @@ namespace WSPack.Lib.WPF.ViewModel
         // Arquivo não existe. Vamos criar uma startpage vazia
         else
         {
-          instance = new StartPageViewModel();
-          using (var writer = new StreamWriter(fileName, false, Encoding.UTF8))
+          try
           {
-            XmlSerializer serializer = new XmlSerializer(typeof(StartPageViewModel));
-            serializer.Serialize(writer, instance);
+            string dirName = Path.GetDirectoryName(fileName);
+            if (!Directory.Exists(dirName))
+              Directory.CreateDirectory(dirName);
+
+            instance = new StartPageViewModel();
+            using (var writer = new StreamWriter(fileName, false, Encoding.UTF8))
+            {
+              XmlSerializer serializer = new XmlSerializer(typeof(StartPageViewModel));
+              serializer.Serialize(writer, instance);
+            }
+          }
+          catch (Exception ex)
+          {
+            WSPackFlexSupport.Instance.PackSupport.LogError($"Erro ao ler arquivo da StartPage: {ex.GetCompleteMessage()}");
           }
         }
 
