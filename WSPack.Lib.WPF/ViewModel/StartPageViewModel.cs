@@ -30,6 +30,7 @@ namespace WSPack.Lib.WPF.ViewModel
     const int AlturaMinimaGrupoProjetos = 150;
     double _heightBeforeCollapse;
     double? _actualHeight;
+    private int? _top, _left;
 
 #warning Rever os custom commands
     readonly List<CustomCommandModel> _lstComandosDefaults = new List<CustomCommandModel>

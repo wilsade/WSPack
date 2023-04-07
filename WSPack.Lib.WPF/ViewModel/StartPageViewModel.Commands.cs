@@ -35,8 +35,7 @@ namespace WSPack.Lib.WPF.ViewModel
           var window = new StartPageEditWindow()
           {
             Owner = Application.Current.MainWindow,
-            DataContext = this,
-            WindowStartupLocation = WindowStartupLocation.CenterScreen,
+            DataContext = this
           };
 
           if (param is GroupViewModel group)
@@ -83,6 +82,8 @@ namespace WSPack.Lib.WPF.ViewModel
           }
 
           window.ShowDialog();
+          //MyTop = (int)window.Top;
+          //MyLeft = (int)window.Left;
           Save();
         }
         var comando = new RelayCommand<object>(edit);

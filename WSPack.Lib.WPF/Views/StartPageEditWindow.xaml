@@ -17,9 +17,11 @@
     Icon="pack://application:,,,/WSPack.Lib;Component/Resources/EditWindow_16x.png"
     KeyDown="Window_KeyDown"
     KeyUp="Window_KeyUp"
-    WindowStartupLocation="CenterScreen"
+    Left="{Binding MyLeft, Mode=TwoWay}"
+    Top="{Binding MyTop, Mode=TwoWay}"
+    WindowStartupLocation="Manual"
     mc:Ignorable="d">
-    
+
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

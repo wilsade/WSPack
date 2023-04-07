@@ -11,6 +11,24 @@ namespace WSPack.Lib.WPF.ViewModel
 {
   partial class StartPageViewModel
   {
+    /// <summary>
+    /// Posição vertical da janela
+    /// </summary>
+    public int MyTop
+    {
+      get { return _top ?? 0; }
+      set => _top = value;
+    }
+
+    /// <summary>
+    /// Posição horizontal da janela
+    /// </summary>
+    public int MyLeft
+    {
+      get { return _left ?? 0; }
+      set => _left = value;
+    }
+
     [XmlIgnore]
     public double HeightBeforeCollapse
     {
