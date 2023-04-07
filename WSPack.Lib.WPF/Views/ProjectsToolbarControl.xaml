@@ -37,6 +37,14 @@
             IsTabStop="False"
             MyImage="NewFile_16x.png"
             ToolTip="Adicionar projeto" />
+        <commonLib:WSImageButton x:Name="btnAddFolder"
+            Margin="3,0,3,0"
+            Background="Transparent"
+            Command="{Binding SelectedGroup.AddFolderCommand}"
+            CommandParameter="{Binding SelectedGroup}"
+            IsTabStop="False"
+            MyImage="AddFolder_16x.png"
+            ToolTip="Adicionar pasta" />
         <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
         <commonLib:WSImageButton x:Name="btnRemoveProject"
             Margin="3,0,0,0"

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
 using System.Xml.Serialization;
 
+using WSPack.Lib.Extensions;
 using WSPack.Lib.Properties;
 
 using WSPack.Lib.WPF.Model;
@@ -66,7 +68,7 @@ namespace WSPack.Lib.WPF.ViewModel
       if (project == null)
         return;
 
-      if (project.ProjectFullPath.EndsWith(".sln", StringComparison.OrdinalIgnoreCase))
+      if (project.ProjectFullPath.EndsWithInsensitive(".sln") || Directory.Exists(project.ProjectFullPath))
       {
         bool abriu = WSPackFlexSupport.Instance.PackSupport.OpenSolutionFile(project.ProjectFullPath);
         if (abriu)

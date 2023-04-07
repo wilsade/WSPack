@@ -39,7 +39,10 @@ namespace WSPack.Lib.WPF.ViewModel
         void onOpenDirectory(ProjectViewModel projeto)
         {
           if (projeto != null)
-            WSPackFlexSupport.Instance.PackSupport.LocateInWindows(projeto.ProjectDirectory);
+            if (projeto.IsDirectory)
+              WSPackFlexSupport.Instance.PackSupport.LocateInWindows(projeto.ProjectFullPath);
+            else
+              WSPackFlexSupport.Instance.PackSupport.LocateInWindows(projeto.ProjectDirectory);
         }
 
         var comando = new RelayCommand<ProjectViewModel>(onOpenDirectory);
@@ -54,9 +57,9 @@ namespace WSPack.Lib.WPF.ViewModel
     {
       get
       {
-        void chooseProject()
+        void chooseProject(ProjectViewModel projectViewModel)
         {
-          var tupla = GroupViewModel.ChooseProjectDialog(Parent.PegarDiretorioPadrao());
+          var tupla = GroupViewModel.ChooseProjectDialog(projectViewModel.ProjectDirectory);
           if (tupla.Ok)
           {
             ProjectFullPath = tupla.FileName;
@@ -64,7 +67,32 @@ namespace WSPack.Lib.WPF.ViewModel
           }
         }
 
-        var comando = new RelayCommand(chooseProject);
+        var comando = new RelayCommand<ProjectViewModel>(chooseProject);
+        return comando;
+      }
+    }
+
+    /// <summary>
+    /// Comando para escolher o caminho da pasta
+    /// </summary>
+    public ICommand ChooseFolderCommand
+    {
+      get
+      {
+        void chooseFolder(ProjectViewModel projectViewModel)
+        {
+          var dlg = new Ookii.Dialogs.Wpf.VistaFolderBrowserDialog()
+          {
+            SelectedPath = projectViewModel.ProjectFullPath + "\\"
+          };
+          if (dlg.ShowDialog() == true)
+          {
+            ProjectFullPath = dlg.SelectedPath;
+            ProjectCaption = System.IO.Path.GetFileNameWithoutExtension(dlg.SelectedPath);
+          }
+        }
+
+        var comando = new RelayCommand<ProjectViewModel>(chooseFolder);
         return comando;
       }
     }

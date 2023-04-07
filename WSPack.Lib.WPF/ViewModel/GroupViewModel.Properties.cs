@@ -115,7 +115,15 @@ namespace WSPack.Lib.WPF.ViewModel
     /// <summary>
     /// Indica se projetos recém abertos irão aparecer no início da lista
     /// </summary>
-    public bool OpenedProjectsFirst { get; set; }
+    public bool OpenedProjectsFirst
+    {
+      get => _openedProjectsFirst;
+      set
+      {
+        _openedProjectsFirst = value;
+        RaisePropertyChanged(nameof(OpenedProjectsFirst));
+      }
+    }
 
     /// <summary>
     /// Diretório padrão ao abrir o diálogo para escolher um projeto

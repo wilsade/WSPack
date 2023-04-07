@@ -1,16 +1,39 @@
-﻿using System.Linq;
-using System;
+﻿using System;
+using System.Linq;
 using System.Windows.Input;
 
-using WSPack.Lib.Properties;
-using WSPack.Lib.WPF.Model;
-using WSPack.Lib.WPF.SupportLib;
 using WSPack.Lib.Extensions;
+using WSPack.Lib.Properties;
+using WSPack.Lib.WPF.SupportLib;
 
 namespace WSPack.Lib.WPF.ViewModel
 {
   partial class GroupViewModel
   {
+    /// <summary>
+    /// Adicionar uma pasta na lista de projetos do grupo
+    /// </summary>
+    public ICommand AddFolderCommand
+    {
+      get
+      {
+        void AddFolder(GroupViewModel groupViewModel)
+        {
+          var dlg = new Ookii.Dialogs.Wpf.VistaFolderBrowserDialog()
+          {
+            SelectedPath = groupViewModel.GroupDefaultPath + "\\"
+          };
+          if (dlg.ShowDialog() == true)
+          {
+            if (AddingProjectOrFolder(dlg.SelectedPath, out _))
+              Parent?.Save();
+          }
+        }
+        var comando = new RelayCommand<GroupViewModel>(AddFolder);
+        return comando;
+      }
+    }
+
     /// <summary>
     /// Comando para adicionar um projeto
     /// </summary>
@@ -23,35 +46,16 @@ namespace WSPack.Lib.WPF.ViewModel
           var tupla = ChooseProjectDialog(PegarDiretorioPadrao());
           if (tupla.Ok)
           {
-            ProjectViewModel projeto = new ProjectViewModel(new ProjectModel(_lstProjetos.Count + 1,
-              System.IO.Path.GetFileNameWithoutExtension(tupla.FileName), tupla.FileName));
-            if (_lstProjetos.Any(x => x.ProjectFullPath.EqualsInsensitive(projeto.ProjectFullPath)))
+            if (AddingProjectOrFolder(tupla.FileName, out ProjectViewModel projeto))
             {
-              projeto = _lstProjetos.FirstOrDefault(x => x.ProjectFullPath.EqualsInsensitive(projeto.ProjectFullPath));
-              MessageBoxUtils.ShowInformation(string.Format(ResourcesLib.StrGrupoJaPossuiEsteProjeto, projeto.ProjectFullPath));
-            }
-
-            else
-            {
-              projeto.Parent = this;
-              projeto.PropertyChanged += (x, y) =>
+              if (ownerData != null)
               {
-                if (y.PropertyName == nameof(projeto.ProjectId))
-                  RaisePropertyChanged(nameof(ProjectList));
-              };
-              _lstProjetos.Add(projeto);
-              projeto.IsFocused = true;
-              SelectedProject = projeto;
-              RaisePropertyChanged(nameof(HasProjects));
-            }
-
-            if (ownerData != null)
-            {
-              Parent?.Save();
-              string sender = Convert.ToString(ownerData);
-              if (!string.IsNullOrEmpty(sender) || string.Equals(sender, nameof(AddProjectAndOpenCommand)))
-              {
-                projeto.OpenProjectCommand.Execute(projeto);
+                Parent?.Save();
+                string sender = Convert.ToString(ownerData);
+                if (!string.IsNullOrEmpty(sender) || string.Equals(sender, nameof(AddProjectAndOpenCommand)))
+                {
+                  projeto.OpenProjectCommand.Execute(projeto);
+                }
               }
             }
           }

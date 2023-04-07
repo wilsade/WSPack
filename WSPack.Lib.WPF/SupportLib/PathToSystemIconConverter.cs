@@ -20,12 +20,12 @@ namespace WSPack.Lib.WPF.SupportLib
   /// <seealso cref="IValueConverter" />
   public class PathToSystemIconConverter : IValueConverter
   {
-    private readonly Dictionary<string, ImageSource> _imageCache;
+    private static readonly Dictionary<string, ImageSource> _imageCache;
 
     /// <summary>
-    /// Cria uma instância da classe <see cref="PathToSystemIconConverter"/>
+    /// Inicialização da classe: <see cref="PathToSystemIconConverter"/>.
     /// </summary>
-    public PathToSystemIconConverter()
+    static PathToSystemIconConverter()
     {
       _imageCache = new Dictionary<string, ImageSource>();
     }
@@ -97,7 +97,13 @@ namespace WSPack.Lib.WPF.SupportLib
 
       if (!_imageCache.ContainsKey(extension))
       {
-        _imageCache[extension] = GetFileIcon(fileName);
+        if (extension.IsNullOrWhiteSpaceEx())
+          _imageCache[extension] = new BitmapImage(new Uri(
+            $"pack://application:,,,/WSPack.Lib;Component/Resources/FolderClosed.png", UriKind.RelativeOrAbsolute));
+        else
+        {
+          _imageCache.Add(extension, GetFileIcon(fileName));
+        }
       }
 
       return _imageCache[extension];

@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using Microsoft.TeamFoundation.VersionControl.Client;
 using Microsoft.VisualStudio.Shell;
 
+using WSPack.Lib.Extensions;
 using WSPack.Lib.Forms;
 using WSPack.Lib.Properties;
 
@@ -73,7 +74,7 @@ namespace WSPack.VisualStudio.Shared.Commands
         else
         {
           msg = string.Empty;
-          System.Diagnostics.Process.Start("explorer.exe", "/select,\"" + localPath + "\"");
+          Process.Start("explorer.exe", "/select,\"" + localPath + "\"");
           return true;
         }
       }

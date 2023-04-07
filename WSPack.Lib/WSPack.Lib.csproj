@@ -275,5 +275,14 @@
   <ItemGroup>
     <Resource Include="Resources\bookmark_limpar.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SearchFolderOpened.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\AddFolder_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\FolderClosed.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -198,6 +198,11 @@ namespace WSPack.Lib.WPF.ViewModel
 
         SelectedGroup = _lstGroups[indiceDesejado];
       }
+      else
+      {
+        _selectedGroup = null;
+        RaisePropertyChanged(nameof(SelectedGroup));
+      }
     }
     /*
     void RemoveCustomCommandAndReorder(CustomCommandViewModel customCommandToDelete)

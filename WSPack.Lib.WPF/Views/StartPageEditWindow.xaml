@@ -9,7 +9,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewmodel="clr-namespace:WSPack.Lib.WPF.ViewModel"
     Title="Edição da página inicial"
-    Width="950"
+    Width="975"
     Height="{Binding ActualHeight, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
     d:DataContext="{d:DesignInstance Type=viewmodel:StartPageViewModel}"
     d:DesignHeight="250"

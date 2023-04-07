@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.IO;
+using System.Linq;
 using System.Xml.Serialization;
 
 using WSPack.Lib.Extensions;
@@ -14,6 +15,11 @@ namespace WSPack.Lib.WPF.ViewModel
     public GroupViewModel Parent { get; set; }
 
     /// <summary>
+    /// Indica se ProjectViewModel é um diretório
+    /// </summary>
+    public bool IsDirectory => Directory.Exists(ProjectFullPath);
+
+    /// <summary>
     /// Diretório do projeto
     /// </summary>
     public string ProjectDirectory => _projectModel.DirectoryName;
@@ -21,7 +27,8 @@ namespace WSPack.Lib.WPF.ViewModel
     /// <summary>
     /// Indica se o projeto existe
     /// </summary>
-    public bool ProjectExists => System.IO.File.Exists(ProjectFullPath);
+    public bool ProjectExists => System.IO.File.Exists(ProjectFullPath) ||
+      System.IO.Directory.Exists(ProjectFullPath);
 
     /// <summary>
     /// Indica se o projeto está no TFS

@@ -8,6 +8,7 @@ using Microsoft.Win32;
 
 using WSPack.Lib.WPF.Model;
 using WSPack.Lib.Extensions;
+using WSPack.Lib.Properties;
 
 namespace WSPack.Lib.WPF.ViewModel
 {
@@ -21,7 +22,7 @@ namespace WSPack.Lib.WPF.ViewModel
     readonly GroupModel _groupModel;
     ObservableCollection<ProjectViewModel> _lstProjetos;
     ProjectViewModel _selectedProject;
-    bool _isFocused, _isSelected;
+    bool _isFocused, _isSelected, _openedProjectsFirst;
     private string _groupDefaultPath;
 
     #region Construtores
@@ -140,6 +141,41 @@ namespace WSPack.Lib.WPF.ViewModel
         _lstProjetos.Sort(x => x.ProjectId, (esteProjeto, indice) => esteProjeto.ProjectId = indice + 1);
         RaisePropertyChanged(nameof(ProjectList));
         Parent?.Save();
+      }
+    }
+
+    /// <summary>
+    /// Responsável por adicionar um projeto ou pasta
+    /// </summary>
+    /// <param name="fullPath">Caminho completo do item a ser adicionado</param>
+    /// <param name="newProject">Novo item (projeto ou pasta) criado</param>
+    /// <returns>true se o item foi criado com sucesso</returns>
+    bool AddingProjectOrFolder(string fullPath, out ProjectViewModel newProject)
+    {
+      string nameOnly = System.IO.Path.GetFileNameWithoutExtension(fullPath);
+      var projeto = new ProjectViewModel(new ProjectModel(_lstProjetos.Count + 1, nameOnly, fullPath));
+      if (_lstProjetos.Any(x => x.ProjectFullPath.EqualsInsensitive(projeto.ProjectFullPath)))
+      {
+        projeto = _lstProjetos.FirstOrDefault(x => x.ProjectFullPath.EqualsInsensitive(projeto.ProjectFullPath));
+        MessageBoxUtils.ShowInformation(string.Format(ResourcesLib.StrGrupoJaPossuiEsteProjeto, projeto.ProjectFullPath));
+        newProject = null;
+        return false;
+      }
+
+      else
+      {
+        projeto.Parent = this;
+        projeto.PropertyChanged += (x, y) =>
+        {
+          if (y.PropertyName == nameof(projeto.ProjectId))
+            RaisePropertyChanged(nameof(ProjectList));
+        };
+        _lstProjetos.Add(projeto);
+        projeto.IsFocused = true;
+        SelectedProject = projeto;
+        RaisePropertyChanged(nameof(HasProjects));
+        newProject = projeto;
+        return true;
       }
     }
   }

@@ -61,6 +61,16 @@ namespace WSPack.Lib.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap AddFolder_16x {
+            get {
+                object obj = ResourceManager.GetObject("AddFolder_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         public static System.Drawing.Icon bookmark_delete {
@@ -106,6 +116,16 @@ namespace WSPack.Lib.Properties {
         public static System.Drawing.Bitmap EditWindow_16x {
             get {
                 object obj = ResourceManager.GetObject("EditWindow_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap FolderClosed {
+            get {
+                object obj = ResourceManager.GetObject("FolderClosed", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -356,6 +376,16 @@ namespace WSPack.Lib.Properties {
         public static System.Drawing.Bitmap pngTypeDefinition_16x {
             get {
                 object obj = ResourceManager.GetObject("pngTypeDefinition_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap SearchFolderOpened {
+            get {
+                object obj = ResourceManager.GetObject("SearchFolderOpened", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
