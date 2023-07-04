@@ -90,6 +90,18 @@
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\DocumentationCommands\DocumentationCommand.cs">
       <Link>Commands\DocumentationCommand.cs</Link>
     </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\DocumentationCommands\DocumentationCreateRuleCommand.cs">
+      <Link>Commands\DocumentationCreateRuleCommand.cs</Link>
+      <DependentUpon>DocumentationCommand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\DocumentationCommands\DocumentationDictionaryCommand.cs">
+      <Link>Commands\DocumentationDictionaryCommand.cs</Link>
+      <DependentUpon>DocumentationCommand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\DocumentationCommands\DocumentationRulesCommand.cs">
+      <Link>Commands\DocumentationRulesCommand.cs</Link>
+      <DependentUpon>DocumentationCommand.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\..\WSPack.VisualStudio.Shared\Commands\LocateInTFSCommands\LocateInTFSBaseCommand.cs">
       <Link>Commands\LocateInTFSBaseCommand.cs</Link>
     </Compile>

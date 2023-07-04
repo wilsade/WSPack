@@ -13,6 +13,196 @@ namespace WSPack.Lib.Extensions
   /// </summary>
   public static class StringExtensions
   {
+    /// <summary>
+    /// A partir de uma posição inicial, ao fazer uma procura em uma string, vamos procurar em quais direções?
+    /// </summary>
+    enum SentidoProcura
+    {
+      /// <summary>
+      /// Procurar para o lado esquerdo
+      /// </summary>
+      Esquerdo,
+      /// <summary>
+      /// Procurar para o lado direito
+      /// </summary>
+      Direito,
+      /// <summary>
+      /// Procurar nos dois sentidos: direito e esquerdo
+      /// </summary>
+      Ambos
+    };
+
+    /// <summary>
+    /// Retorna a palavra sobre a posição da procura.
+    /// Letras, números ou o símbolo "_" são considerados parte da palavra
+    /// Qualquer caractere diferente destes são considerados delimitadores
+    /// </summary>
+    /// <param name="texto">Porção do texto onde vamos procurar uma palavra</param>
+    /// <param name="posicaoProcura">Posição inicial</param>
+    /// <param name="sentidoProcura">Em quais sentidos a procura deverá ser feita: diretia, esquerda ou ambos</param>
+    /// <param name="ignorarEspacos">true para não encontrar espaços; false, caso contrário
+    /// <remarks>Informe true para o método continuar procurando palavras mesmo se encontrar espaços contínuos</remarks></param>
+    /// <returns>Informações da palavra</returns>
+    private static string InternalGetWordAt(string texto, int posicaoProcura, SentidoProcura sentidoProcura, bool ignorarEspacos)
+    {
+      if (string.IsNullOrEmpty(texto))
+        return string.Empty;
+      else if (sentidoProcura == SentidoProcura.Direito && string.IsNullOrEmpty(texto.Substring(posicaoProcura)))
+        return string.Empty;
+
+      int inicioPalavra, fimPalavra;
+
+      switch (sentidoProcura)
+      {
+        case SentidoProcura.Esquerdo:
+          // Vamos voltar uma posição e ver se temos um espaço
+          if (ignorarEspacos && texto.Length > 1 && posicaoProcura >= 1 && texto.Substring(posicaoProcura - 1, 1) == " ")
+            return InternalGetWordAt(texto, posicaoProcura - 1, sentidoProcura, ignorarEspacos);
+
+          inicioPalavra = FindWordStart(texto, posicaoProcura);
+          fimPalavra = FindWordEnd(texto, posicaoProcura);
+          break;
+        case SentidoProcura.Direito:
+          // A próxima posição é um espaço?
+          if (ignorarEspacos && texto.Length > 1 && posicaoProcura < texto.Length - 1 && texto.Substring(posicaoProcura, 1) == " ")
+            return InternalGetWordAt(texto, posicaoProcura + 1, sentidoProcura, ignorarEspacos);
+
+          //inicioPalavra = posicaoProcura;
+          inicioPalavra = FindWordStart(texto, posicaoProcura, sentidoProcura);
+          fimPalavra = posicaoProcura == texto.Length ? texto.Length : FindWordEnd(texto, posicaoProcura, sentidoProcura);
+          break;
+        case SentidoProcura.Ambos:
+          string palavra = InternalGetWordAt(texto, posicaoProcura, SentidoProcura.Esquerdo, ignorarEspacos);
+          if (string.IsNullOrEmpty(palavra))
+            palavra = InternalGetWordAt(texto, posicaoProcura, SentidoProcura.Direito, ignorarEspacos);
+          return palavra;
+
+        //inicioPalavra = posicaoProcura > 0 ? FindWordStart(texto, posicaoProcura - 1) : 0;
+        //fimPalavra = posicaoProcura == texto.Length ? texto.Length : FindWordEnd(texto, posicaoProcura);
+        //break;
+        default:
+          inicioPalavra = fimPalavra = posicaoProcura;
+          break;
+      }
+
+      //int inicioDaPalavra = posicaoProcura > 0 ? FindWordStart(s, posicaoProcura-1) : 0;
+      //int fimDaPalavra = posicaoProcura == s.Length ? s.Length : FindWordEnd(s, posicaoProcura);
+      string retorno = texto.Substring(inicioPalavra, fimPalavra - inicioPalavra);
+      return retorno;
+    }
+
+    /// <summary>
+    /// A partir da posição inicial, procura o início da palavra
+    /// Letras, números ou o símbolo "_" são considerados parte da palavra
+    /// Qualquer caractere diferente destes são considerados delimitadores
+    /// <remarks>A forma de procurar será da posição inicial (inclusive) à esquerda</remarks>
+    /// </summary>
+    /// <param name="s">Texto</param>
+    /// <param name="start">Posição inicial</param>
+    /// <returns>O índice que indica o início da palavra</returns>
+    private static int FindWordStart(string s, int start)
+    {
+      return FindWordStart(s, start, SentidoProcura.Esquerdo);
+    }
+
+    /// <summary>
+    /// A partir da posição inicial, procura o início da palavra
+    /// Letras, números ou o símbolo "_" são considerados parte da palavra
+    /// Qualquer caractere diferente destes são considerados delimitadores
+    /// </summary>
+    /// <param name="s">Texto</param>
+    /// <param name="start">Posição inicial</param>
+    /// <param name="sentidoProcura">A partir da posição inicial, de qual lado iremos procurar a palavra?</param>
+    /// <returns>O índice que indica o início da palavra</returns>
+    private static int FindWordStart(string s, int start, SentidoProcura sentidoProcura)
+    {
+      if (start == 0)
+      {
+        // Se o início da palavra não for Letra, dígito ou '_', é porque a palavra começa com algum delimitador
+        if (IsLetterDigitOrUnderscore(Convert.ToChar(s.Substring(start, 1))))
+          return start;
+
+        else if (sentidoProcura == SentidoProcura.Direito)
+          return FindWordStart(s, start + 1, SentidoProcura.Esquerdo);
+
+        else
+          return start;
+      }
+      else
+      {
+        if (start >= s.Length)
+        {
+          start--;
+
+          // O cursor estava no início da palavra
+          string aux = s.Substring(start, 1);
+          if (!IsLetterDigitOrUnderscore(Convert.ToChar(aux)) || aux == " ")
+            return start + 1;
+        }
+
+        if (start == 0)
+          return start;
+
+        string letraStringAtual = s.Substring(start, 1);
+        string letraStringAnterior = s.Substring(start - 1, 1);
+
+        // Se a posição anterior náo for uma letra/numero/_, possivelmente o cursor já está no início da palavra
+        // Vamos simplesmente retornar
+        if (!IsLetterDigitOrUnderscore(Convert.ToChar(letraStringAnterior)))
+          return start;
+
+        // Se a posição atual for uma letra/numero/_, possivelmente o cursor está sobre a palavra.
+        // Vamos voltar a posição
+        else if (IsLetterDigitOrUnderscore(Convert.ToChar(letraStringAtual)))
+          return FindWordStart(s, start - 1, sentidoProcura);
+
+        else if (sentidoProcura == SentidoProcura.Esquerdo)
+          return FindWordStart(s, start - 1, sentidoProcura);
+
+        else
+          return start + 1;
+      }
+    }
+
+    /// <summary>
+    /// A partir da posição inicial, procura o final da palavra
+    /// Letras, números ou o símbolo "_" são considerados parte da palavra
+    /// Qualquer caractere diferente destes são considerados delimitadores
+    /// <remarks>A forma de procurar será da posição inicial (inclusive) à esquerda</remarks>
+    /// </summary>
+    /// <param name="s">Texto</param>
+    /// <param name="start">Posição inicial</param>
+    /// <returns>O índice que indica o final da palavra</returns>
+    private static int FindWordEnd(string s, int start)
+    {
+      return FindWordEnd(s, start, SentidoProcura.Esquerdo);
+    }
+
+
+    /// <summary>
+    /// A partir da posição inicial, procura o final da palavra
+    /// Letras, números ou o símbolo "_" são considerados parte da palavra
+    /// Qualquer caractere diferente destes são considerados delimitadores
+    /// </summary>
+    /// <param name="s">Texto</param>
+    /// <param name="start">Posição inicial</param>
+    /// <param name="sentidoProcura">A partir da posição inicial, de qual lado iremos procurar a palavra?</param>
+    /// <returns>O índice que indica o final da palavra</returns>
+    private static int FindWordEnd(string s, int start, SentidoProcura sentidoProcura)
+    {
+      if (start == s.Length)
+        return start;
+      else
+      {
+        string letraStringAtual = s.Substring(start, 1);
+        if (!IsLetterDigitOrUnderscore(Convert.ToChar(letraStringAtual)) && sentidoProcura == SentidoProcura.Esquerdo)
+          return start;
+        else
+          return FindWordEnd(s, start + 1, SentidoProcura.Esquerdo);
+      }
+    }
+
+
     static string Split(this string target, Func<char, char, bool> shouldSplit, string splitFiller = " ")
     {
       if (target == null)
@@ -59,6 +249,22 @@ namespace WSPack.Lib.Extensions
         lst.Add(strTempWord.ToString());
 
       return result.ToString();
+    }
+
+    /// <summary>
+    /// Verifica se o caractere é um número, uma letra ou o símboro "_"
+    /// </summary>
+    /// <param name="c">O caractere a ser verificado</param>
+    /// <returns>true ou false, caso o caractere seja ou não uma letra, número ou o símbodo "_"</returns>
+    public static bool IsLetterDigitOrUnderscore(this char c)
+    {
+      bool isTecladoNumerico =
+        c >= (int)System.Windows.Forms.Keys.NumPad0 &&
+        c <= (int)System.Windows.Forms.Keys.NumPad9;
+
+      return isTecladoNumerico ||
+        char.IsLetterOrDigit(c) ||
+        (c == '_');
     }
 
     /// <summary>
@@ -252,6 +458,26 @@ namespace WSPack.Lib.Extensions
       string pascalSeparated = str.Split((c1, c2) => char.IsDigit(c1) || char.IsDigit(c2) || (char.IsLower(c1) && char.IsUpper(c2)), " ");
       var splited = pascalSeparated.SplitWithDelimiters();
       return splited;
+    }
+
+    /// <summary>
+    /// Recuperar a palavra sobre o cursor
+    /// </summary>
+    /// <param name="source">Texto completo</param>
+    /// <param name="position">Posição onde o cursor se encontra</param>
+    /// <returns>Palavra; string.Empty caso não seja encontrada</returns>
+    public static string GetWordAt(this string source, int position)
+    {
+      // Evitar index out of range
+      if (position > source.Length)
+        position = source.Length;
+
+      // Tratar ;
+      if (position > 0 && position == source.Length && source[position - 1] == ';')
+        position--;
+
+      string palavra = InternalGetWordAt(source, position, SentidoProcura.Ambos, true);
+      return palavra;
     }
   }
 }

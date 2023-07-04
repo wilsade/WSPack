@@ -47,7 +47,9 @@ namespace WSPack.VisualStudio.Shared.Commands
     internal const int SearchChangesets = 0x0128;
     internal const int SearchChangesetsSourceControlExplorer = 0x0129;
     internal const int Documentation = 0x0130;
-
+    internal const int DocumentationDictionary = 0x0131;
+    internal const int DocumentationRules = 0x0132;
+    internal const int DocumentationCreateRule = 0x0133;
     internal const int ToggleBookmark1 = 0x0134;
     internal const int ToggleBookmark2 = 0x0135;
     internal const int ToggleBookmark3 = 0x0136;

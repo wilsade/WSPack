@@ -267,6 +267,10 @@ namespace WSPack
       await BookmarkWindowCommand.InitializeAsync(this, commandService);
 
       await DocumentationCommand.InitializeAsync(this, commandService);
+      await DocumentationRulesCommand.InitializeAsync(this, commandService);
+      await DocumentationDictionaryCommand.InitializeAsync(this, commandService);
+      await DocumentationCreateRuleCommand.InitializeAsync(this, commandService);
+
       WSPackFlexSupport.Initialize(new VisualSutioStylerController(), this);
       await StartPageCommand.InitializeAsync(this, commandService);
       await OpenSolutionProjectStartPageCommand.InitializeAsync(this, commandService);
