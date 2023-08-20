@@ -97,7 +97,7 @@ namespace WSPack.Lib.WPF.SupportLib
 
       if (!_imageCache.ContainsKey(extension))
       {
-        if (extension.IsNullOrWhiteSpaceEx())
+        if (extension.IsNullOrWhiteSpaceEx() || Directory.Exists(fileName))
           _imageCache[extension] = new BitmapImage(new Uri(
             $"pack://application:,,,/WSPack.Lib;Component/Resources/FolderClosed.png", UriKind.RelativeOrAbsolute));
         else

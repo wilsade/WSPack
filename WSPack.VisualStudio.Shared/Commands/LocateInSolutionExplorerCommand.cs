@@ -74,6 +74,8 @@ namespace WSPack.VisualStudio.Shared.Commands
         propTrackFileSelectionInExplorer = WSPackPackage.Dte.Properties["Environment", "ProjectsAndSolution"].Item("TrackFileSelectionInExplorer");
         if (propTrackFileSelectionInExplorer.Value is bool boolTrack)
           oldMarcou = boolTrack;
+        else
+          Utils.LogDebugMessage("TrackFileSelectionInExplorer não é booleana!");
       }
       catch (Exception propEx)
       {

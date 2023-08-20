@@ -319,7 +319,7 @@ namespace WSPack.Lib.WPF.ViewModel
           })
           {
             var projetos = GroupList.SelectMany(x => x.ProjectList)
-              .Where(x => File.Exists(x.ProjectFullPath))
+              .Where(x => File.Exists(x.ProjectFullPath) || Directory.Exists(x.ProjectFullPath))
               .Select(p => new LookupGridItem(p.ProjectCaption, p.ProjectFullPath) { OwnerData = p })
               .OrderBy(x => x.Nome).ToList();
             form.Bind(projetos);

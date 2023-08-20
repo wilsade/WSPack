@@ -27,6 +27,8 @@ namespace WSPack.Lib.WPF.ViewModel
           {
             if (AddingProjectOrFolder(dlg.SelectedPath, out _))
               Parent?.Save();
+            //else
+            //  Parent.OpenProjectSolutionCommand.Execute(dlg.SelectedPath);
           }
         }
         var comando = new RelayCommand<GroupViewModel>(AddFolder);
@@ -58,6 +60,8 @@ namespace WSPack.Lib.WPF.ViewModel
                 }
               }
             }
+            else if (ownerData != null)
+              projeto.OpenProjectCommand.Execute(projeto);
           }
 
         }

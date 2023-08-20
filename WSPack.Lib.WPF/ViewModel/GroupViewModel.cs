@@ -158,7 +158,9 @@ namespace WSPack.Lib.WPF.ViewModel
       {
         projeto = _lstProjetos.FirstOrDefault(x => x.ProjectFullPath.EqualsInsensitive(projeto.ProjectFullPath));
         MessageBoxUtils.ShowInformation(string.Format(ResourcesLib.StrGrupoJaPossuiEsteProjeto, projeto.ProjectFullPath));
-        newProject = null;
+        newProject = projeto;
+        newProject.IsFocused = true;
+        SelectedProject = newProject;
         return false;
       }
 
