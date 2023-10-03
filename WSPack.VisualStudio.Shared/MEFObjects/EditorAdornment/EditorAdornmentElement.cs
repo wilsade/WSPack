@@ -101,7 +101,6 @@ namespace WSPack.VisualStudio.Shared.MEFObjects.EditorAdornment
       Microsoft.VisualStudio.Shell.ThreadHelper.ThrowIfNotOnUIThread();
       _ = DteProjectObj.TryCreateFromActiveDocument(out var dteProject);
 
-      Utils.LogDebugMessage($"[{DateTime.Now}] Parse: inicio");
       CSharpParserObj parser = CSharpParserObj.Parse(textSnapshot.GetText(),
         ParseOptions.Create(WSPackPackage.ParametrosMEFObjects.MetricsObj.UseMethodsMetrics,
           WSPackPackage.ParametrosMEFObjects.BlocksEndObj.UseBlocks,
@@ -132,7 +131,6 @@ namespace WSPack.VisualStudio.Shared.MEFObjects.EditorAdornment
       };
 
       Task.WaitAll(lstTasks.ToArray());
-      Utils.LogDebugMessage($"[{DateTime.Now}] Parse: fim");
       if (!_view.IsClosed)
       {
         // pintar
