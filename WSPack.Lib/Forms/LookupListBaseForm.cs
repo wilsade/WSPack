@@ -121,7 +121,8 @@ namespace WSPack.Lib.Forms
     {
       if (edtItem.Text?.Length >= 2)
       {
-        var filtrado = _lstItens.Where(x => x.Caminho.ContainsInsensitive(edtItem.Text));
+        var filtrado = _lstItens.Where(x => x.Caminho.ContainsInsensitive(edtItem.Text) ||
+          x.Nome.ContainsInsensitive(edtItem.Text));
         Bind(filtrado);
       }
       else

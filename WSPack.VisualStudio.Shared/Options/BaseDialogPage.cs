@@ -114,14 +114,14 @@ namespace WSPack.VisualStudio.Shared.Options
         SettingsStore settingsStore = WSPackPackage.Instance.GetReadOnlyUserSettingsStorage();
         if (settingsStore == null)
           return;
-        
+
         string collectionName = Settings_Store_Base_Name + pageName;
         foreach (var estaTupla in lstExpandableObjects)
         {
           IEnumerable<PropertyInfo> lstProps = GetPropertiesFromObject(estaTupla.ExpObject);
           foreach (var estaProp in lstProps)
           {
-            object valor;
+            object valor = null;
             string fullPropName = $"{estaTupla.PropName}.{estaProp.Name}";
             if (settingsStore.PropertyExists(collectionName, fullPropName))
             {
@@ -129,11 +129,35 @@ namespace WSPack.VisualStudio.Shared.Options
                 valor = settingsStore.GetInt32(collectionName, fullPropName);
               else if (estaProp.PropertyType == typeof(bool))
                 valor = settingsStore.GetBoolean(collectionName, fullPropName);
+              else if (estaProp.PropertyType.IsEnum)
+                valor = settingsStore.GetInt32(collectionName, fullPropName);
               else
                 valor = settingsStore.GetString(collectionName, fullPropName);
             }
             else
-              valor = estaProp.GetCustomAttribute<DefaultValueAttribute>().Value;
+            {
+              var defaultValueAtt = estaProp.GetCustomAttribute<DefaultValueAttribute>();
+              if (defaultValueAtt != null)
+              {
+                if (estaProp.PropertyType.IsEnum)
+                  valor = (int)defaultValueAtt.Value;
+                else
+                  valor = defaultValueAtt.Value;
+              }
+#if DEBUG
+              else
+              {
+                System.Diagnostics.Debug.WriteLine("Verificar valor default nulo");
+              }
+#endif
+            }
+
+#if DEBUG
+            if (valor == null)
+            {
+              System.Diagnostics.Debug.WriteLine("Valor nulo");
+            }
+#endif
 
             estaProp.SetValue(estaTupla.ExpObject, valor);
           }
@@ -174,6 +198,8 @@ namespace WSPack.VisualStudio.Shared.Options
               settingsStore.SetInt32(collectionName, fullPropName, Convert.ToInt32(valor));
             else if (estaProp.PropertyType == typeof(bool))
               settingsStore.SetBoolean(collectionName, fullPropName, Convert.ToBoolean(valor));
+            else if (estaProp.PropertyType.IsEnum)
+              settingsStore.SetInt32(collectionName, fullPropName, (int)valor);
             else
               settingsStore.SetString(collectionName, fullPropName, Convert.ToString(valor));
           }
@@ -194,4 +220,4 @@ namespace WSPack.VisualStudio.Shared.Options
       _typeOfThis.Assembly.GetProduct());
 
   }
-}
+} 

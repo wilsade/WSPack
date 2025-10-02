@@ -90,5 +90,10 @@ namespace WSPack.Lib
     /// File.Exit
     /// </summary>
     public const string FileExit = "File.Exit";
+
+    /// <summary>
+    /// Normalizar quebras de linha para CRLF (Edit.CRLF)
+    /// </summary>
+    public const string EditCRLF = "Edit.CRLF";
   }
 }

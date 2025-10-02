@@ -19,7 +19,7 @@ namespace WSPack.VisualStudio.Shared.Commands
     const string GuidComandos = "{5EFC7975-14BC-11CF-9B2B-00AA00573819}";
     const int IDComandoSave = 331;
     readonly EnvDTE.CommandEvents _commandEventsSave;
-    EnvDTE.Command _comandoFormatDocument;
+    EnvDTE.Command _comandoFormatDocument, _comandoLineEnding;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="FormatOnSaveCommand"/> class.
@@ -34,8 +34,8 @@ namespace WSPack.VisualStudio.Shared.Commands
       {
         ThreadHelper.ThrowIfNotOnUIThread();
         _commandEventsSave = WSPackPackage.Dte.Events.get_CommandEvents(GuidComandos, IDComandoSave);
-        _commandEventsSave.BeforeExecute -= _commandEvents_BeforeExecute;
-        _commandEventsSave.BeforeExecute += _commandEvents_BeforeExecute;
+        _commandEventsSave.BeforeExecute -= CommandEvents_BeforeExecute;
+        _commandEventsSave.BeforeExecute += CommandEvents_BeforeExecute;
       }
       catch (Exception ex)
       {
@@ -43,36 +43,55 @@ namespace WSPack.VisualStudio.Shared.Commands
       }
     }
 
+    bool CanExecute(out PageGeneral pageGeneral)
+    {
+      pageGeneral = WSPackPackage.GetParametersPage<PageGeneral>();
 
-    void _commandEvents_BeforeExecute(string guid, int id, object customIn, object customOut, ref bool cancelDefault)
+      // Usuário não quer usar
+      if (!pageGeneral.FormatOnSaveOptions.UseFormatOnSave)
+        return false;
+
+      // Extensões válidas?
+      string quaisExtensoes = pageGeneral.FormatOnSaveOptions.ValidExtensions;
+      if (string.IsNullOrEmpty(quaisExtensoes))
+        return false;
+
+      if (!GetActiveDocumentPath(out string path))
+        return false;
+
+      if (!IsExtensaoValida(path, quaisExtensoes))
+        return false;
+      return true;
+    }
+
+    void TryProcessCommand(ref EnvDTE.Command commandInstance, string commandName)
+    {
+      ThreadHelper.ThrowIfNotOnUIThread();
+      try
+      {
+        if (commandInstance == null)
+          commandInstance = WSPackPackage.Dte.Commands?.Item(commandName);
+        if (commandInstance != null && commandInstance.IsAvailable)
+          WSPackPackage.Dte.ExecuteCommand(commandName);
+      }
+      catch (Exception ex)
+      {
+        Utils.LogDebugError($"Não foi possível formatar o documento utilizando o comando [{commandName}]: {ex.Message}");
+      }
+    }
+
+    void CommandEvents_BeforeExecute(string guid, int id, object customIn, object customOut, ref bool cancelDefault)
     {
       try
       {
-        PageGeneral pageGeneral = WSPackPackage.GetParametersPage<PageGeneral>();
-        // Usuário não quer usar
-        if (!pageGeneral.FormatOnSaveOptions.UseFormatOnSave)
-          return;
-
-        // Extensões válidas?
-        string quaisExtensoes = pageGeneral.FormatOnSaveOptions.ValidExtensions;
-        if (string.IsNullOrEmpty(quaisExtensoes))
-          return;
-
-        if (!GetActiveDocumentPath(out string path))
-          return;
-
-        if (!IsExtensaoValida(path, quaisExtensoes))
+        if (!CanExecute(out PageGeneral pageGeneral))
           return;
 
         ThreadHelper.ThrowIfNotOnUIThread();
-        if (_comandoFormatDocument == null)
-          _comandoFormatDocument = WSPackPackage.Dte.Commands?.Item(CommandNames.EditFormatDocument);
 
-        if (_comandoFormatDocument != null && _comandoFormatDocument.IsAvailable)
-        {
-          WSPackPackage.Dte.ExecuteCommand(CommandNames.EditFormatDocument);
-        }
-
+        TryProcessCommand(ref _comandoFormatDocument, CommandNames.EditFormatDocument);
+        if (pageGeneral.FormatOnSaveOptions.NormalizeLineEndings != NormalizeLineEndingsOptions.Default)
+          TryProcessCommand(ref _comandoLineEnding, $"Edit.{pageGeneral.FormatOnSaveOptions.NormalizeLineEndings}");
       }
       catch (Exception ex)
       {
