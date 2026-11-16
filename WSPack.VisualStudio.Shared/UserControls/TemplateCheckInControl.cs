@@ -1,15 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Text.RegularExpressions;
-using WSPack.VisualStudio.Shared.Options;
+using System.Windows.Forms;
+
+using WSPack.Lib.Extensions;
 using WSPack.VisualStudio.Shared.Commands;
+using WSPack.VisualStudio.Shared.Options;
 
 namespace WSPack.VisualStudio.Shared.UserControls
 {
@@ -73,22 +72,25 @@ namespace WSPack.VisualStudio.Shared.UserControls
     protected override void OnLoad(EventArgs e)
     {
       base.OnLoad(e);
-      _patternMacros = "";
-      foreach (Label esteLabel in gbxMacros.Controls.OfType<Label>().OrderBy(x => x.Text))
+      if (_patternMacros.IsNullOrWhiteSpaceEx())
       {
-        ToolStripMenuItem item = new ToolStripMenuItem
+        _patternMacros = "";
+        foreach (Label esteLabel in gbxMacros.Controls.OfType<Label>().OrderBy(x => x.Text))
         {
-          Text = esteLabel.Text,
-          ToolTipText = toolTipProvider.GetToolTip(esteLabel)
-        };
-        item.Click += (x, y) =>
-        {
-          InsertMacro(item.Text);
-        };
-        _patternMacros += item.Text + "|";
-        menuMemo.Items.Add(item);
+          ToolStripMenuItem item = new ToolStripMenuItem
+          {
+            Text = esteLabel.Text,
+            ToolTipText = toolTipProvider.GetToolTip(esteLabel)
+          };
+          item.Click += (x, y) =>
+          {
+            InsertMacro(item.Text);
+          };
+          _patternMacros += item.Text + "|";
+          menuMemo.Items.Add(item);
+        }
+        _patternMacros = "(" + _patternMacros.Substring(0, _patternMacros.Length - 1) + ")";
       }
-      _patternMacros = "(" + _patternMacros.Substring(0, _patternMacros.Length - 1) + ")";
       memoTemplate_TextChanged(this, EventArgs.Empty);
       memoTemplate.SelectionStart = 0;
     }

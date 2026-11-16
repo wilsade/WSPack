@@ -8,7 +8,7 @@
     /// <summary>
     /// Nº de versão do Package e Assembly
     /// </summary>
-    public const string NumeroVersao = "4.0.2.1";
+    public const string NumeroVersao = "4.0.3.2";
 
     /// <summary>
     /// WSPack

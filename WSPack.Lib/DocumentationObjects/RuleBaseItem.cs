@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 namespace WSPack.Lib.DocumentationObjects
 {
@@ -7,6 +8,8 @@ namespace WSPack.Lib.DocumentationObjects
   /// </summary>
   [XmlInclude(typeof(TypeRuleItem))]
   [XmlInclude(typeof(MemberRuleItem))]
+  [KnownType(typeof(TypeRuleItem))]
+  [KnownType(typeof(MemberRuleItem))]
   public abstract class RuleBaseItem : DocumentationBaseItem
   {
     #region Construtor

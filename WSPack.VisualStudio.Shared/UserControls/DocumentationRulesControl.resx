@@ -144,8 +144,47 @@
   <data name="&gt;&gt;pnlBottom.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="btnExportarRegras.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 120</value>
+  </data>
+  <data name="btnExportarRegras.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btnExportarRegras.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="btnExportarRegras.Text" xml:space="preserve">
+    <value>Exportar</value>
+  </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>127, 17</value>
+  </metadata>
+  <data name="btnExportarRegras.ToolTip" xml:space="preserve">
+    <value>Exportar regras para json</value>
+  </data>
+  <data name="&gt;&gt;btnExportarRegras.Name" xml:space="preserve">
+    <value>btnExportarRegras</value>
+  </data>
+  <data name="&gt;&gt;btnExportarRegras.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnExportarRegras.Parent" xml:space="preserve">
+    <value>pnlRight</value>
+  </data>
+  <data name="&gt;&gt;btnExportarRegras.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="btnDown.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
+  </data>
+  <data name="btnDown.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wgAADsIBFShKgAAAAKFJREFUOE+lkUEKwzAMBPM2P87f6C99dbPCKrOKS1K6IGI5O0NpjjnnX+MLMsaY
+        nHUdMcYWRFBrLeax4Cy+VuerQB0yVaBySHYCvdOZzE4QEj0pyDsNmYug955AFXzekbkIBGSRAt3lmcxW
+        kJLd+VbAcp38ZWSqIP6onSRhdciYgJ+KEsLqGGPLCiUVVoyxBUlJhRVjbClZEoMVY7j8PvN4A80ziomU
+        990nAAAAAElFTkSuQmCC
+</value>
   </data>
   <data name="btnDown.Location" type="System.Drawing.Point, System.Drawing">
     <value>55, 90</value>
@@ -156,9 +195,6 @@
   <data name="btnDown.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>127, 17</value>
-  </metadata>
   <data name="btnDown.ToolTip" xml:space="preserve">
     <value>Alterar a ordem (prioridade) da regra selecionada,
 movendo-a para baixo</value>
@@ -173,10 +209,19 @@ movendo-a para baixo</value>
     <value>pnlRight</value>
   </data>
   <data name="&gt;&gt;btnDown.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="btnUp.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
+  </data>
+  <data name="btnUp.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wgAADsIBFShKgAAAAJlJREFUOE+lktENgCAMRJmN4VjDLfmttmnJXalR4yWXUOQ9E6WJyK/ykDLnPLQ+
+        rhBDA8Rh8ZKEGBo8AY8xrFlCDA1XEO69W7OEGBwquJIgkwUlHA0JMpsAD1frV4J4E0IheRQEnAX4DJlN
+        4LWPmQTrXiBTCexX6RoFvmcSZLJgXZZKoNEzyJAAcyfQEEMDRCGsb1uIweF7pZ0wbIqJ5IDpuQAAAABJ
+        RU5ErkJggg==
+</value>
   </data>
   <data name="btnUp.Location" type="System.Drawing.Point, System.Drawing">
     <value>14, 90</value>
@@ -201,7 +246,7 @@ movendo-a para cima</value>
     <value>pnlRight</value>
   </data>
   <data name="&gt;&gt;btnUp.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="btnExcluir.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -231,7 +276,7 @@ movendo-a para cima</value>
     <value>pnlRight</value>
   </data>
   <data name="&gt;&gt;btnExcluir.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="btnEditar.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -261,7 +306,7 @@ movendo-a para cima</value>
     <value>pnlRight</value>
   </data>
   <data name="&gt;&gt;btnEditar.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="btnAdd.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -291,7 +336,7 @@ movendo-a para cima</value>
     <value>pnlRight</value>
   </data>
   <data name="&gt;&gt;btnAdd.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="pnlRight.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Right</value>

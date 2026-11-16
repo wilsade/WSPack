@@ -224,6 +224,45 @@ namespace WSPack.VisualStudio.Shared.UserControls
       }
     }
 
+    public class ExportClass
+    {
+      public List<RuleBaseItem> RuleList { get; set; }
+    }
+
+    private void btnExportarRegras_Click(object sender, EventArgs e)
+    {
+      List<RuleBaseItem> regras = GetRules();
+      if (regras.Count == 0)
+      {
+        MessageBoxUtils.ShowWarning("Regras não cadastradas.");
+        return;
+      }
+
+      using (var saveDlg = new SaveFileDialog()
+      {
+        Filter = "Arquivos JSON (*.json)|*.json",
+        Title = "Exportar regras de documentação",
+        FileName = "RegrasVS2022.json"
+      })
+      {
+        if (saveDlg.ShowDialog() == DialogResult.OK)
+        {
+          try
+          {
+            var obj = new ExportClass
+            {
+              RuleList = regras
+            };
+            LibSerializerObj.SaveConfiguration(saveDlg.FileName, obj);
+            MessageBoxUtils.ShowInformation("Regras exportadas com sucesso.");
+          }
+          catch (Exception ex)
+          {
+            MessageBoxUtils.ShowError(ex.Message);
+          }
+        }
+      }
+    }
     private void btnAdd_Click(object sender, EventArgs e)
     {
       int id = viewRegras.SelectedNode.Parent == null ?

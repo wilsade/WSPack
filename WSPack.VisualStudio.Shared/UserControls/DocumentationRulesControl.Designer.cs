@@ -40,6 +40,7 @@
       this.viewRegras = new System.Windows.Forms.TreeView();
       this.imageList1 = new System.Windows.Forms.ImageList(this.components);
       this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+      this.btnExportarRegras = new System.Windows.Forms.Button();
       this.pnlRight.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -50,6 +51,7 @@
       // 
       // pnlRight
       // 
+      this.pnlRight.Controls.Add(this.btnExportarRegras);
       this.pnlRight.Controls.Add(this.btnDown);
       this.pnlRight.Controls.Add(this.btnUp);
       this.pnlRight.Controls.Add(this.btnExcluir);
@@ -61,7 +63,6 @@
       // btnDown
       // 
       resources.ApplyResources(this.btnDown, "btnDown");
-      this.btnDown.Image = global::WSPack.Lib.Properties.ResourcesLib.pngArrow_Down_vs;
       this.btnDown.Name = "btnDown";
       this.toolTip1.SetToolTip(this.btnDown, resources.GetString("btnDown.ToolTip"));
       this.btnDown.UseVisualStyleBackColor = true;
@@ -70,7 +71,6 @@
       // btnUp
       // 
       resources.ApplyResources(this.btnUp, "btnUp");
-      this.btnUp.Image = global::WSPack.Lib.Properties.ResourcesLib.pngArrow_Up_vs;
       this.btnUp.Name = "btnUp";
       this.toolTip1.SetToolTip(this.btnUp, resources.GetString("btnUp.ToolTip"));
       this.btnUp.UseVisualStyleBackColor = true;
@@ -116,6 +116,14 @@
       resources.ApplyResources(this.imageList1, "imageList1");
       this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
       // 
+      // btnExportarRegras
+      // 
+      resources.ApplyResources(this.btnExportarRegras, "btnExportarRegras");
+      this.btnExportarRegras.Name = "btnExportarRegras";
+      this.toolTip1.SetToolTip(this.btnExportarRegras, resources.GetString("btnExportarRegras.ToolTip"));
+      this.btnExportarRegras.UseVisualStyleBackColor = true;
+      this.btnExportarRegras.Click += new System.EventHandler(this.btnExportarRegras_Click);
+      // 
       // DocumentationRulesControl
       // 
       resources.ApplyResources(this, "$this");
@@ -141,5 +149,6 @@
     private System.Windows.Forms.Button btnUp;
     private System.Windows.Forms.Button btnDown;
     private System.Windows.Forms.ToolTip toolTip1;
+    private System.Windows.Forms.Button btnExportarRegras;
   }
 }
