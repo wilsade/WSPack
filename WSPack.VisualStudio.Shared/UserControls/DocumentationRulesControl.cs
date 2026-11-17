@@ -254,6 +254,18 @@ namespace WSPack.VisualStudio.Shared.UserControls
               RuleList = regras
             };
             LibSerializerObj.SaveConfiguration(saveDlg.FileName, obj);
+
+            var replaces = new Dictionary<string, string>
+            {
+              { "TypeRuleItem:#WSPack.Lib.DocumentationObjects", "TypeRuleItem:#WSPack2026.Configuration.Documentation" },
+              { "MemberRuleItem:#WSPack.Lib.DocumentationObjects", "MemberRuleItem:#WSPack2026.Configuration.Documentation" }
+            };
+            string oldContent = System.IO.File.ReadAllText(saveDlg.FileName);
+            foreach (var replace in replaces)
+            {
+              oldContent = oldContent.Replace(replace.Key, replace.Value);
+            }
+            System.IO.File.WriteAllText(saveDlg.FileName, oldContent);
             MessageBoxUtils.ShowInformation("Regras exportadas com sucesso.");
           }
           catch (Exception ex)
